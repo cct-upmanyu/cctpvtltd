@@ -129,7 +129,7 @@
 @layer components {
   /* Gradient backgrounds */
   .bg-dark-gradient {
-    background: linear-gradient(135deg, hsl(216 70% 14%) 0%, hsl(250 60% 18%) 50%, hsl(220 75% 16%) 100%);
+    background: linear-gradient(135deg, hsl(216 80% 8%) 0%, hsl(220 70% 12%) 50%, hsl(230 60% 10%) 100%);
   }
   
   .bg-dark-gradient-reverse {
