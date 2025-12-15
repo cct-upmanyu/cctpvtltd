@@ -58,9 +58,9 @@ export default function ZohoSolutions() {
       <Navbar />
       
       {/* Hero */}
-      <section className="bg-dark-gradient particles-bg pt-32 pb-20 relative overflow-hidden">
+      <section className="bg-light-gradient pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         </div>
         <div className="container-custom relative z-10">
           <motion.div
@@ -68,18 +68,18 @@ export default function ZohoSolutions() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6">
               Global Zoho Premium Partner
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Complete Zoho
               <span className="text-gradient-primary block">Ecosystem Solutions</span>
             </h1>
-            <p className="text-muted-dark-foreground text-lg md:text-xl mb-8 max-w-2xl">
+            <p className="text-muted-foreground text-lg md:text-xl mb-8 max-w-2xl">
               As certified Zoho Creator Champions, we implement, customize, and optimize the entire Zoho ecosystem to transform your business operations.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="heroDark" size="lg">
+              <Button variant="heroLight" size="lg">
                 Book Free Consultation
                 <ArrowRight className="w-5 h-5" />
               </Button>
