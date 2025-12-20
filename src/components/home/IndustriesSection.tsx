@@ -29,24 +29,30 @@ const industries = [
 
 export function IndustriesSection() {
   return (
-    <section className="bg-light-gradient section-padding">
-      <div className="container-custom">
+    <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/3 w-96 h-96 bg-[#4DA3FF]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
             Industry Expertise
           </span>
-          {/* LIGHT SECTION: Heading must be #111827 */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
+          {/* DARK SECTION: Heading must be #FFFFFF */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#FFFFFF] mb-4">
             Solutions Tailored to
             <span className="text-gradient-primary block">Your Industry</span>
           </h2>
-          {/* LIGHT SECTION: Secondary text must be #374151 */}
-          <p className="text-[#374151] text-lg max-w-2xl mx-auto">
+          {/* DARK SECTION: Secondary text must be #E5E7EB */}
+          <p className="text-[#E5E7EB] text-lg max-w-2xl mx-auto">
             Deep domain expertise across diverse industries, delivering customized solutions that address your unique challenges.
           </p>
         </motion.div>
@@ -64,13 +70,13 @@ export function IndustriesSection() {
               >
                 <Link
                   to={`/industries#${industry.slug}`}
-                  className="group flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-200 hover:border-[#3FE0F0]/30 hover-lift transition-all text-center"
+                  className="group flex flex-col items-center p-6 bg-[#0F2A5F] rounded-2xl border border-[#3FE0F0]/10 hover:border-[#3FE0F0]/30 hover-lift transition-all text-center"
                 >
                   <div className="w-14 h-14 rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center mb-4 group-hover:bg-[#3FE0F0] group-hover:scale-110 transition-all">
-                    <Icon className="w-7 h-7 text-[#3FE0F0] group-hover:text-[#111827] transition-colors" />
+                    <Icon className="w-7 h-7 text-[#3FE0F0] group-hover:text-[#0B1C3D] transition-colors" />
                   </div>
-                  {/* LIGHT SECTION: Text must be #111827 */}
-                  <span className="text-sm font-medium text-[#111827] group-hover:text-[#3FE0F0] transition-colors">
+                  {/* DARK SECTION: Text must be #FFFFFF */}
+                  <span className="text-sm font-medium text-[#FFFFFF] group-hover:text-[#3FE0F0] transition-colors">
                     {industry.name}
                   </span>
                 </Link>
