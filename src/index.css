@@ -182,14 +182,14 @@
   
   /* === TEXT GRADIENTS === */
   .text-gradient-primary {
-    background: linear-gradient(135deg, #00A0B0 0%, #1A1F3D 100%);
+    background: linear-gradient(135deg, #3FE0F0 0%, #00D4E8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .text-gradient-accent {
-    background: linear-gradient(135deg, #00A0B0 0%, #00D4E8 100%);
+    background: linear-gradient(135deg, #3FE0F0 0%, #00D4E8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
