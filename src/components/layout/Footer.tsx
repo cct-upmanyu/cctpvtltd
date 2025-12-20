@@ -60,7 +60,7 @@ export function Footer() {
               <img 
                 src={cctLogoFooter} 
                 alt="ClubCode Technology" 
-                className="h-14 w-auto"
+                className="h-20 w-auto"
               />
             </Link>
             <p className="text-muted-dark-foreground mb-6 max-w-sm">
