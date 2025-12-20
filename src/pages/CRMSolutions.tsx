@@ -81,9 +81,12 @@ export default function CRMSolutions() {
         </div>
       </section>
 
-      {/* Benefits - LIGHT SECTION */}
-      <section className="bg-white section-padding">
-        <div className="container-custom">
+      {/* Benefits - DARK SECTION */}
+      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
@@ -94,13 +97,13 @@ export default function CRMSolutions() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-center p-6 bg-[#F5F7FB] rounded-2xl border border-gray-200"
+                  className="text-center p-6 bg-[#0B1C3D]/80 rounded-2xl border border-[#3FE0F0]/20"
                 >
                   <div className="w-14 h-14 mx-auto rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center mb-4">
                     <Icon className="w-7 h-7 text-[#3FE0F0]" />
                   </div>
-                  <h3 className="font-semibold text-[#111827] mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-[#374151]">{benefit.description}</p>
+                  <h3 className="font-semibold text-[#FFFFFF] mb-2">{benefit.title}</h3>
+                  <p className="text-sm text-[#E5E7EB]">{benefit.description}</p>
                 </motion.div>
               );
             })}
@@ -163,8 +166,8 @@ export default function CRMSolutions() {
         </div>
       </section>
 
-      {/* CTA - DARK SECTION */}
-      <section className="bg-[#0B1C3D] section-padding">
+      {/* CTA - LIGHT SECTION */}
+      <section className="bg-light-gradient section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -172,13 +175,13 @@ export default function CRMSolutions() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
               Not Sure Which CRM is Right for You?
             </h2>
-            <p className="text-[#E5E7EB] text-lg mb-8">
+            <p className="text-[#374151] text-lg mb-8">
               Our experts will analyze your requirements and recommend the perfect CRM solution for your business.
             </p>
-            <Button variant="heroDark" size="xl">
+            <Button variant="heroLight" size="xl">
               Get Free CRM Consultation
               <ArrowRight className="w-5 h-5" />
             </Button>

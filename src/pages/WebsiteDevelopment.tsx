@@ -68,19 +68,22 @@ export default function WebsiteDevelopment() {
         </div>
       </section>
 
-      {/* Transformation Visual - LIGHT SECTION */}
-      <section className="bg-white section-padding">
-        <div className="container-custom">
+      {/* Transformation Visual - DARK SECTION */}
+      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-4">
               Website Transformation
             </h2>
-            <p className="text-[#374151] text-lg">
+            <p className="text-[#E5E7EB] text-lg">
               From static to intelligent business websites
             </p>
           </motion.div>
@@ -92,10 +95,10 @@ export default function WebsiteDevelopment() {
             className="max-w-4xl mx-auto"
           >
             <div className="grid md:grid-cols-3 gap-4 items-center">
-              <div className="p-6 bg-gray-100 rounded-2xl text-center">
-                <Globe className="w-12 h-12 mx-auto text-[#374151] mb-3" />
-                <h3 className="font-semibold text-[#111827] mb-2">Static Website</h3>
-                <p className="text-sm text-[#374151]">Basic brochure site</p>
+              <div className="p-6 bg-[#0B1C3D]/80 border border-[#374151]/30 rounded-2xl text-center">
+                <Globe className="w-12 h-12 mx-auto text-[#E5E7EB] mb-3" />
+                <h3 className="font-semibold text-[#FFFFFF] mb-2">Static Website</h3>
+                <p className="text-sm text-[#E5E7EB]">Basic brochure site</p>
               </div>
               
               <div className="flex justify-center">
@@ -111,8 +114,8 @@ export default function WebsiteDevelopment() {
               
               <div className="p-6 bg-[#3FE0F0]/10 border-2 border-[#3FE0F0]/30 rounded-2xl text-center">
                 <Zap className="w-12 h-12 mx-auto text-[#3FE0F0] mb-3" />
-                <h3 className="font-semibold text-[#111827] mb-2">AI Business Platform</h3>
-                <p className="text-sm text-[#374151]">CRM + AI integrated</p>
+                <h3 className="font-semibold text-[#FFFFFF] mb-2">AI Business Platform</h3>
+                <p className="text-sm text-[#E5E7EB]">CRM + AI integrated</p>
               </div>
             </div>
           </motion.div>
@@ -148,16 +151,19 @@ export default function WebsiteDevelopment() {
         </div>
       </section>
 
-      {/* Process - LIGHT SECTION */}
-      <section className="bg-white section-padding">
-        <div className="container-custom">
+      {/* Process - DARK SECTION */}
+      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#4DA3FF]/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-4">
               Our Development Process
             </h2>
           </motion.div>
@@ -170,19 +176,19 @@ export default function WebsiteDevelopment() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center p-6 bg-[#F5F7FB] rounded-2xl border border-gray-200"
+                className="text-center p-6 bg-[#0B1C3D]/80 rounded-2xl border border-[#3FE0F0]/20"
               >
-                <span className="text-4xl font-bold text-[#3FE0F0]/20">{String(index + 1).padStart(2, '0')}</span>
-                <h3 className="font-semibold text-[#111827] mt-2 mb-2">{item.step}</h3>
-                <p className="text-sm text-[#374151]">{item.description}</p>
+                <span className="text-4xl font-bold text-[#3FE0F0]/30">{String(index + 1).padStart(2, '0')}</span>
+                <h3 className="font-semibold text-[#FFFFFF] mt-2 mb-2">{item.step}</h3>
+                <p className="text-sm text-[#E5E7EB]">{item.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA - DARK SECTION */}
-      <section className="bg-[#0B1C3D] section-padding">
+      {/* CTA - LIGHT SECTION */}
+      <section className="bg-light-gradient section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -190,13 +196,13 @@ export default function WebsiteDevelopment() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
               Ready to Build Your Next Website?
             </h2>
-            <p className="text-[#E5E7EB] text-lg mb-8">
+            <p className="text-[#374151] text-lg mb-8">
               Let's create a website that not only looks great but drives real business results.
             </p>
-            <Button variant="heroDark" size="xl">
+            <Button variant="heroLight" size="xl">
               Start Your Project
               <ArrowRight className="w-5 h-5" />
             </Button>

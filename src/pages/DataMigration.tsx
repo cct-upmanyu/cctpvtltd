@@ -171,9 +171,12 @@ export default function DataMigration() {
         </div>
       </section>
 
-      {/* Features Strip - LIGHT SECTION */}
-      <section className="bg-white section-padding border-y border-gray-200">
-        <div className="container-custom">
+      {/* Features Strip - DARK SECTION */}
+      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
             {features.map((feature, index) => {
               const Icon = feature.icon;
@@ -184,13 +187,13 @@ export default function DataMigration() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-center p-6 bg-[#F5F7FB] rounded-xl border border-gray-200"
+                  className="text-center p-6 bg-[#0B1C3D]/80 rounded-xl border border-[#3FE0F0]/20"
                 >
                   <div className="w-12 h-12 mx-auto rounded-lg bg-[#3FE0F0]/10 flex items-center justify-center mb-3">
                     <Icon className="w-6 h-6 text-[#3FE0F0]" />
                   </div>
-                  <h3 className="font-semibold text-[#111827] text-sm mb-1">{feature.title}</h3>
-                  <p className="text-xs text-[#374151]">{feature.description}</p>
+                  <h3 className="font-semibold text-[#FFFFFF] text-sm mb-1">{feature.title}</h3>
+                  <p className="text-xs text-[#E5E7EB]">{feature.description}</p>
                 </motion.div>
               );
             })}
@@ -274,19 +277,22 @@ export default function DataMigration() {
         </div>
       </section>
 
-      {/* Migration Expertise - LIGHT SECTION */}
-      <section className="bg-white section-padding">
-        <div className="container-custom">
+      {/* Migration Expertise - DARK SECTION */}
+      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[#4DA3FF]/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
                 Migration Expertise
               </h2>
-              <p className="text-[#374151] text-lg mb-8">
+              <p className="text-[#E5E7EB] text-lg mb-8">
                 Our team has deep expertise across all types of data migrations, ensuring your transition is smooth, secure, and complete.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
@@ -300,7 +306,7 @@ export default function DataMigration() {
                     className="flex items-center gap-3"
                   >
                     <CheckCircle className="w-5 h-5 text-[#3FE0F0] flex-shrink-0" />
-                    <span className="text-[#111827]">{item}</span>
+                    <span className="text-[#FFFFFF]">{item}</span>
                   </motion.div>
                 ))}
               </div>
@@ -325,10 +331,10 @@ export default function DataMigration() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="p-6 bg-[#F5F7FB] rounded-xl border border-gray-200 text-center"
+                  className="p-6 bg-[#0B1C3D]/80 rounded-xl border border-[#3FE0F0]/20 text-center"
                 >
                   <span className="text-3xl font-bold" style={{ color: stat.color }}>{stat.value}</span>
-                  <p className="text-sm text-[#374151] mt-1">{stat.label}</p>
+                  <p className="text-sm text-[#E5E7EB] mt-1">{stat.label}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -412,19 +418,22 @@ export default function DataMigration() {
         </div>
       </section>
 
-      {/* Real-World Scenarios - LIGHT SECTION */}
-      <section className="bg-white section-padding">
-        <div className="container-custom">
+      {/* Real-World Scenarios - DARK SECTION */}
+      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-4">
               Real-World Migration Scenarios
             </h2>
-            <p className="text-[#374151] text-lg max-w-2xl mx-auto">
+            <p className="text-[#E5E7EB] text-lg max-w-2xl mx-auto">
               Examples of complex migrations we've successfully completed
             </p>
           </motion.div>
@@ -439,16 +448,16 @@ export default function DataMigration() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-[#F5F7FB] rounded-2xl p-6 border border-gray-200 hover:border-[#3FE0F0]/30 hover-lift transition-all"
+                  className="bg-[#0B1C3D]/80 rounded-2xl p-6 border border-[#3FE0F0]/20 hover:border-[#3FE0F0]/40 hover-lift transition-all"
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-14 h-14 rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center flex-shrink-0">
                       <Icon className="w-7 h-7 text-[#3FE0F0]" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-[#111827] mb-1">{scenario.title}</h3>
+                      <h3 className="text-lg font-semibold text-[#FFFFFF] mb-1">{scenario.title}</h3>
                       <p className="text-[#3FE0F0] text-sm font-medium mb-2">{scenario.migration}</p>
-                      <p className="text-[#374151] text-sm">{scenario.description}</p>
+                      <p className="text-[#E5E7EB] text-sm">{scenario.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -458,8 +467,8 @@ export default function DataMigration() {
         </div>
       </section>
 
-      {/* CTA - DARK SECTION */}
-      <section className="bg-dark-gradient section-padding">
+      {/* CTA - LIGHT SECTION */}
+      <section className="bg-light-gradient section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -467,13 +476,13 @@ export default function DataMigration() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
               Ready to Migrate Your Data?
             </h2>
-            <p className="text-[#E5E7EB] text-lg mb-8">
+            <p className="text-[#374151] text-lg mb-8">
               Get a comprehensive migration assessment and timeline estimate with zero obligation.
             </p>
-            <Button variant="heroDark" size="xl">
+            <Button variant="heroLight" size="xl">
               Start Your Migration
               <ArrowRight className="w-5 h-5" />
             </Button>

@@ -91,19 +91,22 @@ export default function ZohoSolutions() {
         </div>
       </section>
 
-      {/* Suites Grid */}
-      <section className="bg-light-gradient section-padding">
-        <div className="container-custom">
+      {/* Suites Grid - DARK SECTION */}
+      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-4">
               Zoho Business Suites
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-[#E5E7EB] text-lg max-w-2xl mx-auto">
               Comprehensive suites designed for specific business functions
             </p>
           </motion.div>
@@ -118,18 +121,18 @@ export default function ZohoSolutions() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-card rounded-2xl p-8 border border-border hover:border-primary/30 hover-lift transition-all"
+                  className="bg-[#0B1C3D]/80 rounded-2xl p-8 border border-[#3FE0F0]/20 hover:border-[#3FE0F0]/40 hover-lift transition-all"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                    <Icon className="w-7 h-7 text-primary" />
+                  <div className="w-14 h-14 rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center mb-6">
+                    <Icon className="w-7 h-7 text-[#3FE0F0]" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-3">{suite.name}</h3>
-                  <p className="text-muted-foreground mb-4">{suite.description}</p>
+                  <h3 className="text-xl font-semibold text-[#FFFFFF] mb-3">{suite.name}</h3>
+                  <p className="text-[#E5E7EB] mb-4">{suite.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {suite.features.map((feature) => (
                       <span
                         key={feature}
-                        className="px-2 py-1 bg-primary/5 text-primary text-xs rounded-md"
+                        className="px-2 py-1 bg-[#3FE0F0]/10 text-[#3FE0F0] text-xs rounded-md"
                       >
                         {feature}
                       </span>
@@ -142,8 +145,8 @@ export default function ZohoSolutions() {
         </div>
       </section>
 
-      {/* All Apps */}
-      <section className="bg-card section-padding">
+      {/* All Apps - LIGHT SECTION */}
+      <section className="bg-white section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -151,10 +154,10 @@ export default function ZohoSolutions() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
               50+ Zoho Applications
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-[#374151] text-lg">
               We implement and customize every Zoho application
             </p>
           </motion.div>
@@ -172,7 +175,7 @@ export default function ZohoSolutions() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.02 }}
-                className="px-4 py-2 bg-background border border-border rounded-full text-sm text-muted-foreground hover:border-primary/50 hover:text-foreground transition-colors cursor-pointer"
+                className="px-4 py-2 bg-[#F5F7FB] border border-gray-200 rounded-full text-sm text-[#374151] hover:border-[#3FE0F0]/50 hover:text-[#111827] transition-colors cursor-pointer"
               >
                 {app}
               </motion.span>
