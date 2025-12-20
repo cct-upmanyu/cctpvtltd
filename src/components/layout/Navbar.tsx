@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import cctLogoDark from "@/assets/cct-logo-dark.png";
+import cctLogo from "@/assets/cct-logo.png";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -33,14 +33,14 @@ export function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-dark-bg/90 backdrop-blur-xl border-b border-border-dark"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-border shadow-sm"
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
-          {/* Logo - Dark background uses white/teal logo */}
+          {/* Logo - White background uses navy/teal logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src={cctLogoDark} 
+              src={cctLogo} 
               alt="ClubCode Technology" 
               className="h-12 w-auto"
             />
@@ -56,7 +56,7 @@ export function Navbar() {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 {item.children ? (
-                  <button className="flex items-center gap-1 px-4 py-2 text-muted-dark-foreground hover:text-white transition-colors">
+                  <button className="flex items-center gap-1 px-4 py-2 text-secondary hover:text-primary transition-colors font-medium">
                     {item.label}
                     <ChevronDown className={cn(
                       "w-4 h-4 transition-transform",
@@ -67,7 +67,7 @@ export function Navbar() {
                   <Link
                     to={item.href}
                     className={cn(
-                      "px-4 py-2 text-muted-dark-foreground hover:text-white transition-colors",
+                      "px-4 py-2 text-secondary hover:text-primary transition-colors font-medium",
                       location.pathname === item.href && "text-primary"
                     )}
                   >
@@ -82,15 +82,15 @@ export function Navbar() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      className="absolute top-full left-0 mt-2 w-56 py-2 bg-card-dark border border-border-dark rounded-lg shadow-xl"
+                      className="absolute top-full left-0 mt-2 w-56 py-2 bg-white border border-border rounded-lg shadow-xl"
                     >
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           to={child.href}
                           className={cn(
-                            "block px-4 py-2.5 text-muted-dark-foreground hover:text-white hover:bg-muted-dark transition-colors",
-                            location.pathname === child.href && "text-primary bg-muted-dark"
+                            "block px-4 py-2.5 text-secondary hover:text-primary hover:bg-muted transition-colors",
+                            location.pathname === child.href && "text-primary bg-muted"
                           )}
                         >
                           {child.label}
@@ -116,7 +116,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-white"
+            className="lg:hidden p-2 text-secondary"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -131,14 +131,14 @@ export function Navbar() {
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-2">
+              <div className="py-4 space-y-2 bg-white">
                 {navItems.map((item) => (
                   <div key={item.label}>
                     {item.children ? (
                       <div>
                         <button
                           onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
-                          className="w-full flex items-center justify-between px-4 py-2.5 text-muted-dark-foreground"
+                          className="w-full flex items-center justify-between px-4 py-2.5 text-secondary font-medium"
                         >
                           {item.label}
                           <ChevronDown className={cn(
@@ -159,7 +159,7 @@ export function Navbar() {
                                   key={child.label}
                                   to={child.href}
                                   onClick={() => setIsOpen(false)}
-                                  className="block px-4 py-2 text-muted-dark-foreground hover:text-white"
+                                  className="block px-4 py-2 text-secondary hover:text-primary"
                                 >
                                   {child.label}
                                 </Link>
@@ -172,7 +172,7 @@ export function Navbar() {
                       <Link
                         to={item.href}
                         onClick={() => setIsOpen(false)}
-                        className="block px-4 py-2.5 text-muted-dark-foreground hover:text-white"
+                        className="block px-4 py-2.5 text-secondary hover:text-primary font-medium"
                       >
                         {item.label}
                       </Link>
