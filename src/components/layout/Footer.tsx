@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import cctLogo from "@/assets/cct-logo-light-transparent.png";
+import cctLogoDark from "@/assets/cct-logo-dark.png";
 
 const footerLinks = {
   solutions: [
@@ -55,12 +55,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            {/* Logo inverted for dark background */}
+            {/* Dark background uses white/teal logo */}
             <Link to="/" className="flex items-center mb-6">
               <img 
-                src={cctLogo} 
+                src={cctLogoDark} 
                 alt="ClubCode Technology" 
-                className="h-14 w-auto brightness-0 invert"
+                className="h-14 w-auto"
               />
             </Link>
             <p className="text-muted-dark-foreground mb-6 max-w-sm">
