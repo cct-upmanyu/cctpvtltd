@@ -22,33 +22,36 @@ const values = [
 
 export default function Company() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#F5F7FB]">
       <Navbar />
       
-      {/* Hero */}
-      <section className="bg-dark-gradient particles-bg pt-32 pb-20 relative overflow-hidden">
+      {/* Hero - LIGHT SECTION */}
+      <section className="bg-light-gradient pt-32 pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/10 rounded-full blur-3xl" />
+        </div>
         <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-6">
               About Us
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#111827] mb-6">
               ClubCode Technology
               <span className="text-gradient-primary block">Private Limited</span>
             </h1>
-            <p className="text-muted-dark-foreground text-lg md:text-xl mb-8 max-w-2xl">
+            <p className="text-[#374151] text-lg md:text-xl mb-8 max-w-2xl">
               Global Zoho Premium Partner & AI Automation Experts with 12+ years of experience transforming businesses worldwide.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="bg-light-gradient section-padding">
+      {/* Mission - LIGHT SECTION */}
+      <section className="bg-white section-padding">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -56,13 +59,13 @@ export default function Company() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
                 Our Mission
               </h2>
-              <p className="text-muted-foreground text-lg mb-6">
+              <p className="text-[#374151] text-lg mb-6">
                 We empower businesses to scale intelligently by implementing world-class Zoho, AI, and automation solutions that transform operations and accelerate growth.
               </p>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-[#374151] text-lg">
                 Previously known as Club Code Technology, we've evolved into a global technology partner trusted by enterprises across UK, USA, Canada, Australia, UAE, and India.
               </p>
             </motion.div>
@@ -85,10 +88,10 @@ export default function Company() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="p-6 bg-card rounded-xl border border-border text-center"
+                  className="p-6 bg-[#F5F7FB] rounded-xl border border-gray-200 text-center"
                 >
-                  <span className="text-3xl font-bold text-primary">{stat.value}</span>
-                  <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+                  <span className="text-3xl font-bold text-[#3FE0F0]">{stat.value}</span>
+                  <p className="text-sm text-[#374151] mt-1">{stat.label}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -96,8 +99,8 @@ export default function Company() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="bg-card section-padding">
+      {/* Values - LIGHT SECTION */}
+      <section className="bg-light-gradient section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -105,7 +108,7 @@ export default function Company() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
               Our Values
             </h2>
           </motion.div>
@@ -120,13 +123,13 @@ export default function Company() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-center p-6 bg-background rounded-2xl border border-border"
+                  className="text-center p-6 bg-white rounded-2xl border border-gray-200"
                 >
-                  <div className="w-14 h-14 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Icon className="w-7 h-7 text-primary" />
+                  <div className="w-14 h-14 mx-auto rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center mb-4">
+                    <Icon className="w-7 h-7 text-[#3FE0F0]" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{value.title}</h3>
-                  <p className="text-sm text-muted-foreground">{value.description}</p>
+                  <h3 className="font-semibold text-[#111827] mb-2">{value.title}</h3>
+                  <p className="text-sm text-[#374151]">{value.description}</p>
                 </motion.div>
               );
             })}
@@ -134,8 +137,8 @@ export default function Company() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="bg-light-gradient section-padding">
+      {/* Timeline - LIGHT SECTION */}
+      <section className="bg-white section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -143,7 +146,7 @@ export default function Company() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
               Our Journey
             </h2>
           </motion.div>
@@ -159,12 +162,12 @@ export default function Company() {
                 className="flex gap-6 mb-8"
               >
                 <div className="w-20 flex-shrink-0 text-right">
-                  <span className="text-2xl font-bold text-primary">{milestone.year}</span>
+                  <span className="text-2xl font-bold text-[#3FE0F0]">{milestone.year}</span>
                 </div>
-                <div className="relative flex-1 pb-8 border-l-2 border-border pl-6">
-                  <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-primary" />
-                  <h3 className="font-semibold text-foreground mb-1">{milestone.title}</h3>
-                  <p className="text-muted-foreground">{milestone.description}</p>
+                <div className="relative flex-1 pb-8 border-l-2 border-gray-200 pl-6">
+                  <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-[#3FE0F0]" />
+                  <h3 className="font-semibold text-[#111827] mb-1">{milestone.title}</h3>
+                  <p className="text-[#374151]">{milestone.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -172,8 +175,8 @@ export default function Company() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-dark-gradient section-padding">
+      {/* CTA - DARK SECTION */}
+      <section className="bg-[#0B1C3D] section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -181,10 +184,10 @@ export default function Company() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
               Want to Join Our Team?
             </h2>
-            <p className="text-muted-dark-foreground text-lg mb-8">
+            <p className="text-[#E5E7EB] text-lg mb-8">
               We're always looking for talented individuals who share our passion for technology and innovation.
             </p>
             <Button variant="heroDark" size="xl">

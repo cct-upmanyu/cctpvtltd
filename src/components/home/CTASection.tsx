@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export function CTASection() {
   return (
-    <section className="bg-dark-gradient particles-bg section-padding relative overflow-hidden">
+    <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#3FE0F0]/5 rounded-full blur-3xl" />
@@ -29,13 +29,13 @@ export function CTASection() {
             <span className="text-[#3FE0F0] text-sm font-medium">Start Your Transformation Today</span>
           </motion.div>
 
-          {/* DARK SECTION: Heading must be #FFFFFF */}
+          {/* DARK SECTION: Heading must be #FFFFFF (white) */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFFFFF] mb-6">
             Let's Build the Future
             <span className="text-gradient-primary block mt-2">of Your Business</span>
           </h2>
 
-          {/* DARK SECTION: Secondary text must be #E5E7EB */}
+          {/* DARK SECTION: Secondary text must be #E5E7EB (light gray) */}
           <p className="text-[#E5E7EB] text-lg md:text-xl max-w-2xl mx-auto mb-12">
             Ready to transform your operations with intelligent automation? Let's discuss how Zoho, AI, and custom solutions can accelerate your growth.
           </p>
