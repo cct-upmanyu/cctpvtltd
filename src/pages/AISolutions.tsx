@@ -339,23 +339,26 @@ export default function AISolutions() {
         </div>
       </section>
 
-      {/* SECTION 3: AI for Zoho - LIGHT SECTION */}
-      <section className="bg-white section-padding">
-        <div className="container-custom">
+      {/* SECTION 3: AI for Zoho - DARK SECTION */}
+      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
                 Native Zoho AI
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
                 AI for Zoho
                 <span className="text-gradient-primary block">Zia Enhancement</span>
               </h2>
-              <p className="text-[#374151] text-lg mb-8">
+              <p className="text-[#E5E7EB] text-lg mb-8">
                 Supercharge Zoho's native AI with custom configurations, advanced predictions, and intelligent automation tailored to your business processes.
               </p>
               
@@ -367,12 +370,12 @@ export default function AISolutions() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3 p-4 bg-[#F5F7FB] rounded-xl border border-gray-200"
+                    className="flex items-start gap-3 p-4 bg-[#0B1C3D]/80 rounded-xl border border-[#3FE0F0]/20"
                   >
                     <Sparkles className="w-5 h-5 text-[#3FE0F0] flex-shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="font-semibold text-[#111827]">{feature.title}</h4>
-                      <p className="text-sm text-[#374151]">{feature.description}</p>
+                      <h4 className="font-semibold text-[#FFFFFF]">{feature.title}</h4>
+                      <p className="text-sm text-[#E5E7EB]">{feature.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -422,11 +425,11 @@ export default function AISolutions() {
                       style={{ transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))` }}
                     >
                       <motion.div
-                        className="w-16 h-16 rounded-xl bg-white border border-gray-200 flex items-center justify-center shadow-lg"
+                        className="w-16 h-16 rounded-xl bg-[#0B1C3D]/80 border border-[#3FE0F0]/30 flex items-center justify-center shadow-lg"
                         animate={{ y: [0, -5, 0] }}
                         transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
                       >
-                        <span className="text-xs font-medium text-[#111827] text-center">{app}</span>
+                        <span className="text-xs font-medium text-[#FFFFFF] text-center">{app}</span>
                       </motion.div>
                     </motion.div>
                   );
@@ -643,8 +646,8 @@ export default function AISolutions() {
         </div>
       </section>
 
-      {/* CTA - DARK SECTION */}
-      <section className="bg-dark-gradient section-padding">
+      {/* CTA - LIGHT SECTION */}
+      <section className="bg-light-gradient section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -652,13 +655,13 @@ export default function AISolutions() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
               Ready to Implement AI in Your Business?
             </h2>
-            <p className="text-[#E5E7EB] text-lg mb-8">
+            <p className="text-[#374151] text-lg mb-8">
               Get a customized AI strategy that aligns with your business goals and technical infrastructure.
             </p>
-            <Button variant="heroDark" size="xl">
+            <Button variant="heroLight" size="xl">
               Let's Build Your AI Strategy
               <ArrowRight className="w-5 h-5" />
             </Button>
