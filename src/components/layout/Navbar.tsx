@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import cctLogoDark from "@/assets/cct-logo-dark.png";
+import cctLogo from "@/assets/cct-logo-light-transparent.png";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -37,12 +37,12 @@ export function Navbar() {
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
-          {/* Logo - Dark background uses white/teal logo */}
+          {/* Logo - Inverted for dark background */}
           <Link to="/" className="flex items-center">
             <img 
-              src={cctLogoDark} 
+              src={cctLogo} 
               alt="ClubCode Technology" 
-              className="h-12 w-auto"
+              className="h-12 w-auto brightness-0 invert"
             />
           </Link>
 
