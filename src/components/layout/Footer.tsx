@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import cctLogo from "@/assets/cct-logo.png";
 
 const footerLinks = {
   solutions: [
@@ -54,14 +55,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">C</span>
-              </div>
-              <div>
-                <span className="text-white font-bold text-lg">ClubCode</span>
-                <span className="text-primary font-medium text-lg ml-1">Technology</span>
-              </div>
+            <Link to="/" className="flex items-center mb-6">
+              <img 
+                src={cctLogo} 
+                alt="ClubCode Technology" 
+                className="h-14 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-muted-dark-foreground mb-6 max-w-sm">
               Global Zoho Premium Partner & AI Automation Experts. Building intelligent business systems for scale.
