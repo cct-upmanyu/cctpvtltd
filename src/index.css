@@ -35,18 +35,19 @@
     --dark-text-secondary: 218 11% 91%;
     
     /* === PRIMARY COLORS === */
-    /* Electric Cyan: #3FE0F0 = hsl(186, 83%, 59%) */
-    --primary: 186 83% 59%;
-    --primary-foreground: 220 43% 11%;
-    --primary-glow: 186 100% 70%;
+    /* Teal/Cyan from logo: #00A0B0 = hsl(186, 100%, 35%) */
+    --primary: 186 100% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 186 100% 50%;
     
     /* === SECONDARY COLORS === */
-    /* Soft Blue: #4DA3FF = hsl(212, 100%, 65%) */
-    --secondary: 212 100% 65%;
+    /* Navy Blue from logo: #1A1F3D = hsl(233, 40%, 17%) */
+    --secondary: 233 40% 17%;
     --secondary-foreground: 0 0% 100%;
     
     /* === ACCENT === */
-    --accent: 250 70% 55%;
+    /* Lighter teal for accents */
+    --accent: 186 80% 45%;
     --accent-foreground: 0 0% 100%;
     
     /* === CARDS & SURFACES === */
@@ -181,14 +182,14 @@
   
   /* === TEXT GRADIENTS === */
   .text-gradient-primary {
-    background: linear-gradient(135deg, #3FE0F0 0%, #4DA3FF 100%);
+    background: linear-gradient(135deg, #00A0B0 0%, #1A1F3D 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .text-gradient-accent {
-    background: linear-gradient(135deg, #4DA3FF 0%, hsl(250 70% 55%) 100%);
+    background: linear-gradient(135deg, #00A0B0 0%, #00D4E8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -196,28 +197,28 @@
   
   /* === GLOW EFFECTS === */
   .glow-primary {
-    box-shadow: 0 0 30px -5px rgba(63, 224, 240, 0.4);
+    box-shadow: 0 0 30px -5px rgba(0, 160, 176, 0.4);
   }
   
   .glow-secondary {
-    box-shadow: 0 0 30px -5px rgba(77, 163, 255, 0.4);
+    box-shadow: 0 0 30px -5px rgba(26, 31, 61, 0.4);
   }
   
   .glow-accent {
-    box-shadow: 0 0 30px -5px hsl(250 70% 55% / 0.4);
+    box-shadow: 0 0 30px -5px rgba(0, 160, 176, 0.4);
   }
   
   /* === CARD STYLES === */
   .card-dark {
     @apply rounded-lg;
-    background: #0B1C3D;
-    border: 1px solid rgba(63, 224, 240, 0.2);
+    background: #1A1F3D;
+    border: 1px solid rgba(0, 160, 176, 0.2);
   }
   
   .card-glass {
-    background: rgba(11, 28, 61, 0.8);
+    background: rgba(26, 31, 61, 0.8);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(63, 224, 240, 0.15);
+    border: 1px solid rgba(0, 160, 176, 0.15);
   }
   
   .card-glass-light {
@@ -229,9 +230,9 @@
   /* === ANIMATED BACKGROUND PARTICLES === */
   .particles-bg {
     background-image: 
-      radial-gradient(circle at 20% 80%, rgba(63, 224, 240, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(100, 100, 200, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(77, 163, 255, 0.05) 0%, transparent 40%);
+      radial-gradient(circle at 20% 80%, rgba(0, 160, 176, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(26, 31, 61, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(0, 160, 176, 0.05) 0%, transparent 40%);
   }
   
   /* === SECTION SPACING === */
@@ -277,7 +278,7 @@
   
   .hover-lift:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px -15px rgba(63, 224, 240, 0.2);
+    box-shadow: 0 20px 40px -15px rgba(0, 160, 176, 0.2);
   }
   
   .hover-glow {
@@ -285,7 +286,7 @@
   }
   
   .hover-glow:hover {
-    box-shadow: 0 0 40px -10px rgba(63, 224, 240, 0.5);
+    box-shadow: 0 0 40px -10px rgba(0, 160, 176, 0.5);
   }
 }
 
@@ -300,8 +301,8 @@
 }
 
 @keyframes glow {
-  0% { box-shadow: 0 0 20px -5px rgba(63, 224, 240, 0.3); }
-  100% { box-shadow: 0 0 40px -5px rgba(63, 224, 240, 0.6); }
+  0% { box-shadow: 0 0 20px -5px rgba(0, 160, 176, 0.3); }
+  100% { box-shadow: 0 0 40px -5px rgba(0, 160, 176, 0.6); }
 }
 
 @keyframes orbit {

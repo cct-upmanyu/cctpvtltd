@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import cctLogo from "@/assets/cct-logo.png";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -37,14 +38,12 @@ export function Navbar() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">C</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-white font-bold text-lg">ClubCode</span>
-              <span className="text-primary font-medium text-lg ml-1">Technology</span>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img 
+              src={cctLogo} 
+              alt="ClubCode Technology" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
