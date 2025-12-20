@@ -2,33 +2,91 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Database, ArrowRightLeft, CheckCircle, Shield, Zap, Brain } from "lucide-react";
+import { 
+  ArrowRight, 
+  Database, 
+  ArrowRightLeft, 
+  CheckCircle, 
+  Shield, 
+  Zap, 
+  Brain,
+  FileSpreadsheet,
+  Building2,
+  ShoppingCart,
+  Briefcase,
+  Scale,
+  Users,
+  ArrowDown,
+  Clock,
+  Target,
+  BarChart3
+} from "lucide-react";
+
+// Platforms migrated
+const platformsFrom = [
+  { name: "Salesforce", category: "CRM" },
+  { name: "HubSpot", category: "CRM" },
+  { name: "Pipedrive", category: "CRM" },
+  { name: "Freshsales", category: "CRM" },
+  { name: "Microsoft Dynamics", category: "CRM" },
+  { name: "Kustomer", category: "CRM" },
+  { name: "QuickBooks", category: "Accounting" },
+  { name: "Xero", category: "Accounting" },
+  { name: "MYOB", category: "Accounting" },
+  { name: "Sage", category: "Accounting" },
+  { name: "Lawmatics", category: "Legal" },
+  { name: "MyCase", category: "Legal" },
+  { name: "JobDiva", category: "Staffing" },
+  { name: "Shopify", category: "E-commerce" },
+  { name: "WooCommerce", category: "E-commerce" },
+  { name: "Custom Legacy", category: "Database" },
+];
+
+const platformsTo = [
+  "Zoho CRM",
+  "Zoho Creator",
+  "Zoho Books",
+  "Zoho People",
+  "Zoho Inventory",
+  "Zoho One",
+];
 
 const migrationSteps = [
   {
     step: "01",
     title: "Discovery & Analysis",
     description: "We analyze your current systems, data structures, and business processes to create a comprehensive migration plan.",
+    icon: Target,
   },
   {
     step: "02",
-    title: "Data Cleanup",
+    title: "Data Audit & Cleanup",
     description: "Cleanse and standardize your data to ensure only quality information moves to your new system.",
+    icon: FileSpreadsheet,
   },
   {
     step: "03",
-    title: "Migration & Mapping",
-    description: "Execute the migration with precise field mapping, relationship preservation, and data validation.",
+    title: "Mapping & Validation",
+    description: "Execute precise field mapping, relationship preservation, and thorough data validation.",
+    icon: ArrowRightLeft,
   },
   {
     step: "04",
-    title: "Optimization",
-    description: "Configure your new system for optimal performance with custom workflows and automation.",
+    title: "Migration Execution",
+    description: "Perform the migration with real-time monitoring, rollback capabilities, and zero downtime approach.",
+    icon: Zap,
   },
   {
     step: "05",
+    title: "Testing & Reconciliation",
+    description: "Comprehensive testing and data reconciliation to ensure 100% accuracy and integrity.",
+    icon: CheckCircle,
+  },
+  {
+    step: "06",
     title: "AI Enablement",
     description: "Enhance your new system with AI capabilities for predictions, insights, and intelligent automation.",
+    icon: Brain,
   },
 ];
 
@@ -40,30 +98,72 @@ const features = [
   { icon: Brain, title: "AI-Ready", description: "Prepared for AI integration" },
 ];
 
+const migrationExpertise = [
+  "CRM to CRM migrations",
+  "Accounting platform migrations",
+  "ERP rebuilds & transitions",
+  "Multi-entity data consolidation",
+  "De-duplication & normalization",
+  "Compliance-safe migrations",
+];
+
+const realWorldScenarios = [
+  {
+    icon: Scale,
+    title: "Legal Firms",
+    migration: "Lawmatics / MyCase → Zoho",
+    description: "Case management, client data, and billing history migrated with full document preservation.",
+  },
+  {
+    icon: Users,
+    title: "Staffing Agencies",
+    migration: "JobDiva → Zoho",
+    description: "Candidate databases, placement records, and client relationships migrated seamlessly.",
+  },
+  {
+    icon: Building2,
+    title: "Finance Companies",
+    migration: "QuickBooks/Xero → Zoho Books",
+    description: "Chart of accounts, transaction history, and vendor data migrated with reconciliation.",
+  },
+  {
+    icon: ShoppingCart,
+    title: "E-commerce Businesses",
+    migration: "Shopify → Zoho Inventory",
+    description: "Product catalogs, order history, and customer data migrated with sync setup.",
+  },
+];
+
 export default function DataMigration() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#F5F7FB]">
       <Navbar />
       
-      {/* Hero */}
-      <section className="bg-dark-gradient particles-bg pt-32 pb-20 relative overflow-hidden">
+      {/* Hero - LIGHT SECTION (as per spec) */}
+      <section className="bg-light-gradient pt-32 pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/10 rounded-full blur-3xl" />
+        </div>
         <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-6">
               Data Migration Experts
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Data Migration &
-              <span className="text-gradient-primary block">Zoho Setup</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#111827] mb-6">
+              Enterprise-Grade Data Migration
+              <span className="text-gradient-primary block">& System Re-Architecture</span>
             </h1>
-            <p className="text-muted-dark-foreground text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-              Seamlessly migrate from legacy systems with zero data loss, and set up your new Zoho environment for success.
+            <p className="text-[#374151] text-lg md:text-xl mb-4 max-w-3xl mx-auto">
+              We don't just migrate data — we rebuild data foundations.
             </p>
-            <Button variant="heroDark" size="lg">
+            <p className="text-[#374151] text-base md:text-lg mb-8 max-w-3xl mx-auto">
+              Our team has executed large-scale, zero-downtime migrations across CRMs, ERPs, accounting platforms, and legacy systems with 100% data integrity.
+            </p>
+            <Button variant="heroLight" size="lg">
               Get Migration Assessment
               <ArrowRight className="w-5 h-5" />
             </Button>
@@ -71,8 +171,8 @@ export default function DataMigration() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="bg-light-gradient section-padding">
+      {/* Features Strip - LIGHT SECTION */}
+      <section className="bg-white section-padding border-y border-gray-200">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
             {features.map((feature, index) => {
@@ -84,13 +184,13 @@ export default function DataMigration() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-center p-6 bg-card rounded-xl border border-border"
+                  className="text-center p-6 bg-[#F5F7FB] rounded-xl border border-gray-200"
                 >
-                  <div className="w-12 h-12 mx-auto rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-                    <Icon className="w-6 h-6 text-primary" />
+                  <div className="w-12 h-12 mx-auto rounded-lg bg-[#3FE0F0]/10 flex items-center justify-center mb-3">
+                    <Icon className="w-6 h-6 text-[#3FE0F0]" />
                   </div>
-                  <h3 className="font-semibold text-foreground text-sm mb-1">{feature.title}</h3>
-                  <p className="text-xs text-muted-foreground">{feature.description}</p>
+                  <h3 className="font-semibold text-[#111827] text-sm mb-1">{feature.title}</h3>
+                  <p className="text-xs text-[#374151]">{feature.description}</p>
                 </motion.div>
               );
             })}
@@ -98,8 +198,146 @@ export default function DataMigration() {
         </div>
       </section>
 
-      {/* Migration Process */}
-      <section className="bg-card section-padding">
+      {/* Platforms Migrated - LIGHT SECTION */}
+      <section className="bg-light-gradient section-padding">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="inline-block px-4 py-2 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-bold rounded-full mb-4">
+              15+ Platforms Migrated Successfully
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+              Platforms We've Migrated
+              <span className="text-gradient-primary block">From & To</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-3 gap-8 items-center">
+            {/* From Platforms */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-lg font-semibold text-[#111827] mb-4 text-center">Migrating From</h3>
+              <div className="grid grid-cols-2 gap-2">
+                {platformsFrom.map((platform) => (
+                  <div
+                    key={platform.name}
+                    className="px-3 py-2 bg-white border border-gray-200 rounded-lg text-sm text-[#374151] text-center hover:border-[#3FE0F0]/30 transition-colors"
+                  >
+                    {platform.name}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Arrow */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center justify-center"
+            >
+              <div className="w-20 h-20 rounded-full bg-[#3FE0F0]/10 border-2 border-[#3FE0F0] flex items-center justify-center mb-4">
+                <ArrowRightLeft className="w-10 h-10 text-[#3FE0F0]" />
+              </div>
+              <div className="text-center">
+                <p className="text-[#111827] font-bold">Zero Downtime</p>
+                <p className="text-[#374151] text-sm">100% Data Integrity</p>
+              </div>
+            </motion.div>
+
+            {/* To Platforms */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-lg font-semibold text-[#111827] mb-4 text-center">Migrating To</h3>
+              <div className="space-y-2">
+                {platformsTo.map((platform) => (
+                  <div
+                    key={platform}
+                    className="px-4 py-3 bg-[#3FE0F0]/5 border border-[#3FE0F0]/30 rounded-lg text-[#111827] font-medium text-center"
+                  >
+                    {platform}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Migration Expertise - LIGHT SECTION */}
+      <section className="bg-white section-padding">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
+                Migration Expertise
+              </h2>
+              <p className="text-[#374151] text-lg mb-8">
+                Our team has deep expertise across all types of data migrations, ensuring your transition is smooth, secure, and complete.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {migrationExpertise.map((item, index) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-[#3FE0F0] flex-shrink-0" />
+                    <span className="text-[#111827]">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-2 gap-4"
+            >
+              {[
+                { value: "100%", label: "Data Accuracy", color: "#3FE0F0" },
+                { value: "0", label: "Downtime Hours", color: "#10B981" },
+                { value: "15+", label: "Platforms Covered", color: "#4DA3FF" },
+                { value: "500+", label: "Migrations Done", color: "#8B5CF6" },
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="p-6 bg-[#F5F7FB] rounded-xl border border-gray-200 text-center"
+                >
+                  <span className="text-3xl font-bold" style={{ color: stat.color }}>{stat.value}</span>
+                  <p className="text-sm text-[#374151] mt-1">{stat.label}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Migration Flow - LIGHT SECTION */}
+      <section className="bg-light-gradient section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -107,84 +345,120 @@ export default function DataMigration() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
               Our Migration Process
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A proven methodology that ensures successful data migration
+            <p className="text-[#374151] text-lg max-w-2xl mx-auto">
+              A proven methodology that ensures successful data migration with zero data loss
             </p>
           </motion.div>
 
-          <div className="relative">
-            {/* Connection line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border hidden lg:block" />
-            
-            <div className="space-y-8 lg:space-y-0">
-              {migrationSteps.map((step, index) => (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`relative lg:flex items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
-                >
-                  <div className={`lg:w-1/2 ${index % 2 === 0 ? "lg:pr-12 lg:text-right" : "lg:pl-12"}`}>
-                    <div className="bg-background rounded-2xl p-6 border border-border hover:border-primary/30 transition-colors">
-                      <span className="text-4xl font-bold text-primary/20">{step.step}</span>
-                      <h3 className="text-xl font-semibold text-foreground mt-2 mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground">{step.description}</p>
+          {/* Flow Diagram */}
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {migrationSteps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="relative bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#3FE0F0]/30 transition-colors"
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-3xl font-bold text-[#3FE0F0]/20">{step.step}</span>
+                      <div className="w-10 h-10 rounded-lg bg-[#3FE0F0]/10 flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-[#3FE0F0]" />
+                      </div>
                     </div>
-                  </div>
-                  
-                  {/* Center dot */}
-                  <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background" />
-                  
-                  <div className="lg:w-1/2" />
-                </motion.div>
-              ))}
+                    <h3 className="text-lg font-semibold text-[#111827] mb-2">{step.title}</h3>
+                    <p className="text-sm text-[#374151]">{step.description}</p>
+                    
+                    {/* Connector arrow */}
+                    {index < migrationSteps.length - 1 && (
+                      <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
+                        <ArrowRight className="w-6 h-6 text-[#3FE0F0]" />
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
+
+          {/* Insight Callouts */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-12 flex flex-wrap justify-center gap-4"
+          >
+            {[
+              { label: "99.9% Accuracy Rate", color: "#3FE0F0" },
+              { label: "Zero Downtime", color: "#10B981" },
+              { label: "1M+ Records Migrated", color: "#4DA3FF" },
+            ].map((callout) => (
+              <div
+                key={callout.label}
+                className="px-4 py-2 rounded-full border-2"
+                style={{ borderColor: callout.color, color: callout.color }}
+              >
+                <span className="font-semibold">{callout.label}</span>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      {/* Visual Diagram */}
-      <section className="bg-light-gradient section-padding">
+      {/* Real-World Scenarios - LIGHT SECTION */}
+      <section className="bg-white section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
+            className="text-center mb-12"
           >
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
-              <div className="w-full md:w-1/3 p-6 bg-muted rounded-2xl text-center">
-                <Database className="w-12 h-12 mx-auto text-muted-foreground mb-3" />
-                <h3 className="font-semibold text-foreground mb-1">Legacy System</h3>
-                <p className="text-sm text-muted-foreground">Excel, Old CRM, Custom DB</p>
-              </div>
-              
-              <div className="flex flex-col items-center gap-2">
-                <motion.div
-                  animate={{ x: [0, 10, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  <ArrowRight className="w-8 h-8 text-primary" />
-                </motion.div>
-                <span className="text-xs text-muted-foreground">Migration</span>
-              </div>
-              
-              <div className="w-full md:w-1/3 p-6 bg-primary/10 border-2 border-primary/30 rounded-2xl text-center">
-                <Zap className="w-12 h-12 mx-auto text-primary mb-3" />
-                <h3 className="font-semibold text-foreground mb-1">New Zoho System</h3>
-                <p className="text-sm text-muted-foreground">Optimized & AI-Enabled</p>
-              </div>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+              Real-World Migration Scenarios
+            </h2>
+            <p className="text-[#374151] text-lg max-w-2xl mx-auto">
+              Examples of complex migrations we've successfully completed
+            </p>
           </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {realWorldScenarios.map((scenario, index) => {
+              const Icon = scenario.icon;
+              return (
+                <motion.div
+                  key={scenario.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-[#F5F7FB] rounded-2xl p-6 border border-gray-200 hover:border-[#3FE0F0]/30 hover-lift transition-all"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-14 h-14 rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-7 h-7 text-[#3FE0F0]" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-[#111827] mb-1">{scenario.title}</h3>
+                      <p className="text-[#3FE0F0] text-sm font-medium mb-2">{scenario.migration}</p>
+                      <p className="text-[#374151] text-sm">{scenario.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA - DARK SECTION */}
       <section className="bg-dark-gradient section-padding">
         <div className="container-custom">
           <motion.div
@@ -193,11 +467,11 @@ export default function DataMigration() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
               Ready to Migrate Your Data?
             </h2>
-            <p className="text-muted-dark-foreground text-lg mb-8">
-              Get a comprehensive migration assessment and timeline estimate.
+            <p className="text-[#E5E7EB] text-lg mb-8">
+              Get a comprehensive migration assessment and timeline estimate with zero obligation.
             </p>
             <Button variant="heroDark" size="xl">
               Start Your Migration
