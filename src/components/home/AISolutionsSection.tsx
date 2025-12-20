@@ -41,8 +41,8 @@ export function AISolutionsSection() {
     <section className="bg-dark-gradient particles-bg section-padding relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container-custom relative z-10">
@@ -52,14 +52,16 @@ export function AISolutionsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/5 text-[#3FE0F0] text-sm font-medium mb-4">
             AI Automation Experts
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          {/* DARK SECTION: Heading must be #FFFFFF */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#FFFFFF] mb-4">
             AI That Actually Works—
             <span className="text-gradient-primary block">Inside Your Business Systems</span>
           </h2>
-          <p className="text-muted-dark-foreground text-lg max-w-2xl mx-auto">
+          {/* DARK SECTION: Secondary text must be #E5E7EB */}
+          <p className="text-[#E5E7EB] text-lg max-w-2xl mx-auto">
             We don't just add AI as a feature. We integrate it deeply into your CRM, ERP, and operations for real business impact.
           </p>
         </motion.div>
@@ -76,15 +78,17 @@ export function AISolutionsSection() {
                 transition={{ delay: index * 0.1 }}
                 className="group card-glass rounded-2xl p-8 hover-glow transition-all"
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                  <Icon className="w-7 h-7 text-primary" />
+                <div className="w-14 h-14 rounded-xl bg-[#3FE0F0]/10 border border-[#3FE0F0]/20 flex items-center justify-center mb-6 group-hover:bg-[#3FE0F0]/20 transition-colors">
+                  <Icon className="w-7 h-7 text-[#3FE0F0]" />
                 </div>
                 
-                <h3 className="text-xl font-semibold text-white mb-3">
+                {/* DARK SECTION: Card title must be #FFFFFF */}
+                <h3 className="text-xl font-semibold text-[#FFFFFF] mb-3">
                   {capability.title}
                 </h3>
                 
-                <p className="text-muted-dark-foreground leading-relaxed">
+                {/* DARK SECTION: Card description must be #E5E7EB */}
+                <p className="text-[#E5E7EB] leading-relaxed">
                   {capability.description}
                 </p>
               </motion.div>

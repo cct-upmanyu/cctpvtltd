@@ -37,14 +37,16 @@ export function IndustriesSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
             Industry Expertise
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          {/* LIGHT SECTION: Heading must be #111827 */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
             Solutions Tailored to
             <span className="text-gradient-primary block">Your Industry</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          {/* LIGHT SECTION: Secondary text must be #374151 */}
+          <p className="text-[#374151] text-lg max-w-2xl mx-auto">
             Deep domain expertise across diverse industries, delivering customized solutions that address your unique challenges.
           </p>
         </motion.div>
@@ -62,12 +64,13 @@ export function IndustriesSection() {
               >
                 <Link
                   to={`/industries#${industry.slug}`}
-                  className="group flex flex-col items-center p-6 bg-card rounded-2xl border border-border hover:border-primary/30 hover-lift transition-all text-center"
+                  className="group flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-200 hover:border-[#3FE0F0]/30 hover-lift transition-all text-center"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all">
-                    <Icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                  <div className="w-14 h-14 rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center mb-4 group-hover:bg-[#3FE0F0] group-hover:scale-110 transition-all">
+                    <Icon className="w-7 h-7 text-[#3FE0F0] group-hover:text-[#111827] transition-colors" />
                   </div>
-                  <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                  {/* LIGHT SECTION: Text must be #111827 */}
+                  <span className="text-sm font-medium text-[#111827] group-hover:text-[#3FE0F0] transition-colors">
                     {industry.name}
                   </span>
                 </Link>
@@ -84,7 +87,7 @@ export function IndustriesSection() {
         >
           <Link
             to="/industries"
-            className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-[#3FE0F0] font-medium hover:gap-3 transition-all"
           >
             View All Industry Solutions
             <ArrowRight className="w-5 h-5" />

@@ -9,22 +9,41 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        // Hero outlined buttons - Primary (Electric Cyan)
-        heroPrimary: "bg-transparent border-2 border-primary text-primary hover:bg-primary/10 hover:shadow-[0_0_30px_-5px_hsl(186_100%_60%_/_0.5)]",
-        // Hero outlined buttons - Secondary (Soft Blue)
-        heroSecondary: "bg-transparent border-2 border-secondary text-secondary hover:bg-secondary/10 hover:shadow-[0_0_30px_-5px_hsl(212_100%_65%_/_0.5)]",
-        // Dark section outlined button with white text
-        heroDark: "bg-transparent border-2 border-primary text-white hover:bg-primary/10 hover:shadow-[0_0_30px_-5px_hsl(186_100%_60%_/_0.5)]",
-        // Light section outlined button
-        heroLight: "bg-transparent border-2 border-primary text-foreground hover:bg-primary/10 hover:shadow-[0_0_30px_-5px_hsl(186_100%_60%_/_0.5)]",
-        // Navigation CTA
-        navCta: "bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground",
+        // === DEFAULT (for general use) ===
+        default: "bg-transparent border-2 border-[#3FE0F0] text-[#3FE0F0] hover:bg-[#3FE0F0]/10 hover:shadow-[0_0_30px_-5px_rgba(63,224,240,0.5)]",
+        
+        // === DESTRUCTIVE ===
+        destructive: "bg-transparent border-2 border-destructive text-destructive hover:bg-destructive/10",
+        
+        // === OUTLINE ===
+        outline: "bg-transparent border-2 border-[#3FE0F0] text-[#3FE0F0] hover:bg-[#3FE0F0]/10",
+        
+        // === SECONDARY (Soft Blue - #4DA3FF) ===
+        secondary: "bg-transparent border-2 border-[#4DA3FF] text-[#4DA3FF] hover:bg-[#4DA3FF]/10 hover:shadow-[0_0_30px_-5px_rgba(77,163,255,0.5)]",
+        
+        // === GHOST ===
+        ghost: "hover:bg-accent/10 hover:text-accent-foreground",
+        
+        // === LINK ===
+        link: "text-[#3FE0F0] underline-offset-4 hover:underline",
+        
+        // === HERO PRIMARY (Electric Cyan - for DARK sections) ===
+        // Used on dark backgrounds - white/cyan text visible
+        heroPrimary: "bg-transparent border-2 border-[#3FE0F0] text-[#3FE0F0] hover:bg-[#3FE0F0]/10 hover:shadow-[0_0_30px_-5px_rgba(63,224,240,0.5)]",
+        
+        // === HERO SECONDARY (Soft Blue - #4DA3FF) ===
+        heroSecondary: "bg-transparent border-2 border-[#4DA3FF] text-[#4DA3FF] hover:bg-[#4DA3FF]/10 hover:shadow-[0_0_30px_-5px_rgba(77,163,255,0.5)]",
+        
+        // === HERO DARK (For DARK section backgrounds) ===
+        // Cyan border with cyan text - visible on dark backgrounds
+        heroDark: "bg-transparent border-2 border-[#3FE0F0] text-[#3FE0F0] hover:bg-[#3FE0F0]/10 hover:shadow-[0_0_30px_-5px_rgba(63,224,240,0.5)]",
+        
+        // === HERO LIGHT (For LIGHT section backgrounds) ===
+        // Cyan border with dark text - visible on light backgrounds
+        heroLight: "bg-transparent border-2 border-[#3FE0F0] text-[#111827] hover:bg-[#3FE0F0]/10 hover:shadow-[0_0_30px_-5px_rgba(63,224,240,0.5)]",
+        
+        // === NAV CTA ===
+        navCta: "bg-transparent border border-[#3FE0F0] text-[#3FE0F0] hover:bg-[#3FE0F0]/10",
       },
       size: {
         default: "h-10 px-4 py-2",

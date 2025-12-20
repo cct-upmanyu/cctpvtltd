@@ -20,7 +20,7 @@ const zohoApps = [
 
 export function ZohoEcosystemSection() {
   return (
-    <section className="bg-card section-padding">
+    <section className="bg-white section-padding">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
@@ -29,14 +29,16 @@ export function ZohoEcosystemSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
               Zoho Premium Partner
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            {/* LIGHT SECTION: Heading must be #111827 */}
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-6">
               Complete Zoho
               <span className="text-gradient-primary block">Ecosystem Mastery</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-8">
+            {/* LIGHT SECTION: Secondary text must be #374151 */}
+            <p className="text-[#374151] text-lg mb-8">
               As a certified Global Zoho Premium Partner and Creator Champions, we implement the full Zoho ecosystem—from individual apps to complete enterprise suites.
             </p>
 
@@ -48,12 +50,14 @@ export function ZohoEcosystemSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-3 p-4 bg-background rounded-xl border border-border"
+                  className="flex items-start gap-3 p-4 bg-[#F5F7FB] rounded-xl border border-gray-200"
                 >
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-[#3FE0F0] flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-foreground">{suite.name}</h4>
-                    <p className="text-sm text-muted-foreground">{suite.description}</p>
+                    {/* LIGHT SECTION: Text must be #111827 */}
+                    <h4 className="font-semibold text-[#111827]">{suite.name}</h4>
+                    {/* LIGHT SECTION: Secondary text must be #374151 */}
+                    <p className="text-sm text-[#374151]">{suite.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -80,17 +84,17 @@ export function ZohoEcosystemSection() {
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
                 animate={{ 
                   boxShadow: [
-                    "0 0 40px -10px hsl(186 100% 60% / 0.3)",
-                    "0 0 60px -10px hsl(186 100% 60% / 0.5)",
-                    "0 0 40px -10px hsl(186 100% 60% / 0.3)"
+                    "0 0 40px -10px rgba(63, 224, 240, 0.3)",
+                    "0 0 60px -10px rgba(63, 224, 240, 0.5)",
+                    "0 0 40px -10px rgba(63, 224, 240, 0.3)"
                   ]
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#3FE0F0] to-[#4DA3FF] flex items-center justify-center">
                   <div className="text-center">
-                    <span className="text-primary-foreground font-bold text-xl block">Zoho</span>
-                    <span className="text-primary-foreground/80 text-sm">One</span>
+                    <span className="text-[#111827] font-bold text-xl block">Zoho</span>
+                    <span className="text-[#111827]/80 text-sm">One</span>
                   </div>
                 </div>
               </motion.div>
@@ -113,12 +117,13 @@ export function ZohoEcosystemSection() {
                     style={{ transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))` }}
                   >
                     <motion.div
-                      className="w-20 h-20 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg"
+                      className="w-20 h-20 rounded-xl bg-white border border-gray-200 flex items-center justify-center shadow-lg"
                       animate={{ y: [0, -5, 0] }}
                       transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
                       whileHover={{ scale: 1.1 }}
                     >
-                      <span className="text-xs font-medium text-foreground text-center px-2">
+                      {/* LIGHT SECTION: Text must be #111827 */}
+                      <span className="text-xs font-medium text-[#111827] text-center px-2">
                         {suite.name}
                       </span>
                     </motion.div>
@@ -141,7 +146,7 @@ export function ZohoEcosystemSection() {
                       y1="50%"
                       x2={`${x}%`}
                       y2={`${y}%`}
-                      stroke="hsl(186 100% 60%)"
+                      stroke="#3FE0F0"
                       strokeWidth="1"
                       strokeDasharray="4 4"
                       initial={{ pathLength: 0, opacity: 0 }}
@@ -165,7 +170,7 @@ export function ZohoEcosystemSection() {
               {zohoApps.map((app) => (
                 <span
                   key={app}
-                  className="px-3 py-1.5 bg-background border border-border rounded-full text-xs text-muted-foreground hover:border-primary/50 hover:text-foreground transition-colors cursor-pointer"
+                  className="px-3 py-1.5 bg-[#F5F7FB] border border-gray-200 rounded-full text-xs text-[#374151] hover:border-[#3FE0F0]/50 hover:text-[#111827] transition-colors cursor-pointer"
                 >
                   {app}
                 </span>
