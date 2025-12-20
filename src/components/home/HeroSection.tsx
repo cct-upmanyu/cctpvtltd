@@ -8,8 +8,8 @@ export function HeroSection() {
     <section className="relative min-h-screen bg-dark-gradient particles-bg overflow-hidden pt-20">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#4DA3FF]/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container-custom relative z-10 py-20 lg:py-28">
@@ -26,27 +26,29 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/5 mb-6"
             >
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-primary text-sm font-medium">Global Zoho Premium Partner</span>
+              <span className="w-2 h-2 rounded-full bg-[#3FE0F0] animate-pulse" />
+              <span className="text-[#3FE0F0] text-sm font-medium">Global Zoho Premium Partner</span>
             </motion.div>
 
+            {/* DARK SECTION: Heading must be #FFFFFF */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFFFFF] leading-tight mb-6"
             >
               AI Automation Experts
               <span className="block text-gradient-primary mt-2">Building Intelligent Systems</span>
             </motion.h1>
 
+            {/* DARK SECTION: Secondary text must be #E5E7EB */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-lg lg:text-xl text-muted-dark-foreground mb-8 max-w-xl mx-auto lg:mx-0"
+              className="text-lg lg:text-xl text-[#E5E7EB] mb-8 max-w-xl mx-auto lg:mx-0"
             >
               We design, implement, and optimize Zoho, AI, CRM, and custom ERP solutions that automate operations, improve decisions, and help businesses scale globally.
             </motion.p>
@@ -66,23 +68,23 @@ export function HeroSection() {
               </Button>
             </motion.div>
 
-            {/* Trust Indicators */}
+            {/* Trust Indicators - DARK SECTION: text must be #E5E7EB */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="mt-12 flex flex-wrap gap-6 justify-center lg:justify-start text-muted-dark-foreground text-sm"
+              className="mt-12 flex flex-wrap gap-6 justify-center lg:justify-start text-[#E5E7EB] text-sm"
             >
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#3FE0F0]" />
                 <span>12+ Years Experience</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#4DA3FF]" />
                 <span>800+ Projects</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
                 <span>Global Clients</span>
               </div>
             </motion.div>
@@ -101,7 +103,7 @@ export function HeroSection() {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F5F7FB] to-transparent" />
     </section>
   );
 }

@@ -65,13 +65,15 @@ export function CapabilitiesSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
             Our Expertise
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          {/* LIGHT SECTION: Heading must be #111827 */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
             Core Capabilities
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          {/* LIGHT SECTION: Secondary text must be #374151 */}
+          <p className="text-[#374151] text-lg max-w-2xl mx-auto">
             End-to-end solutions designed to transform your business operations with intelligent automation
           </p>
         </motion.div>
@@ -89,33 +91,35 @@ export function CapabilitiesSection() {
               >
                 <Link
                   to={capability.href}
-                  className="group block h-full bg-card rounded-2xl p-8 border border-border hover:border-primary/30 hover-lift transition-all"
+                  className="group block h-full bg-white rounded-2xl p-8 border border-gray-200 hover:border-[#3FE0F0]/30 hover-lift transition-all"
                 >
                   <div className={`w-14 h-14 rounded-xl mb-6 flex items-center justify-center transition-colors ${
                     capability.color === "primary" 
-                      ? "bg-primary/10 group-hover:bg-primary/20" 
+                      ? "bg-[#3FE0F0]/10 group-hover:bg-[#3FE0F0]/20" 
                       : capability.color === "secondary"
-                      ? "bg-secondary/10 group-hover:bg-secondary/20"
-                      : "bg-accent/10 group-hover:bg-accent/20"
+                      ? "bg-[#4DA3FF]/10 group-hover:bg-[#4DA3FF]/20"
+                      : "bg-[#8B5CF6]/10 group-hover:bg-[#8B5CF6]/20"
                   }`}>
                     <Icon className={`w-7 h-7 ${
                       capability.color === "primary" 
-                        ? "text-primary" 
+                        ? "text-[#3FE0F0]" 
                         : capability.color === "secondary"
-                        ? "text-secondary"
-                        : "text-accent"
+                        ? "text-[#4DA3FF]"
+                        : "text-[#8B5CF6]"
                     }`} />
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  {/* LIGHT SECTION: Text must be #111827 */}
+                  <h3 className="text-xl font-semibold text-[#111827] mb-3 group-hover:text-[#3FE0F0] transition-colors">
                     {capability.title}
                   </h3>
                   
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {/* LIGHT SECTION: Secondary text must be #374151 */}
+                  <p className="text-[#374151] mb-4 leading-relaxed">
                     {capability.description}
                   </p>
                   
-                  <div className="flex items-center gap-2 text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="flex items-center gap-2 text-[#3FE0F0] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                     <span>Learn more</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
