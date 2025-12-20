@@ -38,11 +38,11 @@ const aiCapabilities = [
 
 export function AISolutionsSection() {
   return (
-    <section className="bg-dark-gradient particles-bg section-padding relative overflow-hidden">
+    <section className="bg-light-gradient section-padding relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#3FE0F0]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#8B5CF6]/10 rounded-full blur-3xl" />
       </div>
 
       <div className="container-custom relative z-10">
@@ -55,17 +55,18 @@ export function AISolutionsSection() {
           <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/5 text-[#3FE0F0] text-sm font-medium mb-4">
             AI Automation Experts
           </span>
-          {/* DARK SECTION: Heading must be #FFFFFF */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#FFFFFF] mb-4">
+          {/* LIGHT SECTION: Heading must be #111827 (dark) */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
             AI That Actually Works—
             <span className="text-gradient-primary block">Inside Your Business Systems</span>
           </h2>
-          {/* DARK SECTION: Secondary text must be #E5E7EB */}
-          <p className="text-[#E5E7EB] text-lg max-w-2xl mx-auto">
+          {/* LIGHT SECTION: Secondary text must be #374151 (dark gray) */}
+          <p className="text-[#374151] text-lg max-w-2xl mx-auto">
             We don't just add AI as a feature. We integrate it deeply into your CRM, ERP, and operations for real business impact.
           </p>
         </motion.div>
 
+        {/* Dark cards with white text - these are correct */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
           {aiCapabilities.map((capability, index) => {
             const Icon = capability.icon;
@@ -76,18 +77,18 @@ export function AISolutionsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group card-glass rounded-2xl p-8 hover-glow transition-all"
+                className="group bg-[#1E3A5F] rounded-2xl p-8 hover-glow transition-all border border-[#3FE0F0]/10"
               >
                 <div className="w-14 h-14 rounded-xl bg-[#3FE0F0]/10 border border-[#3FE0F0]/20 flex items-center justify-center mb-6 group-hover:bg-[#3FE0F0]/20 transition-colors">
                   <Icon className="w-7 h-7 text-[#3FE0F0]" />
                 </div>
                 
-                {/* DARK SECTION: Card title must be #FFFFFF */}
+                {/* DARK CARD: Title must be #FFFFFF (white) */}
                 <h3 className="text-xl font-semibold text-[#FFFFFF] mb-3">
                   {capability.title}
                 </h3>
                 
-                {/* DARK SECTION: Card description must be #E5E7EB */}
+                {/* DARK CARD: Description must be #E5E7EB (light gray) */}
                 <p className="text-[#E5E7EB] leading-relaxed">
                   {capability.description}
                 </p>
@@ -103,7 +104,7 @@ export function AISolutionsSection() {
           transition={{ delay: 0.6 }}
           className="text-center"
         >
-          <Button variant="heroDark" size="lg" asChild>
+          <Button variant="heroLight" size="lg" asChild>
             <Link to="/ai-solutions">
               Explore AI Solutions
               <ArrowRight className="w-5 h-5" />

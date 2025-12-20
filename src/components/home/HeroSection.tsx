@@ -5,11 +5,11 @@ import { AIHubAnimation } from "@/components/animations/AIHubAnimation";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-dark-gradient particles-bg overflow-hidden pt-20">
+    <section className="relative min-h-screen bg-light-gradient overflow-hidden pt-20">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#4DA3FF]/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3FE0F0]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#4DA3FF]/10 rounded-full blur-3xl" />
       </div>
 
       <div className="container-custom relative z-10 py-20 lg:py-28">
@@ -32,23 +32,23 @@ export function HeroSection() {
               <span className="text-[#3FE0F0] text-sm font-medium">Global Zoho Premium Partner</span>
             </motion.div>
 
-            {/* DARK SECTION: Heading must be #FFFFFF */}
+            {/* LIGHT SECTION: Heading must be #111827 (dark) */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFFFFF] leading-tight mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#111827] leading-tight mb-6"
             >
               AI Automation Experts
               <span className="block text-gradient-primary mt-2">Building Intelligent Systems</span>
             </motion.h1>
 
-            {/* DARK SECTION: Secondary text must be #E5E7EB */}
+            {/* LIGHT SECTION: Secondary text must be #374151 (dark gray) */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-lg lg:text-xl text-[#E5E7EB] mb-8 max-w-xl mx-auto lg:mx-0"
+              className="text-lg lg:text-xl text-[#374151] mb-8 max-w-xl mx-auto lg:mx-0"
             >
               We design, implement, and optimize Zoho, AI, CRM, and custom ERP solutions that automate operations, improve decisions, and help businesses scale globally.
             </motion.p>
@@ -59,7 +59,7 @@ export function HeroSection() {
               transition={{ delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Button variant="heroDark" size="xl">
+              <Button variant="heroLight" size="xl">
                 Book a Free Consultation
                 <ArrowRight className="w-5 h-5" />
               </Button>
@@ -68,12 +68,12 @@ export function HeroSection() {
               </Button>
             </motion.div>
 
-            {/* Trust Indicators - DARK SECTION: text must be #E5E7EB */}
+            {/* Trust Indicators - LIGHT SECTION: text must be #374151 */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="mt-12 flex flex-wrap gap-6 justify-center lg:justify-start text-[#E5E7EB] text-sm"
+              className="mt-12 flex flex-wrap gap-6 justify-center lg:justify-start text-[#374151] text-sm"
             >
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#3FE0F0]" />
@@ -102,8 +102,8 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F5F7FB] to-transparent" />
+      {/* Bottom gradient fade to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FFFFFF] to-transparent" />
     </section>
   );
 }
