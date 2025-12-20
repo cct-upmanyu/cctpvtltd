@@ -20,8 +20,14 @@ const zohoApps = [
 
 export function ZohoEcosystemSection() {
   return (
-    <section className="bg-white section-padding">
-      <div className="container-custom">
+    <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
           <motion.div
@@ -29,16 +35,16 @@ export function ZohoEcosystemSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
               Zoho Premium Partner
             </span>
-            {/* LIGHT SECTION: Heading must be #111827 */}
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-6">
+            {/* DARK SECTION: Heading must be #FFFFFF */}
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#FFFFFF] mb-6">
               Complete Zoho
               <span className="text-gradient-primary block">Ecosystem Mastery</span>
             </h2>
-            {/* LIGHT SECTION: Secondary text must be #374151 */}
-            <p className="text-[#374151] text-lg mb-8">
+            {/* DARK SECTION: Secondary text must be #E5E7EB */}
+            <p className="text-[#E5E7EB] text-lg mb-8">
               As a certified Global Zoho Premium Partner and Creator Champions, we implement the full Zoho ecosystem—from individual apps to complete enterprise suites.
             </p>
 
@@ -50,20 +56,20 @@ export function ZohoEcosystemSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-3 p-4 bg-[#F5F7FB] rounded-xl border border-gray-200"
+                  className="flex items-start gap-3 p-4 bg-[#0F2A5F] rounded-xl border border-[#3FE0F0]/10"
                 >
                   <CheckCircle className="w-5 h-5 text-[#3FE0F0] flex-shrink-0 mt-0.5" />
                   <div>
-                    {/* LIGHT SECTION: Text must be #111827 */}
-                    <h4 className="font-semibold text-[#111827]">{suite.name}</h4>
-                    {/* LIGHT SECTION: Secondary text must be #374151 */}
-                    <p className="text-sm text-[#374151]">{suite.description}</p>
+                    {/* DARK SECTION: Text must be #FFFFFF */}
+                    <h4 className="font-semibold text-[#FFFFFF]">{suite.name}</h4>
+                    {/* DARK SECTION: Secondary text must be #E5E7EB */}
+                    <p className="text-sm text-[#E5E7EB]">{suite.description}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            <Button variant="heroLight" size="lg" asChild>
+            <Button variant="heroDark" size="lg" asChild>
               <Link to="/zoho-solutions">
                 Explore Zoho Solutions
                 <ArrowRight className="w-5 h-5" />
@@ -93,8 +99,8 @@ export function ZohoEcosystemSection() {
               >
                 <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#3FE0F0] to-[#4DA3FF] flex items-center justify-center">
                   <div className="text-center">
-                    <span className="text-[#111827] font-bold text-xl block">Zoho</span>
-                    <span className="text-[#111827]/80 text-sm">One</span>
+                    <span className="text-[#0B1C3D] font-bold text-xl block">Zoho</span>
+                    <span className="text-[#0B1C3D]/80 text-sm">One</span>
                   </div>
                 </div>
               </motion.div>
@@ -117,13 +123,13 @@ export function ZohoEcosystemSection() {
                     style={{ transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))` }}
                   >
                     <motion.div
-                      className="w-20 h-20 rounded-xl bg-white border border-gray-200 flex items-center justify-center shadow-lg"
+                      className="w-20 h-20 rounded-xl bg-[#0F2A5F] border border-[#3FE0F0]/20 flex items-center justify-center shadow-lg"
                       animate={{ y: [0, -5, 0] }}
                       transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
                       whileHover={{ scale: 1.1 }}
                     >
-                      {/* LIGHT SECTION: Text must be #111827 */}
-                      <span className="text-xs font-medium text-[#111827] text-center px-2">
+                      {/* DARK SECTION: Text must be #FFFFFF */}
+                      <span className="text-xs font-medium text-[#FFFFFF] text-center px-2">
                         {suite.name}
                       </span>
                     </motion.div>
@@ -170,7 +176,7 @@ export function ZohoEcosystemSection() {
               {zohoApps.map((app) => (
                 <span
                   key={app}
-                  className="px-3 py-1.5 bg-[#F5F7FB] border border-gray-200 rounded-full text-xs text-[#374151] hover:border-[#3FE0F0]/50 hover:text-[#111827] transition-colors cursor-pointer"
+                  className="px-3 py-1.5 bg-[#0F2A5F] border border-[#3FE0F0]/20 rounded-full text-xs text-[#E5E7EB] hover:border-[#3FE0F0]/50 hover:text-[#FFFFFF] transition-colors cursor-pointer"
                 >
                   {app}
                 </span>
