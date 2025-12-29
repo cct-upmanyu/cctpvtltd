@@ -41,11 +41,11 @@ export function Footer() {
             Let's discuss how we can help you leverage Zoho, AI, and automation to scale your operations.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="heroDark" size="lg">
+            <Button variant="heroDark" size="lg" className="min-w-[220px]">
               Book Free Consultation
               <ArrowRight className="w-5 h-5" />
             </Button>
-            <Button variant="heroSecondary" size="lg">
+            <Button variant="heroSecondary" size="lg" className="min-w-[220px]">
               Talk to a Zoho Expert
             </Button>
           </div>
@@ -60,7 +60,7 @@ export function Footer() {
               <img 
                 src={cctLogoFooter} 
                 alt="ClubCode Technology" 
-                className="h-28 w-auto"
+                className="h-36 w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-muted-dark-foreground mb-6 max-w-sm">
@@ -71,9 +71,9 @@ export function Footer() {
                 <Mail className="w-5 h-5" />
                 info@clubcodetechnology.com
               </a>
-              <a href="tel:+919876543210" className="flex items-center gap-3 text-muted-dark-foreground hover:text-primary transition-colors">
+              <a href="tel:+919193610009" className="flex items-center gap-3 text-muted-dark-foreground hover:text-primary transition-colors">
                 <Phone className="w-5 h-5" />
-                +91 98765 43210
+                +91 91936 10009
               </a>
               <div className="flex items-start gap-3 text-muted-dark-foreground">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
