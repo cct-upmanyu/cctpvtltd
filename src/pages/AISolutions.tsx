@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { AIAgentExamples } from "@/components/ai/AIAgentExamples";
 import { 
   ArrowRight, 
   Brain, 
@@ -146,11 +147,11 @@ export default function AISolutions() {
               At ClubCode Technology, we design AI-native business systems where intelligence lives inside CRM, ERP, workflows, communication channels, and analytics — not as disconnected tools. We specialize in Agentic AI, AI automation, predictive intelligence, and decision-support systems.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button variant="heroDark" size="lg">
+              <Button variant="heroDark" size="lg" className="min-w-[220px]">
                 Build Your AI Strategy
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button variant="heroSecondary" size="lg">
+              <Button variant="heroSecondary" size="lg" className="min-w-[220px]">
                 See AI in Action
               </Button>
             </div>
@@ -260,8 +261,11 @@ export default function AISolutions() {
         </div>
       </section>
 
+      {/* AI Agent Examples Section */}
+      <AIAgentExamples />
+
       {/* SECTION 2: AI Automations - LIGHT SECTION */}
-      <section className="bg-light-gradient section-padding">
+      <section className="bg-[#F5F7FB] section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
