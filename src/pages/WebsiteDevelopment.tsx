@@ -3,7 +3,9 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Globe, Zap, Database, Bot, Smartphone, TrendingUp, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroWebsiteDev from "@/assets/hero-website-dev.jpg";
+import { PortfolioShowcase } from "@/components/portfolio/PortfolioShowcase";
 
 const services = [
   {
@@ -33,6 +35,30 @@ const process = [
   { step: "Design", description: "Creating stunning, conversion-focused designs" },
   { step: "Development", description: "Building with modern technologies and CRM integration" },
   { step: "Launch", description: "Testing, optimization, and successful deployment" },
+];
+
+const portfolioItems = [
+  {
+    title: "E-Commerce Platform Redesign",
+    category: "E-Commerce",
+    description: "Complete redesign of an online retail platform with CRM integration and AI-powered recommendations.",
+    image: "🛒",
+    tags: ["React", "Zoho CRM", "AI Chatbot"],
+  },
+  {
+    title: "Corporate Brand Website",
+    category: "Corporate",
+    description: "Modern corporate website with lead capture, analytics dashboard, and marketing automation.",
+    image: "🏢",
+    tags: ["Next.js", "HubSpot", "Analytics"],
+  },
+  {
+    title: "SaaS Product Landing",
+    category: "SaaS",
+    description: "High-converting landing page with integrated booking system and payment processing.",
+    image: "🚀",
+    tags: ["Webflow", "Stripe", "Calendly"],
+  },
 ];
 
 export default function WebsiteDevelopment() {
@@ -73,10 +99,10 @@ export default function WebsiteDevelopment() {
         </div>
       </section>
 
-      {/* Services - LIGHT SECTION */}
-      <section className="bg-light-gradient section-padding">
+      {/* Website Transformation - DARK SECTION (proper contrast) */}
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         </div>
         <div className="container-custom relative z-10">
           <motion.div
@@ -85,10 +111,10 @@ export default function WebsiteDevelopment() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Website Transformation
             </h2>
-            <p className="text-[#E5E7EB] text-lg">
+            <p className="text-white/80 text-lg">
               From static to intelligent business websites
             </p>
           </motion.div>
@@ -100,27 +126,27 @@ export default function WebsiteDevelopment() {
             className="max-w-4xl mx-auto"
           >
             <div className="grid md:grid-cols-3 gap-4 items-center">
-              <div className="p-6 bg-[#0B1C3D]/80 border border-[#374151]/30 rounded-2xl text-center">
-                <Globe className="w-12 h-12 mx-auto text-[#E5E7EB] mb-3" />
-                <h3 className="font-semibold text-[#FFFFFF] mb-2">Static Website</h3>
-                <p className="text-sm text-[#E5E7EB]">Basic brochure site</p>
+              <div className="p-6 bg-white/5 border border-white/10 rounded-2xl text-center backdrop-blur-sm">
+                <Globe className="w-12 h-12 mx-auto text-white/60 mb-3" />
+                <h3 className="font-semibold text-white mb-2">Static Website</h3>
+                <p className="text-sm text-white/60">Basic brochure site</p>
               </div>
               
               <div className="flex justify-center">
                 <motion.div
                   animate={{ x: [0, 10, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
-                  className="text-[#3FE0F0]"
+                  className="text-primary"
                 >
                   <ArrowRight className="w-8 h-8 hidden md:block" />
                   <ArrowRight className="w-8 h-8 rotate-90 md:hidden" />
                 </motion.div>
               </div>
               
-              <div className="p-6 bg-[#3FE0F0]/10 border-2 border-[#3FE0F0]/30 rounded-2xl text-center">
-                <Zap className="w-12 h-12 mx-auto text-[#3FE0F0] mb-3" />
-                <h3 className="font-semibold text-[#FFFFFF] mb-2">AI Business Platform</h3>
-                <p className="text-sm text-[#E5E7EB]">CRM + AI integrated</p>
+              <div className="p-6 bg-primary/10 border-2 border-primary/30 rounded-2xl text-center">
+                <Zap className="w-12 h-12 mx-auto text-primary mb-3" />
+                <h3 className="font-semibold text-white mb-2">AI Business Platform</h3>
+                <p className="text-sm text-white/80">CRM + AI integrated</p>
               </div>
             </div>
           </motion.div>
@@ -130,6 +156,20 @@ export default function WebsiteDevelopment() {
       {/* Services - LIGHT SECTION */}
       <section className="bg-light-gradient section-padding">
         <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+              Our Website Services
+            </h2>
+            <p className="text-[#374151] text-lg">
+              Everything you need for a high-performing digital presence
+            </p>
+          </motion.div>
+
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
@@ -140,10 +180,10 @@ export default function WebsiteDevelopment() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex gap-6 p-6 bg-white rounded-2xl border border-gray-200 hover:border-[#3FE0F0]/30 transition-colors"
+                  className="flex gap-6 p-6 bg-white rounded-2xl border border-gray-200 hover:border-primary/30 transition-colors"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-7 h-7 text-[#3FE0F0]" />
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-7 h-7 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-[#111827] mb-2">{service.title}</h3>
@@ -159,7 +199,7 @@ export default function WebsiteDevelopment() {
       {/* Process - DARK SECTION */}
       <section className="bg-dark-gradient section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#4DA3FF]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         </div>
         <div className="container-custom relative z-10">
           <motion.div
@@ -168,7 +208,7 @@ export default function WebsiteDevelopment() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Our Development Process
             </h2>
           </motion.div>
@@ -181,19 +221,27 @@ export default function WebsiteDevelopment() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center p-6 bg-[#0B1C3D]/80 rounded-2xl border border-[#3FE0F0]/20"
+                className="text-center p-6 bg-white/5 rounded-2xl border border-primary/20 backdrop-blur-sm"
               >
-                <span className="text-4xl font-bold text-[#3FE0F0]/30">{String(index + 1).padStart(2, '0')}</span>
-                <h3 className="font-semibold text-[#FFFFFF] mt-2 mb-2">{item.step}</h3>
-                <p className="text-sm text-[#E5E7EB]">{item.description}</p>
+                <span className="text-4xl font-bold text-primary/30">{String(index + 1).padStart(2, '0')}</span>
+                <h3 className="font-semibold text-white mt-2 mb-2">{item.step}</h3>
+                <p className="text-sm text-white/70">{item.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA - LIGHT SECTION */}
-      <section className="bg-light-gradient section-padding">
+      {/* Portfolio Section - LIGHT SECTION */}
+      <PortfolioShowcase
+        title="Website Projects We've Delivered"
+        subtitle="See how we've helped businesses transform their digital presence"
+        items={portfolioItems}
+        showViewAll={true}
+      />
+
+      {/* CTA - DARK SECTION */}
+      <section className="bg-dark-gradient section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -201,16 +249,25 @@ export default function WebsiteDevelopment() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to Build Your Next Website?
             </h2>
-            <p className="text-[#374151] text-lg mb-8">
+            <p className="text-white/80 text-lg mb-8">
               Let's create a website that not only looks great but drives real business results.
             </p>
-            <Button variant="heroLight" size="xl">
-              Start Your Project
-              <ArrowRight className="w-5 h-5" />
-            </Button>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild variant="heroDark" size="xl">
+                <Link to="/contact">
+                  Start Your Project
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </Button>
+              <Button asChild variant="heroSecondary" size="xl">
+                <Link to="/contact">
+                  Talk to an Expert
+                </Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>

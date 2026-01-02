@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import heroIntegrations from "@/assets/hero-integrations.jpg";
+import { IntegrationSolarSystem } from "@/components/integrations/IntegrationSolarSystem";
 import { 
   ArrowRight, 
   CreditCard, 
@@ -55,12 +56,6 @@ const integrationCategories = [
     title: "eCommerce Integrations",
     description: "Connect Shopify, WooCommerce, Amazon, and Flipkart with Zoho Inventory and CRM for unified order and inventory management.",
     features: ["Order sync automation", "Inventory management", "Customer data unification"]
-  },
-  {
-    icon: Code,
-    title: "Custom API Integrations",
-    description: "Build bespoke integrations for legacy systems, proprietary software, and industry-specific platforms using secure REST and webhook architectures.",
-    features: ["REST API development", "Webhook automation", "Legacy system bridges"]
   },
 ];
 
@@ -128,22 +123,49 @@ const ThirdPartyIntegrations = () => {
           </div>
         </section>
 
-        {/* Integration Categories - Light */}
+        {/* Solar System Integration Animation - LIGHT SECTION */}
         <section className="bg-light-gradient section-padding">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-8"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
-                Integration Categories
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                Your Connected Business
               </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
-                Connect Your Entire Tech Stack
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+                A Unified Business Ecosystem
               </h2>
               <p className="text-[#374151] text-lg max-w-2xl mx-auto">
+                All your essential tools orbiting around your central business platform, working together seamlessly.
+              </p>
+            </motion.div>
+
+            <IntegrationSolarSystem />
+          </div>
+        </section>
+
+        {/* Integration Categories - DARK SECTION */}
+        <section className="bg-dark-gradient section-padding relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          </div>
+          <div className="container-custom relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
+                Integration Categories
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                Connect Your Entire Tech Stack
+              </h2>
+              <p className="text-white/70 text-lg max-w-2xl mx-auto">
                 From payment gateways to messaging platforms—we build integrations that work reliably at enterprise scale.
               </p>
             </motion.div>
@@ -158,21 +180,21 @@ const ThirdPartyIntegrations = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="group bg-white rounded-2xl p-8 border border-gray-200 hover:border-[#3FE0F0]/30 hover-lift transition-all"
+                    className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-primary/30 hover-lift transition-all"
                   >
-                    <div className="w-14 h-14 rounded-xl mb-6 flex items-center justify-center bg-[#3FE0F0]/10 group-hover:bg-[#3FE0F0]/20 transition-colors">
-                      <Icon className="w-7 h-7 text-[#3FE0F0]" />
+                    <div className="w-14 h-14 rounded-xl mb-6 flex items-center justify-center bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <Icon className="w-7 h-7 text-primary" />
                     </div>
-                    <h3 className="text-xl font-semibold text-[#111827] mb-3 group-hover:text-[#3FE0F0] transition-colors">
+                    <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-primary transition-colors">
                       {category.title}
                     </h3>
-                    <p className="text-[#374151] mb-4 leading-relaxed">
+                    <p className="text-white/70 mb-4 leading-relaxed">
                       {category.description}
                     </p>
                     <ul className="space-y-2">
                       {category.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-[#374151] text-sm">
-                          <CheckCircle className="w-4 h-4 text-[#3FE0F0]" />
+                        <li key={feature} className="flex items-center gap-2 text-white/60 text-sm">
+                          <CheckCircle className="w-4 h-4 text-primary" />
                           {feature}
                         </li>
                       ))}
@@ -184,8 +206,8 @@ const ThirdPartyIntegrations = () => {
           </div>
         </section>
 
-        {/* Benefits Section - Dark */}
-        <section className="bg-dark-gradient section-padding">
+        {/* Benefits Section - LIGHT SECTION */}
+        <section className="bg-light-gradient section-padding">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -193,10 +215,10 @@ const ThirdPartyIntegrations = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
                 Why Choose Our Integration Services?
               </h2>
-              <p className="text-muted-dark-foreground text-lg max-w-2xl mx-auto">
+              <p className="text-[#374151] text-lg max-w-2xl mx-auto">
                 Enterprise-grade integrations built for reliability, security, and scalability.
               </p>
             </motion.div>
@@ -211,13 +233,13 @@ const ThirdPartyIntegrations = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="text-center"
+                    className="text-center bg-white rounded-2xl p-8 border border-gray-200"
                   >
                     <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
                       <Icon className="w-8 h-8 text-primary" />
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-3">{benefit.title}</h3>
-                    <p className="text-muted-dark-foreground">{benefit.description}</p>
+                    <h3 className="text-xl font-semibold text-[#111827] mb-3">{benefit.title}</h3>
+                    <p className="text-[#374151]">{benefit.description}</p>
                   </motion.div>
                 );
               })}
@@ -225,8 +247,8 @@ const ThirdPartyIntegrations = () => {
           </div>
         </section>
 
-        {/* CTA Section - Light */}
-        <section className="bg-light-gradient section-padding">
+        {/* CTA Section - DARK SECTION */}
+        <section className="bg-dark-gradient section-padding">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -234,18 +256,25 @@ const ThirdPartyIntegrations = () => {
               viewport={{ once: true }}
               className="max-w-3xl mx-auto text-center"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Ready to Unify Your Business Systems?
               </h2>
-              <p className="text-[#374151] text-lg mb-8">
+              <p className="text-white/80 text-lg mb-8">
                 Let's discuss how we can connect your tools into a seamless operational ecosystem.
               </p>
-              <Button asChild variant="heroPrimary" size="lg" className="min-w-[220px]">
-                <Link to="/contact">
-                  Schedule Integration Consultation
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button asChild variant="heroDark" size="lg" className="min-w-[220px]">
+                  <Link to="/contact">
+                    Schedule Integration Consultation
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </Button>
+                <Button asChild variant="heroSecondary" size="lg" className="min-w-[220px]">
+                  <Link to="/contact">
+                    Talk to a Zoho Expert
+                  </Link>
+                </Button>
+              </div>
             </motion.div>
           </div>
         </section>
