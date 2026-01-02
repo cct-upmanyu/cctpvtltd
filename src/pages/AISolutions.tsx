@@ -118,7 +118,7 @@ const voiceAIFeatures = [
 
 export default function AISolutions() {
   return (
-    <div className="min-h-screen bg-[#F5F7FB]">
+    <div className="min-h-screen bg-background">
       <Navbar />
       
       {/* Hero - DARK SECTION */}
@@ -265,7 +265,7 @@ export default function AISolutions() {
       <AIAgentExamples />
 
       {/* SECTION 2: AI Automations - LIGHT SECTION */}
-      <section className="bg-[#F5F7FB] section-padding">
+      <section className="bg-light-gradient section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
