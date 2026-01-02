@@ -3,6 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Layers, BarChart3, Users, Wallet, Building, Headphones } from "lucide-react";
+import heroZohoSolutions from "@/assets/hero-zoho-solutions.jpg";
 
 const zohoSuites = [
   {
@@ -57,12 +58,16 @@ export default function ZohoSolutions() {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero */}
-      <section className="bg-light-gradient pt-32 pb-20 relative overflow-hidden">
+      {/* Hero - DARK SECTION with Image */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroZohoSolutions} alt="Zoho Solutions" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1C3D]/95 via-[#0B1C3D]/85 to-[#0B1C3D]/70" />
+        </div>
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         </div>
-        <div className="container-custom relative z-10">
+        <div className="container-custom relative z-10 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -71,19 +76,19 @@ export default function ZohoSolutions() {
             <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6">
               Global Zoho Premium Partner
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Complete Zoho
               <span className="text-gradient-primary block">Ecosystem Solutions</span>
             </h1>
-            <p className="text-muted-foreground text-lg md:text-xl mb-8 max-w-2xl">
+            <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl">
               As certified Zoho Creator Champions, we implement, customize, and optimize the entire Zoho ecosystem to transform your business operations.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="heroLight" size="lg">
+              <Button variant="heroDark" size="lg" className="min-w-[220px]">
                 Book Free Consultation
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button variant="heroSecondary" size="lg">
+              <Button variant="heroSecondary" size="lg" className="min-w-[220px]">
                 Talk to a Zoho Expert
               </Button>
             </div>
@@ -91,8 +96,8 @@ export default function ZohoSolutions() {
         </div>
       </section>
 
-      {/* Suites Grid - DARK SECTION */}
-      <section className="bg-dark-gradient section-padding relative overflow-hidden">
+      {/* Suites Grid - LIGHT SECTION */}
+      <section className="bg-light-gradient section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
         </div>

@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import heroExtensionDev from "@/assets/hero-extension-dev.jpg";
 import { 
   ArrowRight, 
   Package, 
@@ -81,22 +82,28 @@ const ZohoExtensionDevelopment = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-20">
-        {/* Hero Section - Dark */}
-        <section className="bg-dark-gradient section-padding relative overflow-hidden">
-          <div className="absolute inset-0 particles-bg opacity-30" />
-          <div className="container-custom relative z-10">
+        {/* Hero Section - Dark with Image */}
+        <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={heroExtensionDev} alt="Zoho Extension Development" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0B1C3D]/95 via-[#0B1C3D]/85 to-[#0B1C3D]/70" />
+          </div>
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+          </div>
+          <div className="container-custom relative z-10 py-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="max-w-4xl mx-auto text-center"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6">
                 Extension Development
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 Zoho <span className="text-gradient-primary">Extension Development</span>
               </h1>
-              <p className="text-xl text-muted-dark-foreground mb-8 max-w-3xl mx-auto">
+              <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
                 Extend Zoho beyond standard features with secure, scalable, and marketplace-ready extensions tailored to your enterprise needs.
               </p>
               <div className="flex flex-wrap justify-center gap-4">

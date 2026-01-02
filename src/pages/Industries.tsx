@@ -3,6 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Factory, Users, Building2, Sun, Truck, Heart, GraduationCap, Megaphone, ShoppingCart, Plane } from "lucide-react";
+import heroIndustries from "@/assets/hero-industries.jpg";
 
 const industries = [
   {
@@ -82,33 +83,37 @@ export default function Industries() {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero - LIGHT SECTION */}
-      <section className="bg-light-gradient pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/10 rounded-full blur-3xl" />
+      {/* Hero - DARK SECTION with Image */}
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroIndustries} alt="Industry Solutions" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1C3D]/95 via-[#0B1C3D]/85 to-[#0B1C3D]/70" />
         </div>
-        <div className="container-custom relative z-10">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6">
               Industry Solutions
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#111827] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Solutions Tailored to
               <span className="text-gradient-primary block">Your Industry</span>
             </h1>
-            <p className="text-[#374151] text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+            <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
               Deep domain expertise across diverse industries, delivering customized solutions that address your unique challenges.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Industries Grid - DARK SECTION */}
-      <section className="bg-dark-gradient section-padding relative overflow-hidden">
+      {/* Industries Grid - LIGHT SECTION */}
+      <section className="bg-light-gradient section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#4DA3FF]/5 rounded-full blur-3xl" />

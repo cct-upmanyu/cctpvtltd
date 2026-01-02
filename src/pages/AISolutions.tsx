@@ -3,6 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { AIAgentExamples } from "@/components/ai/AIAgentExamples";
+import heroAISolutions from "@/assets/hero-ai-solutions.jpg";
 import { 
   ArrowRight, 
   Brain, 
@@ -121,14 +122,17 @@ export default function AISolutions() {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero - DARK SECTION */}
-      <section className="bg-dark-gradient pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 particles-bg pointer-events-none" />
+      {/* Hero - DARK SECTION with Image */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroAISolutions} alt="AI Solutions" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1C3D]/95 via-[#0B1C3D]/85 to-[#0B1C3D]/70" />
+        </div>
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
         </div>
-        <div className="container-custom relative z-10">
+        <div className="container-custom relative z-10 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
