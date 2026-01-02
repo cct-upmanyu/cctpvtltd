@@ -36,7 +36,7 @@ const process = [
 
 export default function WebsiteDevelopment() {
   return (
-    <div className="min-h-screen bg-[#F5F7FB]">
+    <div className="min-h-screen bg-background">
       <Navbar />
       
       {/* Hero - LIGHT SECTION */}
@@ -69,7 +69,7 @@ export default function WebsiteDevelopment() {
       </section>
 
       {/* Transformation Visual - DARK SECTION */}
-      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
         </div>
@@ -152,7 +152,7 @@ export default function WebsiteDevelopment() {
       </section>
 
       {/* Process - DARK SECTION */}
-      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#4DA3FF]/5 rounded-full blur-3xl" />
         </div>
