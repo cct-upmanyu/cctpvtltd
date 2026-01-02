@@ -35,7 +35,7 @@ const contactInfo = [
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-[#F5F7FB]">
+    <div className="min-h-screen bg-background">
       <Navbar />
       
       {/* Hero - LIGHT SECTION */}

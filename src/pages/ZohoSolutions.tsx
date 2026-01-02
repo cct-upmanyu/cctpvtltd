@@ -92,7 +92,7 @@ export default function ZohoSolutions() {
       </section>
 
       {/* Suites Grid - DARK SECTION */}
-      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
         </div>

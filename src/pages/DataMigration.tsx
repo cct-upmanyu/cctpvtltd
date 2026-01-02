@@ -137,7 +137,7 @@ const realWorldScenarios = [
 
 export default function DataMigration() {
   return (
-    <div className="min-h-screen bg-[#F5F7FB]">
+    <div className="min-h-screen bg-background">
       <Navbar />
       
       {/* Hero Section - Full-width with tech image background */}
@@ -276,11 +276,11 @@ export default function DataMigration() {
         </div>
         
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F5F7FB] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* Features Strip - DARK SECTION */}
-      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
         </div>
@@ -386,7 +386,7 @@ export default function DataMigration() {
       </section>
 
       {/* Migration Expertise - DARK SECTION */}
-      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[#4DA3FF]/5 rounded-full blur-3xl" />
         </div>
@@ -527,7 +527,7 @@ export default function DataMigration() {
       </section>
 
       {/* Real-World Scenarios - DARK SECTION */}
-      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
         </div>
