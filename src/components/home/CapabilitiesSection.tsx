@@ -7,51 +7,83 @@ import {
   Cog, 
   Globe, 
   Database,
-  ArrowRight
+  ArrowRight,
+  Link2,
+  Puzzle,
+  Gauge,
+  Shield
 } from "lucide-react";
 
 const capabilities = [
   {
     icon: Layers,
     title: "Zoho Ecosystem Implementation",
-    description: "Complete Zoho One, CRM Plus, Finance Plus, and 50+ app implementations tailored to your business.",
+    description: "We architect and deploy end-to-end Zoho One, CRM Plus, and Finance Plus solutions, unifying 50+ applications into a cohesive operational ecosystem.",
     href: "/zoho-solutions",
     color: "primary",
   },
   {
     icon: Brain,
     title: "AI-Powered Business Automation",
-    description: "ChatGPT integrations, intelligent chatbots, and AI copilots that transform your operations.",
+    description: "We integrate ChatGPT, intelligent chatbots, and AI copilots into your workflows—automating decisions and accelerating enterprise-wide productivity.",
     href: "/ai-solutions",
     color: "secondary",
   },
   {
     icon: PieChart,
     title: "CRM & Revenue Systems",
-    description: "Zoho CRM, Salesforce, HubSpot, Pipedrive—custom implementations for sales growth.",
+    description: "We implement and optimize Zoho CRM, Salesforce, HubSpot, and Pipedrive to drive revenue growth with data-driven sales automation.",
     href: "/crm-solutions",
     color: "accent",
   },
   {
     icon: Cog,
     title: "Custom ERP Development",
-    description: "Modular ERP systems built on Zoho Creator with full customization capabilities.",
+    description: "We build modular, scalable ERP systems on Zoho Creator—tailored to your industry's unique operational requirements.",
     href: "/custom-erp",
     color: "primary",
   },
   {
     icon: Globe,
     title: "Website Development",
-    description: "CRM-connected, AI-enabled business websites that convert visitors to customers.",
+    description: "We develop CRM-connected, AI-enabled business websites engineered to convert visitors into qualified leads and customers.",
     href: "/website-development",
     color: "secondary",
   },
   {
     icon: Database,
     title: "Data Migration & Architecture",
-    description: "Seamless migration from legacy systems with zero data loss and AI enablement.",
+    description: "We execute seamless migrations from legacy systems with zero data loss, establishing AI-ready data architectures for future growth.",
     href: "/data-migration",
     color: "accent",
+  },
+  {
+    icon: Link2,
+    title: "Third-Party Integrations",
+    description: "We architect secure integrations connecting Zoho, CRM, and ERP systems with payment gateways, telephony, WhatsApp, and enterprise platforms.",
+    href: "/third-party-integrations",
+    color: "primary",
+  },
+  {
+    icon: Puzzle,
+    title: "Zoho Extension Development",
+    description: "We build custom Zoho Marketplace and private extensions to enhance native functionality and support advanced enterprise workflows.",
+    href: "/zoho-extension-development",
+    color: "secondary",
+  },
+  {
+    icon: Gauge,
+    title: "System Optimization & Scaling",
+    description: "We audit, optimize, and scale existing Zoho, CRM, and ERP deployments for peak performance, automation efficiency, and long-term growth.",
+    href: "/zoho-solutions#optimization",
+    color: "accent",
+  },
+  {
+    icon: Shield,
+    title: "Compliance, Security & Governance",
+    description: "We design role-based access, audit frameworks, and data protection policies aligned with enterprise and regional compliance standards.",
+    href: "/zoho-solutions#compliance",
+    color: "primary",
   },
 ];
 

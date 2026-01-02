@@ -10,6 +10,8 @@ import CRMSolutions from "./pages/CRMSolutions";
 import DataMigration from "./pages/DataMigration";
 import WebsiteDevelopment from "./pages/WebsiteDevelopment";
 import CustomERP from "./pages/CustomERP";
+import ThirdPartyIntegrations from "./pages/ThirdPartyIntegrations";
+import ZohoExtensionDevelopment from "./pages/ZohoExtensionDevelopment";
 import Industries from "./pages/Industries";
 import Company from "./pages/Company";
 import Contact from "./pages/Contact";
@@ -31,6 +33,8 @@ const App = () => (
           <Route path="/data-migration" element={<DataMigration />} />
           <Route path="/website-development" element={<WebsiteDevelopment />} />
           <Route path="/custom-erp" element={<CustomERP />} />
+          <Route path="/third-party-integrations" element={<ThirdPartyIntegrations />} />
+          <Route path="/zoho-extension-development" element={<ZohoExtensionDevelopment />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/company" element={<Company />} />
           <Route path="/contact" element={<Contact />} />
