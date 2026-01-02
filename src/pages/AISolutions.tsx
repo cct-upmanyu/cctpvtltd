@@ -122,10 +122,11 @@ export default function AISolutions() {
       <Navbar />
       
       {/* Hero - DARK SECTION */}
-      <section className="bg-dark-gradient particles-bg pt-32 pb-20 relative overflow-hidden">
+      <section className="bg-dark-gradient pt-32 pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 particles-bg pointer-events-none" />
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
+          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
         </div>
         <div className="container-custom relative z-10">
           <motion.div
@@ -133,17 +134,17 @@ export default function AISolutions() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/5 text-[#3FE0F0] text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6">
               AI Automation Experts
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFFFFF] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               AI That Actually Works—
               <span className="text-gradient-primary block">Inside Your Business Systems</span>
             </h1>
-            <p className="text-[#E5E7EB] text-lg md:text-xl mb-6 max-w-3xl mx-auto">
+            <p className="text-white/90 text-lg md:text-xl mb-6 max-w-3xl mx-auto">
               AI is not a feature. It's an operating layer.
             </p>
-            <p className="text-[#E5E7EB] text-base md:text-lg mb-8 max-w-3xl mx-auto">
+            <p className="text-white/80 text-base md:text-lg mb-8 max-w-3xl mx-auto">
               At ClubCode Technology, we design AI-native business systems where intelligence lives inside CRM, ERP, workflows, communication channels, and analytics — not as disconnected tools. We specialize in Agentic AI, AI automation, predictive intelligence, and decision-support systems.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
@@ -160,9 +161,10 @@ export default function AISolutions() {
       </section>
 
       {/* SECTION 1: Agentic AI - DARK SECTION */}
-      <section className="bg-dark-gradient particles-bg section-padding relative overflow-hidden">
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
+        <div className="absolute inset-0 particles-bg pointer-events-none" />
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
         </div>
         <div className="container-custom relative z-10">
           <motion.div
@@ -171,14 +173,14 @@ export default function AISolutions() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-[#8B5CF6]/30 bg-[#8B5CF6]/5 text-[#8B5CF6] text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium mb-4">
               Next-Generation AI
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#FFFFFF] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               Agentic AI — Autonomous AI
               <span className="text-gradient-primary block">That Works for Your Business</span>
             </h2>
-            <p className="text-[#E5E7EB] text-lg max-w-3xl mx-auto">
+            <p className="text-white/80 text-lg max-w-3xl mx-auto">
               Agentic AI goes beyond chatbots. It acts, decides, learns, and executes across systems. 
               Our AI agents monitor CRM & ERP data, take actions without human triggers, coordinate across apps, and escalate intelligently when required.
             </p>
@@ -191,8 +193,8 @@ export default function AISolutions() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto mb-16"
           >
-            <div className="bg-[#0B1C3D]/80 border border-[#3FE0F0]/20 rounded-2xl p-8">
-              <h3 className="text-[#FFFFFF] text-xl font-semibold text-center mb-8">Agentic AI Flow</h3>
+            <div className="bg-muted-dark/80 border border-primary/20 rounded-2xl p-8">
+              <h3 className="text-white text-xl font-semibold text-center mb-8">Agentic AI Flow</h3>
               <div className="flex flex-wrap justify-center items-center gap-4">
                 {[
                   { label: "AI Agent", icon: Brain, color: "#3FE0F0" },
@@ -217,7 +219,7 @@ export default function AISolutions() {
                         style={{ backgroundColor: `${step.color}20`, border: `1px solid ${step.color}40` }}
                       >
                         <Icon className="w-6 h-6 mb-1" style={{ color: step.color }} />
-                        <span className="text-[10px] text-[#E5E7EB] text-center">{step.label}</span>
+                        <span className="text-[10px] text-white/80 text-center">{step.label}</span>
                       </div>
                       {index < 5 && (
                         <ArrowRight className="w-5 h-5 text-[#3FE0F0]/50 hidden sm:block" />
@@ -245,10 +247,10 @@ export default function AISolutions() {
                   <div className="w-12 h-12 rounded-xl bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-[#8B5CF6]" />
                   </div>
-                  <h3 className="text-lg font-semibold text-[#FFFFFF] mb-3">{useCase.title}</h3>
+                  <h3 className="text-lg font-semibold text-white mb-3">{useCase.title}</h3>
                   <ul className="space-y-2">
                     {useCase.tasks.map((task) => (
-                      <li key={task} className="flex items-center gap-2 text-[#E5E7EB] text-sm">
+                      <li key={task} className="flex items-center gap-2 text-white/80 text-sm">
                         <CheckCircle className="w-4 h-4 text-[#3FE0F0]" />
                         {task}
                       </li>
@@ -344,9 +346,9 @@ export default function AISolutions() {
       </section>
 
       {/* SECTION 3: AI for Zoho - DARK SECTION */}
-      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         </div>
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -355,14 +357,14 @@ export default function AISolutions() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
                 Native Zoho AI
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 AI for Zoho
                 <span className="text-gradient-primary block">Zia Enhancement</span>
               </h2>
-              <p className="text-[#E5E7EB] text-lg mb-8">
+              <p className="text-white/80 text-lg mb-8">
                 Supercharge Zoho's native AI with custom configurations, advanced predictions, and intelligent automation tailored to your business processes.
               </p>
               
@@ -374,12 +376,12 @@ export default function AISolutions() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3 p-4 bg-[#0B1C3D]/80 rounded-xl border border-[#3FE0F0]/20"
+                    className="flex items-start gap-3 p-4 bg-muted-dark/80 rounded-xl border border-primary/20"
                   >
-                    <Sparkles className="w-5 h-5 text-[#3FE0F0] flex-shrink-0 mt-0.5" />
+                    <Sparkles className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="font-semibold text-[#FFFFFF]">{feature.title}</h4>
-                      <p className="text-sm text-[#E5E7EB]">{feature.description}</p>
+                      <h4 className="font-semibold text-white">{feature.title}</h4>
+                      <p className="text-sm text-white/80">{feature.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -429,11 +431,11 @@ export default function AISolutions() {
                       style={{ transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))` }}
                     >
                       <motion.div
-                        className="w-16 h-16 rounded-xl bg-[#0B1C3D]/80 border border-[#3FE0F0]/30 flex items-center justify-center shadow-lg"
+                        className="w-16 h-16 rounded-xl bg-muted-dark/80 border border-primary/30 flex items-center justify-center shadow-lg"
                         animate={{ y: [0, -5, 0] }}
                         transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
                       >
-                        <span className="text-xs font-medium text-[#FFFFFF] text-center">{app}</span>
+                        <span className="text-xs font-medium text-white text-center">{app}</span>
                       </motion.div>
                     </motion.div>
                   );
@@ -550,9 +552,10 @@ export default function AISolutions() {
       </section>
 
       {/* SECTION 5: AI Chatbots & Voice AI - DARK SECTION */}
-      <section className="bg-dark-gradient particles-bg section-padding relative overflow-hidden">
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
+        <div className="absolute inset-0 particles-bg pointer-events-none" />
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         </div>
         <div className="container-custom relative z-10">
           <motion.div
@@ -561,14 +564,14 @@ export default function AISolutions() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/5 text-[#3FE0F0] text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
               Omnichannel AI
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#FFFFFF] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               AI Chatbots &
               <span className="text-gradient-primary block">Voice AI Systems</span>
             </h2>
-            <p className="text-[#E5E7EB] text-lg max-w-3xl mx-auto">
+            <p className="text-white/80 text-lg max-w-3xl mx-auto">
               Deploy intelligent conversational AI across all customer touchpoints for 24/7 engagement with unified intelligence.
             </p>
           </motion.div>
@@ -581,25 +584,25 @@ export default function AISolutions() {
               viewport={{ once: true }}
               className="card-glass rounded-2xl p-8"
             >
-              <h3 className="text-2xl font-bold text-[#FFFFFF] mb-6">AI Chatbots</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">AI Chatbots</h3>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 {chatbotPlatforms.map((platform) => {
                   const Icon = platform.icon;
                   return (
                     <div
                       key={platform.name}
-                      className="flex items-center gap-3 p-4 bg-[#0B1C3D]/50 rounded-xl border border-[#3FE0F0]/20"
+                      className="flex items-center gap-3 p-4 bg-muted-dark/50 rounded-xl border border-primary/20"
                     >
-                      <Icon className="w-6 h-6 text-[#3FE0F0]" />
-                      <span className="text-[#FFFFFF] font-medium">{platform.name}</span>
+                      <Icon className="w-6 h-6 text-primary" />
+                      <span className="text-white font-medium">{platform.name}</span>
                     </div>
                   );
                 })}
               </div>
-              <ul className="space-y-2 text-[#E5E7EB]">
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#3FE0F0]" /> Multi-language support</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#3FE0F0]" /> CRM integration</li>
-                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-[#3FE0F0]" /> Human handoff</li>
+              <ul className="space-y-2 text-white/80">
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Multi-language support</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> CRM integration</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Human handoff</li>
               </ul>
             </motion.div>
 
@@ -610,7 +613,7 @@ export default function AISolutions() {
               viewport={{ once: true }}
               className="card-glass rounded-2xl p-8"
             >
-              <h3 className="text-2xl font-bold text-[#FFFFFF] mb-6">Voice AI</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Voice AI</h3>
               <div className="space-y-4">
                 {voiceAIFeatures.map((feature, index) => (
                   <motion.div
@@ -619,12 +622,12 @@ export default function AISolutions() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3 p-4 bg-[#0B1C3D]/50 rounded-xl border border-[#4DA3FF]/20"
+                    className="flex items-start gap-3 p-4 bg-muted-dark/50 rounded-xl border border-secondary/20"
                   >
-                    <Phone className="w-5 h-5 text-[#4DA3FF] flex-shrink-0 mt-0.5" />
+                    <Phone className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="font-semibold text-[#FFFFFF]">{feature.title}</h4>
-                      <p className="text-sm text-[#E5E7EB]">{feature.description}</p>
+                      <h4 className="font-semibold text-white">{feature.title}</h4>
+                      <p className="text-sm text-white/80">{feature.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -639,12 +642,12 @@ export default function AISolutions() {
             viewport={{ once: true }}
             className="mt-12 text-center"
           >
-            <div className="inline-flex items-center gap-4 px-6 py-3 bg-[#0B1C3D]/80 border border-[#3FE0F0]/20 rounded-full">
-              <span className="text-[#E5E7EB]">All channels →</span>
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#3FE0F0] to-[#4DA3FF] flex items-center justify-center">
-                <Brain className="w-5 h-5 text-[#111827]" />
+            <div className="inline-flex items-center gap-4 px-6 py-3 bg-muted-dark/80 border border-primary/20 rounded-full">
+              <span className="text-white/80">All channels →</span>
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                <Brain className="w-5 h-5 text-foreground" />
               </div>
-              <span className="text-[#E5E7EB]">→ Unified AI Intelligence</span>
+              <span className="text-white/80">→ Unified AI Intelligence</span>
             </div>
           </motion.div>
         </div>
