@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import heroExtensionDev from "@/assets/hero-extension-dev.jpg";
+import { ZohoExtensionsShowcase } from "@/components/extensions/ZohoExtensionsShowcase";
 import { 
   ArrowRight, 
   Package, 
@@ -123,7 +124,7 @@ const ZohoExtensionDevelopment = () => {
           </div>
         </section>
 
-        {/* Extension Types - Light */}
+        {/* Extension Types - LIGHT SECTION */}
         <section className="bg-light-gradient section-padding">
           <div className="container-custom">
             <motion.div
@@ -132,7 +133,7 @@ const ZohoExtensionDevelopment = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                 Extension Services
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
@@ -153,7 +154,7 @@ const ZohoExtensionDevelopment = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="group bg-white rounded-2xl p-8 border border-gray-200 hover:border-[#3FE0F0]/30 hover-lift transition-all"
+                    className="group bg-white rounded-2xl p-8 border border-gray-200 hover:border-primary/30 hover-lift transition-all"
                   >
                     <div className="w-14 h-14 rounded-xl mb-6 flex items-center justify-center bg-[#4DA3FF]/10 group-hover:bg-[#4DA3FF]/20 transition-colors">
                       <Icon className="w-7 h-7 text-[#4DA3FF]" />
@@ -179,9 +180,12 @@ const ZohoExtensionDevelopment = () => {
           </div>
         </section>
 
-        {/* Development Process - Dark */}
-        <section className="bg-dark-gradient section-padding">
-          <div className="container-custom">
+        {/* Development Process - DARK SECTION */}
+        <section className="bg-dark-gradient section-padding relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          </div>
+          <div className="container-custom relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -191,7 +195,7 @@ const ZohoExtensionDevelopment = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Our Development Process
               </h2>
-              <p className="text-muted-dark-foreground text-lg max-w-2xl mx-auto">
+              <p className="text-white/70 text-lg max-w-2xl mx-auto">
                 A proven methodology for delivering extensions that meet Zoho standards and your business requirements.
               </p>
             </motion.div>
@@ -204,30 +208,36 @@ const ZohoExtensionDevelopment = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="relative p-6 rounded-xl bg-white/5 border border-white/10"
+                  className="relative p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
                 >
                   <span className="text-5xl font-bold text-primary/20 absolute top-4 right-4">{item.step}</span>
                   <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-                  <p className="text-muted-dark-foreground">{item.description}</p>
+                  <p className="text-white/70">{item.description}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Benefits Section - Light */}
-        <section className="bg-light-gradient section-padding">
-          <div className="container-custom">
+        {/* Extensions Showcase from Club Code Technology - LIGHT SECTION */}
+        <ZohoExtensionsShowcase />
+
+        {/* Benefits Section - DARK SECTION */}
+        <section className="bg-dark-gradient section-padding relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          </div>
+          <div className="container-custom relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Why Build Extensions With Us?
               </h2>
-              <p className="text-[#374151] text-lg max-w-2xl mx-auto">
+              <p className="text-white/70 text-lg max-w-2xl mx-auto">
                 Certified Zoho developers with deep expertise in extension architecture and marketplace success.
               </p>
             </motion.div>
@@ -242,13 +252,13 @@ const ZohoExtensionDevelopment = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="text-center bg-white rounded-2xl p-8 border border-gray-200"
+                    className="text-center bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
                   >
-                    <div className="w-16 h-16 rounded-2xl bg-[#8B5CF6]/10 flex items-center justify-center mx-auto mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-[#8B5CF6]/20 flex items-center justify-center mx-auto mb-6">
                       <Icon className="w-8 h-8 text-[#8B5CF6]" />
                     </div>
-                    <h3 className="text-xl font-semibold text-[#111827] mb-3">{benefit.title}</h3>
-                    <p className="text-[#374151]">{benefit.description}</p>
+                    <h3 className="text-xl font-semibold text-white mb-3">{benefit.title}</h3>
+                    <p className="text-white/70">{benefit.description}</p>
                   </motion.div>
                 );
               })}
@@ -256,8 +266,8 @@ const ZohoExtensionDevelopment = () => {
           </div>
         </section>
 
-        {/* CTA Section - Dark */}
-        <section className="bg-dark-gradient section-padding">
+        {/* CTA Section - LIGHT SECTION */}
+        <section className="bg-light-gradient section-padding">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -265,18 +275,25 @@ const ZohoExtensionDevelopment = () => {
               viewport={{ once: true }}
               className="max-w-3xl mx-auto text-center"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
                 Ready to Extend Your Zoho Capabilities?
               </h2>
-              <p className="text-muted-dark-foreground text-lg mb-8">
+              <p className="text-[#374151] text-lg mb-8">
                 Let's discuss how custom extensions can transform your Zoho experience.
               </p>
-              <Button asChild variant="heroDark" size="lg" className="min-w-[220px]">
-                <Link to="/contact">
-                  Schedule Extension Consultation
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button asChild variant="heroPrimary" size="lg" className="min-w-[220px]">
+                  <Link to="/contact">
+                    Schedule Extension Consultation
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </Button>
+                <Button asChild variant="heroLight" size="lg" className="min-w-[220px]">
+                  <Link to="/contact">
+                    Talk to a Zoho Expert
+                  </Link>
+                </Button>
+              </div>
             </motion.div>
           </div>
         </section>

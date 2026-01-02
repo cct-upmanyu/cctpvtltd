@@ -3,7 +3,9 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Package, Users, Wallet, Truck, BarChart3, Brain, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroCustomERP from "@/assets/hero-custom-erp.jpg";
+import { PortfolioShowcase } from "@/components/portfolio/PortfolioShowcase";
 
 const modules = [
   { icon: Package, name: "Sales & Orders", description: "End-to-end sales process management" },
@@ -21,6 +23,30 @@ const benefits = [
   "AI-powered insights and automation",
   "Mobile-ready for field teams",
   "Full ownership and control",
+];
+
+const portfolioItems = [
+  {
+    title: "Manufacturing ERP System",
+    category: "Manufacturing",
+    description: "Complete production planning, inventory management, and quality control system for a manufacturing plant.",
+    image: "🏭",
+    tags: ["Zoho Creator", "Inventory", "QC Module"],
+  },
+  {
+    title: "Retail Chain Management",
+    category: "Retail",
+    description: "Multi-location retail management with POS integration, stock transfers, and unified reporting.",
+    image: "🏪",
+    tags: ["POS Integration", "Multi-branch", "Analytics"],
+  },
+  {
+    title: "Logistics & Fleet ERP",
+    category: "Logistics",
+    description: "Fleet management, route optimization, and delivery tracking with real-time driver updates.",
+    image: "🚚",
+    tags: ["GPS Tracking", "Route Planning", "Mobile App"],
+  },
 ];
 
 export default function CustomERP() {
@@ -88,10 +114,10 @@ export default function CustomERP() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group p-6 bg-white rounded-2xl border border-gray-200 hover:border-[#3FE0F0]/30 hover-lift transition-all"
+                  className="group p-6 bg-white rounded-2xl border border-gray-200 hover:border-primary/30 hover-lift transition-all"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center mb-4 group-hover:bg-[#3FE0F0] group-hover:scale-110 transition-all">
-                    <Icon className="w-7 h-7 text-[#3FE0F0] group-hover:text-[#111827] transition-colors" />
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all">
+                    <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
                   </div>
                   <h3 className="text-xl font-semibold text-[#111827] mb-2">{module.name}</h3>
                   <p className="text-[#374151]">{module.description}</p>
@@ -102,19 +128,22 @@ export default function CustomERP() {
         </div>
       </section>
 
-      {/* Why Custom ERP - LIGHT SECTION */}
-      <section className="bg-white section-padding">
-        <div className="container-custom">
+      {/* Why Custom ERP - DARK SECTION */}
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Why Custom ERP?
               </h2>
-              <p className="text-[#374151] text-lg mb-6">
+              <p className="text-white/80 text-lg mb-6">
                 Off-the-shelf ERPs force you to adapt your processes. Our custom solutions adapt to you.
               </p>
               <div className="space-y-3">
@@ -127,8 +156,8 @@ export default function CustomERP() {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <CheckCircle className="w-5 h-5 text-[#3FE0F0] flex-shrink-0" />
-                    <span className="text-[#111827]">{benefit}</span>
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-white">{benefit}</span>
                   </motion.div>
                 ))}
               </div>
@@ -150,10 +179,10 @@ export default function CustomERP() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.2 + index * 0.1 }}
-                      className="p-4 bg-[#F5F7FB] rounded-xl border border-gray-200 flex items-center gap-3"
+                      className="p-4 bg-white/5 rounded-xl border border-white/10 flex items-center gap-3 backdrop-blur-sm"
                     >
-                      <Icon className="w-5 h-5 text-[#3FE0F0] flex-shrink-0" />
-                      <span className="text-sm font-medium text-[#111827]">{module.name}</span>
+                      <Icon className="w-5 h-5 text-primary flex-shrink-0" />
+                      <span className="text-sm font-medium text-white">{module.name}</span>
                     </motion.div>
                   );
                 })}
@@ -163,12 +192,20 @@ export default function CustomERP() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.8 }}
-                className="absolute -inset-4 border-2 border-dashed border-[#3FE0F0]/20 rounded-3xl -z-10"
+                className="absolute -inset-4 border-2 border-dashed border-primary/20 rounded-3xl -z-10"
               />
             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* Portfolio Section - LIGHT SECTION */}
+      <PortfolioShowcase
+        title="ERP Projects We've Delivered"
+        subtitle="Custom ERP solutions that transformed business operations"
+        items={portfolioItems}
+        showViewAll={true}
+      />
 
       {/* CTA - DARK SECTION */}
       <section className="bg-dark-gradient section-padding">
@@ -179,16 +216,25 @@ export default function CustomERP() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to Build Your Custom ERP?
             </h2>
-            <p className="text-[#E5E7EB] text-lg mb-8">
+            <p className="text-white/80 text-lg mb-8">
               Let's discuss your business processes and design the perfect ERP solution.
             </p>
-            <Button variant="heroDark" size="xl">
-              Schedule ERP Consultation
-              <ArrowRight className="w-5 h-5" />
-            </Button>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild variant="heroDark" size="xl">
+                <Link to="/contact">
+                  Schedule ERP Consultation
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </Button>
+              <Button asChild variant="heroSecondary" size="xl">
+                <Link to="/contact">
+                  Talk to a Zoho Expert
+                </Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
