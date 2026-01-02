@@ -3,6 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Globe, Zap, Database, Bot, Smartphone, TrendingUp, CheckCircle } from "lucide-react";
+import heroWebsiteDev from "@/assets/hero-website-dev.jpg";
 
 const services = [
   {
@@ -39,28 +40,32 @@ export default function WebsiteDevelopment() {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero - LIGHT SECTION */}
-      <section className="bg-light-gradient pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/10 rounded-full blur-3xl" />
+      {/* Hero - DARK SECTION with Image */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroWebsiteDev} alt="Website Development" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1C3D]/95 via-[#0B1C3D]/85 to-[#0B1C3D]/70" />
         </div>
-        <div className="container-custom relative z-10">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6">
               Website Development
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#111827] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               CRM-Connected,
               <span className="text-gradient-primary block">AI-Enabled Websites</span>
             </h1>
-            <p className="text-[#374151] text-lg md:text-xl mb-8 max-w-2xl">
+            <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl">
               More than just beautiful websites—we build digital experiences that connect to your CRM, leverage AI, and drive real business results.
             </p>
-            <Button variant="heroLight" size="lg">
+            <Button variant="heroDark" size="lg" className="min-w-[220px]">
               Start Your Project
               <ArrowRight className="w-5 h-5" />
             </Button>
@@ -68,8 +73,8 @@ export default function WebsiteDevelopment() {
         </div>
       </section>
 
-      {/* Transformation Visual - DARK SECTION */}
-      <section className="bg-dark-gradient section-padding relative overflow-hidden">
+      {/* Services - LIGHT SECTION */}
+      <section className="bg-light-gradient section-padding">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
         </div>

@@ -3,6 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Package, Users, Wallet, Truck, BarChart3, Brain, CheckCircle } from "lucide-react";
+import heroCustomERP from "@/assets/hero-custom-erp.jpg";
 
 const modules = [
   { icon: Package, name: "Sales & Orders", description: "End-to-end sales process management" },
@@ -27,25 +28,32 @@ export default function CustomERP() {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero - DARK SECTION */}
-      <section className="bg-dark-gradient particles-bg pt-32 pb-20 relative overflow-hidden">
-        <div className="container-custom relative z-10">
+      {/* Hero - DARK SECTION with Image */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroCustomERP} alt="Custom ERP" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1C3D]/95 via-[#0B1C3D]/85 to-[#0B1C3D]/70" />
+        </div>
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/5 text-[#3FE0F0] text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6">
               Custom ERP Development
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFFFFF] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Custom ERP Systems
               <span className="text-gradient-primary block">Built for Your Business</span>
             </h1>
-            <p className="text-[#E5E7EB] text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+            <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
               Modular, scalable ERP solutions built on Zoho Creator that perfectly match your unique business processes.
             </p>
-            <Button variant="heroDark" size="lg">
+            <Button variant="heroDark" size="lg" className="min-w-[220px]">
               Discuss Your ERP Needs
               <ArrowRight className="w-5 h-5" />
             </Button>
