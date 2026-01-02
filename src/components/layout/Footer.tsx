@@ -11,6 +11,9 @@ const footerLinks = {
     { label: "Data Migration", href: "/data-migration" },
     { label: "Website Development", href: "/website-development" },
     { label: "Custom ERP", href: "/custom-erp" },
+    { label: "Third-Party Integrations", href: "/third-party-integrations" },
+    { label: "Zoho Extension Development", href: "/zoho-extension-development" },
+    { label: "Industry Solutions", href: "/industries" },
   ],
   industries: [
     { label: "Manufacturing", href: "/industries#manufacturing" },
