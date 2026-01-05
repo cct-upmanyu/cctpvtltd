@@ -365,7 +365,7 @@ export function ZohoEcosystemSection() {
               >
                 {/* Pulsing glow */}
                 <motion.div
-                  className="absolute w-28 h-28 md:w-32 md:h-32 rounded-full"
+                  className="absolute w-32 h-32 md:w-40 md:h-40 rounded-full"
                   style={{
                     background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)'
                   }}
@@ -380,32 +380,37 @@ export function ZohoEcosystemSection() {
                   }}
                 />
                 
-                {/* Hub card */}
-                <div className="relative bg-white rounded-xl shadow-lg p-4 md:p-5 flex flex-col items-center border border-gray-100">
-                  {/* 3D Cube */}
-                  <div className="w-12 h-12 md:w-14 md:h-14 mb-2">
-                    <svg viewBox="0 0 48 48" className="w-full h-full">
-                      <path d="M24 4L44 14V34L24 44L4 34V14L24 4Z" fill="#E8F4FC" stroke="#3B82F6" strokeWidth="0.5"/>
-                      <path d="M4 14L24 24V44L4 34V14Z" fill="#3B82F6"/>
-                      <path d="M44 14L24 24V44L44 34V14Z" fill="#60A5FA"/>
-                      <path d="M4 14L24 4L44 14L24 24L4 14Z" fill="#93C5FD"/>
-                      <circle cx="12" cy="20" r="2" fill="#E42527"/>
-                      <circle cx="36" cy="20" r="2" fill="#4CAF50"/>
-                      <circle cx="24" cy="10" r="2" fill="#F7981D"/>
+                {/* Hub card - Zoho One Logo matching official branding */}
+                <div className="relative bg-white rounded-xl shadow-lg p-5 md:p-6 flex flex-col items-center border border-gray-100">
+                  {/* Official Zoho One 3D Cube Logo */}
+                  <div className="w-14 h-14 md:w-16 md:h-16 mb-3">
+                    <svg viewBox="0 0 60 60" className="w-full h-full">
+                      {/* 3D Cube - Blue tones matching Zoho One branding */}
+                      {/* Top face - lightest blue */}
+                      <polygon points="30,8 50,18 30,28 10,18" fill="#60A5FA"/>
+                      {/* Left face - medium blue */}
+                      <polygon points="10,18 30,28 30,48 10,38" fill="#3B82F6"/>
+                      {/* Right face - darker blue */}
+                      <polygon points="50,18 30,28 30,48 50,38" fill="#2563EB"/>
+                      {/* Colored dots on the cube faces */}
+                      <circle cx="20" cy="24" r="3" fill="#E42527"/>
+                      <circle cx="30" cy="16" r="3" fill="#F7981D"/>
+                      <circle cx="40" cy="24" r="3" fill="#4CAF50"/>
+                      <circle cx="30" cy="38" r="2.5" fill="#00A1E0"/>
                     </svg>
                   </div>
                   
-                  {/* Zoho One text */}
-                  <div className="flex items-center">
-                    <span className="text-lg md:text-xl font-bold">
+                  {/* Zoho One text - matching official style */}
+                  <div className="flex items-baseline gap-0.5">
+                    <span className="text-xl md:text-2xl font-bold tracking-tight">
                       <span style={{ color: '#E42527' }}>Z</span>
                       <span style={{ color: '#F7981D' }}>o</span>
                       <span style={{ color: '#4CAF50' }}>h</span>
                       <span style={{ color: '#00A1E0' }}>o</span>
                     </span>
-                    <span className="text-lg md:text-xl font-bold text-gray-800 ml-1">One</span>
+                    <span className="text-xl md:text-2xl font-bold text-gray-800">One</span>
                   </div>
-                  <span className="text-[10px] md:text-xs text-gray-500">Unified Business OS</span>
+                  <span className="text-xs text-gray-500 mt-1">Unified Business OS</span>
                 </div>
               </motion.div>
             </div>
