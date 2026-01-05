@@ -124,7 +124,7 @@ export function TrustSection() {
           })}
         </div>
 
-        {/* Partner logos placeholder */}
+        {/* Partner logos */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -136,15 +136,37 @@ export function TrustSection() {
           <p className="text-center text-[#374151] text-sm mb-8">
             Technology Partners & Certifications
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
-            {["Zoho", "Google Cloud", "AWS", "Microsoft", "Salesforce"].map((partner) => (
-              <div
-                key={partner}
-                className="text-[#111827] font-semibold text-lg hover:text-[#3FE0F0] transition-colors"
-              >
-                {partner}
-              </div>
-            ))}
+          <div className="flex flex-wrap justify-center items-center gap-10 lg:gap-16">
+            <motion.img
+              src="https://www.zoho.com/sites/zweb/images/zoho-logo.svg"
+              alt="Zoho Partner"
+              className="h-8 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+              whileHover={{ scale: 1.1 }}
+            />
+            <motion.img
+              src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg"
+              alt="Google Cloud Partner"
+              className="h-7 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+              whileHover={{ scale: 1.1 }}
+            />
+            <motion.img
+              src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
+              alt="AWS Partner"
+              className="h-7 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+              whileHover={{ scale: 1.1 }}
+            />
+            <motion.img
+              src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+              alt="Microsoft Partner"
+              className="h-7 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+              whileHover={{ scale: 1.1 }}
+            />
+            <motion.img
+              src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"
+              alt="Salesforce Partner"
+              className="h-8 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+              whileHover={{ scale: 1.1 }}
+            />
           </div>
         </motion.div>
       </div>
