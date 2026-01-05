@@ -15,16 +15,16 @@ import {
 } from "lucide-react";
 
 const industries = [
-  { icon: Factory, name: "Manufacturing", slug: "manufacturing" },
-  { icon: Users, name: "Recruitment", slug: "recruitment" },
-  { icon: Building2, name: "Real Estate", slug: "real-estate" },
-  { icon: Sun, name: "Solar", slug: "solar" },
-  { icon: Truck, name: "Logistics", slug: "logistics" },
-  { icon: Heart, name: "Healthcare", slug: "healthcare" },
-  { icon: GraduationCap, name: "Education", slug: "education" },
-  { icon: Megaphone, name: "PR & Marketing", slug: "pr-marketing" },
-  { icon: ShoppingCart, name: "Retail", slug: "retail" },
-  { icon: Plane, name: "Aviation", slug: "aviation" },
+  { icon: Factory, name: "Manufacturing", slug: "manufacturing", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop" },
+  { icon: Users, name: "Recruitment", slug: "recruitment", image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop" },
+  { icon: Building2, name: "Real Estate", slug: "real-estate", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop" },
+  { icon: Sun, name: "Solar", slug: "solar", image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop" },
+  { icon: Truck, name: "Logistics", slug: "logistics", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop" },
+  { icon: Heart, name: "Healthcare", slug: "healthcare", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop" },
+  { icon: GraduationCap, name: "Education", slug: "education", image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=300&fit=crop" },
+  { icon: Megaphone, name: "PR & Marketing", slug: "pr-marketing", image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop" },
+  { icon: ShoppingCart, name: "Retail", slug: "retail", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop" },
+  { icon: Plane, name: "Aviation", slug: "aviation", image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop" },
 ];
 
 export function IndustriesSection() {
@@ -70,15 +70,28 @@ export function IndustriesSection() {
               >
                 <Link
                   to={`/industries#${industry.slug}`}
-                  className="group flex flex-col items-center p-6 bg-[#0F2A5F] rounded-2xl border border-[#3FE0F0]/10 hover:border-[#3FE0F0]/30 hover-lift transition-all text-center"
+                  className="group relative flex flex-col items-center overflow-hidden rounded-2xl border border-[#3FE0F0]/10 hover:border-[#3FE0F0]/40 hover-lift transition-all"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center mb-4 group-hover:bg-[#3FE0F0] group-hover:scale-110 transition-all">
-                    <Icon className="w-7 h-7 text-[#3FE0F0] group-hover:text-[#0B1C3D] transition-colors" />
+                  {/* Background Image */}
+                  <div className="relative w-full h-32 overflow-hidden">
+                    <img 
+                      src={industry.image} 
+                      alt={industry.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C3D] via-[#0B1C3D]/60 to-transparent" />
                   </div>
-                  {/* DARK SECTION: Text must be #FFFFFF */}
-                  <span className="text-sm font-medium text-[#FFFFFF] group-hover:text-[#3FE0F0] transition-colors">
-                    {industry.name}
-                  </span>
+                  
+                  {/* Content overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
+                    <div className="w-12 h-12 mx-auto rounded-xl bg-[#3FE0F0]/20 backdrop-blur-sm flex items-center justify-center mb-2 group-hover:bg-[#3FE0F0] group-hover:scale-110 transition-all border border-[#3FE0F0]/30">
+                      <Icon className="w-6 h-6 text-[#3FE0F0] group-hover:text-[#0B1C3D] transition-colors" />
+                    </div>
+                    {/* DARK SECTION: Text must be #FFFFFF */}
+                    <span className="text-sm font-medium text-[#FFFFFF] group-hover:text-[#3FE0F0] transition-colors">
+                      {industry.name}
+                    </span>
+                  </div>
                 </Link>
               </motion.div>
             );

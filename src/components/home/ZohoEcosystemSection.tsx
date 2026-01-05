@@ -84,104 +84,122 @@ export function ZohoEcosystemSection() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative aspect-square max-w-md mx-auto">
-              {/* Center - Zoho One */}
-              <motion.div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
-                animate={{ 
-                  boxShadow: [
-                    "0 0 40px -10px rgba(63, 224, 240, 0.3)",
-                    "0 0 60px -10px rgba(63, 224, 240, 0.5)",
-                    "0 0 40px -10px rgba(63, 224, 240, 0.3)"
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#3FE0F0] to-[#4DA3FF] flex items-center justify-center">
-                  <div className="text-center">
-                    <span className="text-[#0B1C3D] font-bold text-xl block">Zoho</span>
-                    <span className="text-[#0B1C3D]/80 text-sm">One</span>
-                  </div>
-                </div>
-              </motion.div>
+            <div className="relative flex flex-col items-center">
+              {/* Zoho One Central Hub with orbiting rings */}
+              <div className="relative w-72 h-72 md:w-80 md:h-80">
+                {/* Outer rotating ring */}
+                <motion.div
+                  className="absolute inset-0 rounded-full border-2 border-dashed border-[#3FE0F0]/30"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                />
+                
+                {/* Middle ring */}
+                <motion.div
+                  className="absolute inset-6 rounded-full border border-[#4DA3FF]/30"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                />
+                
+                {/* Inner ring */}
+                <div className="absolute inset-12 rounded-full border border-[#3FE0F0]/20" />
 
-              {/* Orbiting suites */}
-              {zohoSuites.map((suite, index) => {
-                const angle = (index * 60) * (Math.PI / 180);
-                const radius = 130;
-                const x = Math.cos(angle) * radius;
-                const y = Math.sin(angle) * radius;
-
-                return (
+                {/* Orbiting dots */}
+                {[0, 60, 120, 180, 240, 300].map((angle, i) => (
                   <motion.div
-                    key={suite.name}
-                    className="absolute left-1/2 top-1/2"
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + index * 0.1 }}
-                    style={{ transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))` }}
+                    key={i}
+                    className="absolute w-3 h-3 rounded-full bg-[#3FE0F0]"
+                    style={{
+                      top: "50%",
+                      left: "50%",
+                      transformOrigin: "0 0",
+                    }}
+                    animate={{
+                      rotate: [angle, angle + 360],
+                    }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   >
-                    <motion.div
-                      className="w-20 h-20 rounded-xl bg-[#0F2A5F] border border-[#3FE0F0]/20 flex items-center justify-center shadow-lg"
-                      animate={{ y: [0, -5, 0] }}
-                      transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      {/* DARK SECTION: Text must be #FFFFFF */}
-                      <span className="text-xs font-medium text-[#FFFFFF] text-center px-2">
-                        {suite.name}
-                      </span>
-                    </motion.div>
-                  </motion.div>
-                );
-              })}
-
-              {/* Connection lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                {zohoSuites.map((_, index) => {
-                  const angle = (index * 60) * (Math.PI / 180);
-                  const radius = 130;
-                  const x = 50 + (Math.cos(angle) * radius) / 4;
-                  const y = 50 + (Math.sin(angle) * radius) / 4;
-                  
-                  return (
-                    <motion.line
-                      key={index}
-                      x1="50%"
-                      y1="50%"
-                      x2={`${x}%`}
-                      y2={`${y}%`}
-                      stroke="#3FE0F0"
-                      strokeWidth="1"
-                      strokeDasharray="4 4"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      whileInView={{ pathLength: 1, opacity: 0.3 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
+                    <div 
+                      className="w-3 h-3 rounded-full bg-[#3FE0F0] shadow-lg shadow-[#3FE0F0]/50"
+                      style={{ transform: `translateX(${120 + i * 5}px) translateY(-6px)` }}
                     />
+                  </motion.div>
+                ))}
+
+                {/* Center - Zoho One */}
+                <motion.div
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+                  animate={{ 
+                    boxShadow: [
+                      "0 0 40px -10px rgba(63, 224, 240, 0.4)",
+                      "0 0 80px -10px rgba(63, 224, 240, 0.6)",
+                      "0 0 40px -10px rgba(63, 224, 240, 0.4)"
+                    ]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <div className="w-36 h-36 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-[#3FE0F0] via-[#4DA3FF] to-[#3FE0F0] p-1 flex items-center justify-center">
+                    <div className="w-full h-full rounded-full bg-[#0B1C3D] flex items-center justify-center">
+                      <div className="text-center">
+                        <span className="text-[#FFFFFF] font-bold text-2xl block">Zoho</span>
+                        <span className="text-[#3FE0F0] text-lg font-medium">One</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Suite icons positioned around the circle */}
+                {zohoSuites.map((suite, index) => {
+                  const angle = (index * 60 - 90) * (Math.PI / 180);
+                  const radius = 110;
+                  const x = Math.cos(angle) * radius;
+                  const y = Math.sin(angle) * radius;
+
+                  return (
+                    <motion.div
+                      key={suite.name}
+                      className="absolute left-1/2 top-1/2"
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + index * 0.1 }}
+                      style={{ transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))` }}
+                    >
+                      <motion.div
+                        className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0F2A5F] to-[#1A365D] border border-[#3FE0F0]/30 flex items-center justify-center shadow-lg cursor-pointer"
+                        animate={{ y: [0, -3, 0] }}
+                        transition={{ duration: 2 + index * 0.3, repeat: Infinity }}
+                        whileHover={{ scale: 1.2, borderColor: "rgba(63, 224, 240, 0.8)" }}
+                      >
+                        <CheckCircle className="w-5 h-5 text-[#3FE0F0]" />
+                      </motion.div>
+                    </motion.div>
                   );
                 })}
-              </svg>
-            </div>
+              </div>
 
-            {/* App tags */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.8 }}
-              className="mt-8 flex flex-wrap justify-center gap-2"
-            >
-              {zohoApps.map((app) => (
-                <span
-                  key={app}
-                  className="px-3 py-1.5 bg-[#0F2A5F] border border-[#3FE0F0]/20 rounded-full text-xs text-[#E5E7EB] hover:border-[#3FE0F0]/50 hover:text-[#FFFFFF] transition-colors cursor-pointer"
-                >
-                  {app}
-                </span>
-              ))}
-            </motion.div>
+              {/* App tags */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8 }}
+                className="mt-8 flex flex-wrap justify-center gap-2 max-w-md"
+              >
+                {zohoApps.map((app, index) => (
+                  <motion.span
+                    key={app}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.9 + index * 0.03 }}
+                    className="px-3 py-1.5 bg-[#0F2A5F] border border-[#3FE0F0]/20 rounded-full text-xs text-[#E5E7EB] hover:border-[#3FE0F0]/50 hover:text-[#FFFFFF] hover:bg-[#3FE0F0]/10 transition-all cursor-pointer"
+                  >
+                    {app}
+                  </motion.span>
+                ))}
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
