@@ -81,7 +81,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-[90vh] overflow-hidden pt-20">
+    <section className="relative overflow-hidden pt-20 pb-8">
       {/* Animated Background */}
       <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.div
@@ -290,8 +290,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom gradient fade - reduced height */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#FFFFFF] to-transparent" />
     </section>
   );
 }
