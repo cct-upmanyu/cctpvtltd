@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { 
@@ -204,21 +204,47 @@ const faqs = [
 ];
 
 export default function ZohoOnePremiumPartner() {
-  return (
-    <>
-      <Helmet>
-        <title>Zoho One Premium Partner | Complete Business OS Implementation | ClubCode Technology</title>
-        <meta name="description" content="Certified Zoho One Premium Partner offering complete implementation, customization, and support. 50+ integrated apps, 75,000+ businesses worldwide. Get free consultation today." />
-        <meta name="keywords" content="Zoho One, Zoho Premium Partner, Zoho One implementation, Zoho CRM, Zoho One pricing, business operating system, Zoho consultant, Zoho partner" />
-        <meta property="og:title" content="Zoho One Premium Partner | Complete Business OS Implementation" />
-        <meta property="og:description" content="Transform your business with Zoho One - 50+ integrated apps on one platform. Expert implementation from certified Zoho Premium Partner." />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.clubcodetechnology.com/zoho-one-premium-partner" />
-        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
-      </Helmet>
+  useEffect(() => {
+    // Set document title
+    document.title = "Zoho One Premium Partner | Complete Business OS Implementation | ClubCode Technology";
+    
+    // Set meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 'Certified Zoho One Premium Partner offering complete implementation, customization, and support. 50+ integrated apps, 75,000+ businesses worldwide. Get free consultation today.');
+    
+    // Set canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://www.clubcodetechnology.com/zoho-one-premium-partner');
+    
+    // Add JSON-LD structured data
+    let script = document.querySelector('#structured-data');
+    if (!script) {
+      script = document.createElement('script');
+      script.id = 'structured-data';
+      script.setAttribute('type', 'application/ld+json');
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(structuredData);
+    
+    return () => {
+      // Cleanup on unmount
+      document.title = "ClubCode Technology";
+    };
+  }, []);
 
-      <div className="min-h-screen bg-background">
-        <Navbar />
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
         
         <main>
           {/* Hero Section */}
@@ -699,6 +725,5 @@ export default function ZohoOnePremiumPartner() {
         
         <Footer />
       </div>
-    </>
   );
 }
