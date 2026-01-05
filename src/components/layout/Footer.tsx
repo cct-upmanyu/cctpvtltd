@@ -29,6 +29,15 @@ const footerLinks = {
     { label: "Careers", href: "/company#careers" },
     { label: "Contact", href: "/contact" },
   ],
+  globalPresence: [
+    { label: "UK", href: "/zoho-partner-uk" },
+    { label: "UAE", href: "/zoho-partner-uae" },
+    { label: "Australia", href: "/zoho-partner-australia" },
+    { label: "Canada", href: "/zoho-partner-canada" },
+    { label: "USA", href: "/zoho-partner-usa" },
+    { label: "India", href: "/zoho-partner-india" },
+    { label: "Europe", href: "/zoho-partner-europe" },
+  ],
 };
 
 export function Footer() {
@@ -125,19 +134,34 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            {/* Social Links */}
-            <div className="flex gap-4 mt-6">
-              <a href="#" className="w-10 h-10 rounded-lg bg-muted-dark flex items-center justify-center text-muted-dark-foreground hover:bg-primary hover:text-primary-foreground transition-all">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-muted-dark flex items-center justify-center text-muted-dark-foreground hover:bg-primary hover:text-primary-foreground transition-all">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-muted-dark flex items-center justify-center text-muted-dark-foreground hover:bg-primary hover:text-primary-foreground transition-all">
-                <Youtube className="w-5 h-5" />
-              </a>
-            </div>
           </div>
+
+          {/* Global Presence */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Zoho Partner by Country</h4>
+            <ul className="space-y-3">
+              {footerLinks.globalPresence.map((link) => (
+                <li key={link.label}>
+                  <Link to={link.href} className="text-muted-dark-foreground hover:text-primary transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Social Links - Moved to separate row */}
+        <div className="flex justify-center gap-4 mb-8">
+          <a href="#" className="w-10 h-10 rounded-lg bg-muted-dark flex items-center justify-center text-muted-dark-foreground hover:bg-primary hover:text-primary-foreground transition-all">
+            <Linkedin className="w-5 h-5" />
+          </a>
+          <a href="#" className="w-10 h-10 rounded-lg bg-muted-dark flex items-center justify-center text-muted-dark-foreground hover:bg-primary hover:text-primary-foreground transition-all">
+            <Twitter className="w-5 h-5" />
+          </a>
+          <a href="#" className="w-10 h-10 rounded-lg bg-muted-dark flex items-center justify-center text-muted-dark-foreground hover:bg-primary hover:text-primary-foreground transition-all">
+            <Youtube className="w-5 h-5" />
+          </a>
         </div>
 
         {/* Bottom Bar */}

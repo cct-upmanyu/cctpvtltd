@@ -16,6 +16,13 @@ import Industries from "./pages/Industries";
 import Company from "./pages/Company";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import ZohoPartnerUK from "./pages/ZohoPartnerUK";
+import ZohoPartnerUAE from "./pages/ZohoPartnerUAE";
+import ZohoPartnerAustralia from "./pages/ZohoPartnerAustralia";
+import ZohoPartnerCanada from "./pages/ZohoPartnerCanada";
+import ZohoPartnerUSA from "./pages/ZohoPartnerUSA";
+import ZohoPartnerIndia from "./pages/ZohoPartnerIndia";
+import ZohoPartnerEurope from "./pages/ZohoPartnerEurope";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +45,14 @@ const App = () => (
           <Route path="/industries" element={<Industries />} />
           <Route path="/company" element={<Company />} />
           <Route path="/contact" element={<Contact />} />
+          {/* Country-specific Zoho Partner pages */}
+          <Route path="/zoho-partner-uk" element={<ZohoPartnerUK />} />
+          <Route path="/zoho-partner-uae" element={<ZohoPartnerUAE />} />
+          <Route path="/zoho-partner-australia" element={<ZohoPartnerAustralia />} />
+          <Route path="/zoho-partner-canada" element={<ZohoPartnerCanada />} />
+          <Route path="/zoho-partner-usa" element={<ZohoPartnerUSA />} />
+          <Route path="/zoho-partner-india" element={<ZohoPartnerIndia />} />
+          <Route path="/zoho-partner-europe" element={<ZohoPartnerEurope />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
