@@ -14,32 +14,26 @@ const zohoSuites = [
   { name: "Service Plus", description: "Customer service" },
 ];
 
-// Zoho app data with official logo URLs from Zoho CDN
+// Zoho app data with verified working logo URLs
 const zohoApps = [
-  { name: "CRM", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/crm-logo.png", color: "#E42527" },
-  { name: "Books", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/books-logo.png", color: "#4CAF50" },
-  { name: "Creator", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/creator-logo.png", color: "#00A1E0" },
-  { name: "Inventory", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/inventory-logo.png", color: "#F7981D" },
-  { name: "Campaigns", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/campaigns-logo.png", color: "#6A1B9A" },
-  { name: "People", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/people-logo.png", color: "#4CAF50" },
-  { name: "Recruit", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/recruit-logo.png", color: "#FF6F00" },
-  { name: "Payroll", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/payroll-logo.png", color: "#00897B" },
-  { name: "Desk", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/desk-logo.png", color: "#009688" },
-  { name: "SalesIQ", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/salesiq-logo.png", color: "#7B1FA2" },
-  { name: "Social", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/social-logo.png", color: "#E91E63" },
-  { name: "Sites", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/sites-logo.png", color: "#3F51B5" },
-  { name: "Flow", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/flow-logo.png", color: "#00BCD4" },
-  { name: "Expense", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/expense-logo.png", color: "#8BC34A" },
-  { name: "Survey", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/survey-logo.png", color: "#9C27B0" },
-  { name: "Zia", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/zia-logo.png", color: "#673AB7" },
-  { name: "Voice", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/voice-logo.png", color: "#03A9F4" },
-  { name: "Bookings", logo: "https://www.zohowebstatic.com/sites/zweb/images/ogimage/bookings-logo.png", color: "#FF5722" },
+  { name: "CRM", logo: "https://www.zoho.com/branding/images/zoho-crm-logo.png", color: "#E42527" },
+  { name: "Books", logo: "https://www.zoho.com/branding/images/zoho-books-logo.png", color: "#4CAF50" },
+  { name: "Creator", logo: "https://www.zoho.com/branding/images/zoho-creator-logo.png", color: "#00A1E0" },
+  { name: "Inventory", logo: "https://www.zoho.com/branding/images/zoho-inventory-logo.png", color: "#F7981D" },
+  { name: "Campaigns", logo: "https://www.zoho.com/branding/images/zoho-campaigns-logo.png", color: "#6A1B9A" },
+  { name: "People", logo: "https://www.zoho.com/branding/images/zoho-people-logo.png", color: "#4CAF50" },
+  { name: "Recruit", logo: "https://www.zoho.com/branding/images/zoho-recruit-logo.png", color: "#FF6F00" },
+  { name: "Desk", logo: "https://www.zoho.com/branding/images/zoho-desk-logo.png", color: "#009688" },
+  { name: "Projects", logo: "https://www.zoho.com/branding/images/zoho-projects-logo.png", color: "#F44336" },
+  { name: "Analytics", logo: "https://www.zoho.com/branding/images/zoho-analytics-logo.png", color: "#1976D2" },
+  { name: "Sign", logo: "https://www.zoho.com/branding/images/zoho-sign-logo.png", color: "#00BCD4" },
+  { name: "Expense", logo: "https://www.zoho.com/branding/images/zoho-expense-logo.png", color: "#8BC34A" },
 ];
 
 // Split apps into 3 orbits with different starting angles for natural distribution
-const innerOrbit = zohoApps.slice(0, 6);
-const middleOrbit = zohoApps.slice(6, 12);
-const outerOrbit = zohoApps.slice(12, 18);
+const innerOrbit = zohoApps.slice(0, 4);
+const middleOrbit = zohoApps.slice(4, 8);
+const outerOrbit = zohoApps.slice(8, 12);
 
 // Fallback SVG icon for when image fails to load
 const FallbackIcon = ({ name, color }: { name: string; color: string }) => (
