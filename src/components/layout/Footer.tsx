@@ -42,140 +42,146 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-dark-gradient border-t border-border-dark">
-      <div className="container-custom section-padding">
-        {/* Top CTA Section */}
-        <div className="text-center mb-16 pb-16 border-b border-border-dark">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="text-muted-dark-foreground text-lg max-w-2xl mx-auto mb-8">
-            Let's discuss how we can help you leverage Zoho, AI, and automation to scale your operations.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="heroDark" size="lg" className="min-w-[220px]">
-              Book Free Consultation
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button variant="heroSecondary" size="lg" className="min-w-[220px]">
-              Talk to a Zoho Expert
-            </Button>
+    <footer className="border-t border-[#1A365D]">
+      {/* Top CTA Section - Darker Navy */}
+      <div className="bg-[#0B1C3D]">
+        <div className="container-custom py-16">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-[#94A3B8] text-lg max-w-2xl mx-auto mb-8">
+              Let's discuss how we can help you leverage Zoho, AI, and automation to scale your operations.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button variant="heroDark" size="lg" className="min-w-[220px]">
+                Book Free Consultation
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+              <Button variant="heroSecondary" size="lg" className="min-w-[220px]">
+                Talk to a Zoho Expert
+              </Button>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-          {/* Brand Column */}
-          <div className="lg:col-span-2">
-            {/* Dark background uses white/teal logo */}
-            <Link to="/" className="flex items-center mb-6">
-              <img 
-                src={cctLogoFooter} 
-                alt="ClubCode Technology" 
-                className="h-36 w-auto brightness-0 invert"
-              />
-            </Link>
-            <p className="text-muted-dark-foreground mb-6 max-w-sm">
-              Global Zoho Premium Partner & AI Automation Experts. Building intelligent business systems for scale.
-            </p>
-            <div className="space-y-3">
-              <a href="mailto:info@clubcodetechnology.com" className="flex items-center gap-3 text-muted-dark-foreground hover:text-primary transition-colors">
-                <Mail className="w-5 h-5" />
-                info@clubcodetechnology.com
-              </a>
-              <a href="tel:+919193610009" className="flex items-center gap-3 text-muted-dark-foreground hover:text-primary transition-colors">
-                <Phone className="w-5 h-5" />
-                +91 91936 10009
-              </a>
-              <div className="flex items-start gap-3 text-muted-dark-foreground">
-                <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                <span>Global Offices: India, UK, USA, UAE</span>
+      {/* Main Footer Content - Even Darker */}
+      <div className="bg-[#050D1A]">
+        <div className="container-custom py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+            {/* Brand Column */}
+            <div className="lg:col-span-2">
+              <Link to="/" className="flex items-center mb-6">
+                <img 
+                  src={cctLogoFooter} 
+                  alt="ClubCode Technology" 
+                  className="h-36 w-auto brightness-0 invert"
+                />
+              </Link>
+              <p className="text-[#64748B] mb-6 max-w-sm">
+                Global Zoho Premium Partner & AI Automation Experts. Building intelligent business systems for scale.
+              </p>
+              <div className="space-y-3">
+                <a href="mailto:info@clubcodetechnology.com" className="flex items-center gap-3 text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                  <Mail className="w-5 h-5" />
+                  info@clubcodetechnology.com
+                </a>
+                <a href="tel:+919193610009" className="flex items-center gap-3 text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                  <Phone className="w-5 h-5" />
+                  +91 91936 10009
+                </a>
+                <div className="flex items-start gap-3 text-[#94A3B8]">
+                  <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <span>Global Offices: India, UK, USA, UAE</span>
+                </div>
               </div>
+            </div>
+
+            {/* Solutions */}
+            <div>
+              <h4 className="text-white font-semibold mb-4">Solutions</h4>
+              <ul className="space-y-3">
+                {footerLinks.solutions.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Industries */}
+            <div>
+              <h4 className="text-white font-semibold mb-4">Industries</h4>
+              <ul className="space-y-3">
+                {footerLinks.industries.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company & Global Presence Combined */}
+            <div>
+              <h4 className="text-white font-semibold mb-4">Company</h4>
+              <ul className="space-y-3 mb-6">
+                {footerLinks.company.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <h4 className="text-white font-semibold mb-4">Zoho Partner by Country</h4>
+              <ul className="space-y-3">
+                {footerLinks.globalPresence.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          {/* Solutions */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Solutions</h4>
-            <ul className="space-y-3">
-              {footerLinks.solutions.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.href} className="text-muted-dark-foreground hover:text-primary transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Industries */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Industries</h4>
-            <ul className="space-y-3">
-              {footerLinks.industries.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.href} className="text-muted-dark-foreground hover:text-primary transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.href} className="text-muted-dark-foreground hover:text-primary transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Global Presence */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Zoho Partner by Country</h4>
-            <ul className="space-y-3">
-              {footerLinks.globalPresence.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.href} className="text-muted-dark-foreground hover:text-primary transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Social Links */}
+          <div className="flex justify-center gap-4 mb-8">
+            <a href="#" className="w-10 h-10 rounded-lg bg-[#0B1C3D] flex items-center justify-center text-[#94A3B8] hover:bg-[#3FE0F0] hover:text-white transition-all">
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a href="#" className="w-10 h-10 rounded-lg bg-[#0B1C3D] flex items-center justify-center text-[#94A3B8] hover:bg-[#3FE0F0] hover:text-white transition-all">
+              <Twitter className="w-5 h-5" />
+            </a>
+            <a href="#" className="w-10 h-10 rounded-lg bg-[#0B1C3D] flex items-center justify-center text-[#94A3B8] hover:bg-[#3FE0F0] hover:text-white transition-all">
+              <Youtube className="w-5 h-5" />
+            </a>
           </div>
         </div>
+      </div>
 
-        {/* Social Links - Moved to separate row */}
-        <div className="flex justify-center gap-4 mb-8">
-          <a href="#" className="w-10 h-10 rounded-lg bg-muted-dark flex items-center justify-center text-muted-dark-foreground hover:bg-primary hover:text-primary-foreground transition-all">
-            <Linkedin className="w-5 h-5" />
-          </a>
-          <a href="#" className="w-10 h-10 rounded-lg bg-muted-dark flex items-center justify-center text-muted-dark-foreground hover:bg-primary hover:text-primary-foreground transition-all">
-            <Twitter className="w-5 h-5" />
-          </a>
-          <a href="#" className="w-10 h-10 rounded-lg bg-muted-dark flex items-center justify-center text-muted-dark-foreground hover:bg-primary hover:text-primary-foreground transition-all">
-            <Youtube className="w-5 h-5" />
-          </a>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border-dark flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-dark-foreground text-sm">
-            © {new Date().getFullYear()} ClubCode Technology Private Limited. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm">
-            <Link to="/privacy" className="text-muted-dark-foreground hover:text-primary transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-muted-dark-foreground hover:text-primary transition-colors">
-              Terms of Service
-            </Link>
+      {/* Bottom Bar - Darkest */}
+      <div className="bg-[#020408]">
+        <div className="container-custom py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-[#64748B] text-sm">
+              © {new Date().getFullYear()} ClubCode Technology Private Limited. All rights reserved.
+            </p>
+            <div className="flex gap-6 text-sm">
+              <Link to="/privacy" className="text-[#64748B] hover:text-[#3FE0F0] transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="text-[#64748B] hover:text-[#3FE0F0] transition-colors">
+                Terms of Service
+              </Link>
+            </div>
           </div>
         </div>
       </div>
