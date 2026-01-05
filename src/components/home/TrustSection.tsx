@@ -138,33 +138,33 @@ export function TrustSection() {
           </p>
           <div className="flex flex-wrap justify-center items-center gap-10 lg:gap-16">
             <motion.img
-              src="https://www.zoho.com/sites/zweb/images/zoho-logo.svg"
+              src="/zoho-logo-color.png"
               alt="Zoho Partner"
-              className="h-8 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+              className="h-10 transition-all hover:scale-110"
               whileHover={{ scale: 1.1 }}
             />
             <motion.img
               src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg"
               alt="Google Cloud Partner"
-              className="h-7 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+              className="h-8 transition-all hover:scale-110"
               whileHover={{ scale: 1.1 }}
             />
             <motion.img
               src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
               alt="AWS Partner"
-              className="h-7 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+              className="h-8 transition-all hover:scale-110"
               whileHover={{ scale: 1.1 }}
             />
             <motion.img
               src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
               alt="Microsoft Partner"
-              className="h-7 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+              className="h-8 transition-all hover:scale-110"
               whileHover={{ scale: 1.1 }}
             />
             <motion.img
               src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"
               alt="Salesforce Partner"
-              className="h-8 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+              className="h-9 transition-all hover:scale-110"
               whileHover={{ scale: 1.1 }}
             />
           </div>

@@ -96,8 +96,8 @@ export default function ZohoSolutions() {
         </div>
       </section>
 
-      {/* Suites Grid - LIGHT SECTION */}
-      <section className="bg-light-gradient section-padding relative overflow-hidden">
+      {/* Suites Grid - DARK SECTION */}
+      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
         </div>
@@ -126,7 +126,7 @@ export default function ZohoSolutions() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-[#0B1C3D]/80 rounded-2xl p-8 border border-[#3FE0F0]/20 hover:border-[#3FE0F0]/40 hover-lift transition-all"
+                  className="bg-[#0F2A5F]/80 rounded-2xl p-8 border border-[#3FE0F0]/20 hover:border-[#3FE0F0]/40 hover-lift transition-all"
                 >
                   <div className="w-14 h-14 rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7 text-[#3FE0F0]" />

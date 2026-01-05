@@ -57,7 +57,7 @@ export function IndustriesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-6 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 lg:gap-6 mb-12">
           {industries.map((industry, index) => {
             const Icon = industry.icon;
             return (
@@ -72,23 +72,23 @@ export function IndustriesSection() {
                   to={`/industries#${industry.slug}`}
                   className="group relative flex flex-col items-center overflow-hidden rounded-2xl border border-[#3FE0F0]/10 hover:border-[#3FE0F0]/40 hover-lift transition-all"
                 >
-                  {/* Background Image */}
-                  <div className="relative w-full h-32 overflow-hidden">
+                  {/* Background Image - Larger size */}
+                  <div className="relative w-full h-40 md:h-48 overflow-hidden">
                     <img 
                       src={industry.image} 
                       alt={industry.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C3D] via-[#0B1C3D]/60 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C3D] via-[#0B1C3D]/50 to-transparent" />
                   </div>
                   
                   {/* Content overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
-                    <div className="w-12 h-12 mx-auto rounded-xl bg-[#3FE0F0]/20 backdrop-blur-sm flex items-center justify-center mb-2 group-hover:bg-[#3FE0F0] group-hover:scale-110 transition-all border border-[#3FE0F0]/30">
-                      <Icon className="w-6 h-6 text-[#3FE0F0] group-hover:text-[#0B1C3D] transition-colors" />
+                    <div className="w-14 h-14 mx-auto rounded-xl bg-[#3FE0F0]/20 backdrop-blur-sm flex items-center justify-center mb-3 group-hover:bg-[#3FE0F0] group-hover:scale-110 transition-all border border-[#3FE0F0]/30">
+                      <Icon className="w-7 h-7 text-[#3FE0F0] group-hover:text-[#0B1C3D] transition-colors" />
                     </div>
                     {/* DARK SECTION: Text must be #FFFFFF */}
-                    <span className="text-sm font-medium text-[#FFFFFF] group-hover:text-[#3FE0F0] transition-colors">
+                    <span className="text-base font-semibold text-[#FFFFFF] group-hover:text-[#3FE0F0] transition-colors">
                       {industry.name}
                     </span>
                   </div>
