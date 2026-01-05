@@ -13,6 +13,7 @@ const navItems = [
     children: [
       { label: "Zoho Solutions", href: "/zoho-solutions" },
       { label: "Zoho One (Premium Partner)", href: "/zoho-one-premium-partner" },
+      { label: "AI Chatbot Solutions", href: "/ai-chatbot-solutions" },
       { label: "AI Solutions", href: "/ai-solutions" },
       { label: "CRM Solutions", href: "/crm-solutions" },
       { label: "Data Migration", href: "/data-migration" },
