@@ -24,6 +24,19 @@ import ZohoPartnerUSA from "./pages/ZohoPartnerUSA";
 import ZohoPartnerIndia from "./pages/ZohoPartnerIndia";
 import ZohoPartnerEurope from "./pages/ZohoPartnerEurope";
 
+// Industry Pages
+import ManufacturingIndustry from "./pages/industries/ManufacturingIndustry";
+import RetailIndustry from "./pages/industries/RetailIndustry";
+import EducationIndustry from "./pages/industries/EducationIndustry";
+import LogisticsIndustry from "./pages/industries/LogisticsIndustry";
+import HealthcareIndustry from "./pages/industries/HealthcareIndustry";
+import RealEstateIndustry from "./pages/industries/RealEstateIndustry";
+import HospitalityIndustry from "./pages/industries/HospitalityIndustry";
+import ITIndustry from "./pages/industries/ITIndustry";
+import NonprofitIndustry from "./pages/industries/NonprofitIndustry";
+import MediaIndustry from "./pages/industries/MediaIndustry";
+import ProfessionalServicesIndustry from "./pages/industries/ProfessionalServicesIndustry";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -53,6 +66,18 @@ const App = () => (
           <Route path="/zoho-partner-usa" element={<ZohoPartnerUSA />} />
           <Route path="/zoho-partner-india" element={<ZohoPartnerIndia />} />
           <Route path="/zoho-partner-europe" element={<ZohoPartnerEurope />} />
+          {/* Industry-specific pages */}
+          <Route path="/industries/manufacturing" element={<ManufacturingIndustry />} />
+          <Route path="/industries/retail" element={<RetailIndustry />} />
+          <Route path="/industries/education" element={<EducationIndustry />} />
+          <Route path="/industries/logistics" element={<LogisticsIndustry />} />
+          <Route path="/industries/healthcare" element={<HealthcareIndustry />} />
+          <Route path="/industries/real-estate" element={<RealEstateIndustry />} />
+          <Route path="/industries/hospitality" element={<HospitalityIndustry />} />
+          <Route path="/industries/it" element={<ITIndustry />} />
+          <Route path="/industries/nonprofits" element={<NonprofitIndustry />} />
+          <Route path="/industries/media" element={<MediaIndustry />} />
+          <Route path="/industries/professional-services" element={<ProfessionalServicesIndustry />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
