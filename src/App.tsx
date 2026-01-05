@@ -25,6 +25,11 @@ import ZohoPartnerIndia from "./pages/ZohoPartnerIndia";
 import ZohoPartnerEurope from "./pages/ZohoPartnerEurope";
 import ZohoOnePremiumPartner from "./pages/ZohoOnePremiumPartner";
 import AIChatbotSolutions from "./pages/AIChatbotSolutions";
+import ZohoPeople from "./pages/ZohoPeople";
+import ZohoAnalytics from "./pages/ZohoAnalytics";
+import ZohoCreator from "./pages/ZohoCreator";
+import ZohoBooks from "./pages/ZohoBooks";
+import ZohoInventory from "./pages/ZohoInventory";
 
 // Industry Pages
 import ManufacturingIndustry from "./pages/industries/ManufacturingIndustry";
@@ -52,6 +57,11 @@ const App = () => (
           <Route path="/zoho-solutions" element={<ZohoSolutions />} />
           <Route path="/zoho-one-premium-partner" element={<ZohoOnePremiumPartner />} />
           <Route path="/ai-chatbot-solutions" element={<AIChatbotSolutions />} />
+          <Route path="/zoho-people" element={<ZohoPeople />} />
+          <Route path="/zoho-analytics" element={<ZohoAnalytics />} />
+          <Route path="/zoho-creator" element={<ZohoCreator />} />
+          <Route path="/zoho-books" element={<ZohoBooks />} />
+          <Route path="/zoho-inventory" element={<ZohoInventory />} />
           <Route path="/ai-solutions" element={<AISolutions />} />
           <Route path="/crm-solutions" element={<CRMSolutions />} />
           <Route path="/data-migration" element={<DataMigration />} />
