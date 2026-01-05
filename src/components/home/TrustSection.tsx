@@ -137,12 +137,21 @@ export function TrustSection() {
             Technology Partners & Certifications
           </p>
           <div className="flex flex-wrap justify-center items-center gap-10 lg:gap-16">
-            <motion.img
-              src="/zoho-logo-color.png"
-              alt="Zoho Partner"
-              className="h-10 transition-all hover:scale-110"
+            <motion.div
+              className="h-10 flex items-center transition-all hover:scale-110"
               whileHover={{ scale: 1.1 }}
-            />
+            >
+              {/* Zoho logo as inline SVG for transparency */}
+              <svg viewBox="0 0 200 50" className="h-10 w-auto">
+                <g>
+                  <rect x="5" y="8" width="28" height="28" rx="6" fill="none" stroke="#E42527" strokeWidth="4" transform="rotate(-8 19 22)" />
+                  <rect x="28" y="8" width="28" height="28" rx="6" fill="none" stroke="#00A651" strokeWidth="4" transform="rotate(-8 42 22)" />
+                  <rect x="51" y="8" width="28" height="28" rx="6" fill="none" stroke="#1E88E5" strokeWidth="4" transform="rotate(-8 65 22)" />
+                  <rect x="74" y="8" width="28" height="28" rx="6" fill="none" stroke="#F7931E" strokeWidth="4" transform="rotate(-8 88 22)" />
+                </g>
+                <text x="115" y="32" fontFamily="Arial, sans-serif" fontSize="22" fontWeight="bold" fill="#111827" letterSpacing="2">ZOHO</text>
+              </svg>
+            </motion.div>
             <motion.img
               src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg"
               alt="Google Cloud Partner"
