@@ -16,15 +16,15 @@ import {
 
 const industries = [
   { icon: Factory, name: "Manufacturing", slug: "manufacturing", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop" },
-  { icon: Users, name: "Recruitment", slug: "recruitment", image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop" },
-  { icon: Building2, name: "Real Estate", slug: "real-estate", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop" },
-  { icon: Sun, name: "Solar", slug: "solar", image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop" },
+  { icon: ShoppingCart, name: "Retail", slug: "retail", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop" },
+  { icon: GraduationCap, name: "Education", slug: "education", image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=300&fit=crop" },
   { icon: Truck, name: "Logistics", slug: "logistics", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop" },
   { icon: Heart, name: "Healthcare", slug: "healthcare", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop" },
-  { icon: GraduationCap, name: "Education", slug: "education", image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=300&fit=crop" },
-  { icon: Megaphone, name: "PR & Marketing", slug: "pr-marketing", image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop" },
-  { icon: ShoppingCart, name: "Retail", slug: "retail", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop" },
-  { icon: Plane, name: "Aviation", slug: "aviation", image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop" },
+  { icon: Building2, name: "Real Estate", slug: "real-estate", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop" },
+  { icon: Users, name: "Hospitality", slug: "hospitality", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop" },
+  { icon: Megaphone, name: "IT Services", slug: "it", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop" },
+  { icon: Sun, name: "Nonprofits", slug: "nonprofits", image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop" },
+  { icon: Plane, name: "Media", slug: "media", image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&h=300&fit=crop" },
 ];
 
 export function IndustriesSection() {
@@ -69,7 +69,7 @@ export function IndustriesSection() {
                 transition={{ delay: index * 0.05 }}
               >
                 <Link
-                  to={`/industries#${industry.slug}`}
+                  to={`/industries/${industry.slug}`}
                   className="group relative flex flex-col items-center overflow-hidden rounded-2xl border border-[#3FE0F0]/10 hover:border-[#3FE0F0]/40 hover-lift transition-all"
                 >
                   {/* Background Image - Larger size */}
