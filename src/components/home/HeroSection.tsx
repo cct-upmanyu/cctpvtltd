@@ -81,7 +81,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-20">
+    <section className="relative min-h-[90vh] overflow-hidden pt-20">
       {/* Animated Background */}
       <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.div
@@ -175,7 +175,7 @@ export function HeroSection() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="container-custom relative z-10 py-20 lg:py-32">
+      <div className="container-custom relative z-10 py-16 lg:py-24">
         <div className="max-w-4xl mx-auto text-center">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
@@ -241,7 +241,7 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="mt-16 flex flex-wrap gap-8 justify-center text-[#E5E7EB] text-sm"
+            className="mt-12 flex flex-wrap gap-8 justify-center text-[#E5E7EB] text-sm"
           >
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#3FE0F0]" />
@@ -256,42 +256,42 @@ export function HeroSection() {
               <span>Global Clients</span>
             </div>
           </motion.div>
-        </div>
 
-        {/* Slide Navigation */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4">
-          <button
-            onClick={prevSlide}
-            className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
+          {/* Slide Navigation - Moved inside content area */}
+          <div className="flex items-center justify-center gap-4 mt-10">
+            <button
+              onClick={prevSlide}
+              className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
 
-          <div className="flex gap-2">
-            {heroSlides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentSlide
-                    ? "w-8 bg-[#3FE0F0]"
-                    : "w-2 bg-white/30 hover:bg-white/50"
-                }`}
-              />
-            ))}
+            <div className="flex gap-2">
+              {heroSlides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? "w-8 bg-[#3FE0F0]"
+                      : "w-2 bg-white/30 hover:bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={nextSlide}
+              className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
-
-          <button
-            onClick={nextSlide}
-            className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FFFFFF] to-transparent" />
+      {/* Bottom gradient fade - reduced height */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#FFFFFF] to-transparent" />
     </section>
   );
 }
