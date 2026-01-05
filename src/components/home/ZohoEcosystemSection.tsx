@@ -206,13 +206,13 @@ export function ZohoEcosystemSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[700px] lg:min-h-[800px]">
+        <div className="grid lg:grid-cols-[45%_55%] gap-0 items-center min-h-[700px] lg:min-h-[800px]">
           {/* Left Content - Dark background */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="py-16 md:py-20 lg:py-24 lg:pr-8"
+            className="py-16 md:py-20 lg:py-24 pr-4 lg:pr-12 max-w-full"
           >
             <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
               Zoho Premium Partner
@@ -223,11 +223,11 @@ export function ZohoEcosystemSection() {
                 Ecosystem Mastery
               </span>
             </h2>
-            <p className="text-gray-300 text-lg mb-8">
+            <p className="text-gray-300 text-base lg:text-lg mb-8 max-w-lg">
               As a certified Global Zoho Premium Partner and Creator Champions, we implement the full Zoho ecosystem—from individual apps to complete enterprise suites.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-3 mb-8">
+            <div className="grid grid-cols-2 gap-2 lg:gap-3 mb-8 max-w-lg">
               {zohoSuites.map((suite, index) => (
                 <motion.div
                   key={suite.name}
@@ -235,12 +235,12 @@ export function ZohoEcosystemSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.08 }}
-                  className="flex items-start gap-3 p-3 bg-[#0F2A5F]/80 rounded-xl border border-[#3FE0F0]/10"
+                  className="flex items-start gap-2 p-2.5 lg:p-3 bg-[#0F2A5F]/80 rounded-lg border border-[#3FE0F0]/10"
                 >
-                  <CheckCircle className="w-5 h-5 text-[#3FE0F0] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-white text-sm">{suite.name}</h4>
-                    <p className="text-xs text-gray-400">{suite.description}</p>
+                  <CheckCircle className="w-4 h-4 lg:w-5 lg:h-5 text-[#3FE0F0] flex-shrink-0 mt-0.5" />
+                  <div className="min-w-0">
+                    <h4 className="font-semibold text-white text-xs lg:text-sm truncate">{suite.name}</h4>
+                    <p className="text-[10px] lg:text-xs text-gray-400 truncate">{suite.description}</p>
                   </div>
                 </motion.div>
               ))}
