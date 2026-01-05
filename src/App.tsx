@@ -24,6 +24,7 @@ import ZohoPartnerUSA from "./pages/ZohoPartnerUSA";
 import ZohoPartnerIndia from "./pages/ZohoPartnerIndia";
 import ZohoPartnerEurope from "./pages/ZohoPartnerEurope";
 import ZohoOnePremiumPartner from "./pages/ZohoOnePremiumPartner";
+import AIChatbotSolutions from "./pages/AIChatbotSolutions";
 
 // Industry Pages
 import ManufacturingIndustry from "./pages/industries/ManufacturingIndustry";
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/zoho-solutions" element={<ZohoSolutions />} />
           <Route path="/zoho-one-premium-partner" element={<ZohoOnePremiumPartner />} />
+          <Route path="/ai-chatbot-solutions" element={<AIChatbotSolutions />} />
           <Route path="/ai-solutions" element={<AISolutions />} />
           <Route path="/crm-solutions" element={<CRMSolutions />} />
           <Route path="/data-migration" element={<DataMigration />} />
