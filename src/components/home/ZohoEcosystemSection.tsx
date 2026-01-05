@@ -192,8 +192,8 @@ export function ZohoEcosystemSection() {
   }, []);
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden min-h-[700px] lg:min-h-[800px]">
-      {/* Split background */}
+    <section className="relative overflow-hidden">
+      {/* Split background - full height */}
       <div className="absolute inset-0 flex">
         <div className="w-full lg:w-[45%] bg-[#0B1C3D]" />
         <div className="hidden lg:block w-[55%] bg-gradient-to-br from-[#F0F7FB] via-[#E8F4FC] to-[#FFFFFF]" />
@@ -205,14 +205,14 @@ export function ZohoEcosystemSection() {
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 h-full">
-        <div className="grid lg:grid-cols-[40%_60%] gap-8 lg:gap-4 items-center h-full">
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[700px] lg:min-h-[800px]">
           {/* Left Content - Dark background */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="lg:pr-8"
+            className="py-16 md:py-20 lg:py-24 lg:pr-8"
           >
             <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
               Zoho Premium Partner
@@ -258,16 +258,16 @@ export function ZohoEcosystemSection() {
             </Button>
           </motion.div>
 
-          {/* Right Side - Full Orbital Animation */}
+          {/* Right Side - Full Orbital Animation - properly centered in section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 lg:w-[58%] lg:h-full"
+            className="relative flex items-center justify-center py-8 lg:py-0"
           >
             <div 
               ref={containerRef}
-              className="relative w-full h-full min-h-[450px] md:min-h-[550px] lg:min-h-[650px] flex items-center justify-center bg-gradient-to-br from-[#F0F7FB] via-[#E8F4FC] to-white lg:bg-transparent rounded-2xl lg:rounded-none"
+              className="relative w-full aspect-square max-w-[600px] lg:max-w-none lg:w-[650px] lg:h-[650px] flex items-center justify-center"
             >
               {/* Concentric ring backgrounds */}
               <div 
