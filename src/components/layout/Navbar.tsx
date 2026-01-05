@@ -22,6 +22,18 @@ const navItems = [
     ],
   },
   { label: "Industries", href: "/industries" },
+  {
+    label: "Global Presence",
+    children: [
+      { label: "United Kingdom", href: "/zoho-partner-uk" },
+      { label: "United Arab Emirates", href: "/zoho-partner-uae" },
+      { label: "Australia", href: "/zoho-partner-australia" },
+      { label: "Canada", href: "/zoho-partner-canada" },
+      { label: "United States", href: "/zoho-partner-usa" },
+      { label: "India", href: "/zoho-partner-india" },
+      { label: "Europe", href: "/zoho-partner-europe" },
+    ],
+  },
   { label: "Company", href: "/company" },
   { label: "Contact", href: "/contact" },
 ];
