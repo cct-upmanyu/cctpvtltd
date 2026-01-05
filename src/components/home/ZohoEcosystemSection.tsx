@@ -14,36 +14,32 @@ const zohoSuites = [
   { name: "Service Plus", description: "Customer service" },
 ];
 
-// Zoho app data with verified working logo URLs
+// Zoho app data with actual working logo URLs from Zoho static CDN
 const zohoApps = [
-  { name: "CRM", logo: "https://www.zoho.com/branding/images/zoho-crm-logo.png", color: "#E42527" },
-  { name: "Books", logo: "https://www.zoho.com/branding/images/zoho-books-logo.png", color: "#4CAF50" },
-  { name: "Creator", logo: "https://www.zoho.com/branding/images/zoho-creator-logo.png", color: "#00A1E0" },
-  { name: "Inventory", logo: "https://www.zoho.com/branding/images/zoho-inventory-logo.png", color: "#F7981D" },
-  { name: "Campaigns", logo: "https://www.zoho.com/branding/images/zoho-campaigns-logo.png", color: "#6A1B9A" },
-  { name: "People", logo: "https://www.zoho.com/branding/images/zoho-people-logo.png", color: "#4CAF50" },
-  { name: "Recruit", logo: "https://www.zoho.com/branding/images/zoho-recruit-logo.png", color: "#FF6F00" },
-  { name: "Desk", logo: "https://www.zoho.com/branding/images/zoho-desk-logo.png", color: "#009688" },
-  { name: "Projects", logo: "https://www.zoho.com/branding/images/zoho-projects-logo.png", color: "#F44336" },
-  { name: "Analytics", logo: "https://www.zoho.com/branding/images/zoho-analytics-logo.png", color: "#1976D2" },
-  { name: "Sign", logo: "https://www.zoho.com/branding/images/zoho-sign-logo.png", color: "#00BCD4" },
-  { name: "Expense", logo: "https://www.zoho.com/branding/images/zoho-expense-logo.png", color: "#8BC34A" },
+  { name: "CRM", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.png", color: "#E42527" },
+  { name: "Books", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/books.png", color: "#4CAF50" },
+  { name: "Creator", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/creator.png", color: "#00A1E0" },
+  { name: "Desk", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/desk.png", color: "#009688" },
+  { name: "People", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/people.png", color: "#4CAF50" },
+  { name: "Recruit", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/recruit.png", color: "#FF6F00" },
+  { name: "Projects", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/projects.png", color: "#F44336" },
+  { name: "Campaigns", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/campaigns.png", color: "#6A1B9A" },
+  { name: "Analytics", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/analytics.png", color: "#1976D2" },
+  { name: "Inventory", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/inventory.png", color: "#F7981D" },
+  { name: "Invoice", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/invoice.png", color: "#2196F3" },
+  { name: "Mail", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/mail.png", color: "#4285F4" },
+  { name: "Meeting", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/meeting.png", color: "#00BCD4" },
+  { name: "Cliq", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/cliq.png", color: "#7B1FA2" },
+  { name: "Survey", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/survey.png", color: "#9C27B0" },
+  { name: "Social", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/social.png", color: "#E91E63" },
+  { name: "SalesIQ", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/salesiq.png", color: "#7B1FA2" },
+  { name: "Sign", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/sign.png", color: "#00BCD4" },
 ];
 
 // Split apps into 3 orbits with different starting angles for natural distribution
-const innerOrbit = zohoApps.slice(0, 4);
-const middleOrbit = zohoApps.slice(4, 8);
-const outerOrbit = zohoApps.slice(8, 12);
-
-// Fallback SVG icon for when image fails to load
-const FallbackIcon = ({ name, color }: { name: string; color: string }) => (
-  <div 
-    className="w-full h-full rounded-lg flex items-center justify-center text-white font-bold text-xs"
-    style={{ backgroundColor: color }}
-  >
-    {name.substring(0, 2).toUpperCase()}
-  </div>
-);
+const innerOrbit = zohoApps.slice(0, 5);
+const middleOrbit = zohoApps.slice(5, 11);
+const outerOrbit = zohoApps.slice(11, 18);
 
 interface OrbitingAppProps {
   app: { name: string; logo: string; color: string };
@@ -97,7 +93,7 @@ const OrbitingApp = ({
       onMouseLeave={() => onHover(null)}
     >
       <div 
-        className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white flex items-center justify-center p-1.5 transition-shadow duration-300"
+        className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl bg-white flex items-center justify-center p-2 transition-shadow duration-300"
         style={{
           boxShadow: isPaused 
             ? `0 8px 24px ${app.color}40, 0 4px 12px rgba(0,0,0,0.1)` 
@@ -106,7 +102,12 @@ const OrbitingApp = ({
         }}
       >
         {imgError ? (
-          <FallbackIcon name={app.name} color={app.color} />
+          <div 
+            className="w-full h-full rounded-lg flex items-center justify-center text-white font-bold text-sm"
+            style={{ backgroundColor: app.color }}
+          >
+            {app.name.substring(0, 2).toUpperCase()}
+          </div>
         ) : (
           <img 
             src={app.logo}
@@ -117,13 +118,13 @@ const OrbitingApp = ({
         )}
       </div>
       <div 
-        className="flex items-center gap-0.5 bg-white/95 backdrop-blur-sm px-1.5 py-0.5 rounded-full shadow-sm whitespace-nowrap"
+        className="flex items-center gap-0.5 bg-white/95 backdrop-blur-sm px-2 py-1 rounded-full shadow-sm whitespace-nowrap"
         style={{ 
           border: isPaused ? `1px solid ${app.color}40` : '1px solid #E5E7EB'
         }}
       >
-        <span className="text-[8px] md:text-[9px] font-medium text-blue-500">Zoho</span>
-        <span className="text-[8px] md:text-[9px] font-bold text-gray-800">{app.name}</span>
+        <span className="text-[9px] md:text-[10px] font-medium text-blue-500">Zoho</span>
+        <span className="text-[9px] md:text-[10px] font-bold text-gray-800">{app.name}</span>
       </div>
       
       {/* Tooltip on hover */}
@@ -145,7 +146,7 @@ const OrbitingApp = ({
 export function ZohoEcosystemSection() {
   const [rotationAngles, setRotationAngles] = useState({ inner: 0, middle: 120, outer: 240 });
   const [hoveredApp, setHoveredApp] = useState<string | null>(null);
-  const [containerSize, setContainerSize] = useState({ width: 400, height: 400 });
+  const [containerSize, setContainerSize] = useState({ width: 500, height: 500 });
   const containerRef = useRef<HTMLDivElement>(null);
   const lastTimeRef = useRef(0);
 
@@ -164,11 +165,11 @@ export function ZohoEcosystemSection() {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
 
-  // Calculate radii based on container
+  // Calculate radii based on container - larger radii for better spread
   const baseSize = Math.min(containerSize.width, containerSize.height);
-  const innerRadius = baseSize * 0.18;
-  const middleRadius = baseSize * 0.32;
-  const outerRadius = baseSize * 0.45;
+  const innerRadius = baseSize * 0.20;
+  const middleRadius = baseSize * 0.35;
+  const outerRadius = baseSize * 0.50;
 
   // Slow speeds for premium, calm feel
   const speeds = { inner: 0.008, middle: 0.006, outer: 0.004 };
@@ -191,11 +192,11 @@ export function ZohoEcosystemSection() {
   }, []);
 
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden">
+    <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden min-h-[700px] lg:min-h-[800px]">
       {/* Split background */}
       <div className="absolute inset-0 flex">
-        <div className="w-full lg:w-1/2 bg-[#0B1C3D]" />
-        <div className="hidden lg:block w-1/2 bg-gradient-to-br from-[#F0F7FB] via-[#E8F4FC] to-[#FFFFFF]" />
+        <div className="w-full lg:w-[45%] bg-[#0B1C3D]" />
+        <div className="hidden lg:block w-[55%] bg-gradient-to-br from-[#F0F7FB] via-[#E8F4FC] to-[#FFFFFF]" />
       </div>
       
       {/* Background effects */}
@@ -204,8 +205,8 @@ export function ZohoEcosystemSection() {
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      <div className="container mx-auto px-4 relative z-10 h-full">
+        <div className="grid lg:grid-cols-[40%_60%] gap-8 lg:gap-4 items-center h-full">
           {/* Left Content - Dark background */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -257,24 +258,23 @@ export function ZohoEcosystemSection() {
             </Button>
           </motion.div>
 
-          {/* Right Side - Orbital Animation */}
+          {/* Right Side - Full Orbital Animation */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative bg-gradient-to-br from-[#F0F7FB] via-[#E8F4FC] to-white lg:bg-transparent rounded-2xl lg:rounded-none p-4"
+            className="relative lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 lg:w-[58%] lg:h-full"
           >
             <div 
               ref={containerRef}
-              className="relative w-full aspect-square flex items-center justify-center"
-              style={{ minHeight: '380px', maxHeight: '520px' }}
+              className="relative w-full h-full min-h-[450px] md:min-h-[550px] lg:min-h-[650px] flex items-center justify-center bg-gradient-to-br from-[#F0F7FB] via-[#E8F4FC] to-white lg:bg-transparent rounded-2xl lg:rounded-none"
             >
               {/* Concentric ring backgrounds */}
               <div 
                 className="absolute rounded-full"
                 style={{ 
-                  width: `${outerRadius * 2 + 40}px`, 
-                  height: `${outerRadius * 2 + 40}px`,
+                  width: `${outerRadius * 2 + 60}px`, 
+                  height: `${outerRadius * 2 + 60}px`,
                   border: '1px solid rgba(99, 102, 241, 0.12)',
                   background: 'radial-gradient(circle, transparent 70%, rgba(99, 102, 241, 0.03) 100%)'
                 }}
@@ -282,8 +282,8 @@ export function ZohoEcosystemSection() {
               <div 
                 className="absolute rounded-full"
                 style={{ 
-                  width: `${middleRadius * 2 + 30}px`, 
-                  height: `${middleRadius * 2 + 30}px`,
+                  width: `${middleRadius * 2 + 40}px`, 
+                  height: `${middleRadius * 2 + 40}px`,
                   border: '1px solid rgba(99, 102, 241, 0.18)',
                   background: 'radial-gradient(circle, transparent 70%, rgba(99, 102, 241, 0.04) 100%)'
                 }}
@@ -302,8 +302,8 @@ export function ZohoEcosystemSection() {
               <motion.div
                 className="absolute rounded-full border border-dashed opacity-30"
                 style={{ 
-                  width: `${outerRadius * 2 + 60}px`, 
-                  height: `${outerRadius * 2 + 60}px`,
+                  width: `${outerRadius * 2 + 80}px`, 
+                  height: `${outerRadius * 2 + 80}px`,
                   borderColor: '#6366F1'
                 }}
                 animate={{ rotate: 360 }}
@@ -319,7 +319,7 @@ export function ZohoEcosystemSection() {
                   total={outerOrbit.length}
                   orbitRadius={outerRadius}
                   rotationOffset={rotationAngles.outer}
-                  startAngleOffset={-90} // Start from top
+                  startAngleOffset={-90}
                   onHover={handleHover}
                   hoveredApp={hoveredApp}
                 />
@@ -334,7 +334,7 @@ export function ZohoEcosystemSection() {
                   total={middleOrbit.length}
                   orbitRadius={middleRadius}
                   rotationOffset={rotationAngles.middle}
-                  startAngleOffset={-60} // Offset for natural spread
+                  startAngleOffset={-60}
                   onHover={handleHover}
                   hoveredApp={hoveredApp}
                 />
@@ -349,7 +349,7 @@ export function ZohoEcosystemSection() {
                   total={innerOrbit.length}
                   orbitRadius={innerRadius}
                   rotationOffset={rotationAngles.inner}
-                  startAngleOffset={-30} // Offset for natural spread
+                  startAngleOffset={-30}
                   onHover={handleHover}
                   hoveredApp={hoveredApp}
                 />
@@ -365,7 +365,7 @@ export function ZohoEcosystemSection() {
               >
                 {/* Pulsing glow */}
                 <motion.div
-                  className="absolute w-24 h-24 md:w-28 md:h-28 rounded-full"
+                  className="absolute w-28 h-28 md:w-32 md:h-32 rounded-full"
                   style={{
                     background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)'
                   }}
@@ -381,9 +381,9 @@ export function ZohoEcosystemSection() {
                 />
                 
                 {/* Hub card */}
-                <div className="relative bg-white rounded-xl shadow-lg p-3 md:p-4 flex flex-col items-center border border-gray-100">
+                <div className="relative bg-white rounded-xl shadow-lg p-4 md:p-5 flex flex-col items-center border border-gray-100">
                   {/* 3D Cube */}
-                  <div className="w-10 h-10 md:w-12 md:h-12 mb-1">
+                  <div className="w-12 h-12 md:w-14 md:h-14 mb-2">
                     <svg viewBox="0 0 48 48" className="w-full h-full">
                       <path d="M24 4L44 14V34L24 44L4 34V14L24 4Z" fill="#E8F4FC" stroke="#3B82F6" strokeWidth="0.5"/>
                       <path d="M4 14L24 24V44L4 34V14Z" fill="#3B82F6"/>
@@ -397,15 +397,15 @@ export function ZohoEcosystemSection() {
                   
                   {/* Zoho One text */}
                   <div className="flex items-center">
-                    <span className="text-base md:text-lg font-bold">
+                    <span className="text-lg md:text-xl font-bold">
                       <span style={{ color: '#E42527' }}>Z</span>
                       <span style={{ color: '#F7981D' }}>o</span>
                       <span style={{ color: '#4CAF50' }}>h</span>
                       <span style={{ color: '#00A1E0' }}>o</span>
                     </span>
-                    <span className="text-base md:text-lg font-bold text-gray-800 ml-1">One</span>
+                    <span className="text-lg md:text-xl font-bold text-gray-800 ml-1">One</span>
                   </div>
-                  <span className="text-[9px] md:text-[10px] text-gray-500">Unified Business OS</span>
+                  <span className="text-[10px] md:text-xs text-gray-500">Unified Business OS</span>
                 </div>
               </motion.div>
             </div>
