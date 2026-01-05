@@ -11,8 +11,8 @@ const heroSlides = [
     description: "We design, implement, and optimize Zoho, AI, CRM, and custom ERP solutions that automate operations, improve decisions, and help businesses scale globally.",
     cta: "Book a Free Consultation",
     secondaryCta: "Talk to a Zoho Expert",
-    image: "/hero-slide-1.jpg",
-    gradient: "from-[#0B1C3D] via-[#0F2A5F] to-[#1A365D]",
+    video: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+    gradient: "from-[#0B1C3D]/90 via-[#0F2A5F]/85 to-[#1A365D]/90",
   },
   {
     badge: "Enterprise AI Solutions",
@@ -21,8 +21,8 @@ const heroSlides = [
     description: "Leverage cutting-edge AI agents, machine learning, and automation to streamline workflows, reduce costs, and unlock new revenue opportunities.",
     cta: "Explore AI Solutions",
     secondaryCta: "See Case Studies",
-    image: "/hero-slide-2.jpg",
-    gradient: "from-[#1A365D] via-[#0F2A5F] to-[#0B1C3D]",
+    video: "https://videos.pexels.com/video-files/5532770/5532770-uhd_2732_1440_25fps.mp4",
+    gradient: "from-[#1A365D]/90 via-[#0F2A5F]/85 to-[#0B1C3D]/90",
   },
   {
     badge: "Custom ERP Development",
@@ -31,8 +31,8 @@ const heroSlides = [
     description: "From CRM to full ERP systems, we build tailored solutions on Zoho Creator and integrate with your existing tech stack for seamless operations.",
     cta: "Start Your Project",
     secondaryCta: "View Our Portfolio",
-    image: "/hero-slide-3.jpg",
-    gradient: "from-[#0F2A5F] via-[#1A365D] to-[#0B1C3D]",
+    video: "https://videos.pexels.com/video-files/6774621/6774621-uhd_2732_1440_25fps.mp4",
+    gradient: "from-[#0F2A5F]/90 via-[#1A365D]/85 to-[#0B1C3D]/90",
   },
 ];
 
@@ -82,7 +82,7 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden pt-20 pb-8">
-      {/* Animated Background */}
+      {/* Video Background */}
       <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.div
           key={currentSlide}
@@ -96,11 +96,27 @@ export function HeroSection() {
           animate="center"
           exit="exit"
           transition={{ duration: 0.8 }}
-          className={`absolute inset-0 bg-gradient-to-br ${slide.gradient}`}
+          className="absolute inset-0"
         >
-          {/* Animated particles/orbs */}
-          <div className="absolute inset-0 overflow-hidden">
-            {/* Large floating orbs */}
+          {/* Video Background */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={slide.video} type="video/mp4" />
+          </video>
+          
+          {/* Gradient Overlay */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient}`} />
+          
+          {/* Additional dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-[#0B1C3D]/40" />
+
+          {/* Animated accents */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <motion.div
               animate={{
                 x: [0, 100, 0],
@@ -119,58 +135,6 @@ export function HeroSection() {
               transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
               className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#4DA3FF]/10 rounded-full blur-[120px]"
             />
-            <motion.div
-              animate={{
-                x: [0, 60, 0],
-                y: [0, 60, 0],
-                scale: [1, 1.3, 1],
-              }}
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-[#8B5CF6]/10 rounded-full blur-[80px]"
-            />
-
-            {/* Grid pattern overlay */}
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
-                backgroundSize: "50px 50px",
-              }}
-            />
-
-            {/* Animated lines */}
-            <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
-              <motion.path
-                d="M0,100 Q400,50 800,150 T1600,100"
-                stroke="url(#gradient1)"
-                strokeWidth="2"
-                fill="none"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 0.5 }}
-                transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-              />
-              <motion.path
-                d="M0,300 Q500,200 1000,350 T2000,300"
-                stroke="url(#gradient2)"
-                strokeWidth="1.5"
-                fill="none"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 0.4 }}
-                transition={{ duration: 4, delay: 0.5, repeat: Infinity, repeatType: "reverse" }}
-              />
-              <defs>
-                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#3FE0F0" stopOpacity="0" />
-                  <stop offset="50%" stopColor="#3FE0F0" stopOpacity="1" />
-                  <stop offset="100%" stopColor="#3FE0F0" stopOpacity="0" />
-                </linearGradient>
-                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#4DA3FF" stopOpacity="0" />
-                  <stop offset="50%" stopColor="#4DA3FF" stopOpacity="1" />
-                  <stop offset="100%" stopColor="#4DA3FF" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-            </svg>
           </div>
         </motion.div>
       </AnimatePresence>
