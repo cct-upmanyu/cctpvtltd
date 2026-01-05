@@ -1,28 +1,98 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import cctLogo from "@/assets/cct-logo.png";
 
+// Services mega menu structure
+const servicesMenu = {
+  label: "Services",
+  categories: [
+    {
+      title: "Zoho Services",
+      href: "/zoho-solutions",
+      items: [
+        { label: "Zoho One (Premium Partner)", href: "/zoho-one-premium-partner" },
+        { label: "Zoho CRM Implementation", href: "/crm-solutions" },
+        { label: "Zoho Creator", href: "/zoho-solutions" },
+        { label: "Zoho Books & Finance Automation", href: "/zoho-solutions" },
+        { label: "Zoho Inventory", href: "/zoho-solutions" },
+        { label: "Zoho Desk & SalesIQ", href: "/ai-chatbot-solutions" },
+        { label: "Zoho People & Recruit", href: "/zoho-solutions" },
+        { label: "Zoho Analytics", href: "/zoho-solutions" },
+        { label: "Zoho Integrations", href: "/third-party-integrations" },
+        { label: "Zoho Extension Development", href: "/zoho-extension-development" },
+      ]
+    },
+    {
+      title: "AI Solutions",
+      href: "/ai-solutions",
+      items: [
+        { label: "AI Chatbot Solutions", href: "/ai-chatbot-solutions" },
+        { label: "AI Agents & Assistants", href: "/ai-solutions" },
+        { label: "AI Sales Automation", href: "/ai-solutions" },
+        { label: "AI Customer Support Automation", href: "/ai-solutions" },
+        { label: "AI Voice Bots", href: "/ai-solutions" },
+        { label: "AI + CRM Automation", href: "/ai-solutions" },
+        { label: "AI Analytics & Insights", href: "/ai-solutions" },
+      ]
+    },
+    {
+      title: "CRM Services",
+      href: "/crm-solutions",
+      items: [
+        { label: "CRM Consulting", href: "/crm-solutions" },
+        { label: "CRM Implementation", href: "/crm-solutions" },
+        { label: "CRM Customisation", href: "/crm-solutions" },
+        { label: "CRM Development", href: "/crm-solutions" },
+        { label: "CRM Automation", href: "/crm-solutions" },
+        { label: "CRM Integrations", href: "/third-party-integrations" },
+        { label: "CRM Audit & Optimization", href: "/crm-solutions" },
+      ]
+    },
+    {
+      title: "Data Migration",
+      href: "/data-migration",
+      items: [
+        { label: "CRM Data Migration", href: "/data-migration" },
+        { label: "ERP Data Migration", href: "/data-migration" },
+        { label: "Email & Workspace Migration", href: "/data-migration" },
+        { label: "Legacy System Migration", href: "/data-migration" },
+        { label: "Data Cleansing & Validation", href: "/data-migration" },
+        { label: "Migration Testing & Reconciliation", href: "/data-migration" },
+      ]
+    },
+    {
+      title: "Web Development",
+      href: "/website-development",
+      items: [
+        { label: "Business Website Development", href: "/website-development" },
+        { label: "Enterprise Website Development", href: "/website-development" },
+        { label: "SaaS Website Development", href: "/website-development" },
+        { label: "UI/UX Design", href: "/website-development" },
+        { label: "Website Optimization", href: "/website-development" },
+        { label: "SEO-Ready Website Builds", href: "/website-development" },
+      ]
+    },
+    {
+      title: "Custom ERP Development",
+      href: "/custom-erp",
+      items: [
+        { label: "ERP Consulting", href: "/custom-erp" },
+        { label: "Custom ERP Development", href: "/custom-erp" },
+        { label: "ERP Automation", href: "/custom-erp" },
+        { label: "ERP Integrations", href: "/custom-erp" },
+        { label: "ERP Support & Scaling", href: "/custom-erp" },
+      ]
+    },
+  ]
+};
+
 const navItems = [
   { label: "Home", href: "/" },
-  {
-    label: "Solutions",
-    children: [
-      { label: "Zoho Solutions", href: "/zoho-solutions" },
-      { label: "Zoho One (Premium Partner)", href: "/zoho-one-premium-partner" },
-      { label: "AI Chatbot Solutions", href: "/ai-chatbot-solutions" },
-      { label: "AI Solutions", href: "/ai-solutions" },
-      { label: "CRM Solutions", href: "/crm-solutions" },
-      { label: "Data Migration", href: "/data-migration" },
-      { label: "Website Development", href: "/website-development" },
-      { label: "Custom ERP", href: "/custom-erp" },
-      { label: "Third-Party Integrations", href: "/third-party-integrations" },
-      { label: "Zoho Extension Development", href: "/zoho-extension-development" },
-    ],
-  },
+  { label: "Services", isMegaMenu: true },
   { label: "Industries", href: "/industries" },
   {
     label: "Global Presence",
@@ -43,6 +113,7 @@ const navItems = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeMobileCategory, setActiveMobileCategory] = useState<string | null>(null);
   const location = useLocation();
 
   return (
@@ -53,7 +124,7 @@ export function Navbar() {
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
-          {/* Logo - White background uses navy/teal logo */}
+          {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
               src={cctLogo} 
@@ -68,10 +139,19 @@ export function Navbar() {
               <div
                 key={item.label}
                 className="relative"
-                onMouseEnter={() => item.children && setActiveDropdown(item.label)}
+                onMouseEnter={() => (item.isMegaMenu || item.children) && setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                {item.children ? (
+                {item.isMegaMenu ? (
+                  // Services Mega Menu Trigger
+                  <button className="flex items-center gap-1 px-4 py-2 text-secondary hover:text-primary transition-colors font-medium">
+                    {item.label}
+                    <ChevronDown className={cn(
+                      "w-4 h-4 transition-transform",
+                      activeDropdown === item.label && "rotate-180"
+                    )} />
+                  </button>
+                ) : item.children ? (
                   <button className="flex items-center gap-1 px-4 py-2 text-secondary hover:text-primary transition-colors font-medium">
                     {item.label}
                     <ChevronDown className={cn(
@@ -81,7 +161,7 @@ export function Navbar() {
                   </button>
                 ) : (
                   <Link
-                    to={item.href}
+                    to={item.href!}
                     className={cn(
                       "px-4 py-2 text-secondary hover:text-primary transition-colors font-medium",
                       location.pathname === item.href && "text-primary"
@@ -91,14 +171,62 @@ export function Navbar() {
                   </Link>
                 )}
 
-                {/* Dropdown Menu */}
+                {/* Mega Menu for Services */}
+                <AnimatePresence>
+                  {item.isMegaMenu && activeDropdown === item.label && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[900px] bg-white border border-border rounded-xl shadow-2xl z-50 overflow-hidden"
+                    >
+                      <div className="grid grid-cols-3 gap-0">
+                        {servicesMenu.categories.map((category, index) => (
+                          <div 
+                            key={category.title} 
+                            className={cn(
+                              "p-5",
+                              index < 3 ? "border-b border-border" : "",
+                              index % 3 !== 2 ? "border-r border-border" : ""
+                            )}
+                          >
+                            <Link 
+                              to={category.href}
+                              className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors mb-3 block"
+                            >
+                              {category.title}
+                            </Link>
+                            <ul className="space-y-1.5">
+                              {category.items.map((subItem) => (
+                                <li key={subItem.label}>
+                                  <Link
+                                    to={subItem.href}
+                                    className={cn(
+                                      "text-sm text-secondary hover:text-primary hover:bg-muted rounded px-2 py-1.5 block transition-colors",
+                                      location.pathname === subItem.href && "text-primary bg-muted"
+                                    )}
+                                  >
+                                    {subItem.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Regular Dropdown Menu */}
                 <AnimatePresence>
                   {item.children && activeDropdown === item.label && (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      className="absolute top-full left-0 mt-2 w-56 py-2 bg-white border border-border rounded-lg shadow-xl"
+                      className="absolute top-full left-0 mt-2 w-56 py-2 bg-white border border-border rounded-lg shadow-xl z-50"
                     >
                       {item.children.map((child) => (
                         <Link
@@ -121,11 +249,11 @@ export function Navbar() {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="navCta" size="sm">
-              Talk to a Zoho Expert
+            <Button variant="navCta" size="sm" asChild>
+              <Link to="/contact">Talk to a Zoho Expert</Link>
             </Button>
-            <Button variant="heroPrimary" size="sm">
-              Book Free Consultation
+            <Button variant="heroPrimary" size="sm" asChild>
+              <Link to="/contact">Book Free Consultation</Link>
             </Button>
           </div>
 
@@ -147,10 +275,72 @@ export function Navbar() {
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-2 bg-white">
+              <div className="py-4 space-y-2 bg-white max-h-[80vh] overflow-y-auto">
                 {navItems.map((item) => (
                   <div key={item.label}>
-                    {item.children ? (
+                    {item.isMegaMenu ? (
+                      // Mobile Services Menu
+                      <div>
+                        <button
+                          onClick={() => setActiveDropdown(activeDropdown === "Services" ? null : "Services")}
+                          className="w-full flex items-center justify-between px-4 py-2.5 text-secondary font-medium"
+                        >
+                          Services
+                          <ChevronDown className={cn(
+                            "w-4 h-4 transition-transform",
+                            activeDropdown === "Services" && "rotate-180"
+                          )} />
+                        </button>
+                        <AnimatePresence>
+                          {activeDropdown === "Services" && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="pl-4 overflow-hidden bg-muted/30"
+                            >
+                              {servicesMenu.categories.map((category) => (
+                                <div key={category.title} className="border-b border-border/50 last:border-0">
+                                  <button
+                                    onClick={() => setActiveMobileCategory(
+                                      activeMobileCategory === category.title ? null : category.title
+                                    )}
+                                    className="w-full flex items-center justify-between px-4 py-3 text-secondary font-medium text-sm"
+                                  >
+                                    <span className="text-primary">{category.title}</span>
+                                    <ChevronRight className={cn(
+                                      "w-4 h-4 transition-transform text-primary",
+                                      activeMobileCategory === category.title && "rotate-90"
+                                    )} />
+                                  </button>
+                                  <AnimatePresence>
+                                    {activeMobileCategory === category.title && (
+                                      <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className="pl-4 pb-2 overflow-hidden"
+                                      >
+                                        {category.items.map((subItem) => (
+                                          <Link
+                                            key={subItem.label}
+                                            to={subItem.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className="block px-4 py-2 text-secondary hover:text-primary text-sm"
+                                          >
+                                            {subItem.label}
+                                          </Link>
+                                        ))}
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
+                                </div>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : item.children ? (
                       <div>
                         <button
                           onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
@@ -168,7 +358,7 @@ export function Navbar() {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: "auto" }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="pl-4 overflow-hidden"
+                              className="pl-4 overflow-hidden bg-muted/30"
                             >
                               {item.children.map((child) => (
                                 <Link
@@ -186,7 +376,7 @@ export function Navbar() {
                       </div>
                     ) : (
                       <Link
-                        to={item.href}
+                        to={item.href!}
                         onClick={() => setIsOpen(false)}
                         className="block px-4 py-2.5 text-secondary hover:text-primary font-medium"
                       >
@@ -196,11 +386,11 @@ export function Navbar() {
                   </div>
                 ))}
                 <div className="px-4 pt-4 space-y-3">
-                  <Button variant="navCta" className="w-full">
-                    Talk to a Zoho Expert
+                  <Button variant="navCta" className="w-full" asChild>
+                    <Link to="/contact" onClick={() => setIsOpen(false)}>Talk to a Zoho Expert</Link>
                   </Button>
-                  <Button variant="heroPrimary" className="w-full">
-                    Book Free Consultation
+                  <Button variant="heroPrimary" className="w-full" asChild>
+                    <Link to="/contact" onClick={() => setIsOpen(false)}>Book Free Consultation</Link>
                   </Button>
                 </div>
               </div>
