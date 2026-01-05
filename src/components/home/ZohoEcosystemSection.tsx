@@ -167,15 +167,12 @@ export function ZohoEcosystemSection() {
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >
-                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-white border-4 border-[#0B1C3D]/10 shadow-xl flex flex-col items-center justify-center p-3">
-                    {/* Zoho logo representation */}
-                    <div className="flex gap-0.5 mb-1">
-                      <div className="w-5 h-5 rounded-md border-[3px] border-[#E42527] rotate-[-8deg]" />
-                      <div className="w-5 h-5 rounded-md border-[3px] border-[#00A651] rotate-[-8deg] -ml-1" />
-                      <div className="w-5 h-5 rounded-md border-[3px] border-[#1E88E5] rotate-[-8deg] -ml-1" />
-                      <div className="w-5 h-5 rounded-md border-[3px] border-[#F7931E] rotate-[-8deg] -ml-1" />
-                    </div>
-                    <span className="text-[#111827] font-bold text-lg tracking-widest">ZOHO</span>
+                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-white border-4 border-[#0B1C3D]/10 shadow-xl flex flex-col items-center justify-center p-4">
+                    <img 
+                      src="/zoho-logo-official.png" 
+                      alt="Zoho One" 
+                      className="w-20 h-auto mb-1"
+                    />
                     <span className="text-[#3FE0F0] text-sm font-semibold">One</span>
                   </div>
                 </motion.div>
