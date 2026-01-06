@@ -1,6 +1,14 @@
 import { IndustryPageTemplate } from "@/components/industry/IndustryPageTemplate";
 import { Truck, MapPin, Package, Users, BarChart3, Clock } from "lucide-react";
 
+// Import project screenshots
+import mekarTransport1 from "@/assets/projects/mekar-transport-1.jpg";
+import mekarTransport2 from "@/assets/projects/mekar-transport-2.jpg";
+import mekarTransport3 from "@/assets/projects/mekar-transport-3.jpg";
+import fleetManagement1 from "@/assets/projects/fleet-management-1.jpg";
+import fleetManagement2 from "@/assets/projects/fleet-management-2.jpg";
+import fleetManagement3 from "@/assets/projects/fleet-management-3.jpg";
+
 export default function LogisticsIndustry() {
   return (
     <IndustryPageTemplate
@@ -92,6 +100,24 @@ export default function LogisticsIndustry() {
         "Zoho Desk",
         "Zoho Bookings",
         "Zoho Flow",
+      ]}
+      builtSolutions={[
+        {
+          icon: Truck,
+          title: "MEKAR Transport Management System",
+          tagline: "Complete ERP for transport and logistics operations",
+          description: "A comprehensive Transport Management System built for Maker.ae. Manages trips, dispatches, drivers, operators, and proof of delivery. Role-based dashboards for administrators, drivers, and operators with real-time tracking, dispatch management, and POD workflows.",
+          features: ["Trip Management", "Dispatch Tracking", "POD System", "Role-Based Dashboards"],
+          screenshots: [mekarTransport1, mekarTransport2, mekarTransport3],
+        },
+        {
+          icon: MapPin,
+          title: "Fleet Management & Rental System",
+          tagline: "Vehicle fleet management with subscription and rental tracking",
+          description: "End-to-end fleet management solution with vehicle tracking, maintenance schedules, insurance management, and subscription-based rental plans. Supports multiple partners, vendors, and vehicle types with complete service task and reminder management.",
+          features: ["Vehicle Tracking", "Maintenance Management", "Subscription Plans", "Partner Portal"],
+          screenshots: [fleetManagement1, fleetManagement2, fleetManagement3],
+        },
       ]}
     />
   );

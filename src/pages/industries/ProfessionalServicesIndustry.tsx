@@ -1,6 +1,13 @@
 import { IndustryPageTemplate } from "@/components/industry/IndustryPageTemplate";
 import { Briefcase, Users, Clock, FileText, DollarSign, BarChart3 } from "lucide-react";
 
+// Import project screenshots
+import oqitorErp1 from "@/assets/projects/oqitor-erp-1.jpg";
+import oqitorErp2 from "@/assets/projects/oqitor-erp-2.jpg";
+import oqitorErp3 from "@/assets/projects/oqitor-erp-3.jpg";
+import attendanceGptw1 from "@/assets/projects/attendance-gptw-1.jpg";
+import attendanceGptw2 from "@/assets/projects/attendance-gptw-2.jpg";
+
 export default function ProfessionalServicesIndustry() {
   return (
     <IndustryPageTemplate
@@ -92,6 +99,24 @@ export default function ProfessionalServicesIndustry() {
         "Zoho WorkDrive",
         "Zoho Sign",
         "Zoho Invoice",
+      ]}
+      builtSolutions={[
+        {
+          icon: Users,
+          title: "ERP for External Sales Rep Management",
+          tagline: "Manage external sales representatives and lead tracking",
+          description: "A custom ERP solution for Oqitor to manage external sales representatives who are not direct employees but vendor partners bringing leads to the business. Features lead tracking, contact management, order pipelines (Mobility, Rogers Wireline, Telus Wireline), and customer support ticketing system.",
+          features: ["Lead Management", "Order Pipelines", "Dealer Portal", "Support Tickets"],
+          screenshots: [oqitorErp1, oqitorErp2, oqitorErp3],
+        },
+        {
+          icon: Clock,
+          title: "Attendance Management for Great Place to Work",
+          tagline: "Global HR attendance solution with multi-country compliance",
+          description: "A robust HR attendance solution for Great Place To Work®, the global workplace authority. Manages attendance across multiple countries with varying HR policies. Features check-in/out, holiday management, organization-wide reports, calendar views, and individual attendance records.",
+          features: ["Multi-Country Support", "Attendance Reports", "Holiday Calendar", "Zoho People Integration"],
+          screenshots: [attendanceGptw1, attendanceGptw2],
+        },
       ]}
     />
   );
