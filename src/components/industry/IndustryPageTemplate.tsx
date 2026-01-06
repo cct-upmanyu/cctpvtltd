@@ -24,10 +24,7 @@ interface BuiltSolution {
   tagline: string;
   description: string;
   features: string[];
-  screens?: {
-    title: string;
-    stats: { label: string; value: string; trend?: string }[];
-  }[];
+  screenshots?: string[]; // Array of image paths for actual app screenshots
 }
 
 interface IndustryPageProps {
@@ -50,32 +47,6 @@ const generateBuiltSolutionsFromSolutions = (solutions: Solution[]): BuiltSoluti
     tagline: `${sol.title} — simplified and streamlined for your business`,
     description: sol.description,
     features: sol.zohoApps.slice(0, 4),
-    screens: [
-      {
-        title: "Dashboard",
-        stats: [
-          { label: "Total", value: "2,847", trend: "+12%" },
-          { label: "Active", value: "1,523", trend: "+8%" },
-          { label: "Pending", value: "324", trend: "-5%" }
-        ]
-      },
-      {
-        title: "Analytics",
-        stats: [
-          { label: "Completed", value: "89%", trend: "+4%" },
-          { label: "In Progress", value: "156", trend: "+22%" },
-          { label: "Scheduled", value: "47", trend: "+15%" }
-        ]
-      },
-      {
-        title: "Reports",
-        stats: [
-          { label: "Generated", value: "1,245", trend: "+18%" },
-          { label: "Exported", value: "892", trend: "+25%" },
-          { label: "Shared", value: "234", trend: "+10%" }
-        ]
-      }
-    ]
   }));
 };
 
@@ -346,71 +317,92 @@ export function IndustryPageTemplate({
                       </Button>
                     </div>
                     
-                    {/* Visual/Preview Side - Multiple App Screens */}
+                    {/* Visual/Preview Side - Multiple App Screenshots */}
                     <div className={`relative p-6 lg:p-8 flex items-center justify-center ${isEven ? 'order-2' : 'order-2 lg:order-1'}`}>
                       <div className="relative w-full">
-                        {/* Multiple App Preview Screens */}
-                        <div className="flex gap-4 overflow-hidden">
-                          {(solution.screens || [
-                            { title: "Dashboard", stats: [{ label: "Total", value: "2,847", trend: "+12%" }, { label: "Active", value: "1,523", trend: "+8%" }, { label: "Pending", value: "324", trend: "-5%" }] },
-                            { title: "Analytics", stats: [{ label: "Completed", value: "89%", trend: "+4%" }, { label: "In Progress", value: "156", trend: "+22%" }, { label: "Scheduled", value: "47", trend: "+15%" }] },
-                            { title: "Reports", stats: [{ label: "Generated", value: "1,245", trend: "+18%" }, { label: "Exported", value: "892", trend: "+25%" }, { label: "Shared", value: "234", trend: "+10%" }] }
-                          ]).map((screen, screenIdx) => (
-                            <motion.div
-                              key={screenIdx}
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ delay: 0.2 + screenIdx * 0.1 }}
-                              className={`flex-shrink-0 w-48 md:w-56 ${screenIdx === 0 ? '' : screenIdx === 1 ? 'hidden md:block' : 'hidden lg:block'}`}
-                              style={{ transform: `translateY(${screenIdx * 8}px)` }}
-                            >
-                              <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200">
-                                {/* Screen Header */}
-                                <div className="bg-[#0B1C3D] px-3 py-2 flex items-center justify-between">
-                                  <div className="flex items-center gap-1.5">
-                                    <Icon className="w-3 h-3 text-[#3FE0F0]" />
-                                    <span className="text-white text-xs font-medium">{screen.title}</span>
-                                  </div>
-                                  <div className="flex gap-0.5">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
-                                    <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
-                                    <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                                  </div>
-                                </div>
-                                
-                                {/* Screen Content */}
-                                <div className="p-3 bg-gray-50 space-y-2">
-                                  {screen.stats.map((stat, statIdx) => (
-                                    <div key={statIdx} className="bg-white p-2 rounded-lg border border-gray-100">
-                                      <div className="flex items-center justify-between mb-1">
-                                        <span className="text-xs text-gray-500">{stat.label}</span>
-                                        {stat.trend && (
-                                          <span className={`text-xs font-medium ${stat.trend.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
-                                            {stat.trend}
-                                          </span>
-                                        )}
-                                      </div>
-                                      <div className="text-lg font-bold text-gray-800">{stat.value}</div>
+                        {/* Multiple App Screenshot Previews */}
+                        <div className="flex gap-4 overflow-hidden justify-center">
+                          {solution.screenshots && solution.screenshots.length > 0 ? (
+                            solution.screenshots.slice(0, 3).map((screenshot, screenIdx) => (
+                              <motion.div
+                                key={screenIdx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 + screenIdx * 0.1 }}
+                                className={`flex-shrink-0 w-48 md:w-56 lg:w-64 ${screenIdx === 0 ? '' : screenIdx === 1 ? 'hidden md:block' : 'hidden lg:block'}`}
+                                style={{ transform: `translateY(${screenIdx * 12}px)` }}
+                              >
+                                <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200">
+                                  {/* Screen Header */}
+                                  <div className="bg-[#0B1C3D] px-3 py-2 flex items-center justify-between">
+                                    <div className="flex items-center gap-1.5">
+                                      <Icon className="w-3 h-3 text-[#3FE0F0]" />
+                                      <span className="text-white text-xs font-medium">{solution.title}</span>
                                     </div>
-                                  ))}
+                                    <div className="flex gap-0.5">
+                                      <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                                      <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+                                      <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                                    </div>
+                                  </div>
                                   
-                                  {/* Mini chart placeholder */}
-                                  <div className="bg-white p-2 rounded-lg border border-gray-100">
-                                    <div className="flex items-end gap-1 h-8">
-                                      {[40, 65, 45, 80, 55, 70, 90].map((h, i) => (
-                                        <div 
-                                          key={i} 
-                                          className="flex-1 bg-gradient-to-t from-[#3FE0F0] to-[#4DA3FF] rounded-t"
-                                          style={{ height: `${h}%` }}
-                                        />
-                                      ))}
+                                  {/* Actual Screenshot */}
+                                  <div className="aspect-[4/3] overflow-hidden">
+                                    <img 
+                                      src={screenshot} 
+                                      alt={`${solution.title} - Screen ${screenIdx + 1}`}
+                                      className="w-full h-full object-cover object-top"
+                                    />
+                                  </div>
+                                </div>
+                              </motion.div>
+                            ))
+                          ) : (
+                            /* Fallback placeholder screens for solutions without screenshots */
+                            ['Dashboard', 'Analytics', 'Reports'].map((screenTitle, screenIdx) => (
+                              <motion.div
+                                key={screenIdx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 + screenIdx * 0.1 }}
+                                className={`flex-shrink-0 w-48 md:w-56 ${screenIdx === 0 ? '' : screenIdx === 1 ? 'hidden md:block' : 'hidden lg:block'}`}
+                                style={{ transform: `translateY(${screenIdx * 8}px)` }}
+                              >
+                                <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200">
+                                  <div className="bg-[#0B1C3D] px-3 py-2 flex items-center justify-between">
+                                    <div className="flex items-center gap-1.5">
+                                      <Icon className="w-3 h-3 text-[#3FE0F0]" />
+                                      <span className="text-white text-xs font-medium">{screenTitle}</span>
+                                    </div>
+                                    <div className="flex gap-0.5">
+                                      <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                                      <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+                                      <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                                    </div>
+                                  </div>
+                                  <div className="p-3 bg-gray-50 space-y-2">
+                                    <div className="bg-white p-2 rounded-lg border border-gray-100">
+                                      <div className="h-3 w-16 bg-gray-200 rounded mb-1" />
+                                      <div className="h-5 w-10 bg-[#3FE0F0]/30 rounded" />
+                                    </div>
+                                    <div className="bg-white p-2 rounded-lg border border-gray-100">
+                                      <div className="flex items-end gap-1 h-8">
+                                        {[40, 65, 45, 80, 55, 70, 90].map((h, i) => (
+                                          <div 
+                                            key={i} 
+                                            className="flex-1 bg-gradient-to-t from-[#3FE0F0] to-[#4DA3FF] rounded-t"
+                                            style={{ height: `${h}%` }}
+                                          />
+                                        ))}
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                            </motion.div>
-                          ))}
+                              </motion.div>
+                            ))
+                          )}
                         </div>
                         
                         {/* Decorative glow */}

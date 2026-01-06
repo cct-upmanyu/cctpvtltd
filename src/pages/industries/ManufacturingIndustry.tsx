@@ -1,6 +1,14 @@
 import { IndustryPageTemplate } from "@/components/industry/IndustryPageTemplate";
 import { Factory, Cog, Package, ClipboardCheck, BarChart3, Truck } from "lucide-react";
 
+// Import project screenshots
+import maverickCampers1 from "@/assets/projects/maverick-campers-1.jpg";
+import maverickCampers2 from "@/assets/projects/maverick-campers-2.jpg";
+import maverickCampers3 from "@/assets/projects/maverick-campers-3.jpg";
+import welloErp1 from "@/assets/projects/wello-erp-1.jpg";
+import welloErp2 from "@/assets/projects/wello-erp-2.jpg";
+import welloErp3 from "@/assets/projects/wello-erp-3.jpg";
+
 export default function ManufacturingIndustry() {
   return (
     <IndustryPageTemplate
@@ -92,6 +100,24 @@ export default function ManufacturingIndustry() {
         "Zoho Flow",
         "Zoho FSM",
         "Zoho Desk",
+      ]}
+      builtSolutions={[
+        {
+          icon: Package,
+          title: "Order Management for Maverick Campers",
+          tagline: "Complete order lifecycle from production to customer handover",
+          description: "A robust solution managing the complete product order cycle from overseas factory production to customer delivery. Tracks all touchpoints including SO receipt, factory orders, cargo tracking, port arrival, assembly, and final handover. Integrated with Zoho Books for finance and customer sync.",
+          features: ["Order Tracking", "VIN Management", "Cargo Tracking", "Zoho Books Integration"],
+          screenshots: [maverickCampers1, maverickCampers2, maverickCampers3],
+        },
+        {
+          icon: Factory,
+          title: "Production Management ERP for Wello Inc.",
+          tagline: "End-to-end manufacturing ERP for medical device production",
+          description: "Comprehensive Production Management ERP for Wello Inc., manufacturer of FDA-Cleared medical devices. Manages materials, products, vendors, purchase orders, work orders, stocks, PNR tracking, hold/scrap items, and multi-level approvals. Quality testing and receiving workflows included.",
+          features: ["Materials & BOM", "Purchase Orders", "Work Orders", "Quality Testing"],
+          screenshots: [welloErp1, welloErp2, welloErp3],
+        },
       ]}
     />
   );

@@ -1,6 +1,11 @@
 import { IndustryPageTemplate } from "@/components/industry/IndustryPageTemplate";
 import { ShoppingCart, Store, Users, BarChart3, Package, CreditCard } from "lucide-react";
 
+// Import project screenshots
+import xprsCatalogue1 from "@/assets/projects/xprs-catalogue-1.jpg";
+import xprsCatalogue2 from "@/assets/projects/xprs-catalogue-2.jpg";
+import xprsCatalogue3 from "@/assets/projects/xprs-catalogue-3.jpg";
+
 export default function RetailIndustry() {
   return (
     <IndustryPageTemplate
@@ -92,6 +97,16 @@ export default function RetailIndustry() {
         "Zoho Analytics",
         "Zoho Campaigns",
         "Zoho Desk",
+      ]}
+      builtSolutions={[
+        {
+          icon: Package,
+          title: "Catalogue App for XPRS Express Retail",
+          tagline: "Dynamic product cataloguing with custom markups and field selection",
+          description: "A robust cataloguing solution for XPRS CO that enables easy item selection, dynamic markup application, and customizable field display. Features user-friendly interface for creating catalogues, managing products across multiple warehouses, and printing custom catalogue pages.",
+          features: ["Dynamic Markups", "Field Customization", "Multi-Warehouse", "Catalogue Printing"],
+          screenshots: [xprsCatalogue1, xprsCatalogue2, xprsCatalogue3],
+        },
       ]}
     />
   );
