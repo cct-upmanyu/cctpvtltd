@@ -213,7 +213,7 @@ export function HeroSection() {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#4DA3FF]" />
-              <span>800+ Projects</span>
+              <span>500+ Projects</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#8B5CF6]" />

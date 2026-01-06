@@ -560,19 +560,24 @@ export default function ZohoOnePremiumPartner() {
                   
                   <div className="mt-8 pt-6 border-t border-primary/20">
                     <div className="flex items-center gap-4">
-                      <div className="flex -space-x-2">
-                        {[1, 2, 3, 4].map((i) => (
+                      <div className="flex -space-x-1">
+                        {[
+                          { logo: "https://clubcodetechnology.com/wp-content/uploads/2021/11/renewtrak.jpeg", name: "Renewtrak" },
+                          { logo: "https://clubcodetechnology.com/wp-content/uploads/2021/11/wethinking.jpeg", name: "WeThinking" },
+                          { logo: "https://clubcodetechnology.com/wp-content/uploads/2021/11/enp.jpeg", name: "ENP" },
+                          { logo: "https://clubcodetechnology.com/wp-content/uploads/2021/11/bobsnatural.jpeg", name: "Bob's Natural" }
+                        ].map((client, i) => (
                           <div 
                             key={i} 
-                            className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent border-2 border-card-dark flex items-center justify-center text-sm font-medium"
+                            className="w-10 h-10 rounded-full border-2 border-card-dark overflow-hidden"
                           >
-                            {String.fromCharCode(64 + i)}
+                            <img src={client.logo} alt={client.name} className="w-full h-full object-cover" />
                           </div>
                         ))}
                       </div>
                       <div>
                         <div className="font-semibold">500+ Projects Delivered</div>
-                        <div className="text-sm text-dark-section-secondary">Across 40+ countries</div>
+                        <div className="text-sm text-dark-section-secondary">Across 40+ Countries</div>
                       </div>
                     </div>
                   </div>
