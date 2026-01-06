@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Award, Trophy, Users, Globe, CheckCircle } from "lucide-react";
+import { Award, Trophy, Users, Globe, CheckCircle, MapPin } from "lucide-react";
 
 const stats = [
   {
@@ -17,7 +17,7 @@ const stats = [
   },
   {
     icon: CheckCircle,
-    value: 800,
+    value: 500,
     label: "Projects Delivered",
     suffix: "+",
   },
@@ -28,11 +28,19 @@ const stats = [
     suffix: "+",
   },
   {
-    icon: Globe,
-    value: 5,
+    icon: MapPin,
+    value: 6,
     label: "Global Offices",
     suffix: "",
   },
+];
+
+// Real client logos from CCT's portfolio
+const clientLogos = [
+  { name: "Renewtrak", logo: "https://clubcodetechnology.com/wp-content/uploads/2021/11/renewtrak.jpeg" },
+  { name: "WeThinking", logo: "https://clubcodetechnology.com/wp-content/uploads/2021/11/wethinking.jpeg" },
+  { name: "ENP", logo: "https://clubcodetechnology.com/wp-content/uploads/2021/11/enp.jpeg" },
+  { name: "Bob's Natural", logo: "https://clubcodetechnology.com/wp-content/uploads/2021/11/bobsnatural.jpeg" },
 ];
 
 function AnimatedCounter({ value, suffix = "" }: { value: number | string; suffix?: string }) {
@@ -88,13 +96,11 @@ export function TrustSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          {/* LIGHT SECTION: Heading must be #0F172A */}
           <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4">
-            Trusted by Global Enterprises
+            Trusted by Enterprises Worldwide
           </h2>
-          {/* LIGHT SECTION: Secondary text must be #374151 */}
           <p className="text-[#374151] text-lg max-w-2xl mx-auto">
-            Serving clients across UK, USA, Canada, Australia, UAE, and India
+            ClubCode Technology Pvt Ltd serves clients across UK, USA, Canada, Australia, UAE, and India
           </p>
         </motion.div>
 
@@ -113,26 +119,64 @@ export function TrustSection() {
                 <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-[#0B1C3D] to-[#0F2A5F] flex items-center justify-center group-hover:from-[#3FE0F0] group-hover:to-[#4DA3FF] transition-all">
                   <Icon className="w-7 h-7 text-white" />
                 </div>
-                {/* LIGHT SECTION: Text must be #111827 */}
                 <div className="text-2xl md:text-3xl font-bold text-[#111827] mb-1">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                {/* LIGHT SECTION: Secondary text must be #374151 */}
                 <p className="text-sm text-[#374151]">{stat.label}</p>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Partner logos */}
+        {/* Client logos section - replacing A B C D placeholders */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="mt-16 pt-12 border-t border-[#0B1C3D]/10"
+        >
+          <p className="text-center text-[#374151] text-sm mb-8">
+            Trusted by Leading Enterprises
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
+            {clientLogos.map((client, index) => (
+              <motion.div
+                key={client.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="w-20 h-20 md:w-24 md:h-24 rounded-xl bg-white shadow-md border border-gray-100 overflow-hidden flex items-center justify-center p-2 hover:shadow-lg transition-all"
+              >
+                <img
+                  src={client.logo}
+                  alt={`${client.name} - CCT Client`}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </motion.div>
+            ))}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="flex flex-col items-center text-center"
+            >
+              <span className="text-2xl md:text-3xl font-bold text-[#0B1C3D]">500+</span>
+              <span className="text-sm text-[#374151]">Projects Delivered<br />Across 40+ Countries</span>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Technology Partners */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-16 pt-12 border-t border-[#0B1C3D]/10"
+          className="mt-12 pt-8 border-t border-[#0B1C3D]/10"
         >
-          {/* LIGHT SECTION: Secondary text must be #374151 */}
           <p className="text-center text-[#374151] text-sm mb-8">
             Technology Partners & Certifications
           </p>
