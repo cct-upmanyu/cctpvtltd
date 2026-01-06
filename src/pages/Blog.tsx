@@ -166,7 +166,7 @@ export default function Blog() {
       
       <main className="pt-20">
         {/* Hero Section - Dark Theme */}
-        <section className="relative py-20 md:py-28 bg-gradient-to-br from-[#0B1C3D] via-[#0F2A5F] to-[#0B1C3D] overflow-hidden">
+        <section className="relative py-16 md:py-20 bg-gradient-to-br from-[#0B1C3D] via-[#0F2A5F] to-[#0B1C3D] overflow-hidden">
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-20 left-10 w-72 h-72 bg-[#3FE0F0]/10 rounded-full blur-3xl" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#4DA3FF]/10 rounded-full blur-3xl" />
@@ -191,8 +191,6 @@ export default function Blog() {
               </p>
             </motion.div>
           </div>
-          
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F0F4FA] to-transparent" />
         </section>
 
         {/* Featured Post - Light Section */}
