@@ -292,14 +292,14 @@ export default function ZohoOnePremiumPartner() {
               >
                 <div className="flex items-center gap-4 mb-6">
                   <img src={zohoOneLogo} alt="Zoho One" className="h-12" />
-                  <span className="px-3 py-1 bg-[#E42527]/20 text-[#E42527] rounded-full text-sm font-semibold border border-[#E42527]/30">
+                  <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-semibold border border-primary/30">
                     Premium Partner
                   </span>
                 </div>
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                   Zoho One Implementation & 
-                  <span className="text-[#E42527]"> Digital Transformation</span> Partner
+                  <span className="text-gradient-primary"> Digital Transformation</span> Partner
                 </h1>
                 
                 <p className="text-xl text-[#94A3B8] mb-4 font-medium">
@@ -316,13 +316,13 @@ export default function ZohoOnePremiumPartner() {
                 
                 <div className="flex flex-wrap gap-4">
                   <Link to="/contact">
-                    <Button size="lg" className="bg-[#E42527] hover:bg-[#c91f21] text-white px-8">
+                    <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary/10 px-8">
                       Schedule Consultation
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                   <a href="https://www.zoho.com/one/signup.html" target="_blank" rel="noopener noreferrer">
-                    <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                    <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10">
                       Start Free Trial
                     </Button>
                   </a>
@@ -356,9 +356,9 @@ export default function ZohoOnePremiumPartner() {
                         transition={{ delay: 0.4 + index * 0.1 }}
                         className="bg-white/5 border border-white/10 rounded-xl p-6 text-center"
                       >
-                        <stat.icon className="w-8 h-8 text-[#E42527] mx-auto mb-3" />
+                        <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
                         <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
-                        <div className="text-sm text-[#94A3B8]">{stat.label}</div>
+                        <div className="text-sm text-dark-text-secondary">{stat.label}</div>
                       </motion.div>
                     ))}
                   </div>
@@ -374,9 +374,9 @@ export default function ZohoOnePremiumPartner() {
             <div className="grid grid-cols-2 gap-4">
               {stats.map((stat) => (
                 <div key={stat.label} className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
-                  <stat.icon className="w-6 h-6 text-[#E42527] mx-auto mb-2" />
+                  <stat.icon className="w-6 h-6 text-primary mx-auto mb-2" />
                   <div className="text-2xl font-bold text-white">{stat.value}</div>
-                  <div className="text-xs text-[#94A3B8]">{stat.label}</div>
+                  <div className="text-xs text-dark-text-secondary">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -461,13 +461,13 @@ export default function ZohoOnePremiumPartner() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-[#E42527]/30 bg-[#E42527]/10 text-[#E42527] text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
                 Our Difference
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 What Makes ClubCode Technology Different
               </h2>
-              <p className="text-[#94A3B8] max-w-2xl mx-auto text-lg">
+              <p className="text-dark-text-secondary max-w-2xl mx-auto text-lg">
                 Zoho builds the platform. We make it work for your business.
               </p>
             </motion.div>
@@ -482,8 +482,8 @@ export default function ZohoOnePremiumPartner() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white/5 border border-white/10 rounded-xl p-6 flex items-start gap-4"
                 >
-                  <div className="w-12 h-12 bg-[#E42527]/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-6 h-6 text-[#E42527]" />
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-6 h-6 text-primary" />
                   </div>
                   <p className="text-white font-medium">{item.text}</p>
                 </motion.div>
@@ -494,7 +494,7 @@ export default function ZohoOnePremiumPartner() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-center text-[#94A3B8] mt-8 text-lg"
+              className="text-center text-dark-text-secondary mt-8 text-lg"
             >
               Zoho One is only as powerful as the strategy behind it—and that's where we lead.
             </motion.p>
@@ -628,7 +628,7 @@ export default function ZohoOnePremiumPartner() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-[#E42527]/30 bg-[#E42527]/10 text-[#E42527] text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
                 By Department
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -646,11 +646,11 @@ export default function ZohoOnePremiumPartner() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors"
                 >
-                  <div className="w-12 h-12 bg-[#E42527]/20 rounded-lg flex items-center justify-center mb-4">
-                    <dept.icon className="w-6 h-6 text-[#E42527]" />
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
+                    <dept.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-3">{dept.title}</h3>
-                  <p className="text-[#94A3B8] text-sm">{dept.description}</p>
+                  <p className="text-dark-text-secondary text-sm">{dept.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -752,7 +752,7 @@ export default function ZohoOnePremiumPartner() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-[#E42527]/30 bg-[#E42527]/10 text-[#E42527] text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
                 Our Clients
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -836,10 +836,10 @@ export default function ZohoOnePremiumPartner() {
         </section>
 
         {/* CTA Section */}
-        <section className="section-padding bg-[#0B1C3D] relative overflow-hidden">
+        <section className="section-padding bg-dark-gradient relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#E42527]/20 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
           </div>
           
           <div className="container-custom relative z-10">
@@ -852,18 +852,18 @@ export default function ZohoOnePremiumPartner() {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Ready to Transform Your Business with Zoho One?
               </h2>
-              <p className="text-[#94A3B8] text-lg mb-8">
+              <p className="text-dark-text-secondary text-lg mb-8">
                 Schedule a free consultation with our Zoho One architects. Let's discuss how we can build your business operating system.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/contact">
-                  <Button size="lg" className="bg-[#E42527] hover:bg-[#c91f21] text-white px-8">
+                  <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary/10 px-8">
                     Schedule Free Consultation
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <a href="https://www.zoho.com/one/signup.html" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                  <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10">
                     Start 30-Day Trial
                   </Button>
                 </a>

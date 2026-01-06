@@ -171,6 +171,10 @@
     color: #E5E7EB;
   }
   
+  .text-dark-text-secondary {
+    color: #E5E7EB;
+  }
+  
   /* === TEXT CLASSES FOR LIGHT SECTIONS === */
   .text-light-section {
     color: #111827;
