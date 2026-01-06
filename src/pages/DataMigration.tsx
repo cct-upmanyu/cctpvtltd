@@ -201,7 +201,7 @@ export default function DataMigration() {
                 transition={{ delay: 0.5 }}
                 className="text-base lg:text-lg text-[#E5E7EB]/80 mb-8"
               >
-                Zero-downtime migrations across CRMs, ERPs, accounting platforms, and legacy systems with 100% data integrity.
+                Planned downtime of up to 12 hours, scheduled during non-working hours. 100% data integrity guaranteed.
               </motion.p>
               
               <motion.div
@@ -232,7 +232,7 @@ export default function DataMigration() {
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#4DA3FF]" />
-                  <span>Zero Downtime</span>
+                  <span>Planned Downtime: Up to 12 Hours</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
@@ -250,7 +250,7 @@ export default function DataMigration() {
             >
               {[
                 { value: "100%", label: "Data Integrity", color: "#3FE0F0", icon: Shield },
-                { value: "0", label: "Downtime Hours", color: "#10B981", icon: Clock },
+                { value: "≤12", label: "Hours Planned Downtime", color: "#10B981", icon: Clock },
                 { value: "15+", label: "Platforms", color: "#4DA3FF", icon: Database },
                 { value: "500+", label: "Migrations", color: "#8B5CF6", icon: ArrowRightLeft },
               ].map((stat, index) => {

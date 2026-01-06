@@ -30,6 +30,25 @@ import ZohoAnalytics from "./pages/ZohoAnalytics";
 import ZohoCreator from "./pages/ZohoCreator";
 import ZohoBooks from "./pages/ZohoBooks";
 import ZohoInventory from "./pages/ZohoInventory";
+import ZohoCRM from "./pages/ZohoCRM";
+import TermsConditions from "./pages/TermsConditions";
+
+// CRM Service Pages
+import CRMConsulting from "./pages/crm/CRMConsulting";
+import CRMImplementation from "./pages/crm/CRMImplementation";
+import CRMCustomisation from "./pages/crm/CRMCustomisation";
+import CRMDevelopment from "./pages/crm/CRMDevelopment";
+import CRMAutomation from "./pages/crm/CRMAutomation";
+import CRMIntegrations from "./pages/crm/CRMIntegrations";
+import CRMAudit from "./pages/crm/CRMAudit";
+
+// AI Solution Pages
+import AIAgents from "./pages/ai/AIAgents";
+import AISalesAutomation from "./pages/ai/AISalesAutomation";
+import AICustomerSupport from "./pages/ai/AICustomerSupport";
+import AIVoiceBots from "./pages/ai/AIVoiceBots";
+import AICRMAutomation from "./pages/ai/AICRMAutomation";
+import AIAnalytics from "./pages/ai/AIAnalytics";
 
 // Industry Pages
 import ManufacturingIndustry from "./pages/industries/ManufacturingIndustry";
@@ -62,6 +81,7 @@ const App = () => (
           <Route path="/zoho-creator" element={<ZohoCreator />} />
           <Route path="/zoho-books" element={<ZohoBooks />} />
           <Route path="/zoho-inventory" element={<ZohoInventory />} />
+          <Route path="/zoho-crm" element={<ZohoCRM />} />
           <Route path="/ai-solutions" element={<AISolutions />} />
           <Route path="/crm-solutions" element={<CRMSolutions />} />
           <Route path="/data-migration" element={<DataMigration />} />
@@ -72,6 +92,22 @@ const App = () => (
           <Route path="/industries" element={<Industries />} />
           <Route path="/company" element={<Company />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms-and-conditions" element={<TermsConditions />} />
+          {/* CRM Service Pages */}
+          <Route path="/crm-consulting" element={<CRMConsulting />} />
+          <Route path="/crm-implementation" element={<CRMImplementation />} />
+          <Route path="/crm-customisation" element={<CRMCustomisation />} />
+          <Route path="/crm-development" element={<CRMDevelopment />} />
+          <Route path="/crm-automation" element={<CRMAutomation />} />
+          <Route path="/crm-integrations" element={<CRMIntegrations />} />
+          <Route path="/crm-audit" element={<CRMAudit />} />
+          {/* AI Solution Pages */}
+          <Route path="/ai-agents" element={<AIAgents />} />
+          <Route path="/ai-sales-automation" element={<AISalesAutomation />} />
+          <Route path="/ai-customer-support" element={<AICustomerSupport />} />
+          <Route path="/ai-voice-bots" element={<AIVoiceBots />} />
+          <Route path="/ai-crm-automation" element={<AICRMAutomation />} />
+          <Route path="/ai-analytics" element={<AIAnalytics />} />
           {/* Country-specific Zoho Partner pages */}
           <Route path="/zoho-partner-uk" element={<ZohoPartnerUK />} />
           <Route path="/zoho-partner-uae" element={<ZohoPartnerUAE />} />
