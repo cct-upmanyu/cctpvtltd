@@ -194,11 +194,11 @@ export default function ZohoCRM() {
           </div>
         </div>
         
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F0F4FA] to-transparent" />
       </section>
 
       {/* CRM Overview */}
-      <section className="bg-light-gradient section-padding">
+      <section className="bg-[#F0F4FA] py-20 md:py-28">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -252,7 +252,7 @@ export default function ZohoCRM() {
       </section>
 
       {/* Why Implement With Us - Dark Section */}
-      <section className="bg-dark-gradient section-padding relative overflow-hidden">
+      <section className="bg-gradient-to-br from-[#0B1C3D] via-[#0F2A5F] to-[#0B1C3D] py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
         </div>
@@ -320,7 +320,7 @@ export default function ZohoCRM() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-light-gradient section-padding">
+      <section className="bg-[#F0F4FA] py-20 md:py-28">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
