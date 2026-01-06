@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, LucideIcon, Package, Workflow, BarChart3 } from "lucide-react";
+import { ArrowRight, CheckCircle, LucideIcon } from "lucide-react";
 import zohoOneLogo from "@/assets/zoho-one-logo.png";
 
 interface Solution {
@@ -24,6 +24,10 @@ interface BuiltSolution {
   tagline: string;
   description: string;
   features: string[];
+  screens?: {
+    title: string;
+    stats: { label: string; value: string; trend?: string }[];
+  }[];
 }
 
 interface IndustryPageProps {
@@ -38,30 +42,42 @@ interface IndustryPageProps {
   builtSolutions?: BuiltSolution[];
 }
 
-// Default built solutions if none provided
-const defaultBuiltSolutions: BuiltSolution[] = [
-  {
-    icon: Package,
-    title: "Asset Management",
-    tagline: "Asset tracking made simple — because managing should be easy",
-    description: "From procurement and lifecycle management to decommissioning, our tailored asset management solution fits your business perfectly.",
-    features: ["Real-time Tracking", "Audit-ready Reports", "Seamless Integrations", "Lifecycle Management"]
-  },
-  {
-    icon: Workflow,
-    title: "Workflow Automation",
-    tagline: "Automate processes — focus on what matters most",
-    description: "End-to-end process automation that eliminates manual tasks and streamlines your operations for maximum efficiency.",
-    features: ["Process Builder", "Auto Notifications", "Approval Workflows", "Task Management"]
-  },
-  {
-    icon: BarChart3,
-    title: "Custom Analytics Dashboard",
-    tagline: "Data insights that drive decisions — see the bigger picture",
-    description: "Comprehensive analytics and reporting portals that give you real-time visibility into your key metrics and KPIs.",
-    features: ["Real-time Analytics", "Custom Reports", "Data Visualization", "Export Options"]
-  }
-];
+// Function to generate built solutions from the solutions prop
+const generateBuiltSolutionsFromSolutions = (solutions: Solution[]): BuiltSolution[] => {
+  return solutions.slice(0, 3).map((sol) => ({
+    icon: sol.icon,
+    title: sol.title,
+    tagline: `${sol.title} — simplified and streamlined for your business`,
+    description: sol.description,
+    features: sol.zohoApps.slice(0, 4),
+    screens: [
+      {
+        title: "Dashboard",
+        stats: [
+          { label: "Total", value: "2,847", trend: "+12%" },
+          { label: "Active", value: "1,523", trend: "+8%" },
+          { label: "Pending", value: "324", trend: "-5%" }
+        ]
+      },
+      {
+        title: "Analytics",
+        stats: [
+          { label: "Completed", value: "89%", trend: "+4%" },
+          { label: "In Progress", value: "156", trend: "+22%" },
+          { label: "Scheduled", value: "47", trend: "+15%" }
+        ]
+      },
+      {
+        title: "Reports",
+        stats: [
+          { label: "Generated", value: "1,245", trend: "+18%" },
+          { label: "Exported", value: "892", trend: "+25%" },
+          { label: "Shared", value: "234", trend: "+10%" }
+        ]
+      }
+    ]
+  }));
+};
 
 export function IndustryPageTemplate({
   industry,
@@ -274,9 +290,9 @@ export function IndustryPageTemplate({
             </p>
           </motion.div>
 
-          {/* Zoho-style Solution Showcase Cards */}
+          {/* Zoho-style Solution Showcase Cards - Using solutions from "Built for" section */}
           <div className="space-y-8 mb-16">
-            {(builtSolutions || defaultBuiltSolutions).map((solution, index) => {
+            {(builtSolutions || generateBuiltSolutionsFromSolutions(solutions)).map((solution, index) => {
               const Icon = solution.icon;
               const isEven = index % 2 === 0;
               
@@ -322,76 +338,79 @@ export function IndustryPageTemplate({
                         ))}
                       </div>
                       
-                      <div className="flex gap-3">
-                        <Button variant="heroPrimary" size="lg" asChild>
-                          <Link to="/contact">
-                            Request Demo
-                            <ArrowRight className="w-4 h-4" />
-                          </Link>
-                        </Button>
-                        <Button variant="outline" size="lg" className="border-[#3FE0F0]/30 text-white hover:bg-[#3FE0F0]/10" asChild>
-                          <Link to="/contact">
-                            Contact Sales
-                          </Link>
-                        </Button>
-                      </div>
+                      <Button variant="heroPrimary" size="lg" asChild>
+                        <Link to="/contact">
+                          Request Demo
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </Button>
                     </div>
                     
-                    {/* Visual/Preview Side */}
-                    <div className={`relative p-8 lg:p-10 flex items-center justify-center ${isEven ? 'order-2' : 'order-2 lg:order-1'}`}>
-                      <div className="relative w-full max-w-md">
-                        {/* Mock Dashboard Preview */}
-                        <div className="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200">
-                          {/* Dashboard Header */}
-                          <div className="bg-[#0B1C3D] px-4 py-3 flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <Icon className="w-4 h-4 text-[#3FE0F0]" />
-                              <span className="text-white text-sm font-medium">{solution.title}</span>
-                            </div>
-                            <div className="flex gap-1">
-                              <div className="w-2 h-2 rounded-full bg-red-400" />
-                              <div className="w-2 h-2 rounded-full bg-yellow-400" />
-                              <div className="w-2 h-2 rounded-full bg-green-400" />
-                            </div>
-                          </div>
-                          
-                          {/* Dashboard Content Preview */}
-                          <div className="p-4 bg-gray-50">
-                            {/* Stats Row */}
-                            <div className="grid grid-cols-3 gap-2 mb-4">
-                              {[
-                                { label: "Total", value: "2,847", color: "bg-blue-500" },
-                                { label: "Active", value: "1,523", color: "bg-green-500" },
-                                { label: "Pending", value: "324", color: "bg-orange-500" }
-                              ].map((stat, idx) => (
-                                <div key={idx} className="bg-white p-2 rounded-lg border border-gray-100 text-center">
-                                  <div className={`w-6 h-6 ${stat.color} rounded-full mx-auto mb-1 flex items-center justify-center`}>
-                                    <CheckCircle className="w-3 h-3 text-white" />
+                    {/* Visual/Preview Side - Multiple App Screens */}
+                    <div className={`relative p-6 lg:p-8 flex items-center justify-center ${isEven ? 'order-2' : 'order-2 lg:order-1'}`}>
+                      <div className="relative w-full">
+                        {/* Multiple App Preview Screens */}
+                        <div className="flex gap-4 overflow-hidden">
+                          {(solution.screens || [
+                            { title: "Dashboard", stats: [{ label: "Total", value: "2,847", trend: "+12%" }, { label: "Active", value: "1,523", trend: "+8%" }, { label: "Pending", value: "324", trend: "-5%" }] },
+                            { title: "Analytics", stats: [{ label: "Completed", value: "89%", trend: "+4%" }, { label: "In Progress", value: "156", trend: "+22%" }, { label: "Scheduled", value: "47", trend: "+15%" }] },
+                            { title: "Reports", stats: [{ label: "Generated", value: "1,245", trend: "+18%" }, { label: "Exported", value: "892", trend: "+25%" }, { label: "Shared", value: "234", trend: "+10%" }] }
+                          ]).map((screen, screenIdx) => (
+                            <motion.div
+                              key={screenIdx}
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: 0.2 + screenIdx * 0.1 }}
+                              className={`flex-shrink-0 w-48 md:w-56 ${screenIdx === 0 ? '' : screenIdx === 1 ? 'hidden md:block' : 'hidden lg:block'}`}
+                              style={{ transform: `translateY(${screenIdx * 8}px)` }}
+                            >
+                              <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200">
+                                {/* Screen Header */}
+                                <div className="bg-[#0B1C3D] px-3 py-2 flex items-center justify-between">
+                                  <div className="flex items-center gap-1.5">
+                                    <Icon className="w-3 h-3 text-[#3FE0F0]" />
+                                    <span className="text-white text-xs font-medium">{screen.title}</span>
                                   </div>
-                                  <div className="text-xs text-gray-500">{stat.label}</div>
-                                  <div className="text-sm font-bold text-gray-800">{stat.value}</div>
+                                  <div className="flex gap-0.5">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                                  </div>
                                 </div>
-                              ))}
-                            </div>
-                            
-                            {/* Table Preview */}
-                            <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
-                              <div className="grid grid-cols-4 gap-2 px-3 py-2 bg-gray-100 text-xs font-medium text-gray-600">
-                                <span>ID</span>
-                                <span>Name</span>
-                                <span>Status</span>
-                                <span>Date</span>
+                                
+                                {/* Screen Content */}
+                                <div className="p-3 bg-gray-50 space-y-2">
+                                  {screen.stats.map((stat, statIdx) => (
+                                    <div key={statIdx} className="bg-white p-2 rounded-lg border border-gray-100">
+                                      <div className="flex items-center justify-between mb-1">
+                                        <span className="text-xs text-gray-500">{stat.label}</span>
+                                        {stat.trend && (
+                                          <span className={`text-xs font-medium ${stat.trend.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
+                                            {stat.trend}
+                                          </span>
+                                        )}
+                                      </div>
+                                      <div className="text-lg font-bold text-gray-800">{stat.value}</div>
+                                    </div>
+                                  ))}
+                                  
+                                  {/* Mini chart placeholder */}
+                                  <div className="bg-white p-2 rounded-lg border border-gray-100">
+                                    <div className="flex items-end gap-1 h-8">
+                                      {[40, 65, 45, 80, 55, 70, 90].map((h, i) => (
+                                        <div 
+                                          key={i} 
+                                          className="flex-1 bg-gradient-to-t from-[#3FE0F0] to-[#4DA3FF] rounded-t"
+                                          style={{ height: `${h}%` }}
+                                        />
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                              {[1, 2, 3].map((row) => (
-                                <div key={row} className="grid grid-cols-4 gap-2 px-3 py-2 border-t border-gray-50 text-xs text-gray-700">
-                                  <span>#{row}00{row}</span>
-                                  <span>Item {row}</span>
-                                  <span className="text-green-600">Active</span>
-                                  <span>Jan {row + 10}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
+                            </motion.div>
+                          ))}
                         </div>
                         
                         {/* Decorative glow */}
@@ -483,37 +502,7 @@ export function IndustryPageTemplate({
         </div>
       </section>
 
-      {/* CTA - LIGHT */}
-      <section className="bg-light-gradient section-padding">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
-              Ready to Transform Your {industry} Operations?
-            </h2>
-            <p className="text-[#374151] text-lg mb-8">
-              Let's discuss how we can build custom solutions for your business using Zoho One and Zoho Creator.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="heroLight" size="xl" asChild>
-                <Link to="/contact">
-                  Schedule a Consultation
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
-              <Button variant="outline" size="xl" asChild>
-                <Link to="/industries">
-                  View All Industries
-                </Link>
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* Removed duplicate CTA section - unique "Idea CTA" already exists above */}
 
       <Footer />
     </div>
