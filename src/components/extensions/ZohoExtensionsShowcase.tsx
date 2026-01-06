@@ -1,57 +1,129 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Star, Users, CheckCircle } from "lucide-react";
+import { ExternalLink, CheckCircle, FileText, MessageSquare, Phone, Mail, CreditCard, Cloud, Send, DollarSign, ShoppingBag, Receipt, Brain, Home, Puzzle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-// Real extensions data from Club Code Technology
+// Real extensions data from Club Code Technology website
 const extensions = [
   {
-    name: "Zoho CRM Extensions",
-    description: "Custom CRM extensions that integrate with third-party applications to boost the power of Zoho CRM for your specific business needs.",
-    icon: "🎯",
-    features: ["Lead Management", "Sales Automation", "Custom Workflows"],
-    color: "#E74C3C",
-    category: "Marketplace Extension",
+    name: "MyDocSafe for Zoho Apps",
+    description: "Securely manage your documents with MyDocSafe integration for Zoho CRM and Zoho Projects. Automate document workflows, digital signatures, and data sharing.",
+    icon: FileText,
+    features: ["Document Automation", "Digital Signatures", "Secure Data Sharing"],
+    color: "#3B82F6",
+    category: "Document Management",
   },
   {
-    name: "WhatsApp Integration",
-    description: "Connect WhatsApp Business API directly into Zoho CRM for unified customer communication with two-way messaging sync.",
-    icon: "💬",
-    features: ["Two-way Messaging", "Automated Responses", "CRM Sync"],
-    color: "#25D366",
+    name: "Go To SMS for Zoho CRM",
+    description: "Easily send SMS messages directly from your Zoho CRM. Personalized text communication with leads and customers to stay connected on the go.",
+    icon: MessageSquare,
+    features: ["Direct SMS", "Personalized Messaging", "Lead Communication"],
+    color: "#10B981",
     category: "Communication",
   },
   {
-    name: "Payment Gateway Connector",
-    description: "Seamlessly connect Razorpay, Stripe, and PayPal with Zoho for automated invoicing, reconciliation, and payment tracking.",
-    icon: "💳",
-    features: ["Auto Reconciliation", "Multi-currency", "Invoice Sync"],
-    color: "#2B84EA",
-    category: "Finance Integration",
-  },
-  {
-    name: "HR & Payroll Extension",
-    description: "Automate employee management from onboarding to offboarding with Zoho People integration including leave and timesheet management.",
-    icon: "👥",
-    features: ["Leave Management", "Timesheet Tracking", "Performance Reviews"],
-    color: "#8B5CF6",
-    category: "HR Solution",
-  },
-  {
-    name: "Zoho Creator Apps",
-    description: "Custom applications built on Zoho Creator to streamline your unique business processes with seamless integration to other Zoho services.",
-    icon: "🔧",
-    features: ["Custom Workflows", "Mobile Ready", "API Integration"],
+    name: "RingCentral for Zoho CRM",
+    description: "Integrate RingCentral with Zoho CRM to improve communication. Make calls, track conversations, and view call logs without leaving your CRM.",
+    icon: Phone,
+    features: ["Click-to-Call", "Call Logging", "Conversation Tracking"],
     color: "#F59E0B",
-    category: "Custom Application",
+    category: "Telephony",
   },
   {
-    name: "Analytics Dashboard",
-    description: "Custom data visualization and advanced analytics solutions powered by Zoho Analytics for perfect business decisions.",
-    icon: "📊",
-    features: ["Real-time Data", "Custom Reports", "BI Dashboards"],
-    color: "#10B981",
-    category: "Analytics",
+    name: "Clickatell for Zoho CRM",
+    description: "Engage with customers effectively through Clickatell SMS communication within Zoho CRM. Manage and track SMS campaigns alongside CRM activities.",
+    icon: Send,
+    features: ["SMS Campaigns", "Customer Engagement", "Campaign Tracking"],
+    color: "#06B6D4",
+    category: "Messaging",
+  },
+  {
+    name: "Acelle Mail for Zoho CRM",
+    description: "Integrate Acelle Mail with Zoho CRM for seamless email marketing. Create campaigns, track open rates, and improve lead nurturing.",
+    icon: Mail,
+    features: ["Email Campaigns", "Open Rate Tracking", "Lead Nurturing"],
+    color: "#EC4899",
+    category: "Email Marketing",
+  },
+  {
+    name: "Twilio for Zoho CRM",
+    description: "Take advantage of Twilio's powerful SMS and voice services right within Zoho CRM. Send automated messages or engage in personalized communication.",
+    icon: MessageSquare,
+    features: ["SMS & Voice", "Automated Messages", "Two-way Communication"],
+    color: "#EF4444",
+    category: "Communication",
+  },
+  {
+    name: "GiftBit for Zoho CRM",
+    description: "Send digital gift cards directly from Zoho CRM to reward loyal customers or incentivize leads with instant, trackable rewards.",
+    icon: CreditCard,
+    features: ["Digital Gift Cards", "Customer Rewards", "Lead Incentives"],
+    color: "#8B5CF6",
+    category: "Rewards",
+  },
+  {
+    name: "OneDrive for Zoho Projects",
+    description: "Easily manage and share documents by integrating OneDrive with Zoho Projects. Collaborate on files and keep project documentation centralized.",
+    icon: Cloud,
+    features: ["File Sharing", "Team Collaboration", "Document Storage"],
+    color: "#0078D4",
+    category: "Cloud Storage",
+  },
+  {
+    name: "Sendmode for Zoho CRM",
+    description: "Sendmode enables efficient business messaging through Zoho CRM. Use SMS to communicate with customers and automate marketing campaigns.",
+    icon: Send,
+    features: ["Business SMS", "Automated Campaigns", "Response Tracking"],
+    color: "#14B8A6",
+    category: "Messaging",
+  },
+  {
+    name: "BQE for Zoho CRM",
+    description: "Streamline project management and financial tracking with BQE for Zoho CRM. Manage time tracking, billing, and project costs all from within CRM.",
+    icon: DollarSign,
+    features: ["Time Tracking", "Billing Management", "Project Costs"],
+    color: "#059669",
+    category: "Finance",
+  },
+  {
+    name: "Shopify for Zoho Inventory",
+    description: "Synchronize your Shopify store with Zoho Inventory to automate inventory tracking, order management, and fulfillment processes.",
+    icon: ShoppingBag,
+    features: ["Inventory Sync", "Order Management", "Fulfillment"],
+    color: "#96BF48",
+    category: "E-commerce",
+  },
+  {
+    name: "Xendit for Zoho Billings",
+    description: "Make payments easier by integrating Xendit with Zoho Billings. Process payments seamlessly and improve billing workflow.",
+    icon: Receipt,
+    features: ["Payment Processing", "Billing Workflow", "Transaction Tracking"],
+    color: "#0038A8",
+    category: "Payments",
+  },
+  {
+    name: "RazorPay for Zoho Projects",
+    description: "Collect payments easily by integrating RazorPay with Zoho Projects. Simplify payment workflows and track payment status.",
+    icon: CreditCard,
+    features: ["Payment Collection", "Status Tracking", "Workflow Integration"],
+    color: "#072654",
+    category: "Payments",
+  },
+  {
+    name: "Velents AI for Zoho Recruit",
+    description: "Enhance your hiring process with Velents AI integration for Zoho Recruit. Use AI to analyze candidates and match qualifications with job requirements.",
+    icon: Brain,
+    features: ["AI Candidate Analysis", "Skills Matching", "Recruitment Automation"],
+    color: "#6366F1",
+    category: "AI Recruitment",
+  },
+  {
+    name: "IDX Broker for Zoho CRM",
+    description: "IDX Broker integration brings real estate listings into Zoho CRM, enabling agents to manage leads, track property info, and close deals effectively.",
+    icon: Home,
+    features: ["Real Estate Listings", "Lead Management", "Property Tracking"],
+    color: "#DC2626",
+    category: "Real Estate",
   },
 ];
 
@@ -84,10 +156,10 @@ export const ZohoExtensionsShowcase = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
         >
           {[
-            { value: "8+", label: "Years of Experience" },
-            { value: "30+", label: "Certified Experts" },
-            { value: "300+", label: "Projects Delivered" },
-            { value: "100%", label: "Client Satisfaction" },
+            { value: "50+", label: "Extensions" },
+            { value: "100+", label: "Integrations" },
+            { value: "700+", label: "Implementations" },
+            { value: "100%", label: "Job Success" },
           ].map((stat, index) => (
             <div
               key={stat.label}
@@ -103,29 +175,31 @@ export const ZohoExtensionsShowcase = () => {
 
         {/* Extensions Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {extensions.map((ext, index) => (
-            <motion.div
-              key={ext.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#3FE0F0]/30 hover-lift transition-all relative overflow-hidden"
-            >
-              {/* Category Badge */}
-              <div className="absolute top-4 right-4">
-                <span className="px-2 py-1 rounded-full bg-[#F5F7FB] text-[#374151] text-xs font-medium">
-                  {ext.category}
-                </span>
-              </div>
-
-              {/* Icon */}
-              <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-4 transition-transform group-hover:scale-110"
-                style={{ backgroundColor: `${ext.color}20` }}
+          {extensions.map((ext, index) => {
+            const Icon = ext.icon;
+            return (
+              <motion.div
+                key={ext.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#3FE0F0]/30 hover-lift transition-all relative overflow-hidden"
               >
-                {ext.icon}
-              </div>
+                {/* Category Badge */}
+                <div className="absolute top-4 right-4">
+                  <span className="px-2 py-1 rounded-full bg-[#F5F7FB] text-[#374151] text-xs font-medium">
+                    {ext.category}
+                  </span>
+                </div>
+
+                {/* Icon */}
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
+                  style={{ backgroundColor: `${ext.color}15` }}
+                >
+                  <Icon className="w-7 h-7" style={{ color: ext.color }} />
+                </div>
 
               {/* Content */}
               <h3 className="text-xl font-semibold text-[#111827] mb-2 group-hover:text-[#3FE0F0] transition-colors">
@@ -142,29 +216,13 @@ export const ZohoExtensionsShowcase = () => {
                     <CheckCircle className="w-4 h-4" style={{ color: ext.color }} />
                     {feature}
                   </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+                  ))}
+                </ul>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <p className="text-[#374151] mb-6">
-            Need a custom extension for your business?
-          </p>
-          <Button asChild variant="heroPrimary" size="lg">
-            <Link to="/contact">
-              Discuss Your Extension Idea
-              <ExternalLink className="w-5 h-5" />
-            </Link>
-          </Button>
-        </motion.div>
       </div>
     </section>
   );
