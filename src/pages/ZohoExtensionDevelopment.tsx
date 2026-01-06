@@ -102,10 +102,10 @@ const ZohoExtensionDevelopment = () => {
                 Extension Development
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Zoho <span className="text-gradient-primary">Extension Development</span>
+                Extend the Capabilities of <span className="text-gradient-primary">Zoho Apps</span>
               </h1>
               <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
-                Extend Zoho beyond standard features with secure, scalable, and marketplace-ready extensions tailored to your enterprise needs.
+                We specialize in enhancing the functionality of Zoho apps to meet your unique business requirements. From advanced automations and third-party integrations to specialized tools, our Zoho extensions elevate your workflows and unlock new possibilities.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button asChild variant="heroDark" size="lg" className="min-w-[220px]">
