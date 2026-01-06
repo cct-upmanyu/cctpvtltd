@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, LucideIcon } from "lucide-react";
+import { ArrowRight, CheckCircle, LucideIcon, Package, Workflow, BarChart3 } from "lucide-react";
 import zohoOneLogo from "@/assets/zoho-one-logo.png";
 
 interface Solution {
@@ -18,6 +18,14 @@ interface UseCase {
   description: string;
 }
 
+interface BuiltSolution {
+  icon: LucideIcon;
+  title: string;
+  tagline: string;
+  description: string;
+  features: string[];
+}
+
 interface IndustryPageProps {
   industry: string;
   tagline: string;
@@ -27,7 +35,33 @@ interface IndustryPageProps {
   useCases: UseCase[];
   benefits: string[];
   zohoAppsUsed: string[];
+  builtSolutions?: BuiltSolution[];
 }
+
+// Default built solutions if none provided
+const defaultBuiltSolutions: BuiltSolution[] = [
+  {
+    icon: Package,
+    title: "Asset Management",
+    tagline: "Asset tracking made simple — because managing should be easy",
+    description: "From procurement and lifecycle management to decommissioning, our tailored asset management solution fits your business perfectly.",
+    features: ["Real-time Tracking", "Audit-ready Reports", "Seamless Integrations", "Lifecycle Management"]
+  },
+  {
+    icon: Workflow,
+    title: "Workflow Automation",
+    tagline: "Automate processes — focus on what matters most",
+    description: "End-to-end process automation that eliminates manual tasks and streamlines your operations for maximum efficiency.",
+    features: ["Process Builder", "Auto Notifications", "Approval Workflows", "Task Management"]
+  },
+  {
+    icon: BarChart3,
+    title: "Custom Analytics Dashboard",
+    tagline: "Data insights that drive decisions — see the bigger picture",
+    description: "Comprehensive analytics and reporting portals that give you real-time visibility into your key metrics and KPIs.",
+    features: ["Real-time Analytics", "Custom Reports", "Data Visualization", "Export Options"]
+  }
+];
 
 export function IndustryPageTemplate({
   industry,
@@ -38,6 +72,7 @@ export function IndustryPageTemplate({
   useCases,
   benefits,
   zohoAppsUsed,
+  builtSolutions,
 }: IndustryPageProps) {
   return (
     <div className="min-h-screen bg-background">
@@ -215,7 +250,7 @@ export function IndustryPageTemplate({
         </div>
       </section>
 
-      {/* Solutions We've Built - DARK */}
+      {/* Solutions We've Built - DARK - Zoho Style Showcase */}
       <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
@@ -239,27 +274,134 @@ export function IndustryPageTemplate({
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {[
-              { title: "Inventory & Asset Tracking", desc: "Real-time tracking and management system" },
-              { title: "Workflow Automation", desc: "End-to-end process automation platform" },
-              { title: "Custom Dashboards", desc: "Analytics and reporting portals" },
-            ].map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-[#0F2A5F]/50 border border-[#3FE0F0]/20 rounded-2xl p-6 hover:border-[#3FE0F0]/40 transition-all"
-              >
-                <div className="w-12 h-12 rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center mb-4">
-                  <CheckCircle className="w-6 h-6 text-[#3FE0F0]" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{project.title}</h3>
-                <p className="text-[#E5E7EB] text-sm">{project.desc}</p>
-              </motion.div>
-            ))}
+          {/* Zoho-style Solution Showcase Cards */}
+          <div className="space-y-8 mb-16">
+            {(builtSolutions || defaultBuiltSolutions).map((solution, index) => {
+              const Icon = solution.icon;
+              const isEven = index % 2 === 0;
+              
+              return (
+                <motion.div
+                  key={solution.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative bg-gradient-to-br from-[#0F2A5F]/80 to-[#0B1C3D]/90 border border-[#3FE0F0]/20 rounded-3xl overflow-hidden hover:border-[#3FE0F0]/40 transition-all duration-300"
+                >
+                  <div className={`grid lg:grid-cols-2 gap-8 ${isEven ? '' : 'lg:flex-row-reverse'}`}>
+                    {/* Content Side */}
+                    <div className={`p-8 lg:p-10 ${isEven ? 'order-1' : 'order-1 lg:order-2'}`}>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#3FE0F0]/20 to-[#4DA3FF]/20 flex items-center justify-center border border-[#3FE0F0]/30">
+                          <Icon className="w-6 h-6 text-[#3FE0F0]" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl lg:text-2xl font-bold text-white">{solution.title}</h3>
+                          <p className="text-[#3FE0F0] text-sm font-medium">by ClubCode Technology</p>
+                        </div>
+                      </div>
+                      
+                      <p className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">
+                        {solution.tagline}
+                      </p>
+                      
+                      <p className="text-[#E5E7EB] mb-6">
+                        {solution.description}
+                      </p>
+                      
+                      {/* Feature Pills */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {solution.features.map((feature, idx) => (
+                          <span 
+                            key={idx}
+                            className="px-3 py-1.5 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm rounded-full border border-[#3FE0F0]/20"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      <div className="flex gap-3">
+                        <Button variant="heroPrimary" size="lg" asChild>
+                          <Link to="/contact">
+                            Request Demo
+                            <ArrowRight className="w-4 h-4" />
+                          </Link>
+                        </Button>
+                        <Button variant="outline" size="lg" className="border-[#3FE0F0]/30 text-white hover:bg-[#3FE0F0]/10" asChild>
+                          <Link to="/contact">
+                            Contact Sales
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                    
+                    {/* Visual/Preview Side */}
+                    <div className={`relative p-8 lg:p-10 flex items-center justify-center ${isEven ? 'order-2' : 'order-2 lg:order-1'}`}>
+                      <div className="relative w-full max-w-md">
+                        {/* Mock Dashboard Preview */}
+                        <div className="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200">
+                          {/* Dashboard Header */}
+                          <div className="bg-[#0B1C3D] px-4 py-3 flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <Icon className="w-4 h-4 text-[#3FE0F0]" />
+                              <span className="text-white text-sm font-medium">{solution.title}</span>
+                            </div>
+                            <div className="flex gap-1">
+                              <div className="w-2 h-2 rounded-full bg-red-400" />
+                              <div className="w-2 h-2 rounded-full bg-yellow-400" />
+                              <div className="w-2 h-2 rounded-full bg-green-400" />
+                            </div>
+                          </div>
+                          
+                          {/* Dashboard Content Preview */}
+                          <div className="p-4 bg-gray-50">
+                            {/* Stats Row */}
+                            <div className="grid grid-cols-3 gap-2 mb-4">
+                              {[
+                                { label: "Total", value: "2,847", color: "bg-blue-500" },
+                                { label: "Active", value: "1,523", color: "bg-green-500" },
+                                { label: "Pending", value: "324", color: "bg-orange-500" }
+                              ].map((stat, idx) => (
+                                <div key={idx} className="bg-white p-2 rounded-lg border border-gray-100 text-center">
+                                  <div className={`w-6 h-6 ${stat.color} rounded-full mx-auto mb-1 flex items-center justify-center`}>
+                                    <CheckCircle className="w-3 h-3 text-white" />
+                                  </div>
+                                  <div className="text-xs text-gray-500">{stat.label}</div>
+                                  <div className="text-sm font-bold text-gray-800">{stat.value}</div>
+                                </div>
+                              ))}
+                            </div>
+                            
+                            {/* Table Preview */}
+                            <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
+                              <div className="grid grid-cols-4 gap-2 px-3 py-2 bg-gray-100 text-xs font-medium text-gray-600">
+                                <span>ID</span>
+                                <span>Name</span>
+                                <span>Status</span>
+                                <span>Date</span>
+                              </div>
+                              {[1, 2, 3].map((row) => (
+                                <div key={row} className="grid grid-cols-4 gap-2 px-3 py-2 border-t border-gray-50 text-xs text-gray-700">
+                                  <span>#{row}00{row}</span>
+                                  <span>Item {row}</span>
+                                  <span className="text-green-600">Active</span>
+                                  <span>Jan {row + 10}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Decorative glow */}
+                        <div className="absolute -inset-4 bg-gradient-to-br from-[#3FE0F0]/10 to-[#4DA3FF]/10 rounded-2xl -z-10 blur-xl opacity-50 group-hover:opacity-70 transition-opacity" />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Idea CTA */}
