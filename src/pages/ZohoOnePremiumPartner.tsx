@@ -29,6 +29,8 @@ import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import zohoOneLogo from "@/assets/zoho-one-logo.png";
+import clientLogosRow1 from "@/assets/client-logos-row1.png";
+import clientLogosRow2 from "@/assets/client-logos-row2.png";
 
 // JSON-LD Structured Data for SEO
 const structuredData = {
@@ -559,28 +561,60 @@ export default function ZohoOnePremiumPartner() {
                   </ul>
                   
                   <div className="mt-8 pt-6 border-t border-primary/20">
-                    <div className="flex items-center gap-4">
-                      <div className="flex -space-x-1">
-                        {[
-                          { logo: "https://clubcodetechnology.com/wp-content/uploads/2021/11/renewtrak.jpeg", name: "Renewtrak" },
-                          { logo: "https://clubcodetechnology.com/wp-content/uploads/2021/11/wethinking.jpeg", name: "WeThinking" },
-                          { logo: "https://clubcodetechnology.com/wp-content/uploads/2021/11/enp.jpeg", name: "ENP" },
-                          { logo: "https://clubcodetechnology.com/wp-content/uploads/2021/11/bobsnatural.jpeg", name: "Bob's Natural" }
-                        ].map((client, i) => (
-                          <div 
-                            key={i} 
-                            className="w-10 h-10 rounded-full border-2 border-card-dark overflow-hidden"
-                          >
-                            <img src={client.logo} alt={client.name} className="w-full h-full object-cover" />
-                          </div>
-                        ))}
-                      </div>
-                      <div>
-                        <div className="font-semibold">500+ Projects Delivered</div>
-                        <div className="text-sm text-dark-section-secondary">Across 40+ Countries</div>
-                      </div>
+                    <div className="text-center">
+                      <div className="font-semibold text-lg mb-2">500+ Projects Delivered</div>
+                      <div className="text-sm text-dark-section-secondary">Across 40+ Countries</div>
                     </div>
                   </div>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
+          {/* Trusted By Section - Client Logos */}
+          <section className="py-16 bg-muted/30">
+            <div className="container-custom">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center mb-12"
+              >
+                <h2 className="text-2xl md:text-3xl font-bold text-light-section mb-3">
+                  Trusted by Leading Brands
+                </h2>
+                <p className="text-light-section-secondary">
+                  Join 500+ businesses that rely on CCT for their Zoho implementation
+                </p>
+              </motion.div>
+              
+              <div className="space-y-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="bg-card rounded-2xl p-6 md:p-8 shadow-sm"
+                >
+                  <img 
+                    src={clientLogosRow1} 
+                    alt="Client logos - Bluebond, Trace, Amp It Up PR, Genova Law, Viacare" 
+                    className="w-full max-w-5xl mx-auto object-contain"
+                  />
+                </motion.div>
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="bg-card rounded-2xl p-6 md:p-8 shadow-sm"
+                >
+                  <img 
+                    src={clientLogosRow2} 
+                    alt="Client logos - Chemispire, Milestones Moments, Pro Imaging, Jindal Healthcare, XPRS" 
+                    className="w-full max-w-5xl mx-auto object-contain"
+                  />
                 </motion.div>
               </div>
             </div>
