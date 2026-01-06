@@ -439,7 +439,10 @@ export function IndustryPageTemplate({
       </section>
 
       {/* Benefits - LIGHT */}
-      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+      <section className="bg-light-gradient section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        </div>
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -447,10 +450,10 @@ export function IndustryPageTemplate({
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
                 Why Choose Us
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
                 Benefits of Our {industry} Solutions
               </h2>
               <div className="space-y-4">
@@ -463,10 +466,10 @@ export function IndustryPageTemplate({
                     transition={{ delay: index * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <div className="w-6 h-6 rounded-full bg-[#3FE0F0]/20 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-4 h-4 text-[#3FE0F0]" />
+                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-[#E5E7EB]">{benefit}</span>
+                    <span className="text-[#374151]">{benefit}</span>
                   </motion.div>
                 ))}
               </div>
@@ -476,14 +479,14 @@ export function IndustryPageTemplate({
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-[#0B1C3D]/50 border border-[#3FE0F0]/20 rounded-2xl p-8"
+              className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm"
             >
-              <h3 className="text-xl font-semibold text-white mb-6">Zoho Apps We Leverage</h3>
+              <h3 className="text-xl font-semibold text-[#111827] mb-6">Zoho Apps We Leverage</h3>
               <div className="flex flex-wrap gap-3">
                 {zohoAppsUsed.map((app) => (
                   <span
                     key={app}
-                    className="px-4 py-2 bg-[#3FE0F0]/10 text-[#3FE0F0] rounded-lg border border-[#3FE0F0]/20 text-sm font-medium"
+                    className="px-4 py-2 bg-primary/10 text-primary rounded-lg border border-primary/20 text-sm font-medium"
                   >
                     {app}
                   </span>
@@ -493,8 +496,6 @@ export function IndustryPageTemplate({
           </div>
         </div>
       </section>
-
-      {/* Removed duplicate CTA section - unique "Idea CTA" already exists above */}
 
       <Footer />
     </div>
