@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import cctLogo from "@/assets/cct-logo.png";
 
-// Services mega menu structure
+// Services mega menu structure - 3 column layout without dividers
 const servicesMenu = {
   label: "Services",
   categories: [
@@ -14,8 +14,8 @@ const servicesMenu = {
       title: "Zoho Services",
       href: "/zoho-solutions",
       items: [
-        { label: "Zoho One (Premium Partner)", href: "/zoho-one-premium-partner" },
-        { label: "Zoho CRM Implementation", href: "/crm-solutions" },
+        { label: "Zoho One", href: "/zoho-one-premium-partner" },
+        { label: "Zoho CRM Implementation", href: "/zoho-crm" },
         { label: "Zoho Creator", href: "/zoho-creator" },
         { label: "Zoho Books & Finance Automation", href: "/zoho-books" },
         { label: "Zoho Inventory", href: "/zoho-inventory" },
@@ -31,25 +31,25 @@ const servicesMenu = {
       href: "/ai-solutions",
       items: [
         { label: "AI Chatbot Solutions", href: "/ai-chatbot-solutions" },
-        { label: "AI Agents & Assistants", href: "/ai-solutions" },
-        { label: "AI Sales Automation", href: "/ai-solutions" },
-        { label: "AI Customer Support Automation", href: "/ai-solutions" },
-        { label: "AI Voice Bots", href: "/ai-solutions" },
-        { label: "AI + CRM Automation", href: "/ai-solutions" },
-        { label: "AI Analytics & Insights", href: "/ai-solutions" },
+        { label: "AI Agents & Assistants", href: "/ai-agents" },
+        { label: "AI Sales Automation", href: "/ai-sales-automation" },
+        { label: "AI Customer Support Automation", href: "/ai-customer-support" },
+        { label: "AI Voice Bots", href: "/ai-voice-bots" },
+        { label: "AI + CRM Automation", href: "/ai-crm-automation" },
+        { label: "AI Analytics & Insights", href: "/ai-analytics" },
       ]
     },
     {
       title: "CRM Services",
-      href: "/crm-solutions",
+      href: "/crm-services",
       items: [
-        { label: "CRM Consulting", href: "/crm-solutions" },
-        { label: "CRM Implementation", href: "/crm-solutions" },
-        { label: "CRM Customisation", href: "/crm-solutions" },
-        { label: "CRM Development", href: "/crm-solutions" },
-        { label: "CRM Automation", href: "/crm-solutions" },
-        { label: "CRM Integrations", href: "/third-party-integrations" },
-        { label: "CRM Audit & Optimization", href: "/crm-solutions" },
+        { label: "CRM Consulting", href: "/crm-consulting" },
+        { label: "CRM Implementation", href: "/crm-implementation" },
+        { label: "CRM Customisation", href: "/crm-customisation" },
+        { label: "CRM Development", href: "/crm-development" },
+        { label: "CRM Automation", href: "/crm-automation" },
+        { label: "CRM Integrations", href: "/crm-integrations" },
+        { label: "CRM Audit & Optimization", href: "/crm-audit" },
       ]
     },
     {
@@ -179,32 +179,28 @@ export function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[900px] bg-white border border-border rounded-xl shadow-2xl z-50 overflow-hidden"
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[900px] bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
                     >
-                      <div className="grid grid-cols-3 gap-0">
-                        {servicesMenu.categories.map((category, index) => (
+                      <div className="grid grid-cols-3">
+                        {servicesMenu.categories.map((category) => (
                           <div 
                             key={category.title} 
-                            className={cn(
-                              "p-5",
-                              index < 3 ? "border-b border-border" : "",
-                              index % 3 !== 2 ? "border-r border-border" : ""
-                            )}
+                            className="p-6"
                           >
                             <Link 
                               to={category.href}
-                              className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors mb-3 block"
+                              className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors mb-4 block"
                             >
                               {category.title}
                             </Link>
-                            <ul className="space-y-1.5">
+                            <ul className="space-y-2">
                               {category.items.map((subItem) => (
                                 <li key={subItem.label}>
                                   <Link
                                     to={subItem.href}
                                     className={cn(
-                                      "text-sm text-secondary hover:text-primary hover:bg-muted rounded px-2 py-1.5 block transition-colors",
-                                      location.pathname === subItem.href && "text-primary bg-muted"
+                                      "text-sm text-secondary hover:text-primary hover:bg-muted/50 rounded px-2 py-1.5 block transition-colors",
+                                      location.pathname === subItem.href && "text-primary bg-muted/50"
                                     )}
                                   >
                                     {subItem.label}
