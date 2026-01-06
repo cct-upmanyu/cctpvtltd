@@ -40,10 +40,15 @@ const footerLinks = {
   ],
 };
 
-export function Footer() {
+interface FooterProps {
+  hideCTA?: boolean;
+}
+
+export function Footer({ hideCTA = false }: FooterProps) {
   return (
     <footer className="border-t border-[#1A365D]">
       {/* Top CTA Section - Darker Navy */}
+      {!hideCTA && (
       <div className="bg-[#0B1C3D]">
         <div className="container-custom py-16">
           <div className="text-center">
@@ -65,6 +70,7 @@ export function Footer() {
           </div>
         </div>
       </div>
+      )}
 
       {/* Main Footer Content - Even Darker */}
       <div className="bg-[#050D1A]">
