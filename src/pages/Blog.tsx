@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Calendar, Clock, User, Tag, Search, TrendingUp, Lightbulb, Cog, BarChart3, Bot, Database, Globe, Shield } from "lucide-react";
+import { ArrowRight, Calendar, Clock, User, Search, TrendingUp, Lightbulb, Cog, BarChart3, Bot, Database, Globe, Shield } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
@@ -22,8 +22,8 @@ const featuredPost = {
   title: "How AI is Revolutionizing CRM: A Complete Guide for 2025",
   excerpt: "Discover how artificial intelligence is transforming customer relationship management. Learn about AI-powered lead scoring, predictive analytics, and automated workflows that are helping businesses close deals 3x faster.",
   category: "AI & Automation",
-  author: "Prashant Sharma",
-  role: "CEO, ClubCode Technology",
+  author: "Navdeep Sen",
+  role: "Founder & CEO, ClubCode Technology",
   date: "January 2, 2025",
   readTime: "8 min read",
   icon: Bot,
@@ -165,11 +165,11 @@ export default function Blog() {
       <Navbar />
       
       <main className="pt-20">
-        {/* Hero Section */}
-        <section className="relative py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+        {/* Hero Section - Dark Theme */}
+        <section className="relative py-20 md:py-28 bg-gradient-to-br from-[#0B1C3D] via-[#0F2A5F] to-[#0B1C3D] overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-20 left-10 w-72 h-72 bg-[#3FE0F0]/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#4DA3FF]/10 rounded-full blur-3xl" />
           </div>
           
           <div className="container-custom relative z-10">
@@ -178,75 +178,77 @@ export default function Blog() {
               animate={{ opacity: 1, y: 0 }}
               className="text-center max-w-4xl mx-auto"
             >
-              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
-                <Lightbulb className="w-4 h-4 inline mr-2" />
-                Insights & Resources
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#3FE0F0]/10 border border-[#3FE0F0]/30 rounded-full text-sm font-medium mb-6">
+                <Lightbulb className="w-4 h-4 text-[#3FE0F0]" />
+                <span className="text-[#3FE0F0]">Insights & Resources</span>
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 Expert Insights for
-                <span className="text-primary"> Business Growth</span>
+                <span className="text-gradient-primary block mt-2"> Business Growth</span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-[#E5E7EB] max-w-3xl mx-auto">
                 Stay ahead with expert tips, industry trends, and actionable guides on Zoho, CRM, AI, and digital transformation.
               </p>
             </motion.div>
           </div>
+          
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F0F4FA] to-transparent" />
         </section>
 
-        {/* Featured Post */}
-        <section className="py-12 bg-background">
+        {/* Featured Post - Light Section */}
+        <section className="py-16 bg-[#F0F4FA]">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-r from-primary to-primary/80 rounded-3xl overflow-hidden"
+              className="bg-gradient-to-r from-[#0B1C3D] to-[#0F2A5F] rounded-3xl overflow-hidden shadow-xl"
             >
               <div className="grid md:grid-cols-2 gap-8 p-8 md:p-12">
-                <div className="text-primary-foreground">
-                  <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-medium mb-4">
+                <div className="text-white">
+                  <span className="inline-block px-3 py-1 bg-[#3FE0F0]/20 border border-[#3FE0F0]/30 rounded-full text-sm font-medium text-[#3FE0F0] mb-4">
                     Featured Article
                   </span>
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
                     {featuredPost.title}
                   </h2>
-                  <p className="text-lg opacity-90 mb-6">
+                  <p className="text-lg text-[#E5E7EB] mb-6">
                     {featuredPost.excerpt}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {featuredPost.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 bg-white/10 rounded-full text-sm">
+                      <span key={tag} className="px-3 py-1 bg-[#3FE0F0]/10 border border-[#3FE0F0]/20 rounded-full text-sm text-[#3FE0F0]">
                         #{tag}
                       </span>
                     ))}
                   </div>
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                      <User className="w-6 h-6" />
+                    <div className="w-12 h-12 bg-[#3FE0F0]/20 rounded-full flex items-center justify-center border border-[#3FE0F0]/30">
+                      <User className="w-6 h-6 text-[#3FE0F0]" />
                     </div>
                     <div>
-                      <div className="font-semibold">{featuredPost.author}</div>
-                      <div className="text-sm opacity-75">{featuredPost.role}</div>
+                      <div className="font-semibold text-white">{featuredPost.author}</div>
+                      <div className="text-sm text-[#E5E7EB]">{featuredPost.role}</div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 text-sm opacity-75 mb-8">
+                  <div className="flex items-center gap-4 text-sm text-[#E5E7EB] mb-8">
                     <span className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
+                      <Calendar className="w-4 h-4 text-[#3FE0F0]" />
                       {featuredPost.date}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Clock className="w-4 h-4" />
+                      <Clock className="w-4 h-4 text-[#3FE0F0]" />
                       {featuredPost.readTime}
                     </span>
                   </div>
-                  <Button variant="heroSecondary" size="lg" className="gap-2">
+                  <Button variant="heroDark" size="lg" className="gap-2">
                     Read Full Article
                     <ArrowRight className="w-5 h-5" />
                   </Button>
                 </div>
                 <div className="hidden md:flex items-center justify-center">
-                  <div className="w-64 h-64 bg-white/10 rounded-3xl flex items-center justify-center">
-                    <featuredPost.icon className="w-32 h-32 opacity-50" />
+                  <div className="w-64 h-64 bg-[#3FE0F0]/10 border border-[#3FE0F0]/20 rounded-3xl flex items-center justify-center">
+                    <featuredPost.icon className="w-32 h-32 text-[#3FE0F0]/40" />
                   </div>
                 </div>
               </div>
@@ -254,30 +256,30 @@ export default function Blog() {
           </div>
         </section>
 
-        {/* Blog Posts */}
-        <section className="py-16 bg-background">
+        {/* Blog Posts - Light Section */}
+        <section className="py-20 bg-[#F0F4FA]">
           <div className="container-custom">
             <div className="grid lg:grid-cols-4 gap-8">
               {/* Sidebar */}
               <div className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
                   {/* Search */}
-                  <div className="bg-card rounded-xl p-6 border border-border">
-                    <h3 className="font-semibold mb-4">Search</h3>
+                  <div className="bg-white rounded-xl p-6 border border-[#0B1C3D]/10 shadow-sm">
+                    <h3 className="font-semibold text-[#111827] mb-4">Search</h3>
                     <div className="relative">
-                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#374151]" />
                       <Input
                         placeholder="Search articles..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="pl-10"
+                        className="pl-10 border-[#0B1C3D]/20 focus:border-[#3FE0F0]"
                       />
                     </div>
                   </div>
                   
                   {/* Categories */}
-                  <div className="bg-card rounded-xl p-6 border border-border">
-                    <h3 className="font-semibold mb-4">Categories</h3>
+                  <div className="bg-white rounded-xl p-6 border border-[#0B1C3D]/10 shadow-sm">
+                    <h3 className="font-semibold text-[#111827] mb-4">Categories</h3>
                     <div className="space-y-2">
                       {categories.map((category) => (
                         <button
@@ -285,15 +287,15 @@ export default function Blog() {
                           onClick={() => setSelectedCategory(category.name)}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-colors text-left ${
                             selectedCategory === category.name
-                              ? "bg-primary text-primary-foreground"
-                              : "hover:bg-muted text-foreground"
+                              ? "bg-[#0B1C3D] text-white"
+                              : "hover:bg-[#F0F4FA] text-[#374151]"
                           }`}
                         >
                           <span className="text-sm">{category.name}</span>
                           <span className={`text-xs px-2 py-0.5 rounded-full ${
                             selectedCategory === category.name
-                              ? "bg-white/20"
-                              : "bg-muted"
+                              ? "bg-[#3FE0F0]/20 text-[#3FE0F0]"
+                              : "bg-[#F0F4FA] text-[#374151]"
                           }`}>
                             {category.count}
                           </span>
@@ -303,16 +305,16 @@ export default function Blog() {
                   </div>
 
                   {/* Newsletter */}
-                  <div className="bg-gradient-to-br from-primary to-primary/80 rounded-xl p-6 text-primary-foreground">
+                  <div className="bg-gradient-to-br from-[#0B1C3D] to-[#0F2A5F] rounded-xl p-6 text-white">
                     <h3 className="font-semibold mb-2">Newsletter</h3>
-                    <p className="text-sm opacity-90 mb-4">
+                    <p className="text-sm text-[#E5E7EB] mb-4">
                       Get the latest insights delivered to your inbox.
                     </p>
                     <Input
                       placeholder="Your email"
-                      className="bg-white/20 border-white/30 text-white placeholder:text-white/60 mb-3"
+                      className="bg-white/10 border-[#3FE0F0]/30 text-white placeholder:text-white/60 mb-3 focus:border-[#3FE0F0]"
                     />
-                    <Button variant="heroSecondary" size="sm" className="w-full">
+                    <Button variant="heroDark" size="sm" className="w-full">
                       Subscribe
                     </Button>
                   </div>
@@ -322,10 +324,10 @@ export default function Blog() {
               {/* Posts Grid */}
               <div className="lg:col-span-3">
                 <div className="flex items-center justify-between mb-8">
-                  <h2 className="text-2xl font-bold text-foreground">
+                  <h2 className="text-2xl font-bold text-[#111827]">
                     {selectedCategory === "All" ? "Latest Articles" : selectedCategory}
                   </h2>
-                  <span className="text-muted-foreground text-sm">
+                  <span className="text-[#374151] text-sm">
                     {filteredPosts.length} articles
                   </span>
                 </div>
@@ -338,30 +340,30 @@ export default function Blog() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.05 }}
-                      className="bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all duration-300 group"
+                      className="bg-white rounded-xl border border-[#0B1C3D]/10 overflow-hidden hover:shadow-lg transition-all duration-300 group"
                     >
-                      <div className="h-40 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                        <post.icon className="w-16 h-16 text-primary/40 group-hover:text-primary/60 transition-colors" />
+                      <div className="h-40 bg-gradient-to-br from-[#0B1C3D]/5 to-[#3FE0F0]/10 flex items-center justify-center">
+                        <post.icon className="w-16 h-16 text-[#0B1C3D]/30 group-hover:text-[#3FE0F0] transition-colors" />
                       </div>
                       <div className="p-6">
                         <div className="flex items-center gap-2 mb-3">
-                          <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
+                          <span className="px-2 py-1 bg-[#3FE0F0]/10 text-[#00A0B0] text-xs font-medium rounded-full">
                             {post.category}
                           </span>
                         </div>
-                        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                        <h3 className="text-lg font-semibold text-[#111827] mb-2 group-hover:text-[#00A0B0] transition-colors line-clamp-2">
                           {post.title}
                         </h3>
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                        <p className="text-sm text-[#374151] mb-4 line-clamp-2">
                           {post.excerpt}
                         </p>
-                        <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <div className="flex items-center justify-between text-xs text-[#374151]">
                           <span className="flex items-center gap-1">
-                            <Calendar className="w-3 h-3" />
+                            <Calendar className="w-3 h-3 text-[#3FE0F0]" />
                             {post.date}
                           </span>
                           <span className="flex items-center gap-1">
-                            <Clock className="w-3 h-3" />
+                            <Clock className="w-3 h-3 text-[#3FE0F0]" />
                             {post.readTime}
                           </span>
                         </div>
@@ -372,13 +374,13 @@ export default function Blog() {
 
                 {filteredPosts.length === 0 && (
                   <div className="text-center py-12">
-                    <p className="text-muted-foreground">No articles found matching your criteria.</p>
+                    <p className="text-[#374151]">No articles found matching your criteria.</p>
                   </div>
                 )}
 
                 {/* Load More */}
                 <div className="text-center mt-12">
-                  <Button variant="outline" size="lg">
+                  <Button variant="outline" size="lg" className="border-[#0B1C3D]/20 text-[#0B1C3D] hover:bg-[#0B1C3D] hover:text-white">
                     Load More Articles
                   </Button>
                 </div>
@@ -387,29 +389,32 @@ export default function Blog() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-muted/30">
-          <div className="container-custom text-center">
+        {/* CTA Section - Dark Theme */}
+        <section className="py-20 bg-gradient-to-br from-[#0B1C3D] via-[#0F2A5F] to-[#0B1C3D] relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+          </div>
+          <div className="container-custom text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="max-w-3xl mx-auto"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Have Questions About Your Business?
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-lg text-[#E5E7EB] mb-8">
                 Our experts are ready to discuss how Zoho and AI solutions can transform your operations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="heroPrimary" asChild>
+                <Button size="lg" variant="heroDark" asChild>
                   <Link to="/contact" className="gap-2">
                     Talk to an Expert
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="outline" className="border-[#3FE0F0]/30 text-white hover:bg-[#3FE0F0]/10" asChild>
                   <Link to="/case-studies">View Case Studies</Link>
                 </Button>
               </div>
