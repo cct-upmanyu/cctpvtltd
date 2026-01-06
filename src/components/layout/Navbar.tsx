@@ -16,12 +16,12 @@ const servicesMenu = {
       items: [
         { label: "Zoho One (Premium Partner)", href: "/zoho-one-premium-partner" },
         { label: "Zoho CRM Implementation", href: "/crm-solutions" },
-        { label: "Zoho Creator", href: "/zoho-solutions" },
-        { label: "Zoho Books & Finance Automation", href: "/zoho-solutions" },
-        { label: "Zoho Inventory", href: "/zoho-solutions" },
+        { label: "Zoho Creator", href: "/zoho-creator" },
+        { label: "Zoho Books & Finance Automation", href: "/zoho-books" },
+        { label: "Zoho Inventory", href: "/zoho-inventory" },
         { label: "Zoho Desk & SalesIQ", href: "/ai-chatbot-solutions" },
-        { label: "Zoho People & Recruit", href: "/zoho-solutions" },
-        { label: "Zoho Analytics", href: "/zoho-solutions" },
+        { label: "Zoho People & Recruit", href: "/zoho-people" },
+        { label: "Zoho Analytics", href: "/zoho-analytics" },
         { label: "Zoho Integrations", href: "/third-party-integrations" },
         { label: "Zoho Extension Development", href: "/zoho-extension-development" },
       ]
