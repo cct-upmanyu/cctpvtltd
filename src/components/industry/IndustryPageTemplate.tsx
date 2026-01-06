@@ -215,7 +215,77 @@ export function IndustryPageTemplate({
         </div>
       </section>
 
-      {/* Benefits - DARK */}
+      {/* Solutions We've Built - DARK */}
+      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-[#4DA3FF]/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
+              Our Work
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Solutions We've Built So Far
+            </h2>
+            <p className="text-[#E5E7EB] text-lg max-w-2xl mx-auto">
+              Explore the custom {industry.toLowerCase()} solutions we've delivered for our clients.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {[
+              { title: "Inventory & Asset Tracking", desc: "Real-time tracking and management system" },
+              { title: "Workflow Automation", desc: "End-to-end process automation platform" },
+              { title: "Custom Dashboards", desc: "Analytics and reporting portals" },
+            ].map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-[#0F2A5F]/50 border border-[#3FE0F0]/20 rounded-2xl p-6 hover:border-[#3FE0F0]/40 transition-all"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center mb-4">
+                  <CheckCircle className="w-6 h-6 text-[#3FE0F0]" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">{project.title}</h3>
+                <p className="text-[#E5E7EB] text-sm">{project.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Idea CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-[#3FE0F0]/10 to-[#4DA3FF]/10 border border-[#3FE0F0]/30 rounded-2xl p-8 md:p-10 text-center"
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Do You Have an Idea in Mind?
+            </h3>
+            <p className="text-[#E5E7EB] text-lg mb-6 max-w-xl mx-auto">
+              Share your vision with us. We'll help you build a custom solution tailored to your {industry.toLowerCase()} business needs.
+            </p>
+            <Button variant="heroPrimary" size="xl" asChild>
+              <Link to="/contact">
+                Let's Discuss Your Idea
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Benefits - LIGHT */}
       <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
