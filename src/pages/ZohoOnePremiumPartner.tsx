@@ -766,25 +766,13 @@ export default function ZohoOnePremiumPartner() {
               <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0B1C3D] to-transparent z-10" />
               <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0B1C3D] to-transparent z-10" />
               
-              {/* Scrolling container */}
-              <div className="flex animate-marquee">
-                {/* First set of logos */}
-                <div className="flex items-center gap-6 px-3">
-                  <div className="flex-shrink-0 bg-gradient-to-br from-slate-100 to-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                    <img src={clientLogosRow1} alt="Client logos" className="h-12 md:h-16 w-auto object-contain" />
-                  </div>
-                  <div className="flex-shrink-0 bg-gradient-to-br from-slate-100 to-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                    <img src={clientLogosRow2} alt="More client logos" className="h-12 md:h-16 w-auto object-contain" />
-                  </div>
+              {/* Scrolling container - back and forth */}
+              <div className="flex items-center justify-start gap-8 animate-marquee">
+                <div className="flex-shrink-0 bg-gradient-to-br from-slate-100 to-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <img src={clientLogosRow1} alt="Client logos" className="h-12 md:h-16 w-auto object-contain" />
                 </div>
-                {/* Duplicate set for seamless loop */}
-                <div className="flex items-center gap-6 px-3">
-                  <div className="flex-shrink-0 bg-gradient-to-br from-slate-100 to-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                    <img src={clientLogosRow1} alt="Client logos" className="h-12 md:h-16 w-auto object-contain" />
-                  </div>
-                  <div className="flex-shrink-0 bg-gradient-to-br from-slate-100 to-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                    <img src={clientLogosRow2} alt="More client logos" className="h-12 md:h-16 w-auto object-contain" />
-                  </div>
+                <div className="flex-shrink-0 bg-gradient-to-br from-slate-100 to-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <img src={clientLogosRow2} alt="More client logos" className="h-12 md:h-16 w-auto object-contain" />
                 </div>
               </div>
             </div>
