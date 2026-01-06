@@ -744,7 +744,7 @@ export default function ZohoOnePremiumPartner() {
         </section>
 
         {/* Trusted By */}
-        <section className="section-padding bg-[#0B1C3D]">
+        <section className="section-padding bg-gradient-to-br from-[#0B1C3D] via-[#1a3a6e] to-[#0B1C3D] overflow-hidden">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -760,32 +760,33 @@ export default function ZohoOnePremiumPartner() {
               </h2>
             </motion.div>
 
-            <div className="space-y-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="flex justify-center"
-              >
-                <img 
-                  src={clientLogosRow1} 
-                  alt="Client logos" 
-                  className="max-w-full h-auto opacity-80 hover:opacity-100 transition-opacity"
-                />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="flex justify-center"
-              >
-                <img 
-                  src={clientLogosRow2} 
-                  alt="More client logos" 
-                  className="max-w-full h-auto opacity-80 hover:opacity-100 transition-opacity"
-                />
-              </motion.div>
+            {/* Scrolling Logo Marquee */}
+            <div className="relative">
+              {/* Gradient fade edges */}
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0B1C3D] to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0B1C3D] to-transparent z-10" />
+              
+              {/* Scrolling container */}
+              <div className="flex animate-marquee">
+                {/* First set of logos */}
+                <div className="flex items-center gap-6 px-3">
+                  <div className="flex-shrink-0 bg-gradient-to-br from-slate-100 to-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                    <img src={clientLogosRow1} alt="Client logos" className="h-12 md:h-16 w-auto object-contain" />
+                  </div>
+                  <div className="flex-shrink-0 bg-gradient-to-br from-slate-100 to-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                    <img src={clientLogosRow2} alt="More client logos" className="h-12 md:h-16 w-auto object-contain" />
+                  </div>
+                </div>
+                {/* Duplicate set for seamless loop */}
+                <div className="flex items-center gap-6 px-3">
+                  <div className="flex-shrink-0 bg-gradient-to-br from-slate-100 to-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                    <img src={clientLogosRow1} alt="Client logos" className="h-12 md:h-16 w-auto object-contain" />
+                  </div>
+                  <div className="flex-shrink-0 bg-gradient-to-br from-slate-100 to-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                    <img src={clientLogosRow2} alt="More client logos" className="h-12 md:h-16 w-auto object-contain" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
