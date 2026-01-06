@@ -106,6 +106,13 @@ const navItems = [
       { label: "Europe", href: "/zoho-partner-europe" },
     ],
   },
+  {
+    label: "Resources",
+    children: [
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
   { label: "Company", href: "/company" },
   { label: "Contact", href: "/contact" },
 ];
