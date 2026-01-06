@@ -17,24 +17,24 @@ const zohoSuites = [
 
 // Zoho app data with actual working logo URLs from Zoho static CDN
 const zohoApps = [
-  { name: "CRM", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.png", color: "#E42527" },
-  { name: "Books", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/books.png", color: "#4CAF50" },
-  { name: "Creator", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/creator.png", color: "#00A1E0" },
-  { name: "Desk", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/desk.png", color: "#009688" },
-  { name: "People", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/people.png", color: "#4CAF50" },
-  { name: "Recruit", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/recruit.png", color: "#FF6F00" },
-  { name: "Projects", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/projects.png", color: "#F44336" },
-  { name: "Campaigns", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/campaigns.png", color: "#6A1B9A" },
-  { name: "Analytics", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/analytics.png", color: "#1976D2" },
-  { name: "Inventory", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/inventory.png", color: "#F7981D" },
-  { name: "Invoice", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/invoice.png", color: "#2196F3" },
-  { name: "Mail", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/mail.png", color: "#4285F4" },
-  { name: "Meeting", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/meeting.png", color: "#00BCD4" },
-  { name: "Cliq", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/cliq.png", color: "#7B1FA2" },
-  { name: "Survey", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/survey.png", color: "#9C27B0" },
-  { name: "Social", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/social.png", color: "#E91E63" },
-  { name: "SalesIQ", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/salesiq.png", color: "#7B1FA2" },
-  { name: "Sign", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/sign.png", color: "#00BCD4" },
+  { name: "CRM", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.png", color: "#E42527", description: "Manage Customer Relationships" },
+  { name: "Books", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/books.png", color: "#4CAF50", description: "Smart Business Accounting" },
+  { name: "Creator", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/creator.png", color: "#00A1E0", description: "Build Custom Apps" },
+  { name: "Desk", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/desk.png", color: "#009688", description: "Customer Support Intelligence" },
+  { name: "People", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/people.png", color: "#4CAF50", description: "HR & Workforce Management" },
+  { name: "Recruit", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/recruit.png", color: "#FF6F00", description: "Talent Hiring Platform" },
+  { name: "Projects", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/projects.png", color: "#F44336", description: "Project Management Suite" },
+  { name: "Campaigns", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/campaigns.png", color: "#6A1B9A", description: "Automated Email Marketing" },
+  { name: "Analytics", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/analytics.png", color: "#1976D2", description: "AI Business Intelligence" },
+  { name: "Inventory", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/inventory.png", color: "#F7981D", description: "Inventory & Order Control" },
+  { name: "Invoice", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/invoice.png", color: "#2196F3", description: "Professional Invoicing Solution" },
+  { name: "Mail", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/mail.png", color: "#4285F4", description: "Secure Business Email" },
+  { name: "Meeting", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/meeting.png", color: "#00BCD4", description: "Video Conferencing Platform" },
+  { name: "Cliq", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/cliq.png", color: "#7B1FA2", description: "Team Collaboration Suite" },
+  { name: "Survey", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/survey.png", color: "#9C27B0", description: "Customer Feedback Insights" },
+  { name: "Social", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/social.png", color: "#E91E63", description: "Social Media Management" },
+  { name: "SalesIQ", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/salesiq.png", color: "#7B1FA2", description: "Live Chat & Visitor Tracking" },
+  { name: "Sign", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/sign.png", color: "#00BCD4", description: "Digital Signature Solution" },
 ];
 
 // Split apps into 3 orbits with different starting angles for natural distribution
@@ -43,7 +43,7 @@ const middleOrbit = zohoApps.slice(5, 11);
 const outerOrbit = zohoApps.slice(11, 18);
 
 interface OrbitingAppProps {
-  app: { name: string; logo: string; color: string };
+  app: { name: string; logo: string; color: string; description: string };
   index: number;
   total: number;
   orbitRadius: number;
@@ -137,7 +137,7 @@ const OrbitingApp = ({
         >
           <span className="font-semibold" style={{ color: app.color }}>Zoho {app.name}</span>
           <br />
-          <span className="text-gray-500">Unified business solution</span>
+          <span className="text-gray-500">{app.description}</span>
         </motion.div>
       )}
     </motion.div>
