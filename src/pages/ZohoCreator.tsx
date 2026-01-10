@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
 import { 
   Blocks, 
@@ -21,16 +22,31 @@ import {
   ArrowRight,
   CheckCircle2,
   Code,
-  Briefcase
+  Briefcase,
+  AlertTriangle,
+  Target,
+  Settings,
+  Database,
+  Cog,
+  Factory,
+  HeartPulse,
+  Truck,
+  Home,
+  Scale,
+  Layers,
+  Shield,
+  Clock,
+  MessageSquare,
+  LineChart
 } from "lucide-react";
 
 const ZohoCreator = () => {
   useEffect(() => {
-    document.title = "Zoho Creator Low-Code Platform & Custom App Development | Club Code Technology";
+    document.title = "Zoho Creator Implementation Partner | Custom CRM, ERP & Business Systems | Club Code Technology";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Expert Zoho Creator implementation services. Build custom business applications with low-code development, AI-assisted app building, and seamless integrations.");
+      metaDescription.setAttribute("content", "Expert Zoho Creator implementation partner. Build custom CRM, ERP, and business systems that scale. Low-code development, workflow automation, and enterprise application development.");
     }
 
     const script = document.createElement('script');
@@ -43,8 +59,8 @@ const ZohoCreator = () => {
         "@type": "Organization",
         "name": "Club Code Technology"
       },
-      "description": "Expert Zoho Creator low-code application development, customization, and integration services.",
-      "serviceType": "Low-Code Application Development"
+      "description": "Expert Zoho Creator custom application development, CRM, ERP, and enterprise system implementation services.",
+      "serviceType": "Custom Application Development"
     });
     document.head.appendChild(script);
 
@@ -53,105 +69,260 @@ const ZohoCreator = () => {
     };
   }, []);
 
-  const capabilities = [
+  const whatCreatorIs = [
+    "A low-code platform for building custom software without writing traditional code",
+    "A system architecture platform for building CRM, ERP, and operations systems",
+    "A mobile-first development environment with native iOS and Android apps",
+    "A workflow automation engine for complex business processes",
+    "An integration hub connecting to 500+ applications and services",
+    "A scalable enterprise platform trusted by 30K+ organizations"
+  ];
+
+  const whenBusinessesNeed = [
     {
-      icon: Blocks,
-      title: "Drag & Drop App Building",
-      description: "Build web and mobile apps with an intuitive drag-and-drop interface. No extensive coding required.",
-      features: ["Visual form builder", "Page designer", "Component library", "Template gallery"]
+      icon: Settings,
+      title: "Workflows Don't Fit Standard CRM",
+      description: "Your sales, operations, or service processes are unique and can't be forced into off-the-shelf software."
     },
     {
-      icon: Sparkles,
-      title: "AI-Assisted Development",
-      description: "Leverage Zia AI to create apps quickly—just tell it what you need and it delivers smart suggestions.",
-      features: ["AI field suggestions", "Workflow recommendations", "Code generation", "Smart automation"]
+      icon: Layers,
+      title: "Multiple Departments Need One System",
+      description: "Sales, operations, finance, and service teams need to work from the same data and processes."
     },
     {
-      icon: Smartphone,
-      title: "Native Mobile Apps",
-      description: "Every app built on Creator comes with native iOS and Android apps automatically generated.",
-      features: ["iOS native app", "Android native app", "Offline capabilities", "Push notifications"]
+      icon: Database,
+      title: "ERP Is Too Heavy or Expensive",
+      description: "Enterprise ERP systems are overkill for your needs, but spreadsheets aren't cutting it anymore."
     },
     {
       icon: Workflow,
-      title: "Process Automation",
-      description: "Streamline operations with visual workflow builders and business process automation.",
-      features: ["Blueprint workflows", "Approval chains", "Scheduled actions", "Conditional logic"]
-    },
-    {
-      icon: BarChart3,
-      title: "Real-Time Analytics",
-      description: "Turn massive datasets into charts—ask questions in plain English and get powerful insights.",
-      features: ["Custom reports", "Dashboard builder", "AI-powered insights", "Data visualization"]
+      title: "Manual Processes Are Slowing Growth",
+      description: "Approvals, handoffs, and data entry are creating bottlenecks and errors in your operations."
     },
     {
       icon: Plug,
-      title: "1000+ Integrations",
-      description: "Connect all the tools you already use and run your business from one unified platform.",
-      features: ["Pre-built connectors", "REST APIs", "Webhooks", "Deluge scripting"]
-    }
-  ];
-
-  const useCases = [
-    {
-      icon: Wrench,
-      title: "Internal Tools",
-      description: "Build scalable internal tools to simplify processes, automate recurring tasks, and boost employee engagement."
-    },
-    {
-      icon: Users,
-      title: "Customer Portals",
-      description: "Build self-service portals for customers, vendors, and partners with single point of access to your services."
-    },
-    {
-      icon: Building2,
-      title: "Core Business Systems",
-      description: "Build mission-critical systems tailored to your needs without traditional development challenges."
-    },
-    {
-      icon: Package,
-      title: "Extend Applications",
-      description: "Supercharge existing Zoho or third-party applications with custom features and integrations."
-    }
-  ];
-
-  const solutions = [
-    { icon: Package, title: "Asset Management", description: "Track assets, schedule maintenance, and manage inventory." },
-    { icon: Building2, title: "Construction Management", description: "Centralize projects, teams, and data from start to finish." },
-    { icon: Wrench, title: "Material Requirements Planning", description: "Transform production efficiency with intelligent planning." },
-    { icon: GraduationCap, title: "Education Management", description: "Unified tools for admissions, scheduling, and student management." },
-    { icon: ShoppingCart, title: "Procurement", description: "Digital workflows for vendor management and approvals." },
-    { icon: Users, title: "Vendor Management", description: "Streamline vendor onboarding, tracking, and compliance." }
-  ];
-
-  const userSegments = [
-    {
-      icon: Users,
-      title: "Business Users",
-      description: "Empowering business users with low-code to solve their own problems."
-    },
-    {
-      icon: Briefcase,
-      title: "Business Leaders",
-      description: "Faster business decisions through custom apps aligned with strategy."
+      title: "Systems Don't Talk to Each Other",
+      description: "Your CRM, accounting, inventory, and other tools operate as disconnected silos."
     },
     {
       icon: Code,
-      title: "Developers",
-      description: "Create, automate, and integrate custom apps 10x faster with low-code."
+      title: "Custom Software Is Too Slow",
+      description: "Traditional development takes months and costs too much for evolving business needs."
+    }
+  ];
+
+  const developmentServices = [
+    {
+      icon: Blocks,
+      title: "Custom Business Application Development",
+      description: "Build purpose-built applications for your unique workflows—not generic software you have to work around.",
+      features: ["Process mapping & requirements analysis", "UI/UX design for business users", "Deluge scripting for complex logic", "Mobile app deployment"]
     },
     {
-      icon: Building2,
-      title: "IT Leaders",
-      description: "Accelerating IT development while maintaining governance and security."
+      icon: Target,
+      title: "Custom CRM Development Using Zoho Creator",
+      description: "When Zoho CRM isn't flexible enough, Creator becomes the foundation for truly custom CRM systems.",
+      features: ["Industry-specific CRM workflows", "Custom sales pipeline logic", "Client portal development", "Advanced reporting & analytics"]
+    },
+    {
+      icon: Factory,
+      title: "ERP-Like Systems & Operations Platforms",
+      description: "Build comprehensive operations management without ERP licensing costs or implementation nightmares.",
+      features: ["Inventory & order management", "Production & manufacturing workflows", "Multi-location operations", "Vendor & procurement systems"]
+    },
+    {
+      icon: Workflow,
+      title: "Workflow Automation & Process Engineering",
+      description: "Automate complex business processes with visual workflows, approvals, and conditional logic.",
+      features: ["Multi-stage approval workflows", "Scheduled automation & alerts", "Business rule automation", "SLA tracking & escalations"]
+    },
+    {
+      icon: Plug,
+      title: "Integrations & API Development",
+      description: "Connect Creator applications to your entire tech stack—ERPs, accounting, shipping, and more.",
+      features: ["REST API development", "Webhook implementations", "Third-party integrations", "Real-time data sync"]
+    },
+    {
+      icon: Database,
+      title: "Data Migration & Modernization",
+      description: "Move from legacy systems, spreadsheets, or disconnected tools to a unified Creator platform.",
+      features: ["Data mapping & cleanup", "Phased migration approach", "Historical data preservation", "User training & adoption"]
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile App Deployment",
+      description: "Every Creator application comes with native iOS and Android apps—no additional development required.",
+      features: ["Native mobile apps", "Offline capabilities", "Push notifications", "Mobile-optimized UX"]
+    },
+    {
+      icon: Users,
+      title: "Training, Governance & Long-Term Support",
+      description: "Ensure your team can use, maintain, and evolve your Creator applications over time.",
+      features: ["Admin training & documentation", "User onboarding programs", "Governance frameworks", "Ongoing optimization support"]
+    }
+  ];
+
+  const industrySolutions = [
+    {
+      icon: Factory,
+      title: "Manufacturing & Distribution",
+      description: "Production scheduling, inventory tracking, quality control, vendor management, and order fulfillment systems.",
+      link: "/industries/manufacturing"
+    },
+    {
+      icon: HeartPulse,
+      title: "Healthcare & Clinics",
+      description: "Patient management, appointment scheduling, billing workflows, compliance tracking, and staff coordination.",
+      link: "/industries/healthcare"
+    },
+    {
+      icon: Users,
+      title: "Recruitment & Staffing",
+      description: "Candidate pipelines, client management, placement tracking, timesheet systems, and commission calculations.",
+      link: "/industries/professional-services"
+    },
+    {
+      icon: Home,
+      title: "Real Estate & Property",
+      description: "Lead management, property listings, site visit tracking, contract management, and commission workflows.",
+      link: "/industries/real-estate"
+    },
+    {
+      icon: Briefcase,
+      title: "Professional Services",
+      description: "Project management, resource allocation, time tracking, client portals, and billing automation.",
+      link: "/industries/professional-services"
+    },
+    {
+      icon: GraduationCap,
+      title: "Education & Training",
+      description: "Admissions management, student information systems, fee tracking, course scheduling, and certification workflows.",
+      link: "/industries/education"
+    },
+    {
+      icon: ShoppingCart,
+      title: "Retail & eCommerce",
+      description: "Multi-channel order management, inventory synchronization, customer service workflows, and returns processing.",
+      link: "/industries/retail"
+    },
+    {
+      icon: Truck,
+      title: "Logistics & Supply Chain",
+      description: "Fleet management, dispatch systems, delivery tracking, driver coordination, and route optimization.",
+      link: "/industries/logistics"
+    }
+  ];
+
+  const prebuiltSolutions = [
+    { icon: Package, title: "Asset & Equipment Management", description: "Track assets, schedule maintenance, manage warranties, and automate service workflows." },
+    { icon: Building2, title: "Construction & Project Management", description: "Centralize projects, track progress, manage subcontractors, and control budgets." },
+    { icon: Wrench, title: "Procurement & Vendor Management", description: "Digital workflows for vendor onboarding, PO approvals, and spend tracking." },
+    { icon: GraduationCap, title: "Education Management Systems", description: "Unified tools for admissions, scheduling, attendance, and student management." },
+    { icon: BarChart3, title: "Internal Operations Dashboards", description: "Real-time visibility into KPIs, team performance, and business metrics." },
+    { icon: Scale, title: "Compliance & Audit Systems", description: "Document management, audit trails, checklist automation, and reporting." }
+  ];
+
+  const whyProjectsFail = [
+    {
+      issue: "No Requirements Analysis",
+      consequence: "Apps are built without understanding actual workflows, leading to low adoption.",
+      prevention: "We conduct deep discovery sessions before any development begins."
+    },
+    {
+      issue: "Over-Engineering",
+      consequence: "Complex features that nobody uses, making the system hard to maintain.",
+      prevention: "We build for today's needs with architecture that allows growth."
+    },
+    {
+      issue: "Poor Data Architecture",
+      consequence: "Data silos, duplicate records, and reporting that doesn't reflect reality.",
+      prevention: "We design data models that support current and future requirements."
+    },
+    {
+      issue: "No Integration Strategy",
+      consequence: "Creator apps become another disconnected system in your tech stack.",
+      prevention: "Integration architecture is defined before development starts."
+    },
+    {
+      issue: "Inadequate Training",
+      consequence: "Users don't understand the system, leading to workarounds and abandonment.",
+      prevention: "Role-based training ensures every user knows how to work effectively."
+    }
+  ];
+
+  const implementationMethodology = [
+    {
+      step: "01",
+      title: "Discovery & Process Mapping",
+      description: "Deep-dive into your workflows, pain points, and requirements. Every department and stakeholder is consulted."
+    },
+    {
+      step: "02",
+      title: "Solution Architecture",
+      description: "Design the data model, app structure, integrations, and user experience before any development."
+    },
+    {
+      step: "03",
+      title: "Development & Configuration",
+      description: "Build the application with iterative reviews, ensuring alignment with business needs."
+    },
+    {
+      step: "04",
+      title: "Integration & Automation",
+      description: "Connect to your ecosystem and implement workflow automation, approvals, and notifications."
+    },
+    {
+      step: "05",
+      title: "Testing & User Acceptance",
+      description: "Rigorous testing with real users and data to validate the solution meets requirements."
+    },
+    {
+      step: "06",
+      title: "Training & Go-Live",
+      description: "Comprehensive training, data migration, and phased rollout with ongoing support."
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "What is Zoho Creator and how is it different from Zoho CRM?",
+      answer: "Zoho Creator is a low-code platform for building custom applications—it's the foundation for creating software that fits your exact needs. Zoho CRM is a pre-built sales and customer management tool. We use Creator when CRM's standard features aren't flexible enough for your workflows."
+    },
+    {
+      question: "Can Zoho Creator replace our existing ERP system?",
+      answer: "For many mid-sized businesses, yes. Creator can handle inventory, orders, production, finance workflows, and more—without ERP licensing costs or implementation complexity. We assess your needs and recommend the right approach."
+    },
+    {
+      question: "How long does a typical Creator implementation take?",
+      answer: "Simple applications: 2-4 weeks. Comprehensive systems with multiple modules: 8-16 weeks. Enterprise-grade platforms: 3-6 months. Timeline depends on complexity, integrations, and data migration requirements."
+    },
+    {
+      question: "Do Creator applications work on mobile?",
+      answer: "Yes. Every application built on Creator automatically generates native iOS and Android apps. These include offline capabilities, push notifications, and mobile-optimized interfaces."
+    },
+    {
+      question: "Can Creator integrate with our existing systems?",
+      answer: "Absolutely. Creator connects to 500+ applications through pre-built connectors and can integrate with any system via REST APIs, webhooks, or custom Deluge scripting. We design integration architecture as part of every project."
+    },
+    {
+      question: "What happens if our needs change after the system is built?",
+      answer: "Creator's low-code nature means modifications are faster and less expensive than traditional development. We build with flexibility in mind and offer ongoing support for system evolution."
+    },
+    {
+      question: "Is Zoho Creator secure for enterprise use?",
+      answer: "Yes. Zoho Creator offers role-based access control, data encryption, audit logs, GDPR compliance, and SOC 2 Type II certification. We implement security best practices in every deployment."
+    },
+    {
+      question: "Do you provide training for our team?",
+      answer: "Comprehensive training is included in every implementation. We provide role-based training for end users, admin training for system managers, and documentation for ongoing reference."
     }
   ];
 
   const stats = [
-    { value: "7M+", label: "Apps Built" },
-    { value: "30K+", label: "Customers" },
-    { value: "6M+", label: "Users" },
-    { value: "1000+", label: "Integrations" }
+    { value: "7M+", label: "Apps Built Globally" },
+    { value: "30K+", label: "Organizations" },
+    { value: "6M+", label: "Active Users" },
+    { value: "500+", label: "Integrations" }
   ];
 
   return (
@@ -162,6 +333,7 @@ const ZohoCreator = () => {
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-40 left-10 w-72 h-72 bg-primary/3 rounded-full blur-3xl" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -170,17 +342,22 @@ const ZohoCreator = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
-                Zoho Creator Implementation Partner
-              </span>
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                  Zoho Creator Implementation Partner
+                </span>
+                <span className="inline-block px-4 py-2 bg-amber-500/10 text-amber-600 rounded-full text-sm font-medium">
+                  Creator Champions
+                </span>
+              </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-                Turn Ideas Into Apps <span className="text-primary">Faster</span> with Low-Code
+                Build Custom <span className="text-primary">CRM, ERP & Business Systems</span> That Scale
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Zoho Creator combines the power of low-code development and AI to help you design, develop, and run any business software you need.
+              <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
+                Zoho Creator isn't just a "low-code tool"—it's the foundation for building enterprise-grade business applications that fit how you actually operate.
               </p>
               <p className="text-lg text-muted-foreground mb-8">
-                We build custom applications that solve your unique business challenges—without the complexity of traditional development.
+                We design, develop, and deploy custom systems—from simple workflow apps to comprehensive operational platforms—that replace spreadsheets, legacy software, and disconnected tools.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="text-lg px-8">
@@ -199,7 +376,7 @@ const ZohoCreator = () => {
               className="relative"
             >
               <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-8 border border-border/50 shadow-2xl">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4 mb-6">
                   {stats.map((stat, index) => (
                     <div key={index} className="text-center p-4 bg-background/50 rounded-xl">
                       <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
@@ -207,97 +384,20 @@ const ZohoCreator = () => {
                     </div>
                   ))}
                 </div>
+                <div className="p-4 bg-primary/5 rounded-xl border border-primary/20">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Sparkles className="w-5 h-5 text-primary" />
+                    <span className="font-semibold text-foreground">Gartner Magic Quadrant</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Challenger 2024 - Enterprise Low-Code Application Platforms</p>
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Recognition Banner */}
-      <section className="py-8 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center items-center gap-8 text-center">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                <Blocks className="w-6 h-6 text-primary" />
-              </div>
-              <div className="text-left">
-                <div className="font-semibold text-foreground">Gartner Magic Quadrant</div>
-                <div className="text-sm text-muted-foreground">Challenger 2024 - Low-Code</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                <BarChart3 className="w-6 h-6 text-primary" />
-              </div>
-              <div className="text-left">
-                <div className="font-semibold text-foreground">ISG Provider Lens</div>
-                <div className="text-sm text-muted-foreground">Leader 2024</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                <Users className="w-6 h-6 text-primary" />
-              </div>
-              <div className="text-left">
-                <div className="font-semibold text-foreground">4.3/5 Rating</div>
-                <div className="text-sm text-muted-foreground">Capterra & G2</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Capabilities Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Powerful Low-Code Capabilities
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Everything you need to build enterprise-grade applications without the complexity.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {capabilities.map((capability, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm">
-                  <CardContent className="p-6">
-                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                      <capability.icon className="w-7 h-7 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">{capability.title}</h3>
-                    <p className="text-muted-foreground mb-4">{capability.description}</p>
-                    <ul className="space-y-2">
-                      {capability.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases Section */}
+      {/* What Is Zoho Creator Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
@@ -307,15 +407,50 @@ const ZohoCreator = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              What Can You Build?
+              What Is Zoho Creator?
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From internal tools to customer-facing applications, Creator handles it all.
+              More than a low-code tool—Creator is a system architecture platform for enterprises.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {useCases.map((useCase, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {whatCreatorIs.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="flex items-start gap-3 p-4 bg-card rounded-xl border border-border/50"
+              >
+                <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-foreground">{item}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* When Businesses Need Creator Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              When Do Businesses Need Zoho Creator?
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Creator becomes essential when off-the-shelf software creates more problems than it solves.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whenBusinessesNeed.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -325,18 +460,114 @@ const ZohoCreator = () => {
                 className="p-6 bg-card rounded-xl border border-border/50 hover:border-primary/50 transition-colors"
               >
                 <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                  <useCase.icon className="w-7 h-7 text-primary" />
+                  <item.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{useCase.title}</h3>
-                <p className="text-muted-foreground text-sm">{useCase.description}</p>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                <p className="text-muted-foreground">{item.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Solutions Section */}
+      {/* Development Services Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Zoho Creator Development Services
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              From custom applications to enterprise platforms—we build systems that transform operations.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {developmentServices.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="h-full hover:shadow-lg transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <service.icon className="w-7 h-7 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-foreground mb-2">{service.title}</h3>
+                        <p className="text-muted-foreground mb-4">{service.description}</p>
+                        <ul className="grid grid-cols-2 gap-2">
+                          {service.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Solutions Section */}
       <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Industry-Specific Creator Solutions
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Pre-architected frameworks accelerate implementation for your industry.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {industrySolutions.map((industry, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <Link to={industry.link}>
+                  <Card className="h-full hover:shadow-lg hover:border-primary/50 transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm cursor-pointer group">
+                    <CardContent className="p-6">
+                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                        <industry.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{industry.title}</h3>
+                      <p className="text-sm text-muted-foreground">{industry.description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pre-Built Solutions Section */}
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -348,12 +579,12 @@ const ZohoCreator = () => {
               Pre-Built Solutions We Customize
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Leverage fully customizable, pre-built applications tailored to your business needs.
+              Start with proven frameworks and customize to your exact requirements.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {solutions.map((solution, index) => (
+            {prebuiltSolutions.map((solution, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -375,7 +606,58 @@ const ZohoCreator = () => {
         </div>
       </section>
 
-      {/* User Segments */}
+      {/* Why Projects Fail Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 text-amber-600 rounded-full text-sm font-medium mb-4">
+              <AlertTriangle className="w-4 h-4" />
+              Common Pitfalls
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Why Creator Projects Fail—And How We Prevent It
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Most failures aren't about the platform—they're about the implementation approach.
+            </p>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto space-y-4">
+            {whyProjectsFail.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="p-6 bg-card rounded-xl border border-border/50"
+              >
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div>
+                    <span className="text-xs font-semibold text-destructive uppercase tracking-wider">Issue</span>
+                    <h4 className="font-semibold text-foreground">{item.issue}</h4>
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-amber-600 uppercase tracking-wider">Consequence</span>
+                    <p className="text-sm text-muted-foreground">{item.consequence}</p>
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">Our Prevention</span>
+                    <p className="text-sm text-muted-foreground">{item.prevention}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Implementation Methodology Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
@@ -385,35 +667,37 @@ const ZohoCreator = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Empowering Everyone to Innovate
+              Our Implementation Methodology
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Low-code development that works for every role in your organization.
+              A proven 6-step approach that ensures successful Creator deployments.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {userSegments.map((segment, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {implementationMethodology.map((step, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center p-6 bg-card rounded-xl border border-border/50"
+                className="relative p-6 bg-card rounded-xl border border-border/50"
               >
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <segment.icon className="w-8 h-8 text-primary" />
+                <div className="absolute -top-3 -left-3 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-sm">
+                  {step.step}
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{segment.title}</h3>
-                <p className="text-muted-foreground text-sm">{segment.description}</p>
+                <div className="pt-4">
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm">{step.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* FAQ Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <motion.div
@@ -423,34 +707,26 @@ const ZohoCreator = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Our Zoho Creator Services
+              Frequently Asked Questions
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              End-to-end low-code development from certified Zoho experts.
+              Common questions about Zoho Creator implementation.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: "Custom App Development", description: "Build tailor-made applications that solve your specific business challenges." },
-              { title: "Workflow Automation", description: "Design and implement automated business processes with visual workflow builders." },
-              { title: "System Integration", description: "Connect Creator apps with Zoho suite and 1000+ third-party applications." },
-              { title: "Mobile App Deployment", description: "Deploy native iOS and Android apps with offline capabilities and push notifications." },
-              { title: "Data Migration", description: "Seamlessly migrate data from legacy systems into your new Creator applications." },
-              { title: "Training & Support", description: "Enable your team to build and maintain apps with comprehensive training." }
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-6 bg-card rounded-xl border border-border/50 hover:border-primary/50 transition-colors"
-              >
-                <h3 className="text-lg font-semibold text-foreground mb-2">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
-              </motion.div>
-            ))}
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="bg-card rounded-xl border border-border/50 px-6">
+                  <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
@@ -465,15 +741,15 @@ const ZohoCreator = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Build Apps That Work the Way You Work
+              Ready to Build Custom Business Systems?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Join 30,000+ businesses building custom applications with Zoho Creator. Let us bring your ideas to life.
+              Stop forcing your business into software that doesn't fit. Let's build systems designed around how you actually work.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="text-lg px-8">
                 <Link to="/contact">
-                  Get Started <ArrowRight className="ml-2 w-5 h-5" />
+                  Schedule Consultation <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="text-lg px-8">
