@@ -804,14 +804,14 @@ export default function Company() {
                 className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-[#0B1C3D]/20 transition-all group flex flex-col"
               >
                 {/* Image Placeholder */}
-                <div className="w-24 h-24 mx-auto rounded-xl bg-gradient-to-br from-[#0B1C3D]/10 to-[#0B1C3D]/5 flex items-center justify-center mb-5 group-hover:from-primary/20 group-hover:to-primary/10 transition-colors flex-shrink-0">
-                  <Users className="w-10 h-10 text-[#0B1C3D] group-hover:text-primary transition-colors" />
+                <div className="w-32 h-32 mx-auto rounded-xl bg-gradient-to-br from-[#0B1C3D]/10 to-[#0B1C3D]/5 flex items-center justify-center mb-5 group-hover:from-primary/20 group-hover:to-primary/10 transition-colors flex-shrink-0">
+                  <Users className="w-14 h-14 text-[#0B1C3D] group-hover:text-primary transition-colors" />
                 </div>
                 <div className="text-center flex-1 flex flex-col">
                   <h3 className="font-bold text-[#0B1C3D] text-lg mb-1">{member.name}</h3>
                   <p className="text-primary text-sm font-medium mb-4">{member.role}</p>
                   <div className="flex-1">
-                    <ExpandableDescription description={member.description} maxLength={150} />
+                    <ExpandableDescription description={member.description} maxLength={280} />
                   </div>
                 </div>
               </motion.div>
