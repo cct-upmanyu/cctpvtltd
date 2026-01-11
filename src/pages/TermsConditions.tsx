@@ -38,7 +38,7 @@ export default function TermsConditions() {
               <div>
                 <h2 className="text-2xl font-bold text-[#111827] mb-4">1. Introduction</h2>
                 <p className="text-[#374151]">
-                  Welcome to Club Code Technology Pvt. Ltd. ("we," "our," or "us"). These Terms and Conditions govern your use of our services, 
+                  Welcome to ClubCode Technology Pvt. Ltd. ("we," "our," or "us"). These Terms and Conditions govern your use of our services, 
                   including but not limited to Zoho implementation, AI solutions, CRM services, data migration, and custom development services.
                 </p>
               </div>
@@ -46,7 +46,7 @@ export default function TermsConditions() {
               <div>
                 <h2 className="text-2xl font-bold text-[#111827] mb-4">2. Services</h2>
                 <p className="text-[#374151]">
-                  Club Code Technology provides professional IT consulting and implementation services. Our services include:
+                  ClubCode Technology Pvt Ltd provides professional IT consulting and implementation services. Our services include:
                 </p>
                 <ul className="list-disc pl-6 text-[#374151] mt-4 space-y-2">
                   <li>Zoho Suite implementation and customization</li>
@@ -145,7 +145,7 @@ export default function TermsConditions() {
                   For questions about these Terms & Conditions, please contact us at:
                 </p>
                 <p className="text-[#374151] mt-4">
-                  <strong>Club Code Technology Pvt. Ltd.</strong><br />
+                  <strong>ClubCode Technology Pvt. Ltd.</strong><br />
                   Email: legal@clubcodetech.com<br />
                   Website: www.clubcodetech.com
                 </p>

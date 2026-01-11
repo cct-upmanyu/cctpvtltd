@@ -3,7 +3,7 @@ import { ExternalLink, CheckCircle, FileText, MessageSquare, Phone, Mail, Credit
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-// Real extensions data from Club Code Technology website
+// Real extensions data from ClubCode Technology Pvt Ltd website
 const extensions = [
   {
     name: "MyDocSafe for Zoho Apps",

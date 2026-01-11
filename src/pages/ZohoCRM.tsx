@@ -751,7 +751,7 @@ export default function ZohoCRM() {
                 Your Implementation Partner
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
-                Why Implement Zoho CRM with Club Code Technology
+                Why Implement Zoho CRM with ClubCode Technology Pvt Ltd
               </h2>
               <p className="text-lg text-[#E5E7EB] mb-8">
                 As a Zoho Premium Partner, we bring deep expertise, proven methodologies, and a commitment to your success.

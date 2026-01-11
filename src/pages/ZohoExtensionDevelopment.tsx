@@ -219,7 +219,7 @@ const ZohoExtensionDevelopment = () => {
           </div>
         </section>
 
-        {/* Extensions Showcase from Club Code Technology - LIGHT SECTION */}
+        {/* Extensions Showcase from ClubCode Technology Pvt Ltd - LIGHT SECTION */}
         <ZohoExtensionsShowcase />
 
         {/* Benefits Section - DARK SECTION */}

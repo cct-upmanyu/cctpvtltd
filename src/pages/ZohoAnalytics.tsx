@@ -38,7 +38,7 @@ import {
 
 const ZohoAnalytics = () => {
   useEffect(() => {
-    document.title = "Zoho Analytics Implementation Partner | Decision Intelligence & BI Solutions | Club Code Technology";
+    document.title = "Zoho Analytics Implementation Partner | Decision Intelligence & BI Solutions | ClubCode Technology Pvt Ltd";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -53,7 +53,7 @@ const ZohoAnalytics = () => {
       "name": "Zoho Analytics Implementation Services",
       "provider": {
         "@type": "Organization",
-        "name": "Club Code Technology"
+        "name": "ClubCode Technology Pvt Ltd"
       },
       "description": "Expert Zoho Analytics implementation, dashboard development, and business intelligence solutions.",
       "serviceType": "Business Intelligence Implementation"
