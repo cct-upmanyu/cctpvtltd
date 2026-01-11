@@ -48,32 +48,32 @@ const teamMembers = [
   { 
     name: "Shiya Sharma", 
     role: "Business Development Analyst | Presales Zoho Engineer", 
-    description: "Certified Zoho Marketing Automation Expert and Zoho Social Specialist. Shiya helps businesses align marketing, sales, and CRM systems through data-driven engagement and automation strategies. She drives revenue growth and client retention by working closely with clients to ensure successful project completion and developing growth strategies for mutual success. Shiya also manages business partner relations and synergies, strengthening partnerships for long-term collaboration."
+    description: "Certified Zoho Marketing Automation Expert and Zoho Social Specialist. Shiya works at the intersection of business development, presales engineering, and client engagement, helping organizations align marketing, sales, and CRM systems through data-driven automation strategies. She translates business requirements into clearly defined functional and technical scopes, ensuring the right solution is proposed from the outset. She supports revenue growth and client retention by collaborating closely with clients during presales and delivery phases, ensuring clarity in requirements, smooth project execution, and long-term value realization. Shiya also supports business partner relationships and collaboration initiatives, helping strengthen ecosystem synergies and enable long-term partnership success."
   },
   { 
     name: "Deepak Verma", 
     role: "Business Development Executive", 
-    description: "Deepak works closely with clients to understand business challenges, clarify requirements, and guide them toward the right digital solutions from the outset."
+    description: "Deepak works closely with prospective and existing clients to understand business challenges, operational goals, and technology constraints. He plays a key role in aligning client expectations with appropriate platforms, implementation approaches, and timelines. His consultative approach helps reduce project risk and ensures a strong foundation for successful delivery."
   },
   { 
     name: "Ravi Kumar", 
     role: "Project Manager | Senior Zoho Developer | Salesforce Integration Expert", 
-    description: "Ravi brings over 12 years of experience in enterprise system delivery. He leads complex implementations with strong focus on scope, timelines, quality, and stakeholder coordination. Technically, he specializes in Zoho development, Salesforce integrations, extension development, custom automation, and AI-enabled workflows."
+    description: "Ravi brings over 12 years of experience delivering enterprise-grade CRM, ERP, and integration projects across diverse industries. He leads complex implementations with a strong focus on scope control, timelines, quality assurance, and stakeholder coordination. Technically, Ravi specializes in Zoho development, Salesforce integrations, extension development, and advanced automation. He bridges architecture, governance, and hands-on execution to ensure systems are scalable, secure, and maintainable."
   },
   { 
     name: "Vinay Kumar", 
     role: "Full Stack Developer", 
-    description: "Vinay builds scalable web applications, portals, and integrations across Zoho CRM, Books, Inventory, HRMS, WordPress, plugins, and AI integrations—ensuring seamless system connectivity."
+    description: "Vinay is responsible for building scalable web applications, portals, and integrations that connect multiple business systems seamlessly. He works across Zoho CRM, Zoho Books, Zoho Inventory, HRMS platforms, WordPress, custom plugins, and AI integrations. Vinay focuses on performance, reliability, and clean system connectivity, ensuring solutions are robust and production-ready. His work supports long-term scalability and smooth user experiences across platforms."
   },
   { 
     name: "Sahil Kumar", 
     role: "Full Stack Developer", 
-    description: "Sahil specializes in Zoho Creator, Zoho One, and Zoho Catalyst, building robust, user-friendly applications and backend services that extend platform capabilities."
+    description: "Sahil specializes in developing custom applications using Zoho Creator, Zoho One, and Zoho Catalyst for businesses with complex workflows. He designs secure, user-friendly applications and backend services that extend platform capabilities beyond standard configurations. Sahil focuses on building systems that are stable, maintainable, and scalable. His work ensures business users can operate efficiently while systems remain flexible for future growth."
   },
   { 
     name: "Gaurav Sharma", 
     role: "Zoho Developer", 
-    description: "Gaurav works across Zoho CRM, Creator, Books, Projects, Analytics, and FSM, designing custom workflows, reports, automation logic, and governed data models."
+    description: "Gaurav works across the Zoho ecosystem, including Zoho CRM, Creator, Books, Projects, Analytics, and FSM. He designs governed data models, custom workflows, automation logic, and reporting structures aligned to business processes. Gaurav focuses on data accuracy, operational clarity, and system reliability. His implementations help organizations gain better visibility, control, and trust in their business data."
   },
 ];
 
