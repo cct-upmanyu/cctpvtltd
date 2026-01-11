@@ -5,8 +5,8 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { motion } from "framer-motion";
-import { BeforeAfterCard, TransformationTimeline, TransformationStats } from "@/components/ui/before-after-card";
+import { motion, AnimatePresence } from "framer-motion";
+import heroImage from "@/assets/hero-custom-erp.jpg";
 import { 
   Blocks, 
   Smartphone, 
@@ -41,10 +41,27 @@ import {
   LineChart,
   FileSpreadsheet,
   Zap,
-  TrendingUp
+  TrendingUp,
+  CircleDot,
+  Globe,
+  Award,
+  BadgeCheck,
+  ChevronRight,
+  Check,
+  X,
+  Lightbulb,
+  Server,
+  Layout,
+  Monitor,
+  Rocket,
+  Search,
+  ThumbsUp,
+  MapPin
 } from "lucide-react";
 
 const ZohoCreator = () => {
+  const [activeArchitectureNode, setActiveArchitectureNode] = useState<number | null>(null);
+
   useEffect(() => {
     document.title = "Zoho Creator Implementation Partner | Custom CRM, ERP & Business Systems | Club Code Technology";
     
@@ -73,220 +90,191 @@ const ZohoCreator = () => {
     };
   }, []);
 
-  const whatCreatorIs = [
-    "A low-code platform for building custom software without writing traditional code",
-    "A system architecture platform for building CRM, ERP, and operations systems",
-    "A mobile-first development environment with native iOS and Android apps",
-    "A workflow automation engine for complex business processes",
-    "An integration hub connecting to 500+ applications and services",
-    "A scalable enterprise platform trusted by 30K+ organizations"
-  ];
+  // Section 1: What Creator Is - Explainer Content
+  const creatorExplainer = {
+    title: "The Low-Code Platform for Enterprise Systems",
+    description: "Zoho Creator isn't just a drag-and-drop app builder—it's a comprehensive platform for building enterprise-grade CRM, ERP, and operations systems that scale with your business.",
+    highlights: [
+      "7M+ applications built globally",
+      "30K+ organizations trust Creator",
+      "500+ pre-built integrations",
+      "Native iOS & Android apps"
+    ]
+  };
 
-  const whenBusinessesNeed = [
+  // Decision Checklist Items
+  const decisionChecklist = [
     {
       icon: Settings,
-      title: "Workflows Don't Fit Standard CRM",
-      description: "Your sales, operations, or service processes are unique and can't be forced into off-the-shelf software."
+      title: "Non-Standard Workflows",
+      description: "Your processes don't fit into standard CRM or ERP pipelines"
     },
     {
       icon: Layers,
-      title: "Multiple Departments Need One System",
-      description: "Sales, operations, finance, and service teams need to work from the same data and processes."
+      title: "Cross-Department Systems",
+      description: "Multiple teams need to work from unified data and processes"
     },
     {
       icon: Database,
-      title: "ERP Is Too Heavy or Expensive",
-      description: "Enterprise ERP systems are overkill for your needs, but spreadsheets aren't cutting it anymore."
+      title: "ERP Is Overkill",
+      description: "Traditional ERP feels too heavy, expensive, or complex"
     },
     {
-      icon: Workflow,
-      title: "Manual Processes Are Slowing Growth",
-      description: "Approvals, handoffs, and data entry are creating bottlenecks and errors in your operations."
-    },
-    {
-      icon: Plug,
-      title: "Systems Don't Talk to Each Other",
-      description: "Your CRM, accounting, inventory, and other tools operate as disconnected silos."
+      icon: FileSpreadsheet,
+      title: "Spreadsheet Chaos",
+      description: "Operations run on disconnected spreadsheets and manual data entry"
     },
     {
       icon: Code,
-      title: "Custom Software Is Too Slow",
-      description: "Traditional development takes months and costs too much for evolving business needs."
+      title: "Custom Logic Required",
+      description: "You need conditional workflows, approvals, and integrations"
     }
   ];
 
-  const developmentServices = [
+  // Section 2: Architecture Diagram Nodes
+  const architectureNodes = [
+    { icon: Target, title: "Custom CRMs", description: "Sales, client management, pipelines tailored to your process", position: "top-left" },
+    { icon: Factory, title: "ERP-Like Systems", description: "Inventory, orders, production, finance—without licensing costs", position: "top-right" },
+    { icon: Wrench, title: "Internal Tools", description: "Employee portals, HR systems, asset tracking, approvals", position: "right" },
+    { icon: Users, title: "Client Portals", description: "Self-service interfaces for customers and vendors", position: "bottom-right" },
+    { icon: Building2, title: "Industry Platforms", description: "Vertical solutions for manufacturing, healthcare, logistics", position: "bottom-left" },
+    { icon: Plug, title: "Integration Hubs", description: "Connect to ERPs, accounting, shipping, and 500+ apps", position: "left" }
+  ];
+
+  // Section 3: Decision Matrix
+  const decisionMatrixPositive = [
+    { icon: Workflow, text: "Workflows can't be modeled in standard CRM" },
+    { icon: Settings, text: "Multiple departments need one connected system" },
+    { icon: Database, text: "ERP is too rigid for your operations" },
+    { icon: Shield, text: "Custom approval chains and business rules" },
+    { icon: Layers, text: "Need to replace multiple disconnected tools" }
+  ];
+
+  const decisionMatrixAlternatives = [
+    { product: "Zoho CRM", useCase: "Standard sales pipeline, lead management, basic automation" },
+    { product: "Zoho Catalyst", useCase: "Full-stack serverless development with more coding control" },
+    { product: "Hybrid Architecture", useCase: "Creator + CRM + other Zoho apps working together" }
+  ];
+
+  // Section 4: Services Grid
+  const services = [
     {
       icon: Blocks,
-      title: "Custom Business Application Development",
-      description: "Build purpose-built applications for your unique workflows—not generic software you have to work around.",
-      features: ["Process mapping & requirements analysis", "UI/UX design for business users", "Deluge scripting for complex logic", "Mobile app deployment"]
+      title: "Custom Business Applications",
+      description: "Build purpose-built applications for your unique workflows"
     },
     {
       icon: Target,
-      title: "Custom CRM Development Using Zoho Creator",
-      description: "When Zoho CRM isn't flexible enough, Creator becomes the foundation for truly custom CRM systems.",
-      features: ["Industry-specific CRM workflows", "Custom sales pipeline logic", "Client portal development", "Advanced reporting & analytics"]
+      title: "Custom CRM Using Creator",
+      description: "When Zoho CRM isn't flexible enough for your sales process"
     },
     {
       icon: Factory,
-      title: "ERP-Like Systems & Operations Platforms",
-      description: "Build comprehensive operations management without ERP licensing costs or implementation nightmares.",
-      features: ["Inventory & order management", "Production & manufacturing workflows", "Multi-location operations", "Vendor & procurement systems"]
+      title: "ERP-Like Operations Systems",
+      description: "Comprehensive operations without ERP licensing costs"
     },
     {
       icon: Workflow,
-      title: "Workflow Automation & Process Engineering",
-      description: "Automate complex business processes with visual workflows, approvals, and conditional logic.",
-      features: ["Multi-stage approval workflows", "Scheduled automation & alerts", "Business rule automation", "SLA tracking & escalations"]
+      title: "Workflow Automation",
+      description: "Visual workflows, approvals, and conditional logic"
     },
     {
       icon: Plug,
-      title: "Integrations & API Development",
-      description: "Connect Creator applications to your entire tech stack—ERPs, accounting, shipping, and more.",
-      features: ["REST API development", "Webhook implementations", "Third-party integrations", "Real-time data sync"]
+      title: "Integrations & APIs",
+      description: "Connect to your entire tech stack with REST APIs"
     },
     {
       icon: Database,
-      title: "Data Migration & Modernization",
-      description: "Move from legacy systems, spreadsheets, or disconnected tools to a unified Creator platform.",
-      features: ["Data mapping & cleanup", "Phased migration approach", "Historical data preservation", "User training & adoption"]
+      title: "Data Migration",
+      description: "Move from legacy systems to unified Creator platform"
     },
     {
       icon: Smartphone,
-      title: "Mobile App Deployment",
-      description: "Every Creator application comes with native iOS and Android apps—no additional development required.",
-      features: ["Native mobile apps", "Offline capabilities", "Push notifications", "Mobile-optimized UX"]
+      title: "Mobile Apps",
+      description: "Native iOS & Android apps with offline capability"
     },
     {
       icon: Users,
-      title: "Training, Governance & Long-Term Support",
-      description: "Ensure your team can use, maintain, and evolve your Creator applications over time.",
-      features: ["Admin training & documentation", "User onboarding programs", "Governance frameworks", "Ongoing optimization support"]
+      title: "Training & Support",
+      description: "Admin training, governance, and long-term optimization"
     }
   ];
 
-  const industrySolutions = [
-    {
-      icon: Factory,
-      title: "Manufacturing & Distribution",
-      description: "Production scheduling, inventory tracking, quality control, vendor management, and order fulfillment systems.",
-      link: "/industries/manufacturing"
-    },
-    {
-      icon: HeartPulse,
-      title: "Healthcare & Clinics",
-      description: "Patient management, appointment scheduling, billing workflows, compliance tracking, and staff coordination.",
-      link: "/industries/healthcare"
-    },
-    {
-      icon: Users,
-      title: "Recruitment & Staffing",
-      description: "Candidate pipelines, client management, placement tracking, timesheet systems, and commission calculations.",
-      link: "/industries/professional-services"
-    },
-    {
-      icon: Home,
-      title: "Real Estate & Property",
-      description: "Lead management, property listings, site visit tracking, contract management, and commission workflows.",
-      link: "/industries/real-estate"
-    },
-    {
-      icon: Briefcase,
-      title: "Professional Services",
-      description: "Project management, resource allocation, time tracking, client portals, and billing automation.",
-      link: "/industries/professional-services"
-    },
-    {
-      icon: GraduationCap,
-      title: "Education & Training",
-      description: "Admissions management, student information systems, fee tracking, course scheduling, and certification workflows.",
-      link: "/industries/education"
-    },
-    {
-      icon: ShoppingCart,
-      title: "Retail & eCommerce",
-      description: "Multi-channel order management, inventory synchronization, customer service workflows, and returns processing.",
-      link: "/industries/retail"
-    },
-    {
-      icon: Truck,
-      title: "Logistics & Supply Chain",
-      description: "Fleet management, dispatch systems, delivery tracking, driver coordination, and route optimization.",
-      link: "/industries/logistics"
-    }
+  // Section 5: Industry Solutions
+  const industries = [
+    { icon: Factory, title: "Manufacturing", focus: "Production, inventory, quality control", link: "/industries/manufacturing" },
+    { icon: HeartPulse, title: "Healthcare", focus: "Patient management, compliance", link: "/industries/healthcare" },
+    { icon: Users, title: "Recruitment", focus: "Candidate pipelines, placements", link: "/industries/recruitment" },
+    { icon: Home, title: "Real Estate", focus: "Leads, listings, commissions", link: "/industries/real-estate" },
+    { icon: Briefcase, title: "Professional Services", focus: "Projects, resources, billing", link: "/industries/professional-services" },
+    { icon: GraduationCap, title: "Education", focus: "Admissions, students, courses", link: "/industries/education" },
+    { icon: ShoppingCart, title: "Retail", focus: "Orders, inventory, customers", link: "/industries/retail" },
+    { icon: Truck, title: "Logistics", focus: "Fleet, dispatch, tracking", link: "/industries/logistics" },
+    { icon: Scale, title: "Financial Services", focus: "Compliance, client portfolios", link: "/industries/financial-services" }
   ];
 
-  const prebuiltSolutions = [
-    { icon: Package, title: "Asset & Equipment Management", description: "Track assets, schedule maintenance, manage warranties, and automate service workflows." },
-    { icon: Building2, title: "Construction & Project Management", description: "Centralize projects, track progress, manage subcontractors, and control budgets." },
-    { icon: Wrench, title: "Procurement & Vendor Management", description: "Digital workflows for vendor onboarding, PO approvals, and spend tracking." },
-    { icon: GraduationCap, title: "Education Management Systems", description: "Unified tools for admissions, scheduling, attendance, and student management." },
-    { icon: BarChart3, title: "Internal Operations Dashboards", description: "Real-time visibility into KPIs, team performance, and business metrics." },
-    { icon: Scale, title: "Compliance & Audit Systems", description: "Document management, audit trails, checklist automation, and reporting." }
+  // Section 6: Pre-Built Solutions (Accelerators)
+  const accelerators = [
+    { icon: Package, title: "Asset Management", description: "Track, maintain, and manage equipment" },
+    { icon: Building2, title: "Construction Projects", description: "Centralize projects and contractors" },
+    { icon: Wrench, title: "Procurement", description: "Vendor onboarding and PO workflows" },
+    { icon: GraduationCap, title: "Education Systems", description: "Admissions to alumni management" },
+    { icon: BarChart3, title: "Ops Dashboards", description: "Real-time KPI visibility" }
   ];
 
-  const whyProjectsFail = [
+  // Section 7: Why Projects Fail
+  const failureReasons = [
     {
       issue: "No Requirements Analysis",
-      consequence: "Apps are built without understanding actual workflows, leading to low adoption.",
-      prevention: "We conduct deep discovery sessions before any development begins."
+      consequence: "Apps built without understanding actual workflows—leading to low adoption",
+      prevention: "Deep discovery sessions before any development begins"
     },
     {
       issue: "Over-Engineering",
-      consequence: "Complex features that nobody uses, making the system hard to maintain.",
-      prevention: "We build for today's needs with architecture that allows growth."
+      consequence: "Complex features nobody uses, making systems hard to maintain",
+      prevention: "Build for today's needs with architecture that allows growth"
     },
     {
       issue: "Poor Data Architecture",
-      consequence: "Data silos, duplicate records, and reporting that doesn't reflect reality.",
-      prevention: "We design data models that support current and future requirements."
+      consequence: "Data silos, duplicate records, reporting that doesn't reflect reality",
+      prevention: "Design data models that support current and future requirements"
     },
     {
       issue: "No Integration Strategy",
-      consequence: "Creator apps become another disconnected system in your tech stack.",
-      prevention: "Integration architecture is defined before development starts."
+      consequence: "Creator apps become another disconnected system",
+      prevention: "Integration architecture defined before development starts"
     },
     {
       issue: "Inadequate Training",
-      consequence: "Users don't understand the system, leading to workarounds and abandonment.",
-      prevention: "Role-based training ensures every user knows how to work effectively."
+      consequence: "Users don't understand the system—workarounds and abandonment",
+      prevention: "Role-based training ensures every user knows how to work effectively"
     }
   ];
 
-  const implementationMethodology = [
-    {
-      step: "01",
-      title: "Discovery & Process Mapping",
-      description: "Deep-dive into your workflows, pain points, and requirements. Every department and stakeholder is consulted."
-    },
-    {
-      step: "02",
-      title: "Solution Architecture",
-      description: "Design the data model, app structure, integrations, and user experience before any development."
-    },
-    {
-      step: "03",
-      title: "Development & Configuration",
-      description: "Build the application with iterative reviews, ensuring alignment with business needs."
-    },
-    {
-      step: "04",
-      title: "Integration & Automation",
-      description: "Connect to your ecosystem and implement workflow automation, approvals, and notifications."
-    },
-    {
-      step: "05",
-      title: "Testing & User Acceptance",
-      description: "Rigorous testing with real users and data to validate the solution meets requirements."
-    },
-    {
-      step: "06",
-      title: "Training & Go-Live",
-      description: "Comprehensive training, data migration, and phased rollout with ongoing support."
-    }
+  // Section 8: Trust Panel Stats
+  const trustStats = [
+    { value: "250+", label: "Creator Deployments" },
+    { value: "15+", label: "Industries Served" },
+    { value: "50+", label: "Countries" },
+    { value: "99%", label: "Client Retention" }
   ];
 
+  const certifications = [
+    { title: "Zoho Premium Partner", icon: Award },
+    { title: "Creator Champions", icon: BadgeCheck },
+    { title: "Advanced Certified", icon: Shield }
+  ];
+
+  // Section 9: Implementation Methodology
+  const methodology = [
+    { step: "01", title: "Discovery", description: "Deep-dive into workflows and requirements", icon: Search },
+    { step: "02", title: "Architecture", description: "Design data models and app structure", icon: Layout },
+    { step: "03", title: "Development", description: "Build with iterative reviews", icon: Code },
+    { step: "04", title: "Integration", description: "Connect to your ecosystem", icon: Plug },
+    { step: "05", title: "Go-Live", description: "Training, migration, and rollout", icon: Rocket }
+  ];
+
+  // Section 10: FAQs
   const faqs = [
     {
       question: "What is Zoho Creator and how is it different from Zoho CRM?",
@@ -302,11 +290,11 @@ const ZohoCreator = () => {
     },
     {
       question: "Do Creator applications work on mobile?",
-      answer: "Yes. Every application built on Creator automatically generates native iOS and Android apps. These include offline capabilities, push notifications, and mobile-optimized interfaces."
+      answer: "Yes. Every application built on Creator automatically generates native iOS and Android apps with offline capabilities, push notifications, and mobile-optimized interfaces."
     },
     {
       question: "Can Creator integrate with our existing systems?",
-      answer: "Absolutely. Creator connects to 500+ applications through pre-built connectors and can integrate with any system via REST APIs, webhooks, or custom Deluge scripting. We design integration architecture as part of every project."
+      answer: "Absolutely. Creator connects to 500+ applications through pre-built connectors and can integrate with any system via REST APIs, webhooks, or custom Deluge scripting."
     },
     {
       question: "What happens if our needs change after the system is built?",
@@ -314,193 +302,222 @@ const ZohoCreator = () => {
     },
     {
       question: "Is Zoho Creator secure for enterprise use?",
-      answer: "Yes. Zoho Creator offers role-based access control, data encryption, audit logs, GDPR compliance, and SOC 2 Type II certification. We implement security best practices in every deployment."
+      answer: "Yes. Zoho Creator offers role-based access control, data encryption, audit logs, GDPR compliance, and SOC 2 Type II certification."
     },
     {
       question: "Do you provide training for our team?",
-      answer: "Comprehensive training is included in every implementation. We provide role-based training for end users, admin training for system managers, and documentation for ongoing reference."
+      answer: "Comprehensive training is included in every implementation—role-based training for end users, admin training for system managers, and documentation for ongoing reference."
     }
-  ];
-
-  const stats = [
-    { value: "7M+", label: "Apps Built Globally" },
-    { value: "30K+", label: "Organizations" },
-    { value: "6M+", label: "Active Users" },
-    { value: "500+", label: "Integrations" }
-  ];
-
-  // Before/After Transformation Data
-  const creatorTransformations = [
-    {
-      area: "Data Management",
-      before: "Scattered spreadsheets across departments with no version control",
-      after: "Centralized database with real-time sync and role-based access",
-      icon: Database
-    },
-    {
-      area: "Workflows",
-      before: "Manual approvals via email taking 2-3 days per request",
-      after: "Automated approval chains completing in under 2 hours",
-      icon: Workflow
-    },
-    {
-      area: "Reporting",
-      before: "Weekly manual reports compiled from 5+ different sources",
-      after: "Real-time dashboards with auto-generated analytics",
-      icon: BarChart3
-    },
-    {
-      area: "Operations",
-      before: "Disconnected tools requiring duplicate data entry",
-      after: "Unified platform with single source of truth",
-      icon: Layers
-    },
-    {
-      area: "Mobile Access",
-      before: "No mobile access—staff tied to office computers",
-      after: "Native iOS & Android apps with offline capability",
-      icon: Smartphone
-    },
-    {
-      area: "Integration",
-      before: "Manual data transfer between CRM, accounting, and inventory",
-      after: "Seamless API connections with bi-directional sync",
-      icon: Plug
-    }
-  ];
-
-  const transformationStats = [
-    { label: "Development Time", value: "70", suffix: "%", description: "Faster than traditional coding", color: "primary" as const },
-    { label: "Manual Work", value: "50", suffix: "%", description: "Reduction in repetitive tasks", color: "green" as const },
-    { label: "Data Accuracy", value: "99", suffix: "%", description: "With automated validation", color: "blue" as const },
-    { label: "ROI Timeline", value: "6", suffix: " mo", description: "Average payback period", color: "orange" as const }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute top-40 left-10 w-72 h-72 bg-primary/3 rounded-full blur-3xl" />
+      {/* ========== HERO SECTION ========== */}
+      <section className="relative pt-24 pb-20 min-h-[85vh] flex items-center overflow-hidden">
+        {/* Background Image with Gradient Overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src={heroImage} 
+            alt="Zoho Creator Custom Systems" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(217,70%,14%)]/95 via-[hsl(217,70%,14%)]/85 to-[hsl(217,70%,14%)]/70" />
+        </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="flex flex-wrap gap-2 mb-6">
-                <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
-                  Zoho Creator Implementation Partner
+              <div className="flex flex-wrap gap-3 mb-6">
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 text-primary rounded-full text-sm font-medium backdrop-blur-sm">
+                  <Award className="w-4 h-4" />
+                  Zoho Premium Partner
                 </span>
-                <span className="inline-block px-4 py-2 bg-amber-500/10 text-amber-600 rounded-full text-sm font-medium">
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/20 border border-amber-500/30 text-amber-400 rounded-full text-sm font-medium backdrop-blur-sm">
+                  <BadgeCheck className="w-4 h-4" />
                   Creator Champions
                 </span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-                Build Custom <span className="text-primary">CRM, ERP & Business Systems</span> That Scale
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                Zoho Creator Implementation Partner & Custom System Development Experts
               </h1>
-              <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-                Zoho Creator isn't just a "low-code tool"—it's the foundation for building enterprise-grade business applications that fit how you actually operate.
+              
+              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
+                Build Custom CRM, ERP & Business Systems That Scale With Your Business
               </p>
-              <p className="text-lg text-muted-foreground mb-8">
-                We design, develop, and deploy custom systems—from simple workflow apps to comprehensive operational platforms—that replace spreadsheets, legacy software, and disconnected tools.
-              </p>
+              
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="text-lg px-8">
-                  <Link to="/contact">Book a Free Consultation</Link>
+                <Button asChild size="lg" className="text-lg px-8 h-14 bg-primary hover:bg-primary/90">
+                  <Link to="/contact">
+                    Book Free Consultation
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="text-lg px-8">
-                  <Link to="/contact">Request a Demo</Link>
+                <Button asChild variant="outline" size="lg" className="text-lg px-8 h-14 border-white/30 text-white hover:bg-white/10">
+                  <Link to="/contact">
+                    Talk to a Zoho Creator Expert
+                  </Link>
                 </Button>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-8 border border-border/50 shadow-2xl">
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  {stats.map((stat, index) => (
-                    <div key={index} className="text-center p-4 bg-background/50 rounded-xl">
-                      <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
-                      <div className="text-sm text-muted-foreground">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-                <div className="p-4 bg-primary/5 rounded-xl border border-primary/20">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Sparkles className="w-5 h-5 text-primary" />
-                    <span className="font-semibold text-foreground">Gartner Magic Quadrant</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Challenger 2024 - Enterprise Low-Code Application Platforms</p>
-                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Before/After Transformation Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-background overflow-hidden">
-        <div className="container mx-auto px-4">
-          <TransformationTimeline
-            title="Business Transformation with Zoho Creator"
-            subtitle="See how organizations transform their operations when moving from fragmented tools to a unified Creator platform"
-            transformations={creatorTransformations}
-          />
-          
-          {/* Transformation Stats */}
-          <div className="mt-16">
-            <TransformationStats stats={transformationStats} />
-          </div>
-        </div>
-      </section>
-
-      {/* What Is Zoho Creator Section */}
+      {/* ========== SECTION 1: WHAT CREATOR IS (EXPLAINER + CHECKLIST) ========== */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               What Is Zoho Creator?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              More than a low-code tool—Creator is a system architecture platform for enterprises.
-            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            {whatCreatorIs.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex items-start gap-3 p-4 bg-card rounded-xl border border-border/50"
-              >
-                <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">{item}</span>
-              </motion.div>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left Panel: Explainer Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="bg-gradient-to-br from-primary/10 via-card to-card rounded-2xl p-8 border border-primary/20 shadow-xl">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                  <Blocks className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-4">{creatorExplainer.title}</h3>
+                <p className="text-muted-foreground text-lg mb-8">{creatorExplainer.description}</p>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  {creatorExplainer.highlights.map((highlight, idx) => (
+                    <div key={idx} className="flex items-center gap-3 p-3 bg-background/50 rounded-xl">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                      <span className="text-sm font-medium text-foreground">{highlight}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Panel: Decision Checklist Infographic */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="bg-card rounded-2xl p-8 border border-border shadow-xl">
+                <h3 className="text-xl font-bold text-foreground mb-2">When You Need Zoho Creator</h3>
+                <p className="text-muted-foreground mb-6">If any of these sound familiar, Creator is your solution:</p>
+                
+                <div className="space-y-4">
+                  {decisionChecklist.map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="flex items-start gap-4 p-4 bg-muted/50 rounded-xl hover:bg-primary/5 transition-colors group"
+                    >
+                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <item.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-1">{item.title}</h4>
+                        <p className="text-sm text-muted-foreground">{item.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* When Businesses Need Creator Section */}
-      <section className="py-20">
+      {/* ========== SECTION 2: SYSTEM ARCHITECTURE DIAGRAM ========== */}
+      <section className="py-20 bg-dark-gradient overflow-hidden">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Not Just an App Builder—A Platform
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Zoho Creator sits at the center of your business architecture, connecting every system and workflow.
+            </p>
+          </motion.div>
+
+          {/* Architecture Diagram */}
+          <div className="relative max-w-5xl mx-auto">
+            {/* Center Hub */}
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", duration: 0.8 }}
+              className="relative mx-auto w-48 h-48 md:w-56 md:h-56"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/60 rounded-full animate-pulse-slow opacity-30" />
+              <div className="absolute inset-4 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-2xl">
+                <div className="text-center">
+                  <Blocks className="w-12 h-12 text-white mx-auto mb-2" />
+                  <span className="text-white font-bold text-lg">Zoho Creator</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Surrounding Nodes */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
+              {architectureNodes.map((node, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className={`relative group cursor-pointer ${activeArchitectureNode === idx ? 'z-10' : ''}`}
+                  onMouseEnter={() => setActiveArchitectureNode(idx)}
+                  onMouseLeave={() => setActiveArchitectureNode(null)}
+                >
+                  {/* Connection Line */}
+                  <div className="absolute top-0 left-1/2 w-px h-4 bg-gradient-to-b from-transparent to-primary/50 -translate-x-1/2 -translate-y-4 hidden md:block" />
+                  
+                  <div className={`p-6 rounded-2xl border transition-all duration-300 ${
+                    activeArchitectureNode === idx 
+                      ? 'bg-primary/20 border-primary shadow-lg shadow-primary/20' 
+                      : 'bg-white/5 border-white/10 hover:border-primary/50'
+                  }`}>
+                    <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
+                      <node.icon className="w-7 h-7 text-primary" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-white mb-2">{node.title}</h4>
+                    <p className="text-sm text-gray-400">{node.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 3: DECISION MATRIX ========== */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -509,35 +526,80 @@ const ZohoCreator = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              When Do Businesses Need Zoho Creator?
+              When Is Zoho Creator Right?
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Creator becomes essential when off-the-shelf software creates more problems than it solves.
+              A clear decision framework to choose the right platform for your needs.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whenBusinessesNeed.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-6 bg-card rounded-xl border border-border/50 hover:border-primary/50 transition-colors"
-              >
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                  <item.icon className="w-7 h-7 text-primary" />
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Positive Fit Column */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="bg-gradient-to-br from-green-500/10 to-card rounded-2xl p-8 border border-green-500/20 h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center">
+                    <Check className="w-6 h-6 text-green-500" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Creator Is Ideal When</h3>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </motion.div>
-            ))}
+                
+                <div className="space-y-4">
+                  {decisionMatrixPositive.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-4 p-4 bg-background/50 rounded-xl">
+                      <div className="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <item.icon className="w-5 h-5 text-green-500" />
+                      </div>
+                      <span className="text-foreground font-medium pt-2">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Alternatives Column */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="bg-gradient-to-br from-blue-500/10 to-card rounded-2xl p-8 border border-blue-500/20 h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
+                    <Lightbulb className="w-6 h-6 text-blue-500" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">When We Recommend</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  {decisionMatrixAlternatives.map((item, idx) => (
+                    <div key={idx} className="p-4 bg-background/50 rounded-xl">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="px-3 py-1 bg-blue-500/10 text-blue-600 rounded-full text-sm font-semibold">
+                          {item.product}
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground text-sm">{item.useCase}</p>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-6 p-4 bg-primary/5 rounded-xl border border-primary/20">
+                  <p className="text-sm text-muted-foreground">
+                    <strong className="text-foreground">Not sure?</strong> We analyze your requirements and recommend the right platform—sometimes it's a combination.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Development Services Section */}
+      {/* ========== SECTION 4: SERVICES CAPABILITY GRID ========== */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
@@ -554,44 +616,31 @@ const ZohoCreator = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {developmentServices.map((service, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {services.map((service, idx) => (
               <motion.div
-                key={index}
+                key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: idx * 0.05 }}
+                className="group"
               >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <service.icon className="w-7 h-7 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-foreground mb-2">{service.title}</h3>
-                        <p className="text-muted-foreground mb-4">{service.description}</p>
-                        <ul className="grid grid-cols-2 gap-2">
-                          {service.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <div className="h-full p-6 bg-card rounded-2xl border border-border hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <service.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{service.title}</h3>
+                  <p className="text-sm text-muted-foreground">{service.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Industry Solutions Section */}
-      <section className="py-20">
+      {/* ========== SECTION 5: INDUSTRY TILE GRID ========== */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -607,25 +656,23 @@ const ZohoCreator = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {industrySolutions.map((industry, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+            {industries.map((industry, idx) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
+                transition={{ delay: idx * 0.05 }}
               >
                 <Link to={industry.link}>
-                  <Card className="h-full hover:shadow-lg hover:border-primary/50 transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm cursor-pointer group">
-                    <CardContent className="p-6">
-                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                        <industry.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{industry.title}</h3>
-                      <p className="text-sm text-muted-foreground">{industry.description}</p>
-                    </CardContent>
-                  </Card>
+                  <div className="group h-full p-5 bg-card rounded-xl border border-border hover:border-primary hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 text-center cursor-pointer">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 group-hover:scale-110 transition-all">
+                      <industry.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">{industry.title}</h3>
+                    <p className="text-xs text-muted-foreground">{industry.focus}</p>
+                  </div>
                 </Link>
               </motion.div>
             ))}
@@ -633,39 +680,42 @@ const ZohoCreator = () => {
         </div>
       </section>
 
-      {/* Pre-Built Solutions Section */}
-      <section className="py-20 bg-muted/30">
+      {/* ========== SECTION 6: ACCELERATOR FRAMEWORK STRIP ========== */}
+      <section className="py-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
               Pre-Built Solutions We Customize
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Start with proven frameworks and customize to your exact requirements.
-            </p>
+            <p className="text-muted-foreground">Start with proven frameworks—fully customized to your needs</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {prebuiltSolutions.map((solution, index) => (
+          <div className="flex flex-wrap justify-center gap-4">
+            {accelerators.map((acc, idx) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex items-start gap-4 p-6 bg-card rounded-xl border border-border/50"
+                transition={{ delay: idx * 0.1 }}
+                className="group"
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <solution.icon className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-1">{solution.title}</h3>
-                  <p className="text-muted-foreground text-sm">{solution.description}</p>
+                <div className="flex items-center gap-4 px-6 py-4 bg-card rounded-xl border border-border hover:border-primary/50 transition-all">
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <acc.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground text-sm">{acc.title}</h4>
+                    <p className="text-xs text-muted-foreground">{acc.description}</p>
+                  </div>
+                  <span className="px-2 py-0.5 bg-green-500/10 text-green-600 text-xs font-medium rounded-full">
+                    Customizable
+                  </span>
                 </div>
               </motion.div>
             ))}
@@ -673,8 +723,8 @@ const ZohoCreator = () => {
         </div>
       </section>
 
-      {/* Why Projects Fail Section */}
-      <section className="py-20">
+      {/* ========== SECTION 7: WHY PROJECTS FAIL (RISK VS PREVENTION) ========== */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -689,43 +739,130 @@ const ZohoCreator = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Why Creator Projects Fail—And How We Prevent It
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Most failures aren't about the platform—they're about the implementation approach.
-            </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto space-y-4">
-            {whyProjectsFail.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-6 bg-card rounded-xl border border-border/50"
-              >
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div>
-                    <span className="text-xs font-semibold text-destructive uppercase tracking-wider">Issue</span>
-                    <h4 className="font-semibold text-foreground">{item.issue}</h4>
+          <div className="max-w-5xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Failure Side */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center">
+                    <X className="w-5 h-5 text-red-500" />
                   </div>
-                  <div>
-                    <span className="text-xs font-semibold text-amber-600 uppercase tracking-wider">Consequence</span>
-                    <p className="text-sm text-muted-foreground">{item.consequence}</p>
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">Our Prevention</span>
-                    <p className="text-sm text-muted-foreground">{item.prevention}</p>
-                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Common Failures</h3>
                 </div>
-              </motion.div>
-            ))}
+                
+                {failureReasons.map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="p-4 bg-red-500/5 border border-red-500/10 rounded-xl"
+                  >
+                    <h4 className="font-semibold text-foreground mb-1">{item.issue}</h4>
+                    <p className="text-sm text-muted-foreground">{item.consequence}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Prevention Side */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-green-500" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Our Prevention</h3>
+                </div>
+                
+                {failureReasons.map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="p-4 bg-green-500/5 border border-green-500/10 rounded-xl"
+                  >
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-foreground">{item.prevention}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Implementation Methodology Section */}
-      <section className="py-20 bg-muted/30">
+      {/* ========== SECTION 8: TRUST & AUTHORITY PANEL ========== */}
+      <section className="py-20 bg-dark-gradient">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Why Club Code Technology
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Enterprise-grade expertise backed by global experience and certifications.
+            </p>
+          </motion.div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
+            {trustStats.map((stat, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="text-center p-6 bg-white/5 rounded-2xl border border-white/10"
+              >
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{stat.value}</div>
+                <div className="text-gray-400">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Certifications */}
+          <div className="flex flex-wrap justify-center gap-6 mb-12">
+            {certifications.map((cert, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex items-center gap-3 px-6 py-3 bg-white/5 rounded-xl border border-white/10"
+              >
+                <cert.icon className="w-6 h-6 text-primary" />
+                <span className="text-white font-medium">{cert.title}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Global Presence */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center gap-2 text-gray-400"
+          >
+            <Globe className="w-5 h-5 text-primary" />
+            <span>Serving clients across USA, UK, UAE, Australia, India & Europe</span>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ========== SECTION 9: IMPLEMENTATION METHODOLOGY TIMELINE ========== */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -737,35 +874,47 @@ const ZohoCreator = () => {
               Our Implementation Methodology
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A proven 6-step approach that ensures successful Creator deployments.
+              A proven approach that ensures successful Creator deployments.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {implementationMethodology.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="relative p-6 bg-card rounded-xl border border-border/50"
-              >
-                <div className="absolute -top-3 -left-3 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-sm">
-                  {step.step}
-                </div>
-                <div className="pt-4">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm">{step.description}</p>
-                </div>
-              </motion.div>
-            ))}
+          {/* Horizontal Timeline */}
+          <div className="relative max-w-5xl mx-auto">
+            {/* Connection Line */}
+            <div className="hidden md:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-primary/20 via-primary to-primary/20 rounded-full" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+              {methodology.map((step, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="relative text-center"
+                >
+                  {/* Step Circle */}
+                  <div className="relative z-10 w-14 h-14 mx-auto mb-4 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/30">
+                    <step.icon className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                  
+                  {/* Step Number */}
+                  <div className="text-xs font-bold text-primary mb-2">STEP {step.step}</div>
+                  
+                  {/* Step Title */}
+                  <h4 className="font-semibold text-foreground mb-1">{step.title}</h4>
+                  
+                  {/* Step Description */}
+                  <p className="text-sm text-muted-foreground">{step.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20">
+      {/* ========== SECTION 10: FAQ ACCORDION ========== */}
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -784,11 +933,15 @@ const ZohoCreator = () => {
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-card rounded-xl border border-border/50 px-6">
-                  <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`} 
+                  className="bg-card rounded-xl border border-border px-6 data-[state=open]:border-primary/50 transition-colors"
+                >
+                  <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary hover:no-underline py-5">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
+                  <AccordionContent className="text-muted-foreground pb-5">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -798,29 +951,38 @@ const ZohoCreator = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 via-primary/5 to-background">
-        <div className="container mx-auto px-4">
+      {/* ========== FINAL CTA: CONVERSION BANNER ========== */}
+      <section className="py-20 bg-dark-gradient relative overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Ready to Build Custom Business Systems?
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+              Ready to Build Systems That Fit Your Business?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Stop forcing your business into software that doesn't fit. Let's build systems designed around how you actually work.
+            <p className="text-xl text-gray-300 mb-10">
+              Stop forcing your business into software that doesn't fit. Let's build something designed around how you actually work.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="text-lg px-8">
+              <Button asChild size="lg" className="text-lg px-10 h-14 bg-primary hover:bg-primary/90">
                 <Link to="/contact">
-                  Schedule Consultation <ArrowRight className="ml-2 w-5 h-5" />
+                  Book Free Consultation
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-lg px-8">
-                <Link to="/zoho-solutions">Explore Zoho Solutions</Link>
+              <Button asChild variant="outline" size="lg" className="text-lg px-10 h-14 border-white/30 text-white hover:bg-white/10">
+                <Link to="/contact">
+                  Talk to a Creator Expert
+                </Link>
               </Button>
             </div>
           </motion.div>
