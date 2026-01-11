@@ -47,8 +47,8 @@ const teamMembers = [
   },
   { 
     name: "Shiya Sharma", 
-    role: "Business Development Analyst", 
-    description: "Certified Zoho Marketing Automation Expert and Zoho Social Specialist. Shiya helps businesses align marketing, sales, and CRM systems through data-driven engagement and automation strategies."
+    role: "Business Development Analyst | Presales Zoho Engineer", 
+    description: "Certified Zoho Marketing Automation Expert and Zoho Social Specialist. Shiya helps businesses align marketing, sales, and CRM systems through data-driven engagement and automation strategies. She drives revenue growth and client retention by working closely with clients to ensure successful project completion and developing growth strategies for mutual success. Shiya also manages business partner relations and synergies, strengthening partnerships for long-term collaboration."
   },
   { 
     name: "Deepak Verma", 
