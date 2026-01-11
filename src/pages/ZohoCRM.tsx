@@ -39,6 +39,7 @@ import {
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import heroCrmSolutions from "@/assets/hero-crm-solutions.jpg";
+import zohoCrmInterface from "@/assets/zoho-crm-interface.jpg";
 
 // What Zoho CRM Solves
 const whatCRMSolves = [
@@ -430,6 +431,54 @@ export default function ZohoCRM() {
               })}
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Stats Highlight Section - Between Hero & Content */}
+      <section className="relative -mt-10 z-20 pb-10">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-[#0B1C3D] to-[#1a3a6e] rounded-2xl p-8 shadow-2xl"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {crmTransformationStats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="text-center p-4"
+                >
+                  <div className="text-3xl md:text-4xl font-bold text-[#3FE0F0] mb-2">{stat.value}{stat.suffix}</div>
+                  <div className="text-sm text-white/80">{stat.description}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Interface Preview Section */}
+      <section className="bg-[#F5F7FB] pt-12 pb-20">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-border/30">
+              <img 
+                src={zohoCrmInterface} 
+                alt="Zoho CRM Sales Dashboard Interface" 
+                className="w-full h-auto"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 

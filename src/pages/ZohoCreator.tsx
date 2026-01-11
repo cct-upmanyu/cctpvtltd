@@ -58,6 +58,7 @@ import {
   ThumbsUp,
   MapPin
 } from "lucide-react";
+import zohoCreatorInterface from "@/assets/zoho-creator-interface.jpg";
 
 const ZohoCreator = () => {
   const [activeArchitectureNode, setActiveArchitectureNode] = useState<number | null>(null);
@@ -331,7 +332,7 @@ const ZohoCreator = () => {
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -365,7 +366,50 @@ const ZohoCreator = () => {
                 </Button>
               </div>
             </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="hidden lg:block"
+            >
+              <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                <img 
+                  src={zohoCreatorInterface} 
+                  alt="Zoho Creator Low-Code Platform Interface" 
+                  className="w-full h-auto"
+                />
+              </div>
+            </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Stats Highlight Section - Between Hero & Content */}
+      <section className="relative -mt-10 z-20 pb-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-[#0B1C3D] to-[#1a3a6e] rounded-2xl p-8 shadow-2xl"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {creatorExplainer.highlights.map((highlight, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="text-center p-4"
+                >
+                  <div className="text-2xl md:text-3xl font-bold text-[#3FE0F0] mb-2">{highlight.split(' ')[0]}</div>
+                  <div className="text-sm text-white/80">{highlight.split(' ').slice(1).join(' ')}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 

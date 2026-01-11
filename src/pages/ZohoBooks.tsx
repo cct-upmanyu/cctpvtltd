@@ -40,6 +40,7 @@ import {
   Layers,
   PieChart
 } from "lucide-react";
+import zohoBooksInterface from "@/assets/zoho-books-interface.jpg";
 
 const ZohoBooks = () => {
   useEffect(() => {
@@ -395,27 +396,46 @@ const ZohoBooks = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-8 border border-border/50 shadow-2xl">
-                <h3 className="text-xl font-semibold text-foreground mb-6 text-center">Why Businesses Choose Zoho Books</h3>
-                <div className="space-y-3">
-                  {whyZohoBooks.map((item, index) => (
-                    <motion.div 
-                      key={index} 
-                      className="flex items-start gap-3 p-3 bg-background/50 rounded-lg"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3 + index * 0.1 }}
-                    >
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-foreground text-sm">{item}</span>
-                    </motion.div>
-                  ))}
-                </div>
+              <div className="rounded-2xl overflow-hidden shadow-2xl border border-border/50">
+                <img 
+                  src={zohoBooksInterface} 
+                  alt="Zoho Books Accounting Software Dashboard Interface" 
+                  className="w-full h-auto"
+                />
               </div>
             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* Stats Highlight Section - Between Hero & Content */}
+      <section className="relative -mt-10 z-20 pb-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-[#0B1C3D] to-[#1a3a6e] rounded-2xl p-8 shadow-2xl"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {booksTransformationStats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="text-center p-4"
+                >
+                  <div className="text-3xl md:text-4xl font-bold text-[#3FE0F0] mb-2">{stat.value}{stat.suffix}</div>
+                  <div className="text-sm text-white/80">{stat.description}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
 
       {/* Why Implementations Fail Section */}
       <section className="py-20 bg-muted/30">

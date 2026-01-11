@@ -19,8 +19,12 @@ import {
   GraduationCap,
   MessageSquare,
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  TrendingUp,
+  Globe,
+  Building2
 } from "lucide-react";
+import zohoPeopleInterface from "@/assets/zoho-people-interface.jpg";
 
 const ZohoPeople = () => {
   useEffect(() => {
@@ -169,18 +173,43 @@ const ZohoPeople = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-8 border border-border/50 shadow-2xl">
-                <div className="grid grid-cols-2 gap-4">
-                  {stats.map((stat, index) => (
-                    <div key={index} className="text-center p-4 bg-background/50 rounded-xl">
-                      <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
-                      <div className="text-sm text-muted-foreground">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
+              <div className="rounded-2xl overflow-hidden shadow-2xl border border-border/50">
+                <img 
+                  src={zohoPeopleInterface} 
+                  alt="Zoho People HR Software Dashboard Interface" 
+                  className="w-full h-auto"
+                />
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Stats Highlight Section - Between Hero & Content */}
+      <section className="relative -mt-10 z-20 pb-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-[#0B1C3D] to-[#1a3a6e] rounded-2xl p-8 shadow-2xl"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="text-center p-4"
+                >
+                  <div className="text-3xl md:text-4xl font-bold text-[#3FE0F0] mb-2">{stat.value}</div>
+                  <div className="text-sm text-white/80">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
