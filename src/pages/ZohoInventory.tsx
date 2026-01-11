@@ -21,12 +21,16 @@ import {
   CheckCircle2,
   Store,
   Box,
-  PackageSearch
+  PackageSearch,
+  TrendingUp,
+  Users,
+  Zap
 } from "lucide-react";
+import zohoInventoryInterface from "@/assets/zoho-inventory-interface.jpg";
 
 const ZohoInventory = () => {
   useEffect(() => {
-    document.title = "Zoho Inventory Management Software Implementation | Club Code Technology";
+    document.title = "Zoho Inventory Management Software Implementation | ClubCode Technology Pvt Ltd";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -41,7 +45,7 @@ const ZohoInventory = () => {
       "name": "Zoho Inventory Implementation Services",
       "provider": {
         "@type": "Organization",
-        "name": "Club Code Technology"
+        "name": "ClubCode Technology Pvt Ltd"
       },
       "description": "Expert Zoho Inventory implementation, multichannel selling, and order fulfillment solutions.",
       "serviceType": "Inventory Management Implementation"
@@ -191,25 +195,56 @@ const ZohoInventory = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-8 border border-border/50 shadow-2xl">
-                <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Recognized by Industry Leaders</h3>
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="text-center p-3 bg-background/50 rounded-lg">
-                    <div className="text-2xl font-bold text-primary">4.5/5</div>
-                    <div className="text-xs text-muted-foreground">Capterra</div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/50">
+                <img 
+                  src={zohoInventoryInterface} 
+                  alt="Zoho Inventory Management Interface" 
+                  className="w-full h-auto"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-card rounded-xl p-4 shadow-lg border border-border/50">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Package className="w-5 h-5 text-primary" />
                   </div>
-                  <div className="text-center p-3 bg-background/50 rounded-lg">
-                    <div className="text-2xl font-bold text-primary">4.5/5</div>
-                    <div className="text-xs text-muted-foreground">GetApp</div>
-                  </div>
-                  <div className="text-center p-3 bg-background/50 rounded-lg">
-                    <div className="text-2xl font-bold text-primary">4.7/5</div>
-                    <div className="text-xs text-muted-foreground">Software Suggest</div>
+                  <div>
+                    <div className="text-sm font-medium text-foreground">Multi-Channel Selling</div>
+                    <div className="text-xs text-muted-foreground">Unified inventory across platforms</div>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground text-center">Trusted by thousands of successful companies worldwide</p>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Highlight Section */}
+      <section className="py-12 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/5" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { icon: Package, value: "10K+", label: "Products Managed Daily" },
+              { icon: Users, value: "500+", label: "Happy Clients" },
+              { icon: TrendingUp, value: "40%", label: "Efficiency Increase" },
+              { icon: Zap, value: "99.9%", label: "Inventory Accuracy" }
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-12 h-12 mx-auto mb-3 bg-primary/20 rounded-xl flex items-center justify-center">
+                  <stat.icon className="w-6 h-6 text-primary" />
+                </div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-sm text-slate-400">{stat.label}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
