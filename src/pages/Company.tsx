@@ -41,39 +41,39 @@ import heroImage from "@/assets/hero-custom-erp.jpg";
 const teamMembers = [
   { 
     name: "Navdeep Sen", 
-    role: "Founder & CEO", 
-    description: "Visionary leader with 15+ years in enterprise systems architecture. Drives the company's mission to deliver secure, scalable digital systems.",
+    role: "Founder", 
+    description: "Navdeep Sen is the founder and strategic force behind Club Code Technology. He brings deep expertise in CRM architecture, ERP systems, automation, and the Zoho ecosystem, helping businesses replace fragmented tools with structured, scalable systems. He is known for translating complex business requirements into governed digital operating models that support long-term growth rather than short-term fixes.",
     featured: true
   },
   { 
     name: "Shiya Sharma", 
-    role: "Head of Operations", 
-    description: "Ensures seamless delivery across all projects with expertise in process optimization."
+    role: "Business Development Analyst", 
+    description: "Certified Zoho Marketing Automation Expert and Zoho Social Specialist. Shiya helps businesses align marketing, sales, and CRM systems through data-driven engagement and automation strategies."
   },
   { 
     name: "Deepak Verma", 
-    role: "Technical Lead", 
-    description: "Leads architecture decisions and ensures technical excellence across implementations."
+    role: "Business Development Executive", 
+    description: "Deepak works closely with clients to understand business challenges, clarify requirements, and guide them toward the right digital solutions from the outset."
   },
   { 
     name: "Ravi Kumar", 
-    role: "Senior Developer", 
-    description: "Expert in Zoho Creator and custom application development."
+    role: "Project Manager | Senior Zoho Developer | Salesforce Integration Expert", 
+    description: "Ravi brings over 12 years of experience in enterprise system delivery. He leads complex implementations with strong focus on scope, timelines, quality, and stakeholder coordination. Technically, he specializes in Zoho development, Salesforce integrations, extension development, custom automation, and AI-enabled workflows."
   },
   { 
     name: "Vinay Kumar", 
-    role: "Integration Specialist", 
-    description: "Specializes in API integrations and data migration projects."
+    role: "Full Stack Developer", 
+    description: "Vinay builds scalable web applications, portals, and integrations across Zoho CRM, Books, Inventory, HRMS, WordPress, plugins, and AI integrations—ensuring seamless system connectivity."
   },
   { 
     name: "Sahil Kumar", 
-    role: "CRM Consultant", 
-    description: "Delivers CRM implementations tailored to industry-specific needs."
+    role: "Full Stack Developer", 
+    description: "Sahil specializes in Zoho Creator, Zoho One, and Zoho Catalyst, building robust, user-friendly applications and backend services that extend platform capabilities."
   },
   { 
     name: "Gaurav Sharma", 
-    role: "Automation Engineer", 
-    description: "Designs and implements workflow automation solutions."
+    role: "Zoho Developer", 
+    description: "Gaurav works across Zoho CRM, Creator, Books, Projects, Analytics, and FSM, designing custom workflows, reports, automation logic, and governed data models."
   },
 ];
 
@@ -220,10 +220,10 @@ export default function Company() {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
-              About Club Code Technology
+              About Club Code Technology Pvt Ltd
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Why We Exist
+              Why Choose Us
             </h2>
           </motion.div>
 
@@ -310,7 +310,7 @@ export default function Company() {
               Our Story
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Evolution of Club Code Technology
+              Evolution of Club Code Technology Pvt Ltd
             </h2>
           </motion.div>
 
@@ -356,7 +356,7 @@ export default function Company() {
             </p>
           </motion.div>
 
-          {/* Global Map */}
+          {/* Global Map with Flags */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -366,10 +366,10 @@ export default function Company() {
             {globalRegions.map((region) => (
               <div
                 key={region.name}
-                className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full"
+                className="flex items-center gap-3 px-5 py-3 bg-white/10 border border-white/20 rounded-full hover:bg-white/15 transition-colors"
               >
-                <span className="text-xl">{region.flag}</span>
-                <span className="text-white/80 text-sm">{region.name}</span>
+                <span className="text-2xl">{region.flag}</span>
+                <span className="text-white font-medium">{region.name}</span>
               </div>
             ))}
           </motion.div>
@@ -412,9 +412,9 @@ export default function Company() {
               </div>
               
               <h3 className="text-2xl font-bold text-foreground mb-2">Navdeep Sen</h3>
-              <p className="text-primary font-medium mb-4">Founder & CEO</p>
+              <p className="text-primary font-medium mb-4">Founder</p>
               <p className="text-muted-foreground">
-                With over 15 years of experience in enterprise technology consulting, Navdeep founded Club Code Technology with a clear mission: to help businesses build systems that truly work together. His approach combines deep technical expertise with strategic business thinking.
+                Navdeep Sen is the founder and strategic force behind Club Code Technology. He brings deep expertise in CRM architecture, ERP systems, automation, and the Zoho ecosystem, helping businesses replace fragmented tools with structured, scalable systems. He is known for translating complex business requirements into governed digital operating models that support long-term growth rather than short-term fixes.
               </p>
             </motion.div>
 
@@ -712,10 +712,7 @@ export default function Company() {
       </section>
 
       {/* SECTION 8 — MEET THE TEAM */}
-      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute bottom-1/3 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        </div>
+      <section className="bg-white section-padding relative overflow-hidden">
         <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -723,12 +720,15 @@ export default function Company() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-[#0B1C3D]/20 bg-[#0B1C3D]/5 text-[#0B1C3D] text-sm font-medium mb-4">
               Meet the Team
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              The People Behind Club Code
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B1C3D] mb-4">
+              A Unique Team with Out-of-Bounds Ideas
             </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Behind every system we design is a team that blends strategy, technical depth, and execution excellence.
+            </p>
           </motion.div>
 
           {/* Featured Founder Card */}
@@ -736,19 +736,19 @@ export default function Company() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-2xl mx-auto mb-12"
+            className="max-w-4xl mx-auto mb-16"
           >
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-[#0B1C3D] to-[#1a3a6e] rounded-2xl p-8 shadow-xl">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 {/* Image Placeholder */}
-                <div className="w-40 h-40 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0">
-                  <Users className="w-16 h-16 text-primary" />
+                <div className="w-48 h-48 rounded-2xl bg-white/10 flex items-center justify-center flex-shrink-0 border-2 border-primary/30">
+                  <Users className="w-20 h-20 text-primary" />
                 </div>
-                <div className="text-center md:text-left">
+                <div className="text-center md:text-left flex-1">
                   <h3 className="text-2xl font-bold text-white mb-1">Navdeep Sen</h3>
-                  <p className="text-primary font-medium mb-4">Founder & CEO</p>
-                  <p className="text-white/70">
-                    Visionary leader with 15+ years in enterprise systems architecture. Drives the company's mission to deliver secure, scalable digital systems.
+                  <p className="text-primary font-medium mb-4">Founder</p>
+                  <p className="text-white/80 leading-relaxed">
+                    Navdeep Sen is the founder and strategic force behind Club Code Technology. He brings deep expertise in CRM architecture, ERP systems, automation, and the Zoho ecosystem, helping businesses replace fragmented tools with structured, scalable systems. He is known for translating complex business requirements into governed digital operating models that support long-term growth rather than short-term fixes.
                   </p>
                 </div>
               </div>
@@ -756,7 +756,7 @@ export default function Company() {
           </motion.div>
 
           {/* Team Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.filter(m => !m.featured).map((member, index) => (
               <motion.div
                 key={member.name}
@@ -764,15 +764,17 @@ export default function Company() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center"
+                className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-[#0B1C3D]/20 transition-all group"
               >
                 {/* Image Placeholder */}
-                <div className="w-20 h-20 mx-auto rounded-xl bg-white/10 flex items-center justify-center mb-4">
-                  <Users className="w-8 h-8 text-primary" />
+                <div className="w-24 h-24 mx-auto rounded-xl bg-gradient-to-br from-[#0B1C3D]/10 to-[#0B1C3D]/5 flex items-center justify-center mb-5 group-hover:from-primary/20 group-hover:to-primary/10 transition-colors">
+                  <Users className="w-10 h-10 text-[#0B1C3D] group-hover:text-primary transition-colors" />
                 </div>
-                <h3 className="font-semibold text-white mb-1">{member.name}</h3>
-                <p className="text-primary text-sm mb-3">{member.role}</p>
-                <p className="text-sm text-white/60">{member.description}</p>
+                <div className="text-center">
+                  <h3 className="font-bold text-[#0B1C3D] text-lg mb-1">{member.name}</h3>
+                  <p className="text-primary text-sm font-medium mb-4">{member.role}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">{member.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
