@@ -6,73 +6,142 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { 
   ArrowRight, 
-  Award, 
-  Users, 
-  Globe, 
-  Target, 
+  Shield,
+  TrendingUp,
+  Globe,
+  Target,
   CheckCircle,
   Lightbulb,
-  Shield,
   Handshake,
-  TrendingUp,
   Building2,
-  Clock,
-  MapPin,
+  Layers,
+  Database,
+  Cpu,
+  BarChart3,
   Zap,
-  Code,
-  Heart
+  AlertTriangle,
+  FileSpreadsheet,
+  Settings,
+  GitBranch,
+  Eye,
+  Lock,
+  Scale,
+  Users,
+  Cog,
+  Network,
+  Bot,
+  RefreshCw,
+  Award,
+  MapPin,
+  Briefcase
 } from "lucide-react";
-import cctLogo from "@/assets/cct-logo.png";
+import heroImage from "@/assets/hero-custom-erp.jpg";
 
-const milestones = [
-  { year: "2012", title: "Founded", description: "Started as Club Code Technology in India with a vision to transform businesses through technology" },
-  { year: "2015", title: "Zoho Partner", description: "Became an official Zoho Partner, beginning our journey in the Zoho ecosystem" },
-  { year: "2018", title: "Premium Partner", description: "Elevated to Zoho Premium Partner status, recognizing our expertise and delivery excellence" },
-  { year: "2020", title: "AI Integration", description: "Launched AI-powered business automation solutions integrating with Zoho ecosystem" },
-  { year: "2022", title: "Creator Champions", description: "Recognized as Zoho Creator Champions for exceptional low-code solutions" },
-  { year: "2023", title: "Global Expansion", description: "Expanded to UK, USA, Canada, Australia, and UAE with dedicated local teams" },
-  { year: "2024", title: "800+ Projects", description: "Crossed 800+ successful implementations serving clients across 40+ countries" },
+// Team members data
+const teamMembers = [
+  { 
+    name: "Navdeep Sen", 
+    role: "Founder & CEO", 
+    description: "Visionary leader with 15+ years in enterprise systems architecture. Drives the company's mission to deliver secure, scalable digital systems.",
+    featured: true
+  },
+  { 
+    name: "Shiya Sharma", 
+    role: "Head of Operations", 
+    description: "Ensures seamless delivery across all projects with expertise in process optimization."
+  },
+  { 
+    name: "Deepak Verma", 
+    role: "Technical Lead", 
+    description: "Leads architecture decisions and ensures technical excellence across implementations."
+  },
+  { 
+    name: "Ravi Kumar", 
+    role: "Senior Developer", 
+    description: "Expert in Zoho Creator and custom application development."
+  },
+  { 
+    name: "Vinay Kumar", 
+    role: "Integration Specialist", 
+    description: "Specializes in API integrations and data migration projects."
+  },
+  { 
+    name: "Sahil Kumar", 
+    role: "CRM Consultant", 
+    description: "Delivers CRM implementations tailored to industry-specific needs."
+  },
+  { 
+    name: "Gaurav Sharma", 
+    role: "Automation Engineer", 
+    description: "Designs and implements workflow automation solutions."
+  },
 ];
 
-const values = [
-  { icon: Target, title: "Customer Success", description: "Your success is our success. We measure our achievements through your growth and ROI." },
-  { icon: Award, title: "Excellence", description: "We strive for excellence in every implementation, every integration, every solution we deliver." },
-  { icon: Handshake, title: "Partnership", description: "We work as an extension of your team, understanding your vision, challenges, and goals." },
-  { icon: Lightbulb, title: "Innovation", description: "Continuously exploring new technologies to deliver cutting-edge, future-ready solutions." },
-  { icon: Shield, title: "Trust & Security", description: "Enterprise-grade security practices and transparent communication at every step." },
-  { icon: Heart, title: "Long-Term Relationships", description: "We build lasting partnerships, not just one-time projects—growing with you over time." },
+// Commitment items
+const commitmentItems = [
+  { icon: Settings, label: "Simplify Operations" },
+  { icon: Eye, label: "Improve Visibility" },
+  { icon: Zap, label: "Automate Intelligently" },
+  { icon: Lock, label: "Secure Data" },
+  { icon: Scale, label: "Scale Sustainably" },
 ];
 
-const expertise = [
-  { icon: Target, title: "CRM Implementation", description: "500+ Zoho CRM implementations across industries" },
-  { icon: Code, title: "Custom Development", description: "Low-code & API-based solutions using Zoho Creator" },
-  { icon: Zap, title: "Automation", description: "Workflow automation reducing manual work by 50%+" },
-  { icon: TrendingUp, title: "AI & Analytics", description: "Zia-powered insights and predictive analytics" },
-  { icon: Globe, title: "Integrations", description: "300+ third-party integrations delivered" },
-  { icon: Building2, title: "Enterprise Solutions", description: "Multi-entity, multi-country implementations" },
+// What we're known for
+const trustSignals = [
+  { icon: Building2, title: "CRM, ERP & Automation Architecture", description: "Deep expertise in designing integrated business systems" },
+  { icon: Layers, title: "Zoho Ecosystem Experience", description: "Comprehensive knowledge across all Zoho applications" },
+  { icon: Handshake, title: "Consultative Guidance", description: "Strategic advice based on business needs, not product sales" },
+  { icon: Briefcase, title: "Industry-Aware Workflows", description: "Solutions designed with domain-specific understanding" },
+  { icon: RefreshCw, title: "Long-Term Optimization", description: "Continuous improvement and evolution of systems" },
 ];
 
-const globalPresence = [
-  { country: "United Kingdom", city: "London", flag: "🇬🇧" },
-  { country: "United States", city: "New York", flag: "🇺🇸" },
-  { country: "Canada", city: "Toronto", flag: "🇨🇦" },
-  { country: "Australia", city: "Sydney", flag: "🇦🇺" },
-  { country: "UAE", city: "Dubai", flag: "🇦🇪" },
-  { country: "India", city: "Mumbai (HQ)", flag: "🇮🇳" },
+// Approach principles
+const principles = [
+  { icon: Layers, title: "System-First Design", description: "Architecture before automation—building foundations that last" },
+  { icon: Shield, title: "Governance Before Automation", description: "Establish control frameworks before scaling processes" },
+  { icon: Database, title: "Data Integrity Over Speed", description: "Accuracy and consistency as non-negotiable standards" },
+  { icon: TrendingUp, title: "Scalability by Design", description: "Every solution built to grow with your business" },
 ];
 
-const stats = [
-  { value: "800+", label: "Projects Delivered" },
-  { value: "12+", label: "Years Experience" },
-  { value: "6", label: "Global Offices" },
-  { value: "50+", label: "Team Members" },
-  { value: "40+", label: "Countries Served" },
-  { value: "500+", label: "CRM Implementations" },
+// Service ecosystem
+const serviceNodes = [
+  { icon: Target, title: "CRM Services" },
+  { icon: Building2, title: "ERP Services" },
+  { icon: Layers, title: "Zoho Ecosystem" },
+  { icon: GitBranch, title: "Data Migration & Integrations" },
+  { icon: Bot, title: "AI & Automation" },
+];
+
+// Founder's observed problems
+const founderProblems = [
+  { icon: AlertTriangle, text: "CRMs under-utilized" },
+  { icon: FileSpreadsheet, text: "ERPs bypassed with spreadsheets" },
+  { icon: Zap, text: "Automation without governance" },
+  { icon: Database, text: "Conflicting data across tools" },
+  { icon: Users, text: "Teams adapting to systems" },
+];
+
+// Evolution milestones
+const evolutionMilestones = [
+  { title: "CRM & Automation Practice", description: "Building expertise in customer relationship systems" },
+  { title: "Systems Consulting Expansion", description: "Growing into comprehensive business system design" },
+  { title: "ERP, Data, AI & Platform Architecture", description: "Expanding capabilities across enterprise platforms" },
+  { title: "Global Delivery & Long-Term Partnerships", description: "Serving clients across continents with dedicated teams" },
+];
+
+// Global regions
+const globalRegions = [
+  { name: "India", flag: "🇮🇳" },
+  { name: "UK", flag: "🇬🇧" },
+  { name: "USA", flag: "🇺🇸" },
+  { name: "Australia", flag: "🇦🇺" },
+  { name: "Middle East", flag: "🇦🇪" },
+  { name: "Europe", flag: "🇪🇺" },
 ];
 
 export default function Company() {
   useEffect(() => {
-    document.title = "About Us | ClubCode Technology - Zoho Premium Partner";
+    document.title = "About Us | Club Code Technology - System Design Experts";
     
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -80,7 +149,7 @@ export default function Company() {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', 'ClubCode Technology is a Global Zoho Premium Partner with 12+ years of experience, 800+ implementations, and presence across UK, USA, Canada, Australia, UAE, and India.');
+    metaDescription.setAttribute('content', 'Club Code Technology designs secure, transparent, and scalable digital systems for long-term business growth. We help businesses overcome fragmentation through system-first architecture.');
     
     return () => {
       document.title = "ClubCode Technology";
@@ -91,44 +160,48 @@ export default function Company() {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero - LIGHT SECTION */}
-      <section className="bg-light-gradient pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        </div>
-        <div className="container-custom relative z-10">
+      {/* HERO SECTION — BRAND POSITIONING */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1C3D]/90 via-[#0B1C3D]/80 to-[#0B1C3D]/70" />
+        
+        <div className="container-custom relative z-10 py-32">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl mx-auto text-center"
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl"
           >
-            <div className="flex justify-center mb-6">
-              <img src={cctLogo} alt="ClubCode Technology" className="h-20" />
-            </div>
-            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6">
-              Zoho Premium Partner | Zoho Creator Champions
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              ClubCode Technology
-              <span className="text-gradient-primary block">Private Limited</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+              Designing Business Systems
+              <span className="text-[#3FE0F0] block mt-2">That Scale With Confidence</span>
             </h1>
-            <p className="text-muted-foreground text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-              Global Zoho Premium Partner & AI Automation Experts with 12+ years of experience 
-              transforming businesses across UK, USA, Canada, Australia, UAE, and India.
+            
+            <div className="space-y-4 mb-8">
+              <p className="text-xl md:text-2xl text-white/90 font-medium">
+                Businesses don't fail because they lack software.
+              </p>
+              <p className="text-xl md:text-2xl text-white/90 font-medium">
+                They fail because their systems don't work together.
+              </p>
+            </div>
+            
+            <p className="text-lg text-white/70 max-w-2xl mb-10">
+              Club Code Technology Pvt Ltd designs secure, transparent, and scalable digital systems for long-term business growth.
             </p>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Formerly known as Club Code Technology, we've grown from a small team in India to a global 
-              technology partner trusted by 800+ organizations across 40+ countries.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            
+            <div className="flex flex-wrap gap-4">
               <Link to="/contact">
-                <Button size="lg" variant="heroLight">
+                <Button size="lg" variant="heroDark">
                   Work With Us
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </Link>
               <Link to="/case-studies">
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="heroSecondary">
                   View Our Work
                 </Button>
               </Link>
@@ -137,101 +210,91 @@ export default function Company() {
         </div>
       </section>
 
-      {/* Stats Bar - DARK SECTION */}
-      <section className="bg-[#0B1C3D] py-12">
-        <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-1">{stat.value}</div>
-                <div className="text-sm text-white/70">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision - LIGHT SECTION */}
+      {/* SECTION 1 — ABOUT: PROBLEM → PURPOSE → SOLUTION */}
       <section className="bg-light-gradient section-padding">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
+              About Club Code Technology
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Why We Exist
+            </h2>
+          </motion.div>
+
+          {/* 3-Column Infographic */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {/* Problem */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
-                Our Mission
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Empowering Businesses to Scale Intelligently
-              </h2>
-              <p className="text-muted-foreground text-lg mb-6">
-                We empower businesses to scale intelligently by implementing world-class Zoho, AI, and 
-                automation solutions that transform operations and accelerate growth.
-              </p>
-              <p className="text-muted-foreground mb-6">
-                Our approach goes beyond software implementation. We architect complete business operating 
-                systems that connect sales, marketing, finance, HR, and operations into a unified platform 
-                that delivers real results.
-              </p>
-              <div className="space-y-3">
-                {[
-                  "Architecture-first approach to every implementation",
-                  "Industry-specific frameworks, not generic templates",
-                  "Long-term partnership mindset with ongoing optimization",
-                  "Data-driven decisions with comprehensive analytics"
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground">{item}</span>
-                  </div>
-                ))}
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-red-100 flex items-center justify-center mb-6">
+                <AlertTriangle className="w-8 h-8 text-red-500" />
               </div>
+              <h3 className="text-xl font-bold text-foreground mb-4">The Problem</h3>
+              <p className="text-muted-foreground">
+                Operational fragmentation, disconnected tools, and short-term decisions leave businesses struggling to scale.
+              </p>
             </motion.div>
-            
+
+            {/* Purpose */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm"
+              transition={{ delay: 0.1 }}
+              className="bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
-                Our Vision
-              </span>
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                The Future of Business Operations
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                We envision a world where businesses of all sizes have access to enterprise-grade 
-                technology solutions that were once available only to large corporations.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { value: "30-50%", label: "Reduction in manual work" },
-                  { value: "2-4x", label: "Faster decision making" },
-                  { value: "100%", label: "Data consistency" },
-                  { value: "∞", label: "Scalability" },
-                ].map((item, index) => (
-                  <div key={index} className="text-center p-4 bg-gray-50 rounded-xl">
-                    <div className="text-2xl font-bold text-primary">{item.value}</div>
-                    <div className="text-xs text-muted-foreground">{item.label}</div>
-                  </div>
-                ))}
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+                <Lightbulb className="w-8 h-8 text-primary" />
               </div>
+              <h3 className="text-xl font-bold text-foreground mb-4">Our Purpose</h3>
+              <p className="text-muted-foreground">
+                Founded to help businesses overcome fragmentation through system-first architecture and strategic guidance.
+              </p>
+            </motion.div>
+
+            {/* Solution */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm"
+            >
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-green-100 flex items-center justify-center mb-6">
+                <TrendingUp className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-4">The Solution</h3>
+              <p className="text-muted-foreground">
+                Secure, transparent, scalable digital systems guided by strategy—not sales pressure.
+              </p>
             </motion.div>
           </div>
+
+          {/* Supporting Statement */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto bg-gradient-to-r from-[#0B1C3D] to-[#1a3a6e] rounded-2xl p-8 text-center"
+          >
+            <p className="text-white/90 text-lg">
+              We work with SMBs to enterprises, helping them adopt the right software, architecture, and automation—guided by strategy, not sales pressure.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Values - DARK SECTION */}
+      {/* SECTION 2 — OUR STORY: EVOLUTION TIMELINE */}
       <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -244,41 +307,76 @@ export default function Company() {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
-              Our Values
+              Our Story
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              What Drives Us Every Day
+              Evolution of Club Code Technology
             </h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
-              Our core values shape how we work, how we treat our clients, and how we build solutions.
-            </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
+          {/* Horizontal Timeline */}
+          <div className="relative mb-16">
+            {/* Timeline Line */}
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-primary/30 -translate-y-1/2" />
+            
+            <div className="grid md:grid-cols-4 gap-8">
+              {evolutionMilestones.map((milestone, index) => (
                 <motion.div
-                  key={value.title}
+                  key={milestone.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors"
+                  className="relative"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-primary" />
+                  {/* Timeline Dot */}
+                  <div className="hidden md:flex absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-primary border-4 border-[#0B1C3D] z-10" />
+                  
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 md:mt-8 text-center">
+                    <div className="w-10 h-10 mx-auto rounded-full bg-primary/20 flex items-center justify-center mb-4 text-primary font-bold">
+                      {index + 1}
+                    </div>
+                    <h3 className="font-semibold text-white mb-2">{milestone.title}</h3>
+                    <p className="text-sm text-white/70">{milestone.description}</p>
                   </div>
-                  <h3 className="font-semibold text-white mb-2">{value.title}</h3>
-                  <p className="text-sm text-white/70">{value.description}</p>
                 </motion.div>
-              );
-            })}
+              ))}
+            </div>
           </div>
+
+          {/* Philosophy Statement */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <p className="text-xl text-white/80 italic max-w-2xl mx-auto">
+              "Technology should adapt to the business — not the other way around."
+            </p>
+          </motion.div>
+
+          {/* Global Map */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-4"
+          >
+            {globalRegions.map((region) => (
+              <div
+                key={region.name}
+                className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full"
+              >
+                <span className="text-xl">{region.flag}</span>
+                <span className="text-white/80 text-sm">{region.name}</span>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      {/* Expertise - LIGHT SECTION */}
+      {/* SECTION 3 — FOUNDER'S VISION */}
       <section className="bg-light-gradient section-padding">
         <div className="container-custom">
           <motion.div
@@ -288,41 +386,79 @@ export default function Company() {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
-              Our Expertise
+              Founder's Vision
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              What We Do Best
+              The Insight That Started It All
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Deep expertise across the Zoho ecosystem, AI automation, and enterprise integrations.
-            </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {expertise.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md hover:border-primary/30 transition-all"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-primary" />
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Founder Profile Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm"
+            >
+              {/* Image Placeholder */}
+              <div className="w-full aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl mb-6 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <Users className="w-12 h-12 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
-                </motion.div>
-              );
-            })}
+                  <p className="text-muted-foreground text-sm">Founder Image Placeholder</p>
+                </div>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-foreground mb-2">Navdeep Sen</h3>
+              <p className="text-primary font-medium mb-4">Founder & CEO</p>
+              <p className="text-muted-foreground">
+                With over 15 years of experience in enterprise technology consulting, Navdeep founded Club Code Technology with a clear mission: to help businesses build systems that truly work together. His approach combines deep technical expertise with strategic business thinking.
+              </p>
+            </motion.div>
+
+            {/* Problems Observed - Icon Grid */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-bold text-foreground mb-6">Problems Observed in the Industry</h3>
+              
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                {founderProblems.map((problem, index) => {
+                  const Icon = problem.icon;
+                  return (
+                    <motion.div
+                      key={problem.text}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="flex items-center gap-4 p-4 bg-red-50 border border-red-100 rounded-xl"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-5 h-5 text-red-500" />
+                      </div>
+                      <span className="text-foreground font-medium">{problem.text}</span>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              <div className="bg-gradient-to-r from-[#0B1C3D] to-[#1a3a6e] rounded-xl p-6">
+                <p className="text-white/90 text-lg">
+                  "The problem was never software availability. It was poor system design and short-term decision making."
+                </p>
+                <p className="text-primary mt-2 font-medium">— Navdeep Sen</p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Timeline - DARK SECTION */}
+      {/* SECTION 4 — THE CORE BELIEF: BELIEF PILLARS */}
       <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -335,38 +471,83 @@ export default function Company() {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
-              Our Journey
+              The Core Belief
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              12+ Years of Growth & Excellence
+              Our Foundation
             </h2>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-6">
-              {milestones.map((milestone, index) => (
-                <motion.div
-                  key={milestone.year}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white/5 border border-white/10 rounded-xl p-6"
-                >
-                  <div className="flex items-center gap-4 mb-3">
-                    <span className="text-2xl font-bold text-primary">{milestone.year}</span>
-                    <div className="h-px flex-1 bg-white/20" />
-                  </div>
-                  <h3 className="font-semibold text-white mb-2">{milestone.title}</h3>
-                  <p className="text-sm text-white/70">{milestone.description}</p>
-                </motion.div>
-              ))}
-            </div>
+          {/* 3 Belief Pillars */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="bg-gradient-to-b from-primary/20 to-transparent h-full rounded-2xl p-8 border border-primary/20 text-center">
+                <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/20 flex items-center justify-center mb-6">
+                  <Target className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Right Software for Long-Term Fit</h3>
+                <p className="text-white/70">
+                  We recommend solutions based on your business trajectory, not short-term convenience.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="relative"
+            >
+              <div className="bg-gradient-to-b from-primary/20 to-transparent h-full rounded-2xl p-8 border border-primary/20 text-center">
+                <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/20 flex items-center justify-center mb-6">
+                  <Handshake className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Honest Technology Partnership</h3>
+                <p className="text-white/70">
+                  Transparent communication, realistic expectations, and genuine care for your success.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="relative"
+            >
+              <div className="bg-gradient-to-b from-primary/20 to-transparent h-full rounded-2xl p-8 border border-primary/20 text-center">
+                <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/20 flex items-center justify-center mb-6">
+                  <Shield className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Security, Transparency & Scalability</h3>
+                <p className="text-white/70">
+                  Every system we design prioritizes data security, clear visibility, and room to grow.
+                </p>
+              </div>
+            </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <p className="text-xl text-white/80 italic max-w-2xl mx-auto">
+              This system-first philosophy guides every engagement at Club Code Technology.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Global Presence - LIGHT SECTION */}
+      {/* SECTION 5 — WHAT WE DO: SERVICE ECOSYSTEM MAP */}
       <section className="bg-light-gradient section-padding">
         <div className="container-custom">
           <motion.div
@@ -376,39 +557,282 @@ export default function Company() {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
-              Global Presence
+              What We Do
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Local Expertise, Global Reach
+              Our Service Ecosystem
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              With offices across 6 countries, we provide local support with global capabilities.
-            </p>
           </motion.div>
 
+          {/* Ecosystem Diagram */}
+          <div className="relative max-w-4xl mx-auto mb-12">
+            {/* Center Node */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative z-10 w-48 h-48 mx-auto bg-gradient-to-br from-[#0B1C3D] to-[#1a3a6e] rounded-full flex items-center justify-center mb-8 shadow-xl"
+            >
+              <div className="text-center">
+                <Network className="w-10 h-10 text-primary mx-auto mb-2" />
+                <p className="text-white font-bold text-sm px-4">Integrated Business Systems</p>
+              </div>
+            </motion.div>
+
+            {/* Surrounding Nodes */}
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              {serviceNodes.map((node, index) => {
+                const Icon = node.icon;
+                return (
+                  <motion.div
+                    key={node.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:shadow-md hover:border-primary/30 transition-all"
+                  >
+                    <div className="w-12 h-12 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <p className="text-sm font-medium text-foreground">{node.title}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              We don't just deploy software. We design systems that reflect how businesses actually operate.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 6 — HOW WE THINK: PRINCIPLES GRID */}
+      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 right-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
+              Our Approach
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              How We Think
+            </h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {principles.map((principle, index) => {
+              const Icon = principle.icon;
+              return (
+                <motion.div
+                  key={principle.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-white mb-2">{principle.title}</h3>
+                  <p className="text-sm text-white/70">{principle.description}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7 — WHAT WE'RE KNOWN FOR: TRUST SIGNAL GRID */}
+      <section className="bg-light-gradient section-padding">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
+              What We're Known For
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Our Reputation in the Industry
+            </h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {trustSignals.map((signal, index) => {
+              const Icon = signal.icon;
+              return (
+                <motion.div
+                  key={signal.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md hover:border-primary/30 transition-all"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">{signal.title}</h3>
+                  <p className="text-sm text-muted-foreground">{signal.description}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <p className="text-lg font-medium text-foreground">
+              We act as technology partners, not vendors.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION 8 — MEET THE TEAM */}
+      <section className="bg-[#0B1C3D] section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute bottom-1/3 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
+              Meet the Team
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              The People Behind Club Code
+            </h2>
+          </motion.div>
+
+          {/* Featured Founder Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto mb-12"
+          >
+            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                {/* Image Placeholder */}
+                <div className="w-40 h-40 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0">
+                  <Users className="w-16 h-16 text-primary" />
+                </div>
+                <div className="text-center md:text-left">
+                  <h3 className="text-2xl font-bold text-white mb-1">Navdeep Sen</h3>
+                  <p className="text-primary font-medium mb-4">Founder & CEO</p>
+                  <p className="text-white/70">
+                    Visionary leader with 15+ years in enterprise systems architecture. Drives the company's mission to deliver secure, scalable digital systems.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Team Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {globalPresence.map((location, index) => (
+            {teamMembers.filter(m => !m.featured).map((member, index) => (
               <motion.div
-                key={location.country}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={member.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-md hover:border-primary/30 transition-all"
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center"
               >
-                <span className="text-4xl mb-4 block">{location.flag}</span>
-                <h3 className="font-semibold text-foreground mb-1">{location.country}</h3>
-                <div className="flex items-center justify-center gap-1 text-muted-foreground text-sm">
-                  <MapPin className="w-3 h-3" />
-                  {location.city}
+                {/* Image Placeholder */}
+                <div className="w-20 h-20 mx-auto rounded-xl bg-white/10 flex items-center justify-center mb-4">
+                  <Users className="w-8 h-8 text-primary" />
                 </div>
+                <h3 className="font-semibold text-white mb-1">{member.name}</h3>
+                <p className="text-primary text-sm mb-3">{member.role}</p>
+                <p className="text-sm text-white/60">{member.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA - DARK SECTION */}
+      {/* SECTION 9 — OUR COMMITMENT: COMMITMENT STRIP */}
+      <section className="bg-light-gradient section-padding">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
+              Our Commitment
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              What We Promise
+            </h2>
+          </motion.div>
+
+          {/* Commitment Strip */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {commitmentItems.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-center gap-3 px-6 py-4 bg-white border border-gray-200 rounded-full shadow-sm"
+                >
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="font-medium text-foreground">{item.label}</span>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Final Statement */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto bg-gradient-to-r from-[#0B1C3D] to-[#1a3a6e] rounded-2xl p-8 text-center"
+          >
+            <p className="text-xl text-white font-medium">
+              Club Code Technology is not just a technology provider — we are a long-term systems partner.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
       <section className="bg-[#0B1C3D] section-padding">
         <div className="container-custom">
           <motion.div
@@ -418,53 +842,24 @@ export default function Company() {
             className="max-w-3xl mx-auto text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Transform Your Business?
+              Ready to Build Systems That Scale?
             </h2>
             <p className="text-white/70 text-lg mb-8">
-              Join 800+ organizations that trust ClubCode Technology for their digital transformation journey.
+              Let's discuss how we can help your business overcome fragmentation and build a foundation for long-term growth.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/contact">
                 <Button size="lg" variant="heroDark">
-                  Schedule a Consultation
+                  Start a Conversation
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </Link>
-              <Link to="/zoho-one-premium-partner">
+              <Link to="/case-studies">
                 <Button size="lg" variant="heroSecondary">
-                  Explore Zoho One
+                  View Case Studies
                 </Button>
               </Link>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Careers CTA - LIGHT SECTION */}
-      <section className="bg-light-gradient section-padding">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
-              Careers
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Want to Join Our Team?
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8">
-              We're always looking for talented individuals who share our passion for technology and innovation. 
-              Work on exciting projects, grow your skills, and make an impact.
-            </p>
-            <Link to="/contact">
-              <Button size="lg" variant="heroLight">
-                View Open Positions
-                <ArrowRight className="w-5 h-5" />
-              </Button>
-            </Link>
           </motion.div>
         </div>
       </section>
