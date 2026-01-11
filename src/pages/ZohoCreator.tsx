@@ -213,13 +213,17 @@ const ZohoCreator = () => {
     { icon: Scale, title: "Financial Services", focus: "Compliance, client portfolios", link: "/industries/financial-services" }
   ];
 
-  // Section 6: Pre-Built Solutions (Accelerators)
-  const accelerators = [
-    { icon: Package, title: "Asset Management", description: "Track, maintain, and manage equipment" },
-    { icon: Building2, title: "Construction Projects", description: "Centralize projects and contractors" },
-    { icon: Wrench, title: "Procurement", description: "Vendor onboarding and PO workflows" },
-    { icon: GraduationCap, title: "Education Systems", description: "Admissions to alumni management" },
-    { icon: BarChart3, title: "Ops Dashboards", description: "Real-time KPI visibility" }
+  // Section 6: Pre-Built Solutions
+  const prebuiltSolutions = [
+    { icon: ShoppingCart, title: "Order Management", description: "End-to-end order processing" },
+    { icon: Users, title: "Employee Management", description: "Complete HR & employee lifecycle" },
+    { icon: Clock, title: "Attendance Management", description: "Time tracking & attendance" },
+    { icon: Truck, title: "Driver Management", description: "Driver profiles & scheduling" },
+    { icon: Settings, title: "Fleet Management", description: "Vehicle tracking & maintenance" },
+    { icon: Truck, title: "Logistics Management", description: "Shipments & delivery tracking" },
+    { icon: Package, title: "Inventory Management", description: "Stock control & warehousing" },
+    { icon: BarChart3, title: "Payment Handling", description: "Invoices & payment tracking" },
+    { icon: Wrench, title: "Waste Management", description: "Collection & disposal workflows" }
   ];
 
   // Section 7: Why Projects Fail
@@ -353,15 +357,10 @@ const ZohoCreator = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="text-lg px-8 h-14 bg-primary hover:bg-primary/90">
-                  <Link to="/contact">
-                    Book Free Consultation
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="text-lg px-8 h-14 border-white/30 text-white hover:bg-white/10">
+                <Button asChild variant="heroPrimary" size="lg" className="text-lg px-8 h-14">
                   <Link to="/contact">
                     Talk to a Zoho Creator Expert
+                    <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
               </div>
@@ -463,51 +462,93 @@ const ZohoCreator = () => {
             </p>
           </motion.div>
 
-          {/* Architecture Diagram */}
-          <div className="relative max-w-5xl mx-auto">
-            {/* Center Hub */}
+          {/* Architecture Diagram - Solar System Style */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* Orbital Rings */}
+            <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div className="w-[500px] h-[500px] border border-primary/10 rounded-full" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] border border-primary/20 rounded-full" />
+            </div>
+
+            {/* Center Hub - Zoho Creator Logo */}
             <motion.div
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ type: "spring", duration: 0.8 }}
-              className="relative mx-auto w-48 h-48 md:w-56 md:h-56"
+              className="relative mx-auto w-52 h-52 md:w-64 md:h-64 mb-8 lg:mb-0"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/60 rounded-full animate-pulse-slow opacity-30" />
-              <div className="absolute inset-4 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-2xl">
-                <div className="text-center">
-                  <Blocks className="w-12 h-12 text-white mx-auto mb-2" />
-                  <span className="text-white font-bold text-lg">Zoho Creator</span>
+              {/* Outer Glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#F0483E] via-[#F48120] to-[#FACD3D] rounded-full animate-pulse opacity-20 blur-xl" />
+              
+              {/* Main Circle with Zoho Creator branding */}
+              <div className="absolute inset-2 bg-gradient-to-br from-[#111827] to-[#1e293b] rounded-full border-2 border-primary/30 flex items-center justify-center shadow-2xl overflow-hidden">
+                {/* Inner glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent" />
+                
+                <div className="text-center relative z-10 p-4">
+                  {/* Zoho Creator styled logo */}
+                  <div className="relative mb-3">
+                    <div className="w-16 h-16 md:w-20 md:h-20 mx-auto bg-gradient-to-br from-[#F0483E] via-[#F48120] to-[#FACD3D] rounded-xl flex items-center justify-center shadow-lg">
+                      <Blocks className="w-10 h-10 md:w-12 md:h-12 text-white" />
+                    </div>
+                  </div>
+                  <span className="text-white font-bold text-lg md:text-xl block">Zoho</span>
+                  <span className="text-primary font-bold text-xl md:text-2xl block">Creator</span>
                 </div>
+              </div>
+
+              {/* Connection lines to nodes - animated */}
+              <div className="hidden lg:block">
+                {[0, 60, 120, 180, 240, 300].map((angle, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 + idx * 0.1 }}
+                    className="absolute top-1/2 left-1/2 w-32 h-0.5 bg-gradient-to-r from-primary/50 to-transparent origin-left"
+                    style={{ transform: `rotate(${angle}deg)` }}
+                  />
+                ))}
               </div>
             </motion.div>
 
-            {/* Surrounding Nodes */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
+            {/* Surrounding Service Nodes */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-8 lg:mt-12">
               {architectureNodes.map((node, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
+                  transition={{ delay: 0.3 + idx * 0.1 }}
                   className={`relative group cursor-pointer ${activeArchitectureNode === idx ? 'z-10' : ''}`}
                   onMouseEnter={() => setActiveArchitectureNode(idx)}
                   onMouseLeave={() => setActiveArchitectureNode(null)}
                 >
-                  {/* Connection Line */}
-                  <div className="absolute top-0 left-1/2 w-px h-4 bg-gradient-to-b from-transparent to-primary/50 -translate-x-1/2 -translate-y-4 hidden md:block" />
-                  
-                  <div className={`p-6 rounded-2xl border transition-all duration-300 ${
+                  <div className={`p-5 md:p-6 rounded-2xl border transition-all duration-300 ${
                     activeArchitectureNode === idx 
-                      ? 'bg-primary/20 border-primary shadow-lg shadow-primary/20' 
-                      : 'bg-white/5 border-white/10 hover:border-primary/50'
+                      ? 'bg-gradient-to-br from-primary/20 to-primary/5 border-primary shadow-lg shadow-primary/30 scale-105' 
+                      : 'bg-gradient-to-br from-white/10 to-white/5 border-white/10 hover:border-primary/50 hover:bg-white/10'
                   }`}>
-                    <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
-                      <node.icon className="w-7 h-7 text-primary" />
+                    {/* Icon with gradient background matching Zoho branding */}
+                    <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 ${
+                      activeArchitectureNode === idx 
+                        ? 'bg-gradient-to-br from-[#F0483E] via-[#F48120] to-[#FACD3D]' 
+                        : 'bg-primary/20 group-hover:bg-primary/30'
+                    }`}>
+                      <node.icon className={`w-6 h-6 md:w-7 md:h-7 ${activeArchitectureNode === idx ? 'text-white' : 'text-primary'}`} />
                     </div>
-                    <h4 className="text-lg font-semibold text-white mb-2">{node.title}</h4>
-                    <p className="text-sm text-gray-400">{node.description}</p>
+                    <h4 className="text-base md:text-lg font-semibold text-white mb-2">{node.title}</h4>
+                    <p className="text-xs md:text-sm text-gray-400">{node.description}</p>
+                    
+                    {/* Connection indicator */}
+                    <div className={`absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full transition-all duration-300 ${
+                      activeArchitectureNode === idx 
+                        ? 'bg-primary shadow-lg shadow-primary/50' 
+                        : 'bg-primary/30'
+                    }`} />
                   </div>
                 </motion.div>
               ))}
@@ -680,7 +721,7 @@ const ZohoCreator = () => {
         </div>
       </section>
 
-      {/* ========== SECTION 6: ACCELERATOR FRAMEWORK STRIP ========== */}
+      {/* ========== SECTION 6: PRE-BUILT SOLUTIONS WE HAVE ========== */}
       <section className="py-16 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5">
         <div className="container mx-auto px-4">
           <motion.div
@@ -690,32 +731,27 @@ const ZohoCreator = () => {
             className="text-center mb-12"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-              Pre-Built Solutions We Customize
+              Pre-Built Solutions We Have
             </h2>
-            <p className="text-muted-foreground">Start with proven frameworks—fully customized to your needs</p>
+            <p className="text-muted-foreground">Ready-to-deploy solutions—fully customized to your needs</p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            {accelerators.map((acc, idx) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+            {prebuiltSolutions.map((solution, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                transition={{ delay: idx * 0.05 }}
                 className="group"
               >
-                <div className="flex items-center gap-4 px-6 py-4 bg-card rounded-xl border border-border hover:border-primary/50 transition-all">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <acc.icon className="w-5 h-5 text-primary" />
+                <div className="h-full p-5 bg-card rounded-xl border border-border hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all text-center">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 group-hover:scale-110 transition-all">
+                    <solution.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground text-sm">{acc.title}</h4>
-                    <p className="text-xs text-muted-foreground">{acc.description}</p>
-                  </div>
-                  <span className="px-2 py-0.5 bg-green-500/10 text-green-600 text-xs font-medium rounded-full">
-                    Customizable
-                  </span>
+                  <h4 className="font-semibold text-foreground text-sm mb-1">{solution.title}</h4>
+                  <p className="text-xs text-muted-foreground">{solution.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -973,13 +1009,13 @@ const ZohoCreator = () => {
               Stop forcing your business into software that doesn't fit. Let's build something designed around how you actually work.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="text-lg px-10 h-14 bg-primary hover:bg-primary/90">
+              <Button asChild variant="heroPrimary" size="lg" className="text-lg px-10 h-14">
                 <Link to="/contact">
-                  Book Free Consultation
+                  Sign Up Now
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-lg px-10 h-14 border-white/30 text-white hover:bg-white/10">
+              <Button asChild variant="heroSecondary" size="lg" className="text-lg px-10 h-14">
                 <Link to="/contact">
                   Talk to a Creator Expert
                 </Link>
