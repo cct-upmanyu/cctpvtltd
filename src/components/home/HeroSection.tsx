@@ -177,7 +177,7 @@ export function HeroSection() {
           >
             <img 
               src={cctLogo} 
-              alt="Club Code Technology" 
+              alt="ClubCode Technology Pvt Ltd" 
               className="h-20 md:h-24 lg:h-28 w-auto mx-auto drop-shadow-2xl"
             />
           </motion.div>

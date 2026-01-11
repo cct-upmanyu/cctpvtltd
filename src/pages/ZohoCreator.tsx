@@ -63,7 +63,7 @@ const ZohoCreator = () => {
   const [activeArchitectureNode, setActiveArchitectureNode] = useState<number | null>(null);
 
   useEffect(() => {
-    document.title = "Zoho Creator Implementation Partner | Custom CRM, ERP & Business Systems | Club Code Technology";
+    document.title = "Zoho Creator Implementation Partner | Custom CRM, ERP & Business Systems | ClubCode Technology Pvt Ltd";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -78,7 +78,7 @@ const ZohoCreator = () => {
       "name": "Zoho Creator Implementation Services",
       "provider": {
         "@type": "Organization",
-        "name": "Club Code Technology"
+        "name": "ClubCode Technology Pvt Ltd"
       },
       "description": "Expert Zoho Creator custom application development, CRM, ERP, and enterprise system implementation services.",
       "serviceType": "Custom Application Development"
@@ -843,7 +843,7 @@ const ZohoCreator = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Why Club Code Technology
+              Why ClubCode Technology Pvt Ltd
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Enterprise-grade expertise backed by global experience and certifications.

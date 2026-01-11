@@ -24,7 +24,7 @@ import {
 
 const ZohoPeople = () => {
   useEffect(() => {
-    document.title = "Zoho People Implementation & HR Software Solutions | Club Code Technology";
+    document.title = "Zoho People Implementation & HR Software Solutions | ClubCode Technology Pvt Ltd";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -39,7 +39,7 @@ const ZohoPeople = () => {
       "name": "Zoho People Implementation Services",
       "provider": {
         "@type": "Organization",
-        "name": "Club Code Technology"
+        "name": "ClubCode Technology Pvt Ltd"
       },
       "description": "Expert Zoho People implementation, customization, and HR automation services for businesses of all sizes.",
       "serviceType": "HR Software Implementation"

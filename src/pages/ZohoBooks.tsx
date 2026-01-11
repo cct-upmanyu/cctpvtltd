@@ -43,7 +43,7 @@ import {
 
 const ZohoBooks = () => {
   useEffect(() => {
-    document.title = "Zoho Books Implementation Partner | Accounting Automation Experts | Club Code Technology";
+    document.title = "Zoho Books Implementation Partner | Accounting Automation Experts | ClubCode Technology Pvt Ltd";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -58,7 +58,7 @@ const ZohoBooks = () => {
       "name": "Zoho Books Implementation Services",
       "provider": {
         "@type": "Organization",
-        "name": "Club Code Technology"
+        "name": "ClubCode Technology Pvt Ltd"
       },
       "description": "Expert Zoho Books accounting software implementation, migration, automation, and integration services for businesses.",
       "serviceType": "Accounting Software Implementation"

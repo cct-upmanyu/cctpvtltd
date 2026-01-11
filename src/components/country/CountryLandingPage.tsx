@@ -375,7 +375,7 @@ export function CountryLandingPage({ country }: CountryLandingPageProps) {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Why Choose Club Code Technology in {country.name}
+              Why Choose ClubCode Technology Pvt Ltd in {country.name}
             </h2>
           </motion.div>
 

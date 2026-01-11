@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -33,16 +33,53 @@ import {
   RefreshCw,
   Award,
   MapPin,
-  Briefcase
+  Briefcase,
+  ChevronDown
 } from "lucide-react";
 import heroImage from "@/assets/hero-custom-erp.jpg";
+
+// Helper component for expandable team member description
+const ExpandableDescription = ({ description, maxLength = 150 }: { description: string; maxLength?: number }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const needsExpansion = description.length > maxLength;
+  
+  const displayText = needsExpansion && !isExpanded 
+    ? description.substring(0, maxLength).trim() + "..." 
+    : description;
+  
+  return (
+    <div>
+      <AnimatePresence mode="wait">
+        <motion.p 
+          key={isExpanded ? "expanded" : "collapsed"}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="text-gray-600 text-sm leading-relaxed"
+        >
+          {displayText}
+        </motion.p>
+      </AnimatePresence>
+      {needsExpansion && (
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="mt-2 text-primary text-sm font-medium flex items-center gap-1 hover:text-primary/80 transition-colors mx-auto"
+        >
+          {isExpanded ? "See Less" : "See More"}
+          <ChevronDown className={`w-4 h-4 transition-transform ${isExpanded ? "rotate-180" : ""}`} />
+        </button>
+      )}
+    </div>
+  );
+};
 
 // Team members data
 const teamMembers = [
   { 
     name: "Navdeep Sen", 
     role: "Founder", 
-    description: "Navdeep Sen is the founder and strategic force behind Club Code Technology. He brings deep expertise in CRM architecture, ERP systems, automation, and the Zoho ecosystem, helping businesses replace fragmented tools with structured, scalable systems. He is known for translating complex business requirements into governed digital operating models that support long-term growth rather than short-term fixes.",
+    description: "Navdeep Sen is the founder and strategic force behind ClubCode Technology Pvt Ltd. He brings deep expertise in CRM architecture, ERP systems, automation, and the Zoho ecosystem, helping businesses replace fragmented tools with structured, scalable systems. He is known for translating complex business requirements into governed digital operating models that support long-term growth rather than short-term fixes.",
     featured: true
   },
   { 
@@ -190,7 +227,7 @@ export default function Company() {
             </div>
             
             <p className="text-lg text-white/70 max-w-2xl mb-10">
-              Club Code Technology Pvt Ltd designs secure, transparent, and scalable digital systems for long-term business growth.
+              ClubCode Technology Pvt Ltd designs secure, transparent, and scalable digital systems for long-term business growth.
             </p>
             
             <div className="flex flex-wrap gap-4">
@@ -220,7 +257,7 @@ export default function Company() {
             className="text-center mb-16"
           >
             <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
-              About Club Code Technology Pvt Ltd
+              About ClubCode Technology Pvt Ltd
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Why Choose Us
@@ -310,7 +347,7 @@ export default function Company() {
               Our Story
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Evolution of Club Code Technology Pvt Ltd
+              Evolution of ClubCode Technology Pvt Ltd
             </h2>
           </motion.div>
 
@@ -748,7 +785,7 @@ export default function Company() {
                   <h3 className="text-2xl font-bold text-white mb-1">Navdeep Sen</h3>
                   <p className="text-primary font-medium mb-4">Founder</p>
                   <p className="text-white/80 leading-relaxed">
-                    Navdeep Sen is the founder and strategic force behind Club Code Technology. He brings deep expertise in CRM architecture, ERP systems, automation, and the Zoho ecosystem, helping businesses replace fragmented tools with structured, scalable systems. He is known for translating complex business requirements into governed digital operating models that support long-term growth rather than short-term fixes.
+                    Navdeep Sen is the founder and strategic force behind ClubCode Technology Pvt Ltd. He brings deep expertise in CRM architecture, ERP systems, automation, and the Zoho ecosystem, helping businesses replace fragmented tools with structured, scalable systems. He is known for translating complex business requirements into governed digital operating models that support long-term growth rather than short-term fixes.
                   </p>
                 </div>
               </div>
@@ -764,16 +801,18 @@ export default function Company() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-[#0B1C3D]/20 transition-all group"
+                className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-[#0B1C3D]/20 transition-all group flex flex-col"
               >
                 {/* Image Placeholder */}
-                <div className="w-24 h-24 mx-auto rounded-xl bg-gradient-to-br from-[#0B1C3D]/10 to-[#0B1C3D]/5 flex items-center justify-center mb-5 group-hover:from-primary/20 group-hover:to-primary/10 transition-colors">
+                <div className="w-24 h-24 mx-auto rounded-xl bg-gradient-to-br from-[#0B1C3D]/10 to-[#0B1C3D]/5 flex items-center justify-center mb-5 group-hover:from-primary/20 group-hover:to-primary/10 transition-colors flex-shrink-0">
                   <Users className="w-10 h-10 text-[#0B1C3D] group-hover:text-primary transition-colors" />
                 </div>
-                <div className="text-center">
+                <div className="text-center flex-1 flex flex-col">
                   <h3 className="font-bold text-[#0B1C3D] text-lg mb-1">{member.name}</h3>
                   <p className="text-primary text-sm font-medium mb-4">{member.role}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed">{member.description}</p>
+                  <div className="flex-1">
+                    <ExpandableDescription description={member.description} maxLength={150} />
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -828,7 +867,7 @@ export default function Company() {
             className="max-w-3xl mx-auto bg-gradient-to-r from-[#0B1C3D] to-[#1a3a6e] rounded-2xl p-8 text-center"
           >
             <p className="text-xl text-white font-medium">
-              Club Code Technology is not just a technology provider — we are a long-term systems partner.
+              ClubCode Technology Pvt Ltd is not just a technology provider — we are a long-term systems partner.
             </p>
           </motion.div>
         </div>
