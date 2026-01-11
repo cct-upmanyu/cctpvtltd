@@ -65,6 +65,11 @@ import ITIndustry from "./pages/industries/ITIndustry";
 import NonprofitIndustry from "./pages/industries/NonprofitIndustry";
 import MediaIndustry from "./pages/industries/MediaIndustry";
 import ProfessionalServicesIndustry from "./pages/industries/ProfessionalServicesIndustry";
+import RecruitmentIndustry from "./pages/industries/RecruitmentIndustry";
+import LegalIndustry from "./pages/industries/LegalIndustry";
+import FinancialServicesIndustry from "./pages/industries/FinancialServicesIndustry";
+import MarketingCreativeIndustry from "./pages/industries/MarketingCreativeIndustry";
+import SaaSIndustry from "./pages/industries/SaaSIndustry";
 
 const queryClient = new QueryClient();
 
@@ -134,6 +139,11 @@ const App = () => (
             <Route path="/industries/nonprofits" element={<NonprofitIndustry />} />
             <Route path="/industries/media" element={<MediaIndustry />} />
             <Route path="/industries/professional-services" element={<ProfessionalServicesIndustry />} />
+            <Route path="/industries/recruitment" element={<RecruitmentIndustry />} />
+            <Route path="/industries/legal" element={<LegalIndustry />} />
+            <Route path="/industries/financial-services" element={<FinancialServicesIndustry />} />
+            <Route path="/industries/marketing-creative" element={<MarketingCreativeIndustry />} />
+            <Route path="/industries/saas" element={<SaaSIndustry />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

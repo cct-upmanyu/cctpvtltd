@@ -178,18 +178,18 @@ const departmentImplementations = [
 ];
 
 const industryImplementations = [
-  { name: "Manufacturing & Distribution", icon: Factory, description: "Sales orders, inventory tracking, vendor management, production reporting, and finance automation under one system." },
-  { name: "Healthcare & Clinics", icon: HeartPulse, description: "Lead management, appointment scheduling, billing, staff management, and compliance-ready workflows." },
-  { name: "Recruitment & Staffing", icon: Users, description: "Candidate pipelines, client management, contracts, payroll, and reporting—all connected." },
-  { name: "Real Estate & Property", icon: Home, description: "Lead capture, site visits, listings, contracts, commissions, and post-sales service." },
-  { name: "Professional Services", icon: Briefcase, description: "CRM, project management, invoicing, timesheets, and client communication in one flow." },
-  { name: "Education & Training", icon: GraduationCap, description: "Admissions, CRM, fee management, staff workflows, and reporting." },
-  { name: "Retail & eCommerce", icon: ShoppingCart, description: "Inventory, orders, CRM, marketing, accounting, and customer support in one ecosystem." },
-  { name: "Logistics & Supply Chain", icon: Truck, description: "Order tracking, invoicing, vendor coordination, and reporting automation." },
-  { name: "Legal & Law Firms", icon: Scale, description: "Client intake, document management, billing, and compliance-driven workflows." },
-  { name: "Financial Services", icon: DollarSign, description: "Lead management, compliance tracking, reporting, and client servicing." },
-  { name: "Marketing & Creative", icon: Palette, description: "CRM, project tracking, billing, performance reporting, and collaboration." },
-  { name: "SaaS & Technology", icon: Code, description: "Sales pipelines, onboarding automation, customer success, billing, and analytics." }
+  { name: "Manufacturing & Distribution", icon: Factory, description: "Sales orders, inventory tracking, vendor management, production reporting, and finance automation under one system.", route: "/industries/manufacturing" },
+  { name: "Healthcare & Clinics", icon: HeartPulse, description: "Lead management, appointment scheduling, billing, staff management, and compliance-ready workflows.", route: "/industries/healthcare" },
+  { name: "Recruitment & Staffing", icon: Users, description: "Candidate pipelines, client management, contracts, payroll, and reporting—all connected.", route: "/industries/recruitment" },
+  { name: "Real Estate & Property", icon: Home, description: "Lead capture, site visits, listings, contracts, commissions, and post-sales service.", route: "/industries/real-estate" },
+  { name: "Professional Services", icon: Briefcase, description: "CRM, project management, invoicing, timesheets, and client communication in one flow.", route: "/industries/professional-services" },
+  { name: "Education & Training", icon: GraduationCap, description: "Admissions, CRM, fee management, staff workflows, and reporting.", route: "/industries/education" },
+  { name: "Retail & eCommerce", icon: ShoppingCart, description: "Inventory, orders, CRM, marketing, accounting, and customer support in one ecosystem.", route: "/industries/retail" },
+  { name: "Logistics & Supply Chain", icon: Truck, description: "Order tracking, invoicing, vendor coordination, and reporting automation.", route: "/industries/logistics" },
+  { name: "Legal & Law Firms", icon: Scale, description: "Client intake, document management, billing, and compliance-driven workflows.", route: "/industries/legal" },
+  { name: "Financial Services", icon: DollarSign, description: "Lead management, compliance tracking, reporting, and client servicing.", route: "/industries/financial-services" },
+  { name: "Marketing & Creative", icon: Palette, description: "CRM, project tracking, billing, performance reporting, and collaboration.", route: "/industries/marketing-creative" },
+  { name: "SaaS & Technology", icon: Code, description: "Sales pipelines, onboarding automation, customer success, billing, and analytics.", route: "/industries/saas" }
 ];
 
 const whyChooseUs = [
@@ -682,15 +682,22 @@ export default function ZohoOnePremiumPartner() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-primary/30 transition-all group"
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <industry.icon className="w-5 h-5 text-primary" />
+                  <Link
+                    to={industry.route}
+                    className="block bg-white border border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-primary/50 transition-all group h-full"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <industry.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <h3 className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors">{industry.name}</h3>
                     </div>
-                    <h3 className="font-semibold text-foreground text-sm">{industry.name}</h3>
-                  </div>
-                  <p className="text-muted-foreground text-xs leading-relaxed">{industry.description}</p>
+                    <p className="text-muted-foreground text-xs leading-relaxed mb-3">{industry.description}</p>
+                    <div className="flex items-center gap-1 text-primary text-xs font-medium">
+                      Learn More <ArrowRight className="w-3 h-3" />
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
