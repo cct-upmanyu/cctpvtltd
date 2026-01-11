@@ -3,6 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { BeforeAfterCard, TransformationTimeline, TransformationStats } from "@/components/ui/before-after-card";
 import { 
   ArrowRight, 
   Users, 
@@ -30,7 +31,11 @@ import {
   RefreshCcw,
   Headphones,
   Shield,
-  Clock
+  Clock,
+  Database,
+  Workflow,
+  FileSpreadsheet,
+  PieChart
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import heroCrmSolutions from "@/assets/hero-crm-solutions.jpg";
@@ -276,6 +281,53 @@ const whyImplementWithUs = [
   { icon: Zap, text: "AI-powered enhancements and Zia integration" }
 ];
 
+// CRM Transformation Data
+const crmTransformations = [
+  {
+    area: "Lead Management",
+    before: "Leads scattered across emails, spreadsheets, and sticky notes",
+    after: "Centralized lead database with automatic scoring and assignment",
+    icon: Target
+  },
+  {
+    area: "Follow-ups",
+    before: "Manual reminders and forgotten follow-ups losing deals",
+    after: "Automated sequences and AI-powered next-best-action suggestions",
+    icon: Clock
+  },
+  {
+    area: "Pipeline Visibility",
+    before: "Weekly status meetings to understand where deals stand",
+    after: "Real-time dashboards with drill-down by rep, stage, and value",
+    icon: PieChart
+  },
+  {
+    area: "Data Entry",
+    before: "Sales reps spending 30% of time on manual CRM updates",
+    after: "Auto-capture from email, calls, and meetings with Zia AI",
+    icon: Database
+  },
+  {
+    area: "Reporting",
+    before: "End-of-month scramble to build reports from exports",
+    after: "Scheduled automated reports and live forecast dashboards",
+    icon: BarChart3
+  },
+  {
+    area: "Collaboration",
+    before: "Support and sales teams working in silos with no visibility",
+    after: "360° customer view shared across all departments",
+    icon: Users
+  }
+];
+
+const crmTransformationStats = [
+  { label: "Sales Velocity", value: "35", suffix: "%", description: "Faster deal closure", color: "primary" as const },
+  { label: "Lead Response", value: "5x", suffix: "", description: "Faster first contact", color: "green" as const },
+  { label: "Pipeline Value", value: "40", suffix: "%", description: "Increase in visibility", color: "blue" as const },
+  { label: "Rep Productivity", value: "25", suffix: "%", description: "Time saved on admin", color: "orange" as const }
+];
+
 export default function ZohoCRM() {
   return (
     <div className="min-h-screen bg-background">
@@ -446,6 +498,20 @@ export default function ZohoCRM() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Before/After Transformation Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-background overflow-hidden">
+        <div className="container-custom">
+          <TransformationTimeline
+            title="CRM Transformation Results"
+            subtitle="See how businesses transform their sales operations with properly implemented Zoho CRM"
+            transformations={crmTransformations}
+          />
+          <div className="mt-16">
+            <TransformationStats stats={crmTransformationStats} />
+          </div>
         </div>
       </section>
 
