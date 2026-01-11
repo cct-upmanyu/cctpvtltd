@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
+import { BeforeAfterCard, TransformationTimeline, TransformationStats } from "@/components/ui/before-after-card";
 import { 
   FileText, 
   Receipt, 
@@ -33,7 +34,11 @@ import {
   Briefcase,
   HeartPulse,
   GraduationCap,
-  Truck
+  Truck,
+  Database,
+  DollarSign,
+  Layers,
+  PieChart
 } from "lucide-react";
 
 const ZohoBooks = () => {
@@ -100,6 +105,53 @@ const ZohoBooks = () => {
       consequence: "Finance team uses only basic features, missing efficiency gains.",
       prevention: "Role-based training ensures everyone knows how to work effectively."
     }
+  ];
+
+  // Books Transformation Data
+  const booksTransformations = [
+    {
+      area: "Invoicing",
+      before: "Manual invoice creation taking hours each week",
+      after: "Auto-generated invoices from sales orders with 1-click sending",
+      icon: FileText
+    },
+    {
+      area: "Bank Reconciliation",
+      before: "Monthly reconciliation marathons with spreadsheets",
+      after: "Auto-matched transactions with real-time bank feeds",
+      icon: Database
+    },
+    {
+      area: "Expense Tracking",
+      before: "Lost receipts and manual expense report compilation",
+      after: "Mobile receipt capture with automated expense categorization",
+      icon: Receipt
+    },
+    {
+      area: "Tax Compliance",
+      before: "Last-minute scramble for GST/VAT filing with errors",
+      after: "Automated tax calculations with compliant e-invoicing",
+      icon: Shield
+    },
+    {
+      area: "Cash Flow",
+      before: "No visibility until month-end close",
+      after: "Real-time cash position dashboard with forecasting",
+      icon: DollarSign
+    },
+    {
+      area: "Integration",
+      before: "Double entry between CRM, inventory, and accounting",
+      after: "Seamless flow from quote to invoice to payment receipt",
+      icon: Layers
+    }
+  ];
+
+  const booksTransformationStats = [
+    { label: "Invoice Processing", value: "80", suffix: "%", description: "Faster creation & sending", color: "primary" as const },
+    { label: "Reconciliation Time", value: "90", suffix: "%", description: "Reduction in effort", color: "green" as const },
+    { label: "Data Accuracy", value: "99", suffix: "%", description: "With automated validation", color: "blue" as const },
+    { label: "Reporting Speed", value: "5x", suffix: "", description: "Faster financial close", color: "orange" as const }
   ];
 
   const implementationServices = [

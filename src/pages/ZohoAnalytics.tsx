@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
+import { BeforeAfterCard, TransformationTimeline, TransformationStats } from "@/components/ui/before-after-card";
 import { 
   BarChart3, 
   Database, 
@@ -28,7 +29,11 @@ import {
   HeadphonesIcon,
   AlertTriangle,
   Zap,
-  Eye
+  Eye,
+  Workflow,
+  Clock,
+  FileSpreadsheet,
+  Shield
 } from "lucide-react";
 
 const ZohoAnalytics = () => {
@@ -103,6 +108,53 @@ const ZohoAnalytics = () => {
       consequence: "Users don't know how to interpret or explore data themselves.",
       prevention: "Role-based training empowers self-service analytics adoption."
     }
+  ];
+
+  // Analytics Transformation Data
+  const analyticsTransformations = [
+    {
+      area: "Data Sources",
+      before: "Data locked in 10+ disconnected systems and spreadsheets",
+      after: "Unified data warehouse connecting all business systems",
+      icon: Database
+    },
+    {
+      area: "Report Creation",
+      before: "IT backlog of weeks for new report requests",
+      after: "Self-service reporting empowering business users",
+      icon: BarChart3
+    },
+    {
+      area: "Decision Making",
+      before: "Decisions based on gut feel and outdated monthly reports",
+      after: "Real-time insights with AI-powered recommendations",
+      icon: Brain
+    },
+    {
+      area: "Data Quality",
+      before: "Each department has their own 'version of truth'",
+      after: "Single source of truth with governed data definitions",
+      icon: Shield
+    },
+    {
+      area: "Anomaly Detection",
+      before: "Problems discovered weeks after they occur",
+      after: "Automated alerts when metrics deviate from norms",
+      icon: AlertTriangle
+    },
+    {
+      area: "Forecasting",
+      before: "Manual trend analysis with limited accuracy",
+      after: "AI-powered predictive analytics and scenario planning",
+      icon: TrendingUp
+    }
+  ];
+
+  const analyticsTransformationStats = [
+    { label: "Report Time", value: "90", suffix: "%", description: "Faster than manual", color: "primary" as const },
+    { label: "Data Sources", value: "500", suffix: "+", description: "Connectors available", color: "green" as const },
+    { label: "Decision Speed", value: "10x", suffix: "", description: "Faster insights", color: "blue" as const },
+    { label: "Accuracy", value: "95", suffix: "%", description: "Forecast precision", color: "orange" as const }
   ];
 
   const implementationServices = [

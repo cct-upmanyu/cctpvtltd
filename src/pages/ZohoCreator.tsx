@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
+import { BeforeAfterCard, TransformationTimeline, TransformationStats } from "@/components/ui/before-after-card";
 import { 
   Blocks, 
   Smartphone, 
@@ -37,7 +38,10 @@ import {
   Shield,
   Clock,
   MessageSquare,
-  LineChart
+  LineChart,
+  FileSpreadsheet,
+  Zap,
+  TrendingUp
 } from "lucide-react";
 
 const ZohoCreator = () => {
@@ -325,6 +329,53 @@ const ZohoCreator = () => {
     { value: "500+", label: "Integrations" }
   ];
 
+  // Before/After Transformation Data
+  const creatorTransformations = [
+    {
+      area: "Data Management",
+      before: "Scattered spreadsheets across departments with no version control",
+      after: "Centralized database with real-time sync and role-based access",
+      icon: Database
+    },
+    {
+      area: "Workflows",
+      before: "Manual approvals via email taking 2-3 days per request",
+      after: "Automated approval chains completing in under 2 hours",
+      icon: Workflow
+    },
+    {
+      area: "Reporting",
+      before: "Weekly manual reports compiled from 5+ different sources",
+      after: "Real-time dashboards with auto-generated analytics",
+      icon: BarChart3
+    },
+    {
+      area: "Operations",
+      before: "Disconnected tools requiring duplicate data entry",
+      after: "Unified platform with single source of truth",
+      icon: Layers
+    },
+    {
+      area: "Mobile Access",
+      before: "No mobile access—staff tied to office computers",
+      after: "Native iOS & Android apps with offline capability",
+      icon: Smartphone
+    },
+    {
+      area: "Integration",
+      before: "Manual data transfer between CRM, accounting, and inventory",
+      after: "Seamless API connections with bi-directional sync",
+      icon: Plug
+    }
+  ];
+
+  const transformationStats = [
+    { label: "Development Time", value: "70", suffix: "%", description: "Faster than traditional coding", color: "primary" as const },
+    { label: "Manual Work", value: "50", suffix: "%", description: "Reduction in repetitive tasks", color: "green" as const },
+    { label: "Data Accuracy", value: "99", suffix: "%", description: "With automated validation", color: "blue" as const },
+    { label: "ROI Timeline", value: "6", suffix: " mo", description: "Average payback period", color: "orange" as const }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -393,6 +444,22 @@ const ZohoCreator = () => {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Before/After Transformation Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-background overflow-hidden">
+        <div className="container mx-auto px-4">
+          <TransformationTimeline
+            title="Business Transformation with Zoho Creator"
+            subtitle="See how organizations transform their operations when moving from fragmented tools to a unified Creator platform"
+            transformations={creatorTransformations}
+          />
+          
+          {/* Transformation Stats */}
+          <div className="mt-16">
+            <TransformationStats stats={transformationStats} />
           </div>
         </div>
       </section>
