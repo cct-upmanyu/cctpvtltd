@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { IntegrationsGrid } from "@/components/integrations/IntegrationsGrid";
-import { IntegrationFlowInfographic } from "@/components/infographics/IntegrationFlowInfographic";
+import { IntegrationSolarSystem } from "@/components/integrations/IntegrationSolarSystem";
 import { StatsInfographic } from "@/components/infographics/StatsInfographic";
 import { 
   ArrowRight, 
@@ -13,10 +13,6 @@ import {
   RefreshCw,
   Layers
 } from "lucide-react";
-import zohoLogo from "@/assets/zoho-logo-official.png";
-import zohoCrmLogo from "@/assets/zoho-products/zoho-crm-logo.png";
-import zohoBooksLogo from "@/assets/zoho-products/zoho-books-logo.png";
-import zohoCampaignsLogo from "@/assets/zoho-products/zoho-campaigns-logo.png";
 
 const integrationBenefits = [
   {
@@ -48,17 +44,6 @@ const integrationStats = [
   { label: "Uptime Guarantee", value: 99.9, suffix: "%", trend: "neutral" as const, trendValue: "SLA Backed" }
 ];
 
-const sourceApps = [
-  { id: "shopify", name: "Shopify", logo: "https://cdn.brandfetch.io/shopify.com/w/512/h/512/logo", type: "source" as const },
-  { id: "stripe", name: "Stripe", logo: "https://cdn.brandfetch.io/stripe.com/w/512/h/512/logo", type: "source" as const },
-  { id: "whatsapp", name: "WhatsApp", logo: "https://cdn.brandfetch.io/whatsapp.com/w/512/h/512/logo", type: "source" as const },
-];
-
-const destinationApps = [
-  { id: "crm", name: "Zoho CRM", logo: zohoCrmLogo, type: "destination" as const },
-  { id: "books", name: "Zoho Books", logo: zohoBooksLogo, type: "destination" as const },
-  { id: "campaigns", name: "Zoho Campaigns", logo: zohoCampaignsLogo, type: "destination" as const },
-];
 
 const ThirdPartyIntegrations = () => {
   return (
@@ -118,33 +103,27 @@ const ThirdPartyIntegrations = () => {
           </div>
         </section>
 
-        {/* Integration Flow Visualization */}
-        <section className="bg-[hsl(0,0%,96%)] section-padding">
+        {/* Integration Solar System Visualization */}
+        <section className="bg-white section-padding">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-8"
             >
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-                How It Works
+                Integration Hub
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Unified Data Flow
+                Your Apps, Connected
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Watch how data flows seamlessly from your favorite apps through Zoho and out to your business systems.
+                We integrate all your favorite business applications into a unified ecosystem.
               </p>
             </motion.div>
 
-            <IntegrationFlowInfographic
-              title=""
-              subtitle=""
-              sourceApps={sourceApps}
-              hubApp={{ id: "zoho", name: "Zoho One", logo: zohoLogo, type: "hub" }}
-              destinationApps={destinationApps}
-            />
+            <IntegrationSolarSystem showMoreCount={100} />
           </div>
         </section>
 
