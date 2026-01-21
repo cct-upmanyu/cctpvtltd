@@ -1,137 +1,158 @@
 import { motion } from "framer-motion";
+import cctLogo from "@/assets/cct-logo.png";
 
-const integrationApps = [
-  { name: "WhatsApp", color: "#25D366", icon: "💬", orbit: 1, delay: 0, size: "lg" },
-  { name: "Razorpay", color: "#2B84EA", icon: "💳", orbit: 2, delay: 0.5, size: "md" },
-  { name: "HRMS", color: "#8B5CF6", icon: "👥", orbit: 2, delay: 2.5, size: "md" },
-  { name: "Finance", color: "#10B981", icon: "💰", orbit: 3, delay: 1, size: "sm" },
-  { name: "Chatbot", color: "#F59E0B", icon: "🤖", orbit: 1, delay: 3.5, size: "lg" },
-  { name: "Website", color: "#3B82F6", icon: "🌐", orbit: 3, delay: 3, size: "sm" },
-  { name: "QuickBooks", color: "#2CA01C", icon: "📊", orbit: 2, delay: 4.5, size: "md" },
-  { name: "Slack", color: "#4A154B", icon: "💼", orbit: 3, delay: 5, size: "sm" },
+interface IntegrationApp {
+  id: string;
+  name: string;
+  logo: string;
+}
+
+interface IntegrationSolarSystemProps {
+  apps?: IntegrationApp[];
+  showMoreCount?: number;
+}
+
+const defaultApps: IntegrationApp[] = [
+  { id: "shopify", name: "Shopify", logo: "https://cdn.brandfetch.io/shopify.com/w/512/h/512/logo" },
+  { id: "stripe", name: "Stripe", logo: "https://cdn.brandfetch.io/stripe.com/w/512/h/512/logo" },
+  { id: "hubspot", name: "HubSpot", logo: "https://cdn.brandfetch.io/hubspot.com/w/512/h/512/logo" },
+  { id: "salesforce", name: "Salesforce", logo: "https://cdn.brandfetch.io/salesforce.com/w/512/h/512/logo" },
+  { id: "mailchimp", name: "Mailchimp", logo: "https://cdn.brandfetch.io/mailchimp.com/w/512/h/512/logo" },
+  { id: "slack", name: "Slack", logo: "https://cdn.brandfetch.io/slack.com/w/512/h/512/logo" },
+  { id: "zoho", name: "Zoho", logo: "https://cdn.brandfetch.io/zoho.com/w/512/h/512/logo" },
+  { id: "quickbooks", name: "QuickBooks", logo: "https://cdn.brandfetch.io/quickbooks.intuit.com/w/512/h/512/logo" },
+  { id: "whatsapp", name: "WhatsApp", logo: "https://cdn.brandfetch.io/whatsapp.com/w/512/h/512/logo" },
+  { id: "googlesheets", name: "Google Sheets", logo: "https://cdn.brandfetch.io/google.com/w/512/h/512/logo" },
+  { id: "xero", name: "Xero", logo: "https://cdn.brandfetch.io/xero.com/w/512/h/512/logo" },
+  { id: "pipedrive", name: "Pipedrive", logo: "https://cdn.brandfetch.io/pipedrive.com/w/512/h/512/logo" },
 ];
 
-const orbitRadii = {
-  1: 100,
-  2: 160,
-  3: 220,
-};
+export function IntegrationSolarSystem({ 
+  apps = defaultApps, 
+  showMoreCount = 100 
+}: IntegrationSolarSystemProps) {
+  // Position apps in orbital rings
+  const innerRing = apps.slice(0, 4);
+  const outerRing = apps.slice(4, 12);
 
-const sizeClasses = {
-  lg: "w-16 h-16 text-2xl",
-  md: "w-14 h-14 text-xl",
-  sm: "w-12 h-12 text-lg",
-};
-
-export const IntegrationSolarSystem = () => {
   return (
-    <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
-      {/* Orbit rings */}
-      {[1, 2, 3].map((orbit) => (
-        <div
-          key={orbit}
-          className="absolute rounded-full border border-primary/20"
-          style={{
-            width: orbitRadii[orbit as keyof typeof orbitRadii] * 2,
-            height: orbitRadii[orbit as keyof typeof orbitRadii] * 2,
-          }}
-        />
-      ))}
+    <div className="relative w-full py-16">
+      {/* Blue gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(210,85%,50%)] via-[hsl(200,80%,45%)] to-[hsl(210,90%,40%)] rounded-3xl overflow-hidden">
+        {/* Subtle orbital lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+          <ellipse cx="400" cy="250" rx="150" ry="100" fill="none" stroke="white" strokeWidth="1" />
+          <ellipse cx="400" cy="250" rx="280" ry="180" fill="none" stroke="white" strokeWidth="1" />
+        </svg>
+      </div>
 
-      {/* Central Hub - Business Ecosystem */}
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.6, type: "spring" }}
-        className="absolute z-20 w-28 h-28 rounded-full bg-gradient-to-br from-primary via-primary/80 to-accent flex items-center justify-center shadow-2xl"
-        style={{ boxShadow: "0 0 60px rgba(0, 160, 176, 0.5)" }}
-      >
-        <div className="text-center">
-          <span className="text-3xl">🏢</span>
-          <p className="text-xs font-bold text-white mt-1">Business</p>
-          <p className="text-[10px] text-white/80">Ecosystem</p>
-        </div>
-      </motion.div>
+      <div className="relative z-10 flex items-center justify-center min-h-[450px] md:min-h-[500px]">
+        {/* Center Hub - ClubCode Logo */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="absolute z-20"
+        >
+          <div className="w-28 h-28 md:w-36 md:h-36 bg-white rounded-2xl shadow-2xl flex items-center justify-center p-3">
+            <img 
+              src={cctLogo} 
+              alt="ClubCode Technology" 
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </motion.div>
 
-      {/* Orbiting Apps */}
-      {integrationApps.map((app, index) => {
-        const radius = orbitRadii[app.orbit as keyof typeof orbitRadii];
-        const duration = 15 + app.orbit * 5;
+        {/* Inner Ring Apps */}
+        {innerRing.map((app, index) => {
+          const angle = (index / innerRing.length) * 360 - 45; // Start from top-left
+          const radius = 140; // Inner radius
+          const x = Math.cos((angle * Math.PI) / 180) * radius;
+          const y = Math.sin((angle * Math.PI) / 180) * (radius * 0.7); // Elliptical
 
-        return (
-          <motion.div
-            key={app.name}
-            className="absolute"
-            style={{
-              width: radius * 2,
-              height: radius * 2,
-            }}
-            animate={{ rotate: 360 }}
-            transition={{
-              duration: duration,
-              repeat: Infinity,
-              ease: "linear",
-              delay: app.delay,
-            }}
-          >
+          return (
             <motion.div
-              className={`absolute ${sizeClasses[app.size as keyof typeof sizeClasses]} rounded-full flex flex-col items-center justify-center shadow-lg cursor-pointer transition-transform hover:scale-125 z-10`}
+              key={app.id}
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
+              className="absolute"
               style={{
-                backgroundColor: app.color,
-                top: -20,
-                left: "50%",
-                transform: "translateX(-50%)",
-                boxShadow: `0 0 20px ${app.color}66`,
+                transform: `translate(${x}px, ${y}px)`,
               }}
-              initial={{ scale: 0 }}
-              animate={{ scale: 1, rotate: -360 }}
-              transition={{
-                scale: { delay: 0.2 * index, duration: 0.5 },
-                rotate: { duration: duration, repeat: Infinity, ease: "linear", delay: app.delay },
-              }}
-              whileHover={{ scale: 1.2, zIndex: 30 }}
             >
-              <span>{app.icon}</span>
-              <span className="text-[8px] font-semibold text-white truncate max-w-full px-1">
-                {app.name}
-              </span>
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 3 + index * 0.5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full shadow-lg flex items-center justify-center p-2.5 hover:scale-110 transition-transform cursor-pointer"
+              >
+                <img 
+                  src={app.logo} 
+                  alt={app.name}
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.currentTarget.src = `https://ui-avatars.com/api/?name=${app.name}&background=0D8ABC&color=fff&size=64`;
+                  }}
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
-        );
-      })}
+          );
+        })}
 
-      {/* Connection lines animation */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none">
-        <defs>
-          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(0, 160, 176, 0)" />
-            <stop offset="50%" stopColor="rgba(0, 160, 176, 0.6)" />
-            <stop offset="100%" stopColor="rgba(0, 160, 176, 0)" />
-          </linearGradient>
-        </defs>
-        {[0, 1, 2, 3, 4, 5].map((i) => (
-          <motion.line
-            key={i}
-            x1="50%"
-            y1="50%"
-            x2="50%"
-            y2="20%"
-            stroke="url(#lineGradient)"
-            strokeWidth="1"
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: [0, 0.5, 0],
-              rotate: [i * 60, i * 60 + 360],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              delay: i * 0.5,
-            }}
-            style={{ transformOrigin: "center" }}
-          />
-        ))}
-      </svg>
+        {/* Outer Ring Apps */}
+        {outerRing.map((app, index) => {
+          const angle = (index / outerRing.length) * 360 + 22.5; // Offset for variety
+          const radius = 260; // Outer radius
+          const x = Math.cos((angle * Math.PI) / 180) * radius;
+          const y = Math.sin((angle * Math.PI) / 180) * (radius * 0.65); // More elliptical
+
+          return (
+            <motion.div
+              key={app.id}
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 + index * 0.08, duration: 0.4 }}
+              className="absolute hidden md:block"
+              style={{
+                transform: `translate(${x}px, ${y}px)`,
+              }}
+            >
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4 + index * 0.3, repeat: Infinity, ease: "easeInOut" }}
+                className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-lg flex items-center justify-center p-2 hover:scale-110 transition-transform cursor-pointer"
+              >
+                <img 
+                  src={app.logo} 
+                  alt={app.name}
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.currentTarget.src = `https://ui-avatars.com/api/?name=${app.name}&background=0D8ABC&color=fff&size=64`;
+                  }}
+                />
+              </motion.div>
+            </motion.div>
+          );
+        })}
+
+        {/* "100+ More Apps" Badge */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8, duration: 0.4 }}
+          className="absolute bottom-8 md:bottom-12"
+        >
+          <div className="bg-white/95 backdrop-blur-sm rounded-full px-6 py-2.5 shadow-lg border border-white/50">
+            <span className="text-sm md:text-base font-semibold text-[hsl(210,85%,40%)]">
+              {showMoreCount}+ More Apps
+            </span>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
-};
+}
