@@ -136,7 +136,7 @@ export default function AISolutions() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               AI That Actually Works—
               <span className="block mt-2">
-                <span className="bg-gradient-to-r from-[hsl(350,80%,60%)] via-[hsl(290,70%,55%)] to-[hsl(260,70%,60%)] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">
                   Inside Your Business Systems
                 </span>
               </span>
@@ -175,7 +175,7 @@ export default function AISolutions() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Agentic AI — Autonomous AI
               <span className="block mt-2">
-                <span className="bg-gradient-to-r from-[hsl(350,80%,60%)] via-[hsl(290,70%,55%)] to-[hsl(260,70%,60%)] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">
                   That Works for Your Business
                 </span>
               </span>
@@ -243,7 +243,7 @@ export default function AISolutions() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-[hsl(0,0%,96%)] rounded-2xl p-6 border border-border/30 hover:shadow-lg transition-all"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(350,80%,60%)]/10 to-[hsl(290,70%,55%)]/10 border border-border/30 flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(210,90%,55%)]/10 to-[hsl(270,70%,60%)]/10 border border-border/30 flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-3">{useCase.title}</h3>
@@ -280,7 +280,7 @@ export default function AISolutions() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               AI Automation That
               <span className="block mt-2">
-                <span className="bg-gradient-to-r from-[hsl(350,80%,60%)] via-[hsl(290,70%,55%)] to-[hsl(260,70%,60%)] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">
                   Eliminates Manual Work
                 </span>
               </span>
