@@ -37,6 +37,7 @@ import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ZohoOneSuitesInfographic } from "@/components/zoho/ZohoOneSuitesInfographic";
 import zohoOneLogo from "@/assets/zoho-one-logo.png";
 import clientLogosRow1 from "@/assets/client-logos-row1.png";
 import clientLogosRow2 from "@/assets/client-logos-row2.png";
@@ -291,9 +292,8 @@ export default function ZohoOnePremiumPartner() {
                 transition={{ duration: 0.8 }}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <img src={zohoOneLogo} alt="Zoho One" className="h-12" />
-                  <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-semibold border border-primary/30">
-                    Premium Partner
+                  <span className="px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-semibold border border-primary/30">
+                    Certified Zoho One Premium Partner
                   </span>
                 </div>
                 
@@ -382,6 +382,9 @@ export default function ZohoOnePremiumPartner() {
             </div>
           </div>
         </section>
+
+        {/* Zoho One Suites Infographic - New Section */}
+        <ZohoOneSuitesInfographic />
 
         {/* Why Implementations Fail */}
         <section className="section-padding bg-background">
