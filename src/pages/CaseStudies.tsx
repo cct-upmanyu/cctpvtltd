@@ -188,7 +188,7 @@ export default function CaseStudies() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
                 How ClubCode Technology
                 <span className="block mt-2">
-                  <span className="bg-gradient-to-r from-[hsl(350,80%,55%)] via-[hsl(290,70%,50%)] to-[hsl(25,95%,55%)] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] via-[hsl(330,80%,65%)] via-[hsl(290,70%,55%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">
                     Transforms Your Business
                   </span>
                 </span>
@@ -230,7 +230,7 @@ export default function CaseStudies() {
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                 Industry 
-                <span className="bg-gradient-to-r from-[hsl(350,80%,55%)] via-[hsl(290,70%,50%)] to-[hsl(25,95%,55%)] bg-clip-text text-transparent"> Transformations</span>
+                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent"> Transformations</span>
               </h2>
             </motion.div>
             
@@ -273,7 +273,7 @@ export default function CaseStudies() {
                     <div className="grid grid-cols-3 gap-2 mb-4">
                       {study.results.map((result, i) => (
                         <div key={i} className="text-center bg-white rounded-lg p-3 border border-border/30">
-                          <div className="text-lg font-bold bg-gradient-to-r from-[hsl(350,80%,55%)] to-[hsl(290,70%,50%)] bg-clip-text text-transparent">{result.metric}</div>
+                          <div className="text-lg font-bold bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">{result.metric}</div>
                           <div className="text-xs text-muted-foreground leading-tight">{result.label}</div>
                         </div>
                       ))}
@@ -305,7 +305,7 @@ export default function CaseStudies() {
               </span>
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
                 Trusted by 
-                <span className="bg-gradient-to-r from-[hsl(350,80%,55%)] via-[hsl(290,70%,50%)] to-[hsl(25,95%,55%)] bg-clip-text text-transparent"> Industry Leaders</span>
+                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent"> Industry Leaders</span>
               </h2>
               <p className="text-muted-foreground">
                 Join 500+ businesses that have transformed with CCT
@@ -359,7 +359,7 @@ export default function CaseStudies() {
                 Ready to Write Your
               </h2>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-[hsl(350,80%,55%)] via-[hsl(290,70%,50%)] to-[hsl(25,95%,55%)] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">
                   Success Story?
                 </span>
               </h2>

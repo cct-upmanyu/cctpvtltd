@@ -179,7 +179,7 @@ export default function Blog() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
                 Expert Insights for
                 <span className="block mt-2">
-                  <span className="bg-gradient-to-r from-[hsl(350,80%,60%)] via-[hsl(290,70%,55%)] to-[hsl(260,70%,60%)] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">
                     Business Growth
                   </span>
                 </span>
@@ -214,7 +214,7 @@ export default function Blog() {
               <div className="grid md:grid-cols-2 gap-8 p-8 md:p-12">
                 <div>
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                    <span className="bg-gradient-to-r from-[hsl(350,80%,60%)] via-[hsl(290,70%,55%)] to-[hsl(260,70%,60%)] bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">
                       {featuredPost.title}
                     </span>
                   </h2>
@@ -253,7 +253,7 @@ export default function Blog() {
                   </Button>
                 </div>
                 <div className="hidden md:flex items-center justify-center">
-                  <div className="w-64 h-64 bg-gradient-to-br from-[hsl(350,80%,60%)]/10 via-[hsl(290,70%,55%)]/10 to-[hsl(260,70%,60%)]/10 border border-primary/20 rounded-3xl flex items-center justify-center">
+                  <div className="w-64 h-64 bg-gradient-to-br from-[hsl(210,90%,55%)]/10 via-[hsl(330,80%,65%)]/10 to-[hsl(270,70%,60%)]/10 border border-primary/20 rounded-3xl flex items-center justify-center">
                     <featuredPost.icon className="w-32 h-32 text-primary/40" />
                   </div>
                 </div>
@@ -293,7 +293,7 @@ export default function Blog() {
                           onClick={() => setSelectedCategory(category.name)}
                           className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-colors text-left ${
                             selectedCategory === category.name
-                              ? "bg-gradient-to-r from-[hsl(350,80%,60%)] to-[hsl(290,70%,55%)] text-white"
+                              ? "bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(270,70%,60%)] text-white"
                               : "hover:bg-[hsl(0,0%,96%)] text-muted-foreground"
                           }`}
                         >
@@ -332,7 +332,7 @@ export default function Blog() {
                 <div className="flex items-center justify-between mb-8">
                   <h2 className="text-2xl font-bold text-foreground">
                     {selectedCategory === "All" ? "Latest " : ""}
-                    <span className="bg-gradient-to-r from-[hsl(350,80%,60%)] via-[hsl(290,70%,55%)] to-[hsl(260,70%,60%)] bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">
                       {selectedCategory === "All" ? "Articles" : selectedCategory}
                     </span>
                   </h2>
@@ -351,7 +351,7 @@ export default function Blog() {
                       transition={{ delay: index * 0.05 }}
                       className="bg-white rounded-xl border border-border/30 overflow-hidden hover:shadow-lg transition-all duration-300 group"
                     >
-                      <div className="h-40 bg-gradient-to-br from-[hsl(350,80%,60%)]/10 via-[hsl(290,70%,55%)]/10 to-[hsl(260,70%,60%)]/10 flex items-center justify-center">
+                      <div className="h-40 bg-gradient-to-br from-[hsl(210,90%,55%)]/10 via-[hsl(330,80%,65%)]/10 to-[hsl(270,70%,60%)]/10 flex items-center justify-center">
                         <post.icon className="w-16 h-16 text-muted-foreground/30 group-hover:text-primary transition-colors" />
                       </div>
                       <div className="p-6">
@@ -414,7 +414,7 @@ export default function Blog() {
                 Have Questions About
               </h2>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-[hsl(350,80%,60%)] via-[hsl(290,70%,55%)] to-[hsl(260,70%,60%)] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">
                   Your Business?
                 </span>
               </h2>
