@@ -174,28 +174,27 @@ export default function CaseStudies() {
       <Navbar />
       
       <main className="pt-20">
-        {/* Hero Section */}
-        <section className="relative py-20 md:py-28 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
-          </div>
-          
+        {/* Hero Section - Light Clean Theme */}
+        <section className="relative py-20 md:py-28 bg-[hsl(0,0%,96%)] overflow-hidden">
           <div className="container-custom relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-center max-w-4xl mx-auto"
             >
-              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
+              <span className="inline-block px-5 py-2 border-2 border-primary text-primary rounded-full text-sm font-medium mb-8">
                 Success Stories
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-                Real Results from Real
-                <span className="text-primary"> Transformations</span>
+                How ClubCode Technology
+                <span className="block mt-2">
+                  <span className="bg-gradient-to-r from-[hsl(350,80%,55%)] via-[hsl(290,70%,50%)] to-[hsl(25,95%,55%)] bg-clip-text text-transparent">
+                    Transforms Your Business
+                  </span>
+                </span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-                Discover how ClubCode Technology has helped businesses across industries achieve remarkable growth with Zoho and AI-powered solutions.
+                ClubCode Technology delivers powerful Zoho implementations and AI solutions - helping you achieve measurable results faster.
               </p>
             </motion.div>
             
@@ -207,9 +206,9 @@ export default function CaseStudies() {
               className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16"
             >
               {stats.map((stat, index) => (
-                <div key={index} className="text-center bg-card rounded-xl p-6 shadow-sm border border-border">
+                <div key={index} className="text-center bg-white rounded-xl p-6 shadow-sm border border-border/50">
                   <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                  <div className="text-3xl md:text-4xl font-bold text-primary mb-1">{stat.value}</div>
+                  <div className="text-3xl md:text-4xl font-bold text-foreground mb-1">{stat.value}</div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </div>
               ))}
@@ -217,9 +216,24 @@ export default function CaseStudies() {
           </div>
         </section>
 
-        {/* Case Studies Grid */}
-        <section className="py-20 bg-background">
+        {/* Case Studies Grid - Clean White Theme */}
+        <section className="py-20 bg-white">
           <div className="container-custom">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-14"
+            >
+              <span className="inline-block px-5 py-2 border-2 border-secondary text-secondary rounded-full text-sm font-medium mb-6">
+                Case Studies
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                Industry 
+                <span className="bg-gradient-to-r from-[hsl(350,80%,55%)] via-[hsl(290,70%,50%)] to-[hsl(25,95%,55%)] bg-clip-text text-transparent"> Transformations</span>
+              </h2>
+            </motion.div>
+            
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {caseStudies.map((study, index) => (
                 <motion.div
@@ -227,16 +241,16 @@ export default function CaseStudies() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-card rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all duration-300 group"
+                  transition={{ delay: index * 0.05 }}
+                  className="bg-[hsl(0,0%,96%)] rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group"
                 >
                   {/* Header */}
-                  <div className="bg-gradient-to-r from-primary to-primary/80 p-6 text-primary-foreground">
+                  <div className="bg-gradient-to-r from-[hsl(220,70%,25%)] to-[hsl(220,60%,35%)] p-6 text-white">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                      <div className="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center">
                         <study.icon className="w-5 h-5" />
                       </div>
-                      <span className="text-sm font-medium bg-white/20 px-3 py-1 rounded-full">
+                      <span className="text-sm font-medium border border-white/30 px-3 py-1 rounded-full">
                         {study.industry}
                       </span>
                     </div>
@@ -246,29 +260,29 @@ export default function CaseStudies() {
                   {/* Content */}
                   <div className="p-6">
                     <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-muted-foreground mb-2">Challenge</h4>
-                      <p className="text-sm text-foreground">{study.challenge}</p>
+                      <h4 className="text-sm font-semibold text-foreground mb-2">Challenge</h4>
+                      <p className="text-sm text-muted-foreground">{study.challenge}</p>
                     </div>
                     
                     <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-muted-foreground mb-2">Solution</h4>
-                      <p className="text-sm text-foreground">{study.solution}</p>
+                      <h4 className="text-sm font-semibold text-foreground mb-2">Solution</h4>
+                      <p className="text-sm text-muted-foreground">{study.solution}</p>
                     </div>
                     
                     {/* Results */}
                     <div className="grid grid-cols-3 gap-2 mb-4">
                       {study.results.map((result, i) => (
-                        <div key={i} className="text-center bg-muted/50 rounded-lg p-3">
-                          <div className="text-lg font-bold text-primary">{result.metric}</div>
+                        <div key={i} className="text-center bg-white rounded-lg p-3 border border-border/30">
+                          <div className="text-lg font-bold bg-gradient-to-r from-[hsl(350,80%,55%)] to-[hsl(290,70%,50%)] bg-clip-text text-transparent">{result.metric}</div>
                           <div className="text-xs text-muted-foreground leading-tight">{result.label}</div>
                         </div>
                       ))}
                     </div>
                     
                     {/* Testimonial */}
-                    <div className="border-t border-border pt-4">
+                    <div className="border-t border-border/30 pt-4">
                       <p className="text-sm italic text-muted-foreground mb-2">"{study.testimonial}"</p>
-                      <p className="text-xs font-medium text-primary">— {study.author}</p>
+                      <p className="text-xs font-medium text-foreground">— {study.author}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -277,8 +291,8 @@ export default function CaseStudies() {
           </div>
         </section>
 
-        {/* Client Logos */}
-        <section className="py-16 bg-muted/30">
+        {/* Client Logos - Light Theme */}
+        <section className="py-16 bg-[hsl(0,0%,96%)]">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -286,20 +300,24 @@ export default function CaseStudies() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
+              <span className="inline-block px-5 py-2 border-2 border-primary text-primary rounded-full text-sm font-medium mb-6">
+                Trusted Partners
+              </span>
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-                Trusted by Industry Leaders
+                Trusted by 
+                <span className="bg-gradient-to-r from-[hsl(350,80%,55%)] via-[hsl(290,70%,50%)] to-[hsl(25,95%,55%)] bg-clip-text text-transparent"> Industry Leaders</span>
               </h2>
               <p className="text-muted-foreground">
                 Join 500+ businesses that have transformed with CCT
               </p>
             </motion.div>
             
-            <div className="space-y-8">
+            <div className="space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-card rounded-2xl p-6 md:p-8 shadow-sm"
+                className="bg-white rounded-2xl p-6 md:p-8 border border-border/30"
               >
                 <img 
                   src={clientLogosRow1} 
@@ -313,7 +331,7 @@ export default function CaseStudies() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="bg-card rounded-2xl p-6 md:p-8 shadow-sm"
+                className="bg-white rounded-2xl p-6 md:p-8 border border-border/30"
               >
                 <img 
                   src={clientLogosRow2} 
@@ -325,8 +343,8 @@ export default function CaseStudies() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-primary to-primary/90 text-primary-foreground">
+        {/* CTA Section - Clean Dark Theme */}
+        <section className="py-20 bg-[hsl(220,70%,15%)]">
           <div className="container-custom text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -334,20 +352,28 @@ export default function CaseStudies() {
               viewport={{ once: true }}
               className="max-w-3xl mx-auto"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Write Your Success Story?
+              <span className="inline-block px-5 py-2 border-2 border-white/30 text-white rounded-full text-sm font-medium mb-6">
+                Get Started
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                Ready to Write Your
               </h2>
-              <p className="text-lg opacity-90 mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-[hsl(350,80%,55%)] via-[hsl(290,70%,50%)] to-[hsl(25,95%,55%)] bg-clip-text text-transparent">
+                  Success Story?
+                </span>
+              </h2>
+              <p className="text-lg text-white/80 mb-8">
                 Join hundreds of businesses that have transformed their operations with CCT's expertise in Zoho and AI solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="heroSecondary" asChild>
+                <Button size="lg" className="border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-white" asChild>
                   <Link to="/contact" className="gap-2">
                     Start Your Transformation
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+                <Button size="lg" className="border-2 border-white/40 bg-transparent text-white hover:bg-white/10" asChild>
                   <Link to="/contact">Book Free Consultation</Link>
                 </Button>
               </div>
