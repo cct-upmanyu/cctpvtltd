@@ -175,13 +175,27 @@ export function IntegrationFlowInfographic({
               className="relative"
             >
               <div className="w-28 h-28 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br from-[#00776b] to-[#004d45] flex flex-col items-center justify-center text-white p-4 shadow-xl">
-                {hubApp.logo ? (
-                  <img src={hubApp.logo} alt={hubApp.name} className="w-10 h-10 md:w-12 md:h-12 object-contain mb-2" />
-                ) : (
-                  <div className="w-10 h-10 md:w-12 md:h-12 mb-2 flex items-center justify-center">
-                    <span className="text-2xl font-bold">Z</span>
-                  </div>
-                )}
+                {/* Integration Symbol - Connected Nodes */}
+                <svg 
+                  viewBox="0 0 48 48" 
+                  className="w-12 h-12 md:w-14 md:h-14 mb-2"
+                  fill="none"
+                >
+                  {/* Center node */}
+                  <circle cx="24" cy="24" r="6" fill="white" />
+                  
+                  {/* Outer nodes */}
+                  <circle cx="12" cy="12" r="4" fill="white" opacity="0.9" />
+                  <circle cx="36" cy="12" r="4" fill="white" opacity="0.9" />
+                  <circle cx="12" cy="36" r="4" fill="white" opacity="0.9" />
+                  <circle cx="36" cy="36" r="4" fill="white" opacity="0.9" />
+                  
+                  {/* Connection lines */}
+                  <line x1="18" y1="18" x2="14" y2="14" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
+                  <line x1="30" y1="18" x2="34" y2="14" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
+                  <line x1="18" y1="30" x2="14" y2="34" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
+                  <line x1="30" y1="30" x2="34" y2="34" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
+                </svg>
                 <span className="font-bold text-sm text-center whitespace-nowrap">{hubApp.name}</span>
               </div>
               
