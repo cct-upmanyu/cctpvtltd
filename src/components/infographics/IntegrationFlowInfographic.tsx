@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Zap, CheckCircle, Database, RefreshCw } from "lucide-react";
+import { RefreshCw } from "lucide-react";
 
 interface IntegrationNode {
   id: string;
@@ -16,200 +16,297 @@ interface IntegrationFlowInfographicProps {
   sourceApps: IntegrationNode[];
   hubApp: IntegrationNode;
   destinationApps: IntegrationNode[];
+  badge?: string;
 }
 
 export function IntegrationFlowInfographic({
-  title = "Seamless Integration Flow",
-  subtitle = "Connect your favorite apps with Zoho",
+  title = "Unified Data Flow",
+  subtitle = "Watch how data flows seamlessly from your favorite apps through Zoho and out to your business systems",
   sourceApps,
   hubApp,
-  destinationApps
+  destinationApps,
+  badge = "How It Works"
 }: IntegrationFlowInfographicProps) {
-  const [activeFlow, setActiveFlow] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [activeSourceIndex, setActiveSourceIndex] = useState(0);
+  const [flowPhase, setFlowPhase] = useState<"source" | "hub" | "destination">("source");
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsAnimating(true);
+      setFlowPhase("source");
+      
+      setTimeout(() => setFlowPhase("hub"), 800);
+      setTimeout(() => setFlowPhase("destination"), 1600);
       setTimeout(() => {
-        setActiveFlow((prev) => (prev + 1) % sourceApps.length);
-        setIsAnimating(false);
-      }, 1000);
-    }, 3000);
+        setActiveSourceIndex((prev) => (prev + 1) % sourceApps.length);
+        setFlowPhase("source");
+      }, 2800);
+    }, 3500);
+    
     return () => clearInterval(interval);
   }, [sourceApps.length]);
 
   return (
-    <div className="w-full">
-      <div className="text-center mb-8">
-        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">{title}</h3>
-        <p className="text-muted-foreground">{subtitle}</p>
+    <div className="w-full py-16">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
+          {badge}
+        </span>
+        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">{title}</h3>
+        <p className="text-muted-foreground max-w-xl mx-auto">{subtitle}</p>
       </div>
 
-      <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl border border-gray-200 p-8 overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-5">
+      {/* Integration Flow Diagram */}
+      <div className="relative bg-[#F8FAFB] rounded-2xl border border-gray-100 p-8 md:p-12 overflow-hidden max-w-5xl mx-auto">
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
           <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-            backgroundSize: '24px 24px'
+            backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
+            backgroundSize: '32px 32px'
           }} />
         </div>
 
-        <div className="relative flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12">
-          {/* Source Apps */}
-          <div className="flex flex-col gap-3">
-            <span className="text-xs font-semibold text-muted-foreground text-center mb-2">SOURCE</span>
-            {sourceApps.map((app, index) => {
-              const Icon = app.icon;
-              const isActive = activeFlow === index;
-              
-              return (
-                <motion.div
-                  key={app.id}
-                  animate={{
-                    scale: isActive ? 1.05 : 1,
-                    borderColor: isActive ? "hsl(190, 85%, 50%)" : "hsl(0, 0%, 90%)"
-                  }}
-                  className="flex items-center gap-3 px-4 py-3 bg-white rounded-xl border-2 transition-colors"
-                >
-                  {app.logo ? (
-                    <img src={app.logo} alt={app.name} className="w-8 h-8 object-contain" />
-                  ) : Icon ? (
-                    <Icon className="w-8 h-8 text-primary" />
-                  ) : null}
-                  <span className="font-medium text-foreground text-sm">{app.name}</span>
-                  {isActive && (
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      className="ml-auto w-2 h-2 bg-primary rounded-full"
-                    />
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Flow Arrows */}
-          <div className="flex items-center gap-2">
-            <div className="hidden lg:flex items-center gap-1">
-              {[...Array(3)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  animate={{
-                    opacity: isAnimating ? [0.3, 1, 0.3] : 0.3,
-                    x: isAnimating ? [0, 4, 0] : 0
-                  }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="w-2 h-2 bg-primary rounded-full"
-                />
-              ))}
-              <ArrowRight className="w-5 h-5 text-primary ml-1" />
-            </div>
-            
-            {/* Data packet animation */}
-            <AnimatePresence>
-              {isAnimating && (
-                <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: 20, opacity: 0 }}
-                  className="hidden lg:flex absolute left-1/3 w-6 h-6 bg-primary rounded-full items-center justify-center shadow-lg"
-                  style={{ boxShadow: "0 0 20px hsl(190, 85%, 50%, 0.5)" }}
-                >
-                  <Zap className="w-3 h-3 text-white" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* Hub App (Zoho) */}
-          <motion.div
-            animate={{
-              boxShadow: isAnimating 
-                ? "0 0 40px hsl(190, 85%, 50%, 0.3)" 
-                : "0 10px 40px rgba(0,0,0,0.1)"
-            }}
-            className="relative"
-          >
-            <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs font-semibold text-muted-foreground">HUB</span>
-            <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary to-secondary flex flex-col items-center justify-center text-white p-4">
-              {hubApp.logo ? (
-                <img src={hubApp.logo} alt={hubApp.name} className="w-12 h-12 object-contain mb-2" />
-              ) : hubApp.icon ? (
-                <hubApp.icon className="w-12 h-12 mb-2" />
-              ) : (
-                <Database className="w-12 h-12 mb-2" />
-              )}
-              <span className="font-bold text-sm text-center">{hubApp.name}</span>
-            </div>
-            
-            {/* Sync indicator */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-              className="absolute -bottom-3 -right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center"
-            >
-              <RefreshCw className="w-4 h-4 text-primary" />
-            </motion.div>
-          </motion.div>
-
-          {/* Flow Arrows */}
-          <div className="flex items-center gap-2">
-            <div className="hidden lg:flex items-center gap-1">
-              <ArrowRight className="w-5 h-5 text-primary mr-1" />
-              {[...Array(3)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  animate={{
-                    opacity: isAnimating ? [0.3, 1, 0.3] : 0.3,
-                    x: isAnimating ? [0, 4, 0] : 0
-                  }}
-                  transition={{ delay: i * 0.1 + 0.5, duration: 0.5 }}
-                  className="w-2 h-2 bg-green-500 rounded-full"
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Destination Apps */}
-          <div className="flex flex-col gap-3">
-            <span className="text-xs font-semibold text-muted-foreground text-center mb-2">DESTINATION</span>
-            {destinationApps.map((app, index) => {
-              const Icon = app.icon;
-              const isActive = activeFlow === index;
-              
-              return (
-                <motion.div
-                  key={app.id}
-                  animate={{
-                    scale: isActive && isAnimating ? 1.05 : 1,
-                    borderColor: isActive && isAnimating ? "hsl(150, 70%, 45%)" : "hsl(0, 0%, 90%)"
-                  }}
-                  className="flex items-center gap-3 px-4 py-3 bg-white rounded-xl border-2 transition-colors"
-                >
-                  {app.logo ? (
-                    <img src={app.logo} alt={app.name} className="w-8 h-8 object-contain" />
-                  ) : Icon ? (
-                    <Icon className="w-8 h-8 text-green-600" />
-                  ) : null}
-                  <span className="font-medium text-foreground text-sm">{app.name}</span>
-                  <AnimatePresence>
-                    {isActive && isAnimating && (
+        <div className="relative flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
+          
+          {/* SOURCE Column */}
+          <div className="flex flex-col items-center lg:items-start w-full lg:w-auto">
+            <span className="text-xs font-semibold text-gray-400 tracking-wider uppercase mb-4">Source</span>
+            <div className="flex flex-col gap-3">
+              {sourceApps.map((app, index) => {
+                const isActive = activeSourceIndex === index;
+                
+                return (
+                  <motion.div
+                    key={app.id}
+                    animate={{
+                      scale: isActive ? 1.02 : 1,
+                      boxShadow: isActive 
+                        ? "0 4px 20px rgba(0, 0, 0, 0.08)" 
+                        : "0 1px 3px rgba(0, 0, 0, 0.04)"
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className={`
+                      flex items-center gap-3 px-4 py-3 bg-white rounded-xl border-2 min-w-[160px]
+                      ${isActive ? "border-primary" : "border-gray-100"}
+                    `}
+                  >
+                    {app.logo ? (
+                      <img src={app.logo} alt={app.name} className="w-6 h-6 object-contain" />
+                    ) : app.icon ? (
+                      <app.icon className="w-6 h-6 text-gray-600" />
+                    ) : null}
+                    <span className="font-medium text-gray-800 text-sm">{app.name}</span>
+                    {isActive && (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        exit={{ scale: 0 }}
-                        className="ml-auto"
-                      >
-                        <CheckCircle className="w-5 h-5 text-green-500" />
-                      </motion.div>
+                        className="ml-auto w-2.5 h-2.5 bg-primary rounded-full"
+                      />
                     )}
-                  </AnimatePresence>
-                </motion.div>
-              );
-            })}
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
+
+          {/* Left Flow Line */}
+          <div className="hidden lg:flex items-center flex-1 max-w-[120px] px-2">
+            <div className="relative w-full h-0.5 bg-gray-200">
+              {/* Animated dots */}
+              <div className="absolute inset-0 flex items-center justify-center gap-1.5">
+                {[0, 1, 2].map((i) => (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      backgroundColor: flowPhase === "source" || flowPhase === "hub" 
+                        ? ["hsl(var(--primary))", "hsl(var(--primary) / 0.3)", "hsl(var(--primary))"]
+                        : "hsl(0, 0%, 80%)",
+                      scale: flowPhase === "source" ? [1, 1.2, 1] : 1
+                    }}
+                    transition={{ 
+                      duration: 0.6, 
+                      delay: i * 0.15,
+                      repeat: flowPhase === "source" ? Infinity : 0,
+                      repeatDelay: 0.5
+                    }}
+                    className="w-2 h-2 rounded-full bg-gray-300"
+                  />
+                ))}
+              </div>
+              
+              {/* Arrow */}
+              <motion.svg 
+                className="absolute -right-3 top-1/2 -translate-y-1/2 w-4 h-4"
+                viewBox="0 0 16 16"
+                animate={{
+                  fill: flowPhase === "source" || flowPhase === "hub" 
+                    ? "hsl(var(--primary))" 
+                    : "hsl(0, 0%, 70%)"
+                }}
+              >
+                <path d="M8 0L16 8L8 16L8 10L0 10L0 6L8 6L8 0Z" />
+              </motion.svg>
+            </div>
+          </div>
+
+          {/* Mobile Flow Indicator */}
+          <div className="lg:hidden flex items-center justify-center">
+            <motion.div
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
+            >
+              <svg className="w-4 h-4 text-primary rotate-90" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0L16 8L8 16L8 10L0 10L0 6L8 6L8 0Z" />
+              </svg>
+            </motion.div>
+          </div>
+
+          {/* HUB - Central Zoho */}
+          <div className="flex flex-col items-center">
+            <span className="text-xs font-semibold text-gray-400 tracking-wider uppercase mb-4">Hub</span>
+            <motion.div
+              animate={{
+                boxShadow: flowPhase === "hub" 
+                  ? "0 0 0 8px rgba(0, 166, 153, 0.1), 0 20px 50px rgba(0, 0, 0, 0.15)" 
+                  : "0 10px 40px rgba(0, 0, 0, 0.1)"
+              }}
+              transition={{ duration: 0.4 }}
+              className="relative"
+            >
+              <div className="w-28 h-28 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br from-[#00776b] to-[#004d45] flex flex-col items-center justify-center text-white p-4 shadow-xl">
+                {hubApp.logo ? (
+                  <img src={hubApp.logo} alt={hubApp.name} className="w-10 h-10 md:w-12 md:h-12 object-contain mb-2" />
+                ) : (
+                  <div className="w-10 h-10 md:w-12 md:h-12 mb-2 flex items-center justify-center">
+                    <span className="text-2xl font-bold">Z</span>
+                  </div>
+                )}
+                <span className="font-bold text-sm text-center whitespace-nowrap">{hubApp.name}</span>
+              </div>
+              
+              {/* Sync indicator */}
+              <motion.div
+                animate={{ 
+                  rotate: flowPhase === "hub" ? 360 : 0,
+                  scale: flowPhase === "hub" ? 1.1 : 1
+                }}
+                transition={{ 
+                  rotate: { duration: 1, ease: "linear" },
+                  scale: { duration: 0.3 }
+                }}
+                className="absolute -bottom-2 -right-2 w-7 h-7 bg-white rounded-full shadow-md flex items-center justify-center border border-gray-100"
+              >
+                <RefreshCw className="w-3.5 h-3.5 text-primary" />
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Right Flow Line */}
+          <div className="hidden lg:flex items-center flex-1 max-w-[120px] px-2">
+            <div className="relative w-full h-0.5 bg-gray-200">
+              {/* Arrow */}
+              <motion.svg 
+                className="absolute -left-1 top-1/2 -translate-y-1/2 w-4 h-4"
+                viewBox="0 0 16 16"
+                animate={{
+                  fill: flowPhase === "hub" || flowPhase === "destination" 
+                    ? "hsl(var(--primary))" 
+                    : "hsl(0, 0%, 70%)"
+                }}
+              >
+                <path d="M8 0L16 8L8 16L8 10L0 10L0 6L8 6L8 0Z" />
+              </motion.svg>
+              
+              {/* Animated dots */}
+              <div className="absolute inset-0 flex items-center justify-center gap-1.5 ml-4">
+                {[0, 1, 2].map((i) => (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      backgroundColor: flowPhase === "destination" 
+                        ? ["hsl(var(--primary))", "hsl(var(--primary) / 0.3)", "hsl(var(--primary))"]
+                        : "hsl(0, 0%, 80%)",
+                      scale: flowPhase === "destination" ? [1, 1.2, 1] : 1
+                    }}
+                    transition={{ 
+                      duration: 0.6, 
+                      delay: i * 0.15,
+                      repeat: flowPhase === "destination" ? Infinity : 0,
+                      repeatDelay: 0.5
+                    }}
+                    className="w-2 h-2 rounded-full bg-gray-300"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Flow Indicator */}
+          <div className="lg:hidden flex items-center justify-center">
+            <motion.div
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
+              className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
+            >
+              <svg className="w-4 h-4 text-primary rotate-90" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0L16 8L8 16L8 10L0 10L0 6L8 6L8 0Z" />
+              </svg>
+            </motion.div>
+          </div>
+
+          {/* DESTINATION Column */}
+          <div className="flex flex-col items-center lg:items-end w-full lg:w-auto">
+            <span className="text-xs font-semibold text-gray-400 tracking-wider uppercase mb-4">Destination</span>
+            <div className="flex flex-col gap-3">
+              {destinationApps.map((app, index) => {
+                const isActive = flowPhase === "destination" && activeSourceIndex === index;
+                
+                return (
+                  <motion.div
+                    key={app.id}
+                    animate={{
+                      scale: isActive ? 1.02 : 1,
+                      boxShadow: isActive 
+                        ? "0 4px 20px rgba(0, 0, 0, 0.08)" 
+                        : "0 1px 3px rgba(0, 0, 0, 0.04)"
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className={`
+                      flex items-center gap-3 px-4 py-3 bg-white rounded-xl border-2 min-w-[160px]
+                      ${isActive ? "border-green-500" : "border-gray-100"}
+                    `}
+                  >
+                    {app.logo ? (
+                      <img src={app.logo} alt={app.name} className="w-6 h-6 object-contain" />
+                    ) : app.icon ? (
+                      <app.icon className="w-6 h-6 text-gray-600" />
+                    ) : null}
+                    <span className="font-medium text-gray-800 text-sm">{app.name}</span>
+                    
+                    <AnimatePresence>
+                      {isActive && (
+                        <motion.div
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          exit={{ scale: 0, opacity: 0 }}
+                          className="ml-auto flex items-center gap-1"
+                        >
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: [0, 1.2, 1] }}
+                            transition={{ duration: 0.4 }}
+                            className="w-2.5 h-2.5 bg-green-500 rounded-full"
+                          />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
