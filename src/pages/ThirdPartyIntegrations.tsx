@@ -11,14 +11,12 @@ import {
   Zap,
   Shield,
   RefreshCw,
-  Layers,
-  Puzzle,
-  Globe,
-  Database,
-  Mail,
-  CreditCard
+  Layers
 } from "lucide-react";
 import zohoLogo from "@/assets/zoho-logo-official.png";
+import zohoCrmLogo from "@/assets/zoho-products/zoho-crm-logo.png";
+import zohoBooksLogo from "@/assets/zoho-products/zoho-books-logo.png";
+import zohoCampaignsLogo from "@/assets/zoho-products/zoho-campaigns-logo.png";
 
 const integrationBenefits = [
   {
@@ -57,9 +55,9 @@ const sourceApps = [
 ];
 
 const destinationApps = [
-  { id: "crm", name: "Zoho CRM", icon: Database, type: "destination" as const },
-  { id: "books", name: "Zoho Books", icon: CreditCard, type: "destination" as const },
-  { id: "campaigns", name: "Zoho Campaigns", icon: Mail, type: "destination" as const },
+  { id: "crm", name: "Zoho CRM", logo: zohoCrmLogo, type: "destination" as const },
+  { id: "books", name: "Zoho Books", logo: zohoBooksLogo, type: "destination" as const },
+  { id: "campaigns", name: "Zoho Campaigns", logo: zohoCampaignsLogo, type: "destination" as const },
 ];
 
 const ThirdPartyIntegrations = () => {
