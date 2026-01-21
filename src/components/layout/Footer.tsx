@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from "lucide-react";
 import cctLogoFooter from "@/assets/cct-logo-footer.png";
 
 const footerLinks = {
@@ -40,37 +39,9 @@ const footerLinks = {
   ],
 };
 
-interface FooterProps {
-  hideCTA?: boolean;
-}
-
-export function Footer({ hideCTA = false }: FooterProps) {
+export function Footer() {
   return (
     <footer className="border-t border-[#1A365D]">
-      {/* Top CTA Section - Darker Navy */}
-      {!hideCTA && (
-      <div className="bg-[#0B1C3D]">
-        <div className="container-custom py-16">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Transform Your Business?
-            </h2>
-            <p className="text-[#94A3B8] text-lg max-w-2xl mx-auto mb-8">
-              Let's discuss how we can help you leverage Zoho, AI, and automation to scale your operations.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="heroDark" size="lg" className="min-w-[220px]">
-                Book Free Consultation
-                <ArrowRight className="w-5 h-5" />
-              </Button>
-              <Button variant="heroSecondary" size="lg" className="min-w-[220px]">
-                Talk to a Zoho Expert
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-      )}
 
       {/* Main Footer Content - Even Darker */}
       <div className="bg-[#050D1A]">
