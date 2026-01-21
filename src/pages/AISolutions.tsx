@@ -122,41 +122,37 @@ export default function AISolutions() {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero - DARK SECTION with Image */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={heroAISolutions} alt="AI Solutions" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1C3D]/95 via-[#0B1C3D]/85 to-[#0B1C3D]/70" />
-        </div>
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        </div>
+      {/* Hero - Light Clean Theme */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[hsl(0,0%,96%)]">
         <div className="container-custom relative z-10 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-6">
+            <span className="inline-block px-5 py-2 border-2 border-primary text-primary rounded-full text-sm font-medium mb-8">
               AI Automation Experts
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               AI That Actually Works—
-              <span className="text-gradient-primary block">Inside Your Business Systems</span>
+              <span className="block mt-2">
+                <span className="bg-gradient-to-r from-[hsl(350,80%,60%)] via-[hsl(290,70%,55%)] to-[hsl(260,70%,60%)] bg-clip-text text-transparent">
+                  Inside Your Business Systems
+                </span>
+              </span>
             </h1>
-            <p className="text-white/90 text-lg md:text-xl mb-6 max-w-3xl mx-auto">
+            <p className="text-foreground text-lg md:text-xl mb-6 max-w-3xl mx-auto">
               AI is not a feature. It's an operating layer.
             </p>
-            <p className="text-white/80 text-base md:text-lg mb-8 max-w-3xl mx-auto">
-              At ClubCode Technology, we design AI-native business systems where intelligence lives inside CRM, ERP, workflows, communication channels, and analytics — not as disconnected tools. We specialize in Agentic AI, AI automation, predictive intelligence, and decision-support systems.
+            <p className="text-muted-foreground text-base md:text-lg mb-8 max-w-3xl mx-auto">
+              At ClubCode Technology, we design AI-native business systems where intelligence lives inside CRM, ERP, workflows, communication channels, and analytics — not as disconnected tools.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button variant="heroDark" size="lg" className="min-w-[220px]">
+              <Button className="min-w-[220px] border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-white" size="lg">
                 Build Your AI Strategy
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button variant="heroSecondary" size="lg" className="min-w-[220px]">
+              <Button className="min-w-[220px] border-2 border-secondary bg-transparent text-secondary hover:bg-secondary hover:text-white" size="lg">
                 See AI in Action
               </Button>
             </div>
@@ -164,12 +160,8 @@ export default function AISolutions() {
         </div>
       </section>
 
-      {/* SECTION 1: Agentic AI - DARK SECTION */}
-      <section className="bg-dark-gradient section-padding relative overflow-hidden">
-        <div className="absolute inset-0 particles-bg pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        </div>
+      {/* SECTION 1: Agentic AI - White Section */}
+      <section className="bg-white section-padding relative overflow-hidden">
         <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -177,14 +169,18 @@ export default function AISolutions() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium mb-4">
+            <span className="inline-block px-5 py-2 border-2 border-secondary text-secondary rounded-full text-sm font-medium mb-6">
               Next-Generation AI
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Agentic AI — Autonomous AI
-              <span className="text-gradient-primary block">That Works for Your Business</span>
+              <span className="block mt-2">
+                <span className="bg-gradient-to-r from-[hsl(350,80%,60%)] via-[hsl(290,70%,55%)] to-[hsl(260,70%,60%)] bg-clip-text text-transparent">
+                  That Works for Your Business
+                </span>
+              </span>
             </h2>
-            <p className="text-white/80 text-lg max-w-3xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
               Agentic AI goes beyond chatbots. It acts, decides, learns, and executes across systems. 
               Our AI agents monitor CRM & ERP data, take actions without human triggers, coordinate across apps, and escalate intelligently when required.
             </p>
@@ -197,16 +193,16 @@ export default function AISolutions() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto mb-16"
           >
-            <div className="bg-muted-dark/80 border border-primary/20 rounded-2xl p-8">
-              <h3 className="text-white text-xl font-semibold text-center mb-8">Agentic AI Flow</h3>
+            <div className="bg-[hsl(0,0%,96%)] border border-border/30 rounded-2xl p-8">
+              <h3 className="text-foreground text-xl font-semibold text-center mb-8">Agentic AI Flow</h3>
               <div className="flex flex-wrap justify-center items-center gap-4">
                 {[
-                  { label: "AI Agent", icon: Brain, color: "#3FE0F0" },
-                  { label: "Observes Data", icon: Eye, color: "#4DA3FF" },
-                  { label: "Decides", icon: Target, color: "#8B5CF6" },
-                  { label: "Acts", icon: Zap, color: "#3FE0F0" },
-                  { label: "Learns", icon: TrendingUp, color: "#4DA3FF" },
-                  { label: "Improves", icon: CheckCircle, color: "#10B981" },
+                  { label: "AI Agent", icon: Brain, color: "hsl(350,80%,60%)" },
+                  { label: "Observes Data", icon: Eye, color: "hsl(320,70%,55%)" },
+                  { label: "Decides", icon: Target, color: "hsl(290,70%,55%)" },
+                  { label: "Acts", icon: Zap, color: "hsl(270,70%,55%)" },
+                  { label: "Learns", icon: TrendingUp, color: "hsl(260,70%,60%)" },
+                  { label: "Improves", icon: CheckCircle, color: "hsl(150,70%,45%)" },
                 ].map((step, index) => {
                   const Icon = step.icon;
                   return (
@@ -219,14 +215,13 @@ export default function AISolutions() {
                       className="flex items-center gap-2"
                     >
                       <div 
-                        className="w-16 h-16 rounded-xl flex flex-col items-center justify-center"
-                        style={{ backgroundColor: `${step.color}20`, border: `1px solid ${step.color}40` }}
+                        className="w-16 h-16 rounded-xl flex flex-col items-center justify-center bg-white border border-border/30"
                       >
                         <Icon className="w-6 h-6 mb-1" style={{ color: step.color }} />
-                        <span className="text-[10px] text-white/80 text-center">{step.label}</span>
+                        <span className="text-[10px] text-muted-foreground text-center">{step.label}</span>
                       </div>
                       {index < 5 && (
-                        <ArrowRight className="w-5 h-5 text-[#3FE0F0]/50 hidden sm:block" />
+                        <ArrowRight className="w-5 h-5 text-muted-foreground/50 hidden sm:block" />
                       )}
                     </motion.div>
                   );
@@ -246,16 +241,16 @@ export default function AISolutions() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="card-glass rounded-2xl p-6 hover-glow transition-all"
+                  className="bg-[hsl(0,0%,96%)] rounded-2xl p-6 border border-border/30 hover:shadow-lg transition-all"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-[#8B5CF6]" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(350,80%,60%)]/10 to-[hsl(290,70%,55%)]/10 border border-border/30 flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">{useCase.title}</h3>
+                  <h3 className="text-lg font-semibold text-foreground mb-3">{useCase.title}</h3>
                   <ul className="space-y-2">
                     {useCase.tasks.map((task) => (
-                      <li key={task} className="flex items-center gap-2 text-white/80 text-sm">
-                        <CheckCircle className="w-4 h-4 text-[#3FE0F0]" />
+                      <li key={task} className="flex items-center gap-2 text-muted-foreground text-sm">
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         {task}
                       </li>
                     ))}
@@ -270,8 +265,8 @@ export default function AISolutions() {
       {/* AI Agent Examples Section */}
       <AIAgentExamples />
 
-      {/* SECTION 2: AI Automations - LIGHT SECTION */}
-      <section className="bg-light-gradient section-padding">
+      {/* SECTION 2: AI Automations - Light Gray Section */}
+      <section className="bg-[hsl(0,0%,96%)] section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -279,14 +274,18 @@ export default function AISolutions() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
+            <span className="inline-block px-5 py-2 border-2 border-primary text-primary rounded-full text-sm font-medium mb-6">
               Workflow Intelligence
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               AI Automation That
-              <span className="text-gradient-primary block">Eliminates Manual Work</span>
+              <span className="block mt-2">
+                <span className="bg-gradient-to-r from-[hsl(350,80%,60%)] via-[hsl(290,70%,55%)] to-[hsl(260,70%,60%)] bg-clip-text text-transparent">
+                  Eliminates Manual Work
+                </span>
+              </span>
             </h2>
-            <p className="text-[#374151] text-lg max-w-3xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
               We combine AI + automation engines to remove repetitive work across departments using Zoho Flow, n8n, custom AI triggers, webhooks & APIs.
             </p>
           </motion.div>
