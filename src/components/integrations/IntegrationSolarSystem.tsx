@@ -18,31 +18,31 @@ interface IntegrationSolarSystemProps {
   showMoreCount?: number;
 }
 
-// Zoho-compatible integration apps using reliable logo sources
+// Zoho-compatible integration apps (CRMs, Marketing, Sales, Accounting, Communication)
 const defaultApps: IntegrationApp[] = [
   // Inner ring - CRM & Sales platforms that integrate with Zoho
-  { id: "hubspot", name: "HubSpot", logo: "https://cdn.simpleicons.org/hubspot/FF7A59" },
-  { id: "salesforce", name: "Salesforce", logo: "https://cdn.simpleicons.org/salesforce/00A1E0" },
-  { id: "pipedrive", name: "Pipedrive", logo: "https://cdn.simpleicons.org/pipedrive/25292C" },
-  { id: "mailchimp", name: "Mailchimp", logo: "https://cdn.simpleicons.org/mailchimp/FFE01B" },
+  { id: "hubspot", name: "HubSpot", logo: "https://cdn.brandfetch.io/hubspot.com/w/512/h/512/logo" },
+  { id: "salesforce", name: "Salesforce", logo: "https://cdn.brandfetch.io/salesforce.com/w/512/h/512/logo" },
+  { id: "pipedrive", name: "Pipedrive", logo: "https://cdn.brandfetch.io/pipedrive.com/w/512/h/512/logo" },
+  { id: "mailchimp", name: "Mailchimp", logo: "https://cdn.brandfetch.io/mailchimp.com/w/512/h/512/logo" },
   // Middle ring - Business & Communication tools
-  { id: "google-sheets", name: "Google Sheets", logo: "https://cdn.simpleicons.org/googlesheets/34A853" },
-  { id: "slack", name: "Slack", logo: "https://cdn.simpleicons.org/slack/4A154B" },
-  { id: "quickbooks", name: "QuickBooks", logo: "https://cdn.simpleicons.org/quickbooks/2CA01C" },
-  { id: "xero", name: "Xero", logo: "https://cdn.simpleicons.org/xero/13B5EA" },
-  { id: "shopify", name: "Shopify", logo: "https://cdn.simpleicons.org/shopify/7AB55C" },
-  { id: "stripe", name: "Stripe", logo: "https://cdn.simpleicons.org/stripe/635BFF" },
-  { id: "paypal", name: "PayPal", logo: "https://cdn.simpleicons.org/paypal/003087" },
-  { id: "microsoft", name: "Microsoft 365", logo: "https://cdn.simpleicons.org/microsoft/5E5E5E" },
+  { id: "google-sheets", name: "Google Sheets", logo: "https://cdn.brandfetch.io/google.com/icon/googlesheets" },
+  { id: "slack", name: "Slack", logo: "https://cdn.brandfetch.io/slack.com/w/512/h/512/logo" },
+  { id: "quickbooks", name: "QuickBooks", logo: "https://cdn.brandfetch.io/quickbooks.intuit.com/w/512/h/512/logo" },
+  { id: "xero", name: "Xero", logo: "https://cdn.brandfetch.io/xero.com/w/512/h/512/logo" },
+  { id: "shopify", name: "Shopify", logo: "https://cdn.brandfetch.io/shopify.com/w/512/h/512/logo" },
+  { id: "stripe", name: "Stripe", logo: "https://cdn.brandfetch.io/stripe.com/w/512/h/512/logo" },
+  { id: "paypal", name: "PayPal", logo: "https://cdn.brandfetch.io/paypal.com/w/512/h/512/logo" },
+  { id: "microsoft", name: "Microsoft 365", logo: "https://cdn.brandfetch.io/microsoft.com/w/512/h/512/logo" },
   // Outer ring - Extended ecosystem
-  { id: "google", name: "Google Workspace", logo: "https://cdn.simpleicons.org/google/4285F4" },
-  { id: "zendesk", name: "Zendesk", logo: "https://cdn.simpleicons.org/zendesk/03363D" },
-  { id: "woocommerce", name: "WooCommerce", logo: "https://cdn.simpleicons.org/woocommerce/96588A" },
-  { id: "twilio", name: "Twilio", logo: "https://cdn.simpleicons.org/twilio/F22F46" },
-  { id: "trello", name: "Trello", logo: "https://cdn.simpleicons.org/trello/0052CC" },
-  { id: "asana", name: "Asana", logo: "https://cdn.simpleicons.org/asana/F06A6A" },
-  { id: "dropbox", name: "Dropbox", logo: "https://cdn.simpleicons.org/dropbox/0061FF" },
-  { id: "whatsapp", name: "WhatsApp", logo: "https://cdn.simpleicons.org/whatsapp/25D366" },
+  { id: "google", name: "Google Workspace", logo: "https://cdn.brandfetch.io/google.com/w/512/h/512/logo" },
+  { id: "zendesk", name: "Zendesk", logo: "https://cdn.brandfetch.io/zendesk.com/w/512/h/512/logo" },
+  { id: "woocommerce", name: "WooCommerce", logo: "https://cdn.brandfetch.io/woocommerce.com/w/512/h/512/logo" },
+  { id: "twilio", name: "Twilio", logo: "https://cdn.brandfetch.io/twilio.com/w/512/h/512/logo" },
+  { id: "trello", name: "Trello", logo: "https://cdn.brandfetch.io/trello.com/w/512/h/512/logo" },
+  { id: "asana", name: "Asana", logo: "https://cdn.brandfetch.io/asana.com/w/512/h/512/logo" },
+  { id: "dropbox", name: "Dropbox", logo: "https://cdn.brandfetch.io/dropbox.com/w/512/h/512/logo" },
+  { id: "intercom", name: "Intercom", logo: "https://cdn.brandfetch.io/intercom.com/w/512/h/512/logo" },
 ];
 
 export function IntegrationSolarSystem({ 
