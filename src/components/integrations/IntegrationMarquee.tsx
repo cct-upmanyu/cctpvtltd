@@ -7,7 +7,7 @@ export const IntegrationMarquee = () => {
   const row2Apps = integrations.slice(Math.ceil(integrations.length / 2));
 
   return (
-    <div className="relative w-full py-12">
+    <div className="relative w-full py-16">
       {/* Dark gradient background using design tokens */}
       <div className="absolute inset-0 bg-dark-gradient rounded-3xl overflow-hidden">
         {/* Subtle glow effects */}
@@ -15,20 +15,20 @@ export const IntegrationMarquee = () => {
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 py-8">
+      <div className="relative z-10 py-10">
         {/* Row 1 - Scrolling Left */}
-        <div className="overflow-hidden mb-4">
+        <div className="overflow-hidden mb-6">
           <div className="flex animate-marquee-left">
             {[...row1Apps, ...row1Apps].map((app, index) => (
               <div
                 key={`row1-${app.id}-${index}`}
-                className="flex-shrink-0 mx-2"
+                className="flex-shrink-0 mx-3"
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white shadow-md flex items-center justify-center hover:scale-110 transition-all duration-300">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-white shadow-lg flex items-center justify-center hover:scale-105 transition-all duration-300">
                   <img
                     src={app.logo}
                     alt={app.name}
-                    className="w-8 h-8 md:w-10 md:h-10 object-contain"
+                    className="w-12 h-12 md:w-14 md:h-14 object-contain"
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = 'none';
                     }}
@@ -45,13 +45,13 @@ export const IntegrationMarquee = () => {
             {[...row2Apps, ...row2Apps].map((app, index) => (
               <div
                 key={`row2-${app.id}-${index}`}
-                className="flex-shrink-0 mx-2"
+                className="flex-shrink-0 mx-3"
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white shadow-md flex items-center justify-center hover:scale-110 transition-all duration-300">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-white shadow-lg flex items-center justify-center hover:scale-105 transition-all duration-300">
                   <img
                     src={app.logo}
                     alt={app.name}
-                    className="w-8 h-8 md:w-10 md:h-10 object-contain"
+                    className="w-12 h-12 md:w-14 md:h-14 object-contain"
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = 'none';
                     }}
@@ -67,7 +67,7 @@ export const IntegrationMarquee = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex justify-center mt-8"
+          className="flex justify-center mt-10"
         >
           <a
             href="#integrations"
