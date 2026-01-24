@@ -14,20 +14,20 @@ export const IntegrationMarquee = () => {
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
 
-        <div className="relative z-10">
+        <div className="relative z-10 space-y-8">
           {/* Row 1 - Scrolling Left */}
-          <div className="overflow-hidden mb-6">
+          <div className="overflow-hidden">
             <div className="flex animate-marquee-left">
               {[...row1Apps, ...row1Apps].map((app, index) => (
                 <div
                   key={`row1-${app.id}-${index}`}
-                  className="flex-shrink-0 mx-3"
+                  className="flex-shrink-0 mx-4"
                 >
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-white shadow-lg flex items-center justify-center hover:scale-105 transition-all duration-300">
+                  <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-2xl bg-white shadow-lg flex items-center justify-center hover:scale-105 transition-all duration-300">
                     <img
                       src={app.logo}
                       alt={app.name}
-                      className="w-12 h-12 md:w-14 md:h-14 object-contain"
+                      className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
                       }}
@@ -44,13 +44,13 @@ export const IntegrationMarquee = () => {
               {[...row2Apps, ...row2Apps].map((app, index) => (
                 <div
                   key={`row2-${app.id}-${index}`}
-                  className="flex-shrink-0 mx-3"
+                  className="flex-shrink-0 mx-4"
                 >
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-white shadow-lg flex items-center justify-center hover:scale-105 transition-all duration-300">
+                  <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-2xl bg-white shadow-lg flex items-center justify-center hover:scale-105 transition-all duration-300">
                     <img
                       src={app.logo}
                       alt={app.name}
-                      className="w-12 h-12 md:w-14 md:h-14 object-contain"
+                      className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
                       }}
