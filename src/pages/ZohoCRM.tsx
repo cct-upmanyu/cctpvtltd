@@ -482,6 +482,61 @@ export default function ZohoCRM() {
         </div>
       </section>
 
+      {/* Who This Is For Section */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-2 bg-[#3FE0F0]/10 text-[#00A0B0] text-sm font-bold rounded-full mb-4">
+                Is This For You?
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+                Who This Zoho CRM Solution Is Designed For
+              </h2>
+            </div>
+
+            <div className="bg-gradient-to-br from-[#F5F7FB] to-white rounded-2xl p-8 md:p-10 border border-gray-200">
+              <p className="text-lg text-[#374151] mb-8">
+                This Zoho CRM implementation approach is built for businesses that:
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-4 mb-8">
+                {[
+                  "Have outgrown spreadsheets, basic CRMs, or fragmented sales tools",
+                  "Struggle with inconsistent follow-ups, poor pipeline visibility, or unreliable reports",
+                  "Want CRM to enforce sales process, not just store contact data",
+                  "Have tried CRM before but faced low adoption or poor configuration",
+                  "Are planning to scale sales, marketing, or operations over the next 2–5 years"
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-gray-100"
+                  >
+                    <CheckCircle className="w-5 h-5 text-[#3FE0F0] flex-shrink-0 mt-0.5" />
+                    <span className="text-[#374151]">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="bg-gradient-to-r from-[#3FE0F0]/10 to-[#4DA3FF]/10 rounded-xl p-6 border border-[#3FE0F0]/20">
+                <p className="text-lg text-[#111827] font-medium text-center">
+                  If your CRM feels like extra work instead of a growth system, this page is for you.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* What Zoho CRM Solves - LIGHT SECTION */}
       <section className="bg-[#F5F7FB] py-20 md:py-28">
         <div className="container-custom">
@@ -670,6 +725,99 @@ export default function ZohoCRM() {
         </div>
       </section>
 
+      {/* Real Business Scenarios Section */}
+      <section className="bg-gradient-to-br from-[#0B1C3D] via-[#0F2A5F] to-[#0B1C3D] py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <span className="inline-block px-4 py-2 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-bold rounded-full mb-4">
+              Real-World Impact
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
+              How Zoho CRM Solves Real Business Scenarios
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                scenario: "Growing Sales Team With No Process Control",
+                problem: "Sales reps follow different approaches, forecasts are unreliable, and managers lack visibility.",
+                solution: "Our Zoho CRM implementation enforces deal stages using Blueprints, automates follow-ups, and provides real-time dashboards for leadership.",
+                icon: Users
+              },
+              {
+                scenario: "Marketing Leads Not Converting to Sales",
+                problem: "Leads arrive from ads, website forms, and referrals but go cold due to delayed follow-up.",
+                solution: "We design CRM automation that auto-assigns leads, triggers sequences, and tracks response SLAs across channels.",
+                icon: TrendingUp
+              },
+              {
+                scenario: "CRM Data Is Messy and Untrusted",
+                problem: "Duplicate contacts, inconsistent fields, and outdated records make reporting useless.",
+                solution: "We fix this through structured data cleanup, validation rules, role-based permissions, and governance.",
+                icon: Database
+              },
+              {
+                scenario: "CRM Doesn't Match Business Operations",
+                problem: "Standard CRM objects don't reflect how the business actually works.",
+                solution: "We customize Zoho CRM using Blueprints, Deluge scripting, Canvas UI, and when required, Zoho Creator — without overengineering.",
+                icon: Workflow
+              }
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.scenario}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-[#0B1C3D]/60 rounded-2xl p-8 border border-[#3FE0F0]/20 hover:border-[#3FE0F0]/40 transition-colors"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#3FE0F0]/10 flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-[#3FE0F0]" />
+                    </div>
+                    <h3 className="text-lg font-bold text-[#FFFFFF]">{item.scenario}</h3>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <AlertTriangle className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <p className="text-[#CBD5E1] text-sm">{item.problem}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-[#3FE0F0] flex-shrink-0 mt-0.5" />
+                      <p className="text-[#E5E7EB] text-sm">{item.solution}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-12 text-center"
+          >
+            <div className="inline-block bg-gradient-to-r from-[#3FE0F0]/20 to-[#4DA3FF]/20 rounded-xl px-8 py-4 border border-[#3FE0F0]/30">
+              <p className="text-[#FFFFFF] text-lg font-medium">
+                "Yes — this is exactly our situation."
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Implementation Methodology - Dark Section */}
       <section className="bg-[#0B1C3D] py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
@@ -781,6 +929,82 @@ export default function ZohoCRM() {
               </ul>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Design Philosophy Section - LIGHT */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-2 bg-[#3FE0F0]/10 text-[#00A0B0] text-sm font-bold rounded-full mb-4">
+                Our Approach
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+                Our Zoho CRM Design Philosophy
+              </h2>
+              <p className="text-lg text-[#374151]">
+                Most failed CRM projects fail due to design mistakes, not software limitations.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-10">
+              {[
+                {
+                  title: "Process First, Software Second",
+                  description: "We map how your business actually sells before configuring a single module.",
+                  number: "01"
+                },
+                {
+                  title: "Governance Without Friction",
+                  description: "Automation and controls are added only where they increase clarity and accountability.",
+                  number: "02"
+                },
+                {
+                  title: "Scalability Without Rebuilds",
+                  description: "Your CRM should evolve with your business — not require replacement every 18 months.",
+                  number: "03"
+                },
+                {
+                  title: "Adoption Is a Design Outcome",
+                  description: "If users resist CRM, the design is wrong. We fix adoption at the architecture level.",
+                  number: "04"
+                }
+              ].map((principle, index) => (
+                <motion.div
+                  key={principle.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative bg-gradient-to-br from-[#F5F7FB] to-white rounded-2xl p-6 border border-gray-200 hover:border-[#3FE0F0]/40 transition-colors group"
+                >
+                  <span className="absolute -top-4 -left-2 text-5xl font-bold text-[#3FE0F0]/20 group-hover:text-[#3FE0F0]/30 transition-colors">
+                    {principle.number}
+                  </span>
+                  <h3 className="text-lg font-bold text-[#111827] mb-2 pt-4">{principle.title}</h3>
+                  <p className="text-[#374151]">{principle.description}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-r from-[#0B1C3D] to-[#0F2A5F] rounded-2xl p-8 text-center"
+            >
+              <p className="text-[#E5E7EB] text-lg">
+                This philosophy is why our implementations last — and why many clients come to us to{" "}
+                <span className="text-[#3FE0F0] font-semibold">fix failed CRM setups</span>.
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
