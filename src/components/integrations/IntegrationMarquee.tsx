@@ -1,12 +1,7 @@
 import { motion } from "framer-motion";
 import { integrations } from "@/data/integrationsData";
-import cctLogo from "@/assets/cct-logo.png";
 
-interface IntegrationMarqueeProps {
-  showMoreCount?: number;
-}
-
-export const IntegrationMarquee = ({ showMoreCount = 100 }: IntegrationMarqueeProps) => {
+export const IntegrationMarquee = () => {
   // Split apps into two rows for variety
   const row1Apps = integrations.slice(0, Math.ceil(integrations.length / 2));
   const row2Apps = integrations.slice(Math.ceil(integrations.length / 2));
@@ -21,30 +16,6 @@ export const IntegrationMarquee = ({ showMoreCount = 100 }: IntegrationMarqueePr
       </div>
 
       <div className="relative z-10 py-8">
-        {/* Central Hub - ClubCode Logo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-8"
-        >
-          <div className="relative">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-white shadow-2xl flex items-center justify-center">
-              <img
-                src={cctLogo}
-                alt="ClubCode Technology"
-                className="w-14 h-14 md:w-16 md:h-16 object-contain"
-              />
-            </div>
-            {/* Pulse ring */}
-            <motion.div
-              className="absolute inset-0 rounded-2xl border-2 border-white/40"
-              animate={{ scale: [1, 1.3, 1], opacity: [0.6, 0, 0.6] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </div>
-        </motion.div>
-
         {/* Row 1 - Scrolling Left */}
         <div className="overflow-hidden mb-4">
           <div className="flex animate-marquee-left">
@@ -53,11 +24,11 @@ export const IntegrationMarquee = ({ showMoreCount = 100 }: IntegrationMarqueePr
                 key={`row1-${app.id}-${index}`}
                 className="flex-shrink-0 mx-2"
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 group">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white shadow-md flex items-center justify-center hover:scale-110 transition-all duration-300">
                   <img
                     src={app.logo}
                     alt={app.name}
-                    className="w-8 h-8 md:w-10 md:h-10 object-contain filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all"
+                    className="w-8 h-8 md:w-10 md:h-10 object-contain"
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = 'none';
                     }}
@@ -76,11 +47,11 @@ export const IntegrationMarquee = ({ showMoreCount = 100 }: IntegrationMarqueePr
                 key={`row2-${app.id}-${index}`}
                 className="flex-shrink-0 mx-2"
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 group">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white shadow-md flex items-center justify-center hover:scale-110 transition-all duration-300">
                   <img
                     src={app.logo}
                     alt={app.name}
-                    className="w-8 h-8 md:w-10 md:h-10 object-contain filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all"
+                    className="w-8 h-8 md:w-10 md:h-10 object-contain"
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = 'none';
                     }}
