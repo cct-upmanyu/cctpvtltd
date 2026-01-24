@@ -61,11 +61,11 @@ export function IntegrationSolarSystem({
 
   return (
     <TooltipProvider delayDuration={100}>
-      <div className="relative w-full py-16">
-        {/* Blue gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(200,85%,55%)] via-[hsl(195,80%,50%)] to-[hsl(210,85%,45%)] rounded-3xl overflow-hidden">
-          {/* Radial glow from center */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.15)_0%,transparent_60%)]" />
+      <div className="relative w-full py-16 mt-8">
+        {/* White/light background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-3xl overflow-hidden border border-gray-200">
+          {/* Subtle radial glow from center */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.08)_0%,transparent_60%)]" />
         </div>
 
         <div className="relative z-10 flex items-center justify-center min-h-[520px] md:min-h-[580px]">
@@ -75,7 +75,7 @@ export function IntegrationSolarSystem({
             
             {/* Inner Orbit Ring - Rotates clockwise */}
             <div 
-              className="absolute w-[280px] h-[280px] md:w-[320px] md:h-[320px] rounded-full border border-dashed border-white/30"
+              className="absolute w-[280px] h-[280px] md:w-[320px] md:h-[320px] rounded-full border border-dashed border-primary/30"
               style={{ animation: 'spin 30s linear infinite' }}
             >
               {innerRing.map((app, index) => {
@@ -115,7 +115,7 @@ export function IntegrationSolarSystem({
 
             {/* Middle Orbit Ring - Rotates counter-clockwise */}
             <div 
-              className="absolute w-[440px] h-[440px] md:w-[520px] md:h-[520px] rounded-full border border-dashed border-white/25 hidden md:block"
+              className="absolute w-[440px] h-[440px] md:w-[520px] md:h-[520px] rounded-full border border-dashed border-primary/25 hidden md:block"
               style={{ animation: 'counter-spin 45s linear infinite' }}
             >
               {middleRing.map((app, index) => {
@@ -155,7 +155,7 @@ export function IntegrationSolarSystem({
 
             {/* Outer Orbit Ring - Rotates clockwise slowly */}
             <div 
-              className="absolute w-[640px] h-[640px] md:w-[760px] md:h-[760px] rounded-full border border-dashed border-white/20 hidden lg:block"
+              className="absolute w-[640px] h-[640px] md:w-[700px] md:h-[700px] rounded-full border border-dashed border-primary/20 hidden lg:block"
               style={{ animation: 'spin 60s linear infinite' }}
             >
               {outerRing.map((app, index) => {
@@ -221,7 +221,7 @@ export function IntegrationSolarSystem({
               
               {/* Animated pulse ring */}
               <motion.div
-                className="absolute inset-0 rounded-2xl border-2 border-white/40"
+                className="absolute inset-0 rounded-2xl border-2 border-primary/40"
                 animate={{ scale: [1, 1.3, 1], opacity: [0.6, 0, 0.6] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               />
@@ -233,9 +233,9 @@ export function IntegrationSolarSystem({
             {[...Array(8)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-2 h-2 bg-white rounded-full"
+                className="absolute w-2 h-2 bg-primary rounded-full"
                 style={{
-                  boxShadow: '0 0 10px 2px rgba(255,255,255,0.8)',
+                  boxShadow: '0 0 10px 2px rgba(59,130,246,0.6)',
                 }}
                 animate={{
                   x: [0, Math.cos(i * 45 * Math.PI / 180) * 150, Math.cos(i * 45 * Math.PI / 180) * 300],
@@ -260,7 +260,7 @@ export function IntegrationSolarSystem({
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white/90 backdrop-blur-sm text-[hsl(200,85%,40%)] font-bold px-6 py-3 rounded-full shadow-lg"
+            className="bg-primary text-white font-bold px-6 py-3 rounded-full shadow-lg"
           >
             {showMoreCount}+ More Apps
           </motion.div>
