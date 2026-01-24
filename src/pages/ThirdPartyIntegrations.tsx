@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { IntegrationsGrid } from "@/components/integrations/IntegrationsGrid";
-import { IntegrationSolarSystem } from "@/components/integrations/IntegrationSolarSystem";
+import { IntegrationMarquee } from "@/components/integrations/IntegrationMarquee";
 import { StatsInfographic } from "@/components/infographics/StatsInfographic";
 import { 
   ArrowRight, 
@@ -123,7 +123,7 @@ const ThirdPartyIntegrations = () => {
               </p>
             </motion.div>
 
-            <IntegrationSolarSystem showMoreCount={100} />
+            <IntegrationMarquee showMoreCount={100} />
           </div>
         </section>
 
