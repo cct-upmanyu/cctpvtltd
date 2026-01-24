@@ -8,8 +8,8 @@ export const IntegrationMarquee = () => {
 
   return (
     <div className="relative w-full">
-      {/* Dark gradient background using design tokens */}
-      <div className="relative bg-dark-gradient rounded-3xl overflow-hidden py-16">
+      {/* Marquee container - no extra background since parent section is dark */}
+      <div className="relative overflow-hidden py-8">
         {/* Subtle glow effects */}
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
@@ -23,7 +23,7 @@ export const IntegrationMarquee = () => {
                   key={`row1-${app.id}-${index}`}
                   className="flex-shrink-0 mx-4"
                 >
-                  <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-2xl bg-white shadow-lg flex items-center justify-center hover:scale-105 transition-all duration-300">
+                  <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-2xl bg-white shadow-lg flex items-center justify-center hover:scale-110 transition-all duration-300">
                     <img
                       src={app.logo}
                       alt={app.name}
@@ -46,7 +46,7 @@ export const IntegrationMarquee = () => {
                   key={`row2-${app.id}-${index}`}
                   className="flex-shrink-0 mx-4"
                 >
-                  <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-2xl bg-white shadow-lg flex items-center justify-center hover:scale-105 transition-all duration-300">
+                  <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-2xl bg-white shadow-lg flex items-center justify-center hover:scale-110 transition-all duration-300">
                     <img
                       src={app.logo}
                       alt={app.name}
@@ -63,12 +63,12 @@ export const IntegrationMarquee = () => {
         </div>
       </div>
 
-      {/* Button - Outside the dark box */}
+      {/* Button */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="flex justify-center mt-8"
+        className="flex justify-center mt-12"
       >
         <a
           href="#integrations"
