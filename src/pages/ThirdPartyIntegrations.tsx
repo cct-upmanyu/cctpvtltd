@@ -92,33 +92,39 @@ const ThirdPartyIntegrations = () => {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="bg-white section-padding">
+        {/* Stats + Integration Marquee - Combined Dark Section */}
+        <section className="bg-dark-gradient section-padding">
           <div className="container-custom">
-            <StatsInfographic
-              stats={integrationStats}
-              variant="inline"
-              animated={true}
-            />
-          </div>
-        </section>
+            {/* Stats */}
+            <div className="mb-16">
+              <StatsInfographic
+                stats={integrationStats}
+                variant="inline"
+                animated={true}
+              />
+            </div>
 
-        {/* Integration Solar System Visualization */}
-        <section className="bg-white section-padding">
-          <div className="container-custom">
+            {/* Divider */}
+            <div className="flex items-center justify-center mb-16">
+              <div className="h-px bg-white/20 flex-1" />
+              <div className="mx-6 w-3 h-3 rounded-full bg-primary" />
+              <div className="h-px bg-white/20 flex-1" />
+            </div>
+
+            {/* Integration Marquee Header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-8"
+              className="text-center mb-12"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
                 Integration Hub
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Your Apps, Connected
               </h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              <p className="text-white/70 text-lg max-w-2xl mx-auto">
                 We integrate all your favorite business applications into a unified ecosystem.
               </p>
             </motion.div>
