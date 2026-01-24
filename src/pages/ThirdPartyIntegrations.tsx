@@ -123,7 +123,7 @@ const ThirdPartyIntegrations = () => {
               </p>
             </motion.div>
 
-            <IntegrationMarquee showMoreCount={100} />
+            <IntegrationMarquee />
           </div>
         </section>
 
