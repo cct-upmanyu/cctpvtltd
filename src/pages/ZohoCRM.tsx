@@ -39,7 +39,8 @@ import {
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import heroCrmSolutions from "@/assets/hero-crm-solutions.jpg";
-import zohoCrmInterface from "@/assets/zoho-crm-interface.jpg";
+import crmStrugglesInfographic from "@/assets/crm-struggles-infographic.jpg";
+import crmSolutionsBenefits from "@/assets/crm-solutions-benefits.jpg";
 
 // What Zoho CRM Solves
 const whatCRMSolves = [
@@ -462,50 +463,30 @@ export default function ZohoCRM() {
         </div>
       </section>
 
-      {/* Interface Preview Section */}
-      <section className="bg-[#F5F7FB] pt-12 pb-20">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-5xl mx-auto"
-          >
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-border/30">
-              <img 
-                src={zohoCrmInterface} 
-                alt="Zoho CRM Sales Dashboard Interface" 
-                className="w-full h-auto"
-              />
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Who This Is For Section */}
       <section className="bg-white py-20 md:py-28">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="text-center mb-12">
-              <span className="inline-block px-4 py-2 bg-[#3FE0F0]/10 text-[#00A0B0] text-sm font-bold rounded-full mb-4">
-                Is This For You?
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
-                Who This Zoho CRM Solution Is Designed For
-              </h2>
-            </div>
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-2 bg-[#3FE0F0]/10 text-[#00A0B0] text-sm font-bold rounded-full mb-4">
+              Is This For You?
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+              Who This Zoho CRM Solution Is Designed For
+            </h2>
+          </div>
 
-            <div className="bg-gradient-to-br from-[#F5F7FB] to-white rounded-2xl p-8 md:p-10 border border-gray-200">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
               <p className="text-lg text-[#374151] mb-8">
                 This Zoho CRM implementation approach is built for businesses that:
               </p>
               
-              <div className="grid md:grid-cols-2 gap-4 mb-8">
+              <div className="space-y-4 mb-8">
                 {[
                   "Have outgrown spreadsheets, basic CRMs, or fragmented sales tools",
                   "Struggle with inconsistent follow-ups, poor pipeline visibility, or unreliable reports",
@@ -519,7 +500,7 @@ export default function ZohoCRM() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-gray-100"
+                    className="flex items-start gap-3 p-4 bg-gradient-to-br from-[#F5F7FB] to-white rounded-xl shadow-sm border border-gray-100"
                   >
                     <CheckCircle className="w-5 h-5 text-[#3FE0F0] flex-shrink-0 mt-0.5" />
                     <span className="text-[#374151]">{item}</span>
@@ -532,8 +513,43 @@ export default function ZohoCRM() {
                   If your CRM feels like extra work instead of a growth system, this page is for you.
                 </p>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* Right: Infographic */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src={crmStrugglesInfographic} 
+                  alt="Business challenges without proper CRM - scattered data, missed follow-ups, poor visibility" 
+                  className="w-full h-auto"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C3D]/60 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+                    <p className="text-[#111827] font-semibold text-center">
+                      Without proper CRM: Chaos, missed opportunities & lost revenue
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* Floating Labels */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="absolute -top-4 -right-4 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg"
+              >
+                ⚠️ Common Pain Points
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -547,7 +563,7 @@ export default function ZohoCRM() {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <span className="inline-block px-4 py-2 bg-[#3FE0F0]/10 text-[#00A0B0] text-sm font-bold rounded-full mb-4">
-              The Challenge
+              The Solution
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
               What Zoho CRM Solves for 
@@ -557,6 +573,22 @@ export default function ZohoCRM() {
               Zoho CRM isn't just a contact database—it's the central hub for managing leads, 
               deals, customer communication, and revenue forecasting.
             </p>
+          </motion.div>
+
+          {/* Benefits Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto mb-16"
+          >
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#3FE0F0]/20">
+              <img 
+                src={crmSolutionsBenefits} 
+                alt="Zoho CRM unified solution - centralized data, automated workflows, real-time analytics" 
+                className="w-full h-auto"
+              />
+            </div>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
