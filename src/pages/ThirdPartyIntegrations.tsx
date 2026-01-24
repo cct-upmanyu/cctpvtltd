@@ -92,44 +92,41 @@ const ThirdPartyIntegrations = () => {
           </div>
         </section>
 
-        {/* Stats + Integration Marquee - Light Theme matching Hero */}
-        <section className="bg-[hsl(0,0%,96%)] section-padding relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none opacity-30">
-            <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl" />
+        {/* Stats Section - Clean White with Border */}
+        <section className="bg-white py-12 border-b border-border">
+          <div className="container-custom">
+            <StatsInfographic
+              stats={integrationStats}
+              variant="inline"
+              animated={true}
+            />
           </div>
+        </section>
+
+        {/* Integration Marquee - Dark Themed Section */}
+        <section className="bg-dark-gradient section-padding relative overflow-hidden">
+          {/* Subtle animated background particles */}
+          <div className="absolute inset-0 particles-bg opacity-50" />
+          
+          {/* Glow accents */}
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
 
           <div className="container-custom relative z-10">
-            {/* Stats */}
-            <div className="mb-16">
-              <StatsInfographic
-                stats={integrationStats}
-                variant="inline"
-                animated={true}
-              />
-            </div>
-
-            {/* Divider */}
-            <div className="flex items-center justify-center mb-16">
-              <div className="h-px bg-foreground/10 flex-1" />
-              <div className="mx-6 w-3 h-3 rounded-full bg-primary" />
-              <div className="h-px bg-foreground/10 flex-1" />
-            </div>
-
-            {/* Integration Marquee Header */}
+            {/* Section Header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-16"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <span className="inline-block px-5 py-2 rounded-full border border-primary/40 bg-primary/10 text-primary text-sm font-medium mb-6">
                 Integration Hub
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5">
                 Your Apps, Connected
               </h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              <p className="text-dark-text-secondary text-lg max-w-2xl mx-auto">
                 We integrate all your favorite business applications into a unified ecosystem.
               </p>
             </motion.div>
