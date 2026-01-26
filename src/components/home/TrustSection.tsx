@@ -74,43 +74,12 @@ function AnimatedCounter({ value, suffix = "" }: { value: number | string; suffi
 
 export function TrustSection() {
   return (
-    <section className="bg-gradient-to-br from-[#0B1C3D] via-[#0F2A5F] to-[#0B1C3D] section-padding relative overflow-hidden">
-      {/* AI-themed background effects */}
+    <section className="bg-gradient-to-b from-[#0B1C3D] via-[#102850] to-[#0B1C3D] section-padding relative overflow-hidden">
+      {/* Subtle radial glow effects */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Animated gradient orbs */}
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#3FE0F0]/15 rounded-full blur-[120px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#8B5CF6]/12 rounded-full blur-[100px]"
-          animate={{
-            scale: [1.1, 1, 1.1],
-            opacity: [0.12, 0.2, 0.12],
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
-        <motion.div 
-          className="absolute top-1/2 right-1/3 w-[300px] h-[300px] bg-[#4DA3FF]/10 rounded-full blur-[80px]"
-          animate={{
-            x: [0, 50, 0],
-            opacity: [0.1, 0.18, 0.1],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        
-        {/* Subtle grid pattern overlay */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(63,224,240,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(63,224,240,0.3) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
-          }}
-        />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#1a3a6e]/40 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] bg-[#0F2A5F]/50 rounded-full blur-[80px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-[#0F2A5F]/50 rounded-full blur-[80px]" />
       </div>
 
       <div className="container-custom relative z-10">
