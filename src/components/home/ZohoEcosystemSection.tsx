@@ -37,9 +37,10 @@ const zohoApps = [
   { name: "Sign", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/sign.png", color: "#00BCD4", description: "Digital Signature Solution" },
 ];
 
-// Split apps into 2 orbits (inner + outer) for cleaner visualization
-const innerOrbit = zohoApps.slice(0, 6);
-const outerOrbit = zohoApps.slice(6, 18);
+// Split apps into 3 orbits with different starting angles for natural distribution
+const innerOrbit = zohoApps.slice(0, 5);
+const middleOrbit = zohoApps.slice(5, 11);
+const outerOrbit = zohoApps.slice(11, 18);
 
 interface OrbitingAppProps {
   app: { name: string; logo: string; color: string; description: string };
@@ -144,7 +145,7 @@ const OrbitingApp = ({
 };
 
 export function ZohoEcosystemSection() {
-  const [rotationAngles, setRotationAngles] = useState({ inner: 0, outer: 180 });
+  const [rotationAngles, setRotationAngles] = useState({ inner: 0, middle: 120, outer: 240 });
   const [hoveredApp, setHoveredApp] = useState<string | null>(null);
   const [containerSize, setContainerSize] = useState({ width: 500, height: 500 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -165,14 +166,14 @@ export function ZohoEcosystemSection() {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
 
-  // Calculate radii based on container - proper spacing so center doesn't overlap
+  // Calculate radii based on container - larger radii for better spread
   const baseSize = Math.min(containerSize.width, containerSize.height);
-  const centerHubSize = 80; // Size of center hub
-  const innerRadius = baseSize * 0.25; // Inner orbit starts further out
-  const outerRadius = baseSize * 0.45; // Single outer orbit
+  const innerRadius = baseSize * 0.20;
+  const middleRadius = baseSize * 0.35;
+  const outerRadius = baseSize * 0.50;
 
   // Slow speeds for premium, calm feel
-  const speeds = { inner: 0.006, outer: -0.004 }; // Opposite directions
+  const speeds = { inner: 0.008, middle: 0.006, outer: 0.004 };
 
   useAnimationFrame((time) => {
     if (hoveredApp) return; // Pause all on hover
@@ -182,6 +183,7 @@ export function ZohoEcosystemSection() {
     
     setRotationAngles(prev => ({
       inner: prev.inner + speeds.inner * delta,
+      middle: prev.middle - speeds.middle * delta, // Opposite direction
       outer: prev.outer + speeds.outer * delta,
     }));
   });
@@ -268,14 +270,23 @@ export function ZohoEcosystemSection() {
               ref={containerRef}
               className="relative w-full aspect-square max-w-[600px] lg:max-w-none lg:w-[650px] lg:h-[650px] flex items-center justify-center"
             >
-              {/* Concentric ring backgrounds - only 2 orbits now */}
+              {/* Concentric ring backgrounds */}
               <div 
                 className="absolute rounded-full"
                 style={{ 
-                  width: `${outerRadius * 2 + 40}px`, 
-                  height: `${outerRadius * 2 + 40}px`,
-                  border: '1px solid rgba(99, 102, 241, 0.15)',
+                  width: `${outerRadius * 2 + 60}px`, 
+                  height: `${outerRadius * 2 + 60}px`,
+                  border: '1px solid rgba(99, 102, 241, 0.12)',
                   background: 'radial-gradient(circle, transparent 70%, rgba(99, 102, 241, 0.03) 100%)'
+                }}
+              />
+              <div 
+                className="absolute rounded-full"
+                style={{ 
+                  width: `${middleRadius * 2 + 40}px`, 
+                  height: `${middleRadius * 2 + 40}px`,
+                  border: '1px solid rgba(99, 102, 241, 0.18)',
+                  background: 'radial-gradient(circle, transparent 70%, rgba(99, 102, 241, 0.04) 100%)'
                 }}
               />
               <div 
@@ -288,12 +299,12 @@ export function ZohoEcosystemSection() {
                 }}
               />
 
-              {/* Decorative dashed ring - only one */}
+              {/* Decorative dashed rings */}
               <motion.div
-                className="absolute rounded-full border border-dashed opacity-20"
+                className="absolute rounded-full border border-dashed opacity-30"
                 style={{ 
-                  width: `${outerRadius * 2 + 60}px`, 
-                  height: `${outerRadius * 2 + 60}px`,
+                  width: `${outerRadius * 2 + 80}px`, 
+                  height: `${outerRadius * 2 + 80}px`,
                   borderColor: '#6366F1'
                 }}
                 animate={{ rotate: 360 }}
@@ -315,6 +326,21 @@ export function ZohoEcosystemSection() {
                 />
               ))}
 
+              {/* Middle orbit apps */}
+              {middleOrbit.map((app, index) => (
+                <OrbitingApp
+                  key={app.name}
+                  app={app}
+                  index={index}
+                  total={middleOrbit.length}
+                  orbitRadius={middleRadius}
+                  rotationOffset={rotationAngles.middle}
+                  startAngleOffset={-60}
+                  onHover={handleHover}
+                  hoveredApp={hoveredApp}
+                />
+              ))}
+
               {/* Inner orbit apps */}
               {innerOrbit.map((app, index) => (
                 <OrbitingApp
@@ -324,7 +350,7 @@ export function ZohoEcosystemSection() {
                   total={innerOrbit.length}
                   orbitRadius={innerRadius}
                   rotationOffset={rotationAngles.inner}
-                  startAngleOffset={0}
+                  startAngleOffset={-30}
                   onHover={handleHover}
                   hoveredApp={hoveredApp}
                 />
