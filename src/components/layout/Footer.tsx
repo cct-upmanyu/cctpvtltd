@@ -49,11 +49,11 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
             {/* Brand Column */}
             <div className="lg:col-span-2">
-              <Link to="/" className="flex items-center mb-6">
+              <Link to="/" className="inline-block mb-6">
                 <img 
                   src={cctLogoFooter} 
                   alt="ClubCode Technology" 
-                  className="h-36 w-auto"
+                  className="h-72 w-auto -ml-4"
                 />
               </Link>
               <p className="text-[#64748B] mb-6 max-w-sm">
