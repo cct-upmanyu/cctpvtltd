@@ -19,7 +19,14 @@ import {
   ArrowDown,
   Clock,
   Target,
-  BarChart3
+  BarChart3,
+  Headphones,
+  Server,
+  FileText,
+  Package,
+  Landmark,
+  GraduationCap,
+  Stethoscope
 } from "lucide-react";
 import dataMigrationHero from "@/assets/data-migration-hero.jpg";
 
@@ -112,27 +119,75 @@ const realWorldScenarios = [
   {
     icon: Scale,
     title: "Legal Firms",
-    migration: "Lawmatics / MyCase → Zoho",
-    description: "Case management, client data, and billing history migrated with full document preservation.",
+    migration: "Lawmatics / MyCase → Zoho CRM + Creator",
+    description: "Case management, client intake forms, billing history, and legal documents migrated with full relationship preservation and compliance-safe archiving.",
   },
   {
     icon: Users,
-    title: "Staffing Agencies",
-    migration: "JobDiva → Zoho",
-    description: "Candidate databases, placement records, and client relationships migrated seamlessly.",
+    title: "Staffing & Recruitment Agencies",
+    migration: "JobDiva / Bullhorn → Zoho Recruit + CRM",
+    description: "Candidate databases, placement records, client relationships, and commission structures migrated with pipeline rebuild and automated workflows.",
   },
   {
     icon: Building2,
-    title: "Finance Companies",
-    migration: "QuickBooks/Xero → Zoho Books",
-    description: "Chart of accounts, transaction history, and vendor data migrated with reconciliation.",
+    title: "Finance & Accounting Companies",
+    migration: "QuickBooks / Xero / Tally → Zoho Books",
+    description: "Chart of accounts, multi-year transaction history, vendor records, and tax configurations migrated with full reconciliation and audit trails.",
   },
   {
     icon: ShoppingCart,
-    title: "E-commerce Businesses",
-    migration: "Shopify → Zoho Inventory",
-    description: "Product catalogs, order history, and customer data migrated with sync setup.",
+    title: "E-commerce & Retail Businesses",
+    migration: "Shopify / WooCommerce / Magento → Zoho Inventory + CRM",
+    description: "Product catalogs, order history, customer profiles, and inventory levels migrated with real-time sync setup across channels.",
   },
+  {
+    icon: Headphones,
+    title: "Customer Support Teams",
+    migration: "Zendesk / Freshdesk → Zoho Desk + CRM",
+    description: "Thousands of support tickets, SLA configurations, agent assignments, macros, and customer interaction history migrated into a unified support-to-sales flow.",
+  },
+  {
+    icon: Server,
+    title: "ERP & Enterprise Systems",
+    migration: "NetSuite / SAP / Dynamics → Zoho One",
+    description: "Multi-module ERP data including sales pipelines, inventory, procurement, and financials consolidated into Zoho One with custom workflow rebuilds.",
+  },
+  {
+    icon: FileText,
+    title: "Legacy Desktop & Custom Systems",
+    migration: "ACT! / GoldMine / FileMaker / Access → Zoho CRM",
+    description: "Fragmented contact records, unstructured notes, and duplicate entries cleaned, standardized, and imported with attachment preservation and modern workflows.",
+  },
+  {
+    icon: Stethoscope,
+    title: "Healthcare & Medical Practices",
+    migration: "Custom EHR / Spreadsheets → Zoho Creator + CRM",
+    description: "Patient databases, appointment histories, billing records, and referral tracking migrated with HIPAA-compliant data handling and custom module builds.",
+  },
+];
+
+// Specific migration service routes for SEO
+const migrationServices = [
+  { from: "Salesforce", to: "Zoho CRM", category: "CRM" },
+  { from: "HubSpot", to: "Zoho CRM", category: "CRM" },
+  { from: "Pipedrive", to: "Zoho CRM", category: "CRM" },
+  { from: "Microsoft Dynamics", to: "Zoho CRM", category: "CRM" },
+  { from: "ACT!", to: "Zoho CRM", category: "CRM" },
+  { from: "GoldMine", to: "Zoho CRM", category: "CRM" },
+  { from: "SugarCRM", to: "Zoho CRM", category: "CRM" },
+  { from: "Insightly", to: "Zoho CRM", category: "CRM" },
+  { from: "QuickBooks", to: "Zoho Books", category: "Accounting" },
+  { from: "Xero", to: "Zoho Books", category: "Accounting" },
+  { from: "NetSuite", to: "Zoho One", category: "ERP" },
+  { from: "SAP Business One", to: "Zoho One", category: "ERP" },
+  { from: "Zendesk", to: "Zoho Desk", category: "Help Desk" },
+  { from: "Freshdesk", to: "Zoho Desk", category: "Help Desk" },
+  { from: "Jira", to: "Zoho Projects", category: "Help Desk" },
+  { from: "Shopify", to: "Zoho Inventory", category: "E-commerce" },
+  { from: "WooCommerce", to: "Zoho Inventory", category: "E-commerce" },
+  { from: "Magento", to: "Zoho Books", category: "E-commerce" },
+  { from: "Sage", to: "Zoho Books", category: "Accounting" },
+  { from: "MYOB", to: "Zoho Books", category: "Accounting" },
 ];
 
 export default function DataMigration() {
@@ -275,8 +330,6 @@ export default function DataMigration() {
           </div>
         </div>
         
-        {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* Features Strip - DARK SECTION */}
@@ -530,6 +583,7 @@ export default function DataMigration() {
       <section className="bg-dark-gradient section-padding relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-[#4DA3FF]/5 rounded-full blur-3xl" />
         </div>
         <div className="container-custom relative z-10">
           <motion.div
@@ -541,12 +595,12 @@ export default function DataMigration() {
             <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-4">
               Real-World Migration Scenarios
             </h2>
-            <p className="text-[#E5E7EB] text-lg max-w-2xl mx-auto">
-              Examples of complex migrations we've successfully completed
+            <p className="text-[#E5E7EB] text-lg max-w-3xl mx-auto">
+              From legacy desktop systems to enterprise ERPs — we've migrated businesses of every size across 15+ platforms into the Zoho ecosystem.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {realWorldScenarios.map((scenario, index) => {
               const Icon = scenario.icon;
               return (
@@ -555,7 +609,7 @@ export default function DataMigration() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.08 }}
                   className="bg-[#0B1C3D]/80 rounded-2xl p-6 border border-[#3FE0F0]/20 hover:border-[#3FE0F0]/40 hover-lift transition-all"
                 >
                   <div className="flex items-start gap-4">
@@ -565,7 +619,7 @@ export default function DataMigration() {
                     <div>
                       <h3 className="text-lg font-semibold text-[#FFFFFF] mb-1">{scenario.title}</h3>
                       <p className="text-[#3FE0F0] text-sm font-medium mb-2">{scenario.migration}</p>
-                      <p className="text-[#E5E7EB] text-sm">{scenario.description}</p>
+                      <p className="text-[#E5E7EB] text-sm leading-relaxed">{scenario.description}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -575,25 +629,81 @@ export default function DataMigration() {
         </div>
       </section>
 
-      {/* CTA - LIGHT SECTION */}
+      {/* Migration Services Grid - LIGHT SECTION */}
       <section className="bg-light-gradient section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+              Systems We Migrate From
+            </h2>
+            <p className="text-[#374151] text-lg max-w-2xl mx-auto">
+              From any CRM, ERP, accounting, help desk, or legacy system — we bring your data home to Zoho.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {migrationServices.map((service, index) => (
+              <motion.div
+                key={`${service.from}-${service.to}`}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.03 }}
+                className="flex items-center justify-between px-4 py-3 bg-white rounded-xl border border-gray-200 hover:border-[#3FE0F0]/40 hover:shadow-md transition-all group"
+              >
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="text-sm font-medium text-[#111827] truncate">{service.from}</span>
+                  <ArrowRight className="w-4 h-4 text-[#3FE0F0] flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                  <span className="text-sm font-medium text-[#3FE0F0] truncate">{service.to}</span>
+                </div>
+                <span className="text-xs text-[#374151]/60 ml-2 flex-shrink-0">{service.category}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mt-8 text-[#374151] text-sm"
+          >
+            Don't see your platform? We also migrate from <strong>SQL databases, Access, FileMaker, Excel-based CRMs, XML files</strong>, and any system that can export data.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* CTA - DARK SECTION */}
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#3FE0F0]/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
-              Ready to Migrate Your Data?
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
+              Start Your Zoho Migration With Confidence
             </h2>
-            <p className="text-[#374151] text-lg mb-8">
-              Get a comprehensive migration assessment and timeline estimate with zero obligation.
+            <p className="text-[#E5E7EB] text-lg mb-8">
+              Get a comprehensive migration assessment, data audit, and timeline estimate — with zero obligation. Our experts will map your systems and recommend the optimal migration path.
             </p>
-            <Button variant="heroLight" size="xl">
-              Start Your Migration
-              <ArrowRight className="w-5 h-5" />
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="heroDark" size="xl">
+                Book a Free Migration Assessment
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+              <Button variant="heroSecondary" size="lg">
+                Talk to a Migration Expert
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
