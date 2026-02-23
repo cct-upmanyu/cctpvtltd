@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from "lucide-react";
-import cctLogoFooter from "@/assets/cct-logo-footer.png";
+import cctLogoFooter from "@/assets/cct-logo-footer-new.png";
 
 const footerLinks = {
   solutions: [
@@ -53,7 +53,7 @@ export function Footer() {
                 <img 
                   src={cctLogoFooter} 
                   alt="ClubCode Technology" 
-                  className="h-36 w-auto brightness-0 invert"
+                  className="h-36 w-auto"
                 />
               </Link>
               <p className="text-[#64748B] mb-6 max-w-sm">
