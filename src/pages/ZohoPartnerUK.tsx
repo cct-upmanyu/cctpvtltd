@@ -129,7 +129,7 @@ export default function ZohoPartnerUK() {
                 Book a Free United Kingdom Consultation
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button variant="heroSecondary" size="lg" className="text-base">
+              <Button variant="heroSecondary" size="xl" className="text-base">
                 Talk to a Zoho Expert
               </Button>
             </div>
@@ -567,7 +567,7 @@ export default function ZohoPartnerUK() {
                 Book a Free UK Zoho Consultation
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button variant="heroSecondary" size="lg">
+              <Button variant="heroSecondary" size="xl">
                 Speak with a Zoho Expert
               </Button>
             </div>
