@@ -21,6 +21,15 @@ const industryIcons: Record<string, React.ReactNode> = {
   "Healthcare": <Heart className="w-8 h-8" />,
 };
 
+// Industry background images from Unsplash
+const industryImages: Record<string, string> = {
+  "Financial Services": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+  "Professional Services": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+  "Manufacturing": "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80",
+  "Retail & E-commerce": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
+  "Healthcare": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
+};
+
 // Shared styles for consistency
 const darkSectionBg = "linear-gradient(180deg, #020817 0%, #0B1426 50%, #020817 100%)";
 const lightSectionBg = "linear-gradient(180deg, #F8FAFC 0%, #EFF4FB 100%)";
@@ -389,14 +398,26 @@ export default function ZohoPartnerUK() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="rounded-2xl p-6 hover:border-[#3FE0F0]/15 transition-colors"
-                style={glassCard}
+                className="rounded-2xl overflow-hidden relative min-h-[260px] group"
               >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#3FE0F0]/15 to-[#4DA3FF]/10 flex items-center justify-center mb-4 text-[#3FE0F0]">
-                  {industryIcons[industry.name] || <Building2 className="w-8 h-8" />}
+                {/* Background image */}
+                <div className="absolute inset-0">
+                  <img
+                    src={industryImages[industry.name] || "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"}
+                    alt={industry.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020817]/95 via-[#020817]/70 to-[#020817]/40" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{industry.name}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{industry.description}</p>
+                {/* Content */}
+                <div className="relative z-10 p-6 flex flex-col justify-end h-full">
+                  <div className="w-12 h-12 rounded-xl bg-[#3FE0F0]/15 backdrop-blur-sm flex items-center justify-center mb-3 text-[#3FE0F0] border border-[#3FE0F0]/10">
+                    {industryIcons[industry.name] || <Building2 className="w-6 h-6" />}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">{industry.name}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed">{industry.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
