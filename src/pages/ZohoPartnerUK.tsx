@@ -72,9 +72,9 @@ export default function ZohoPartnerUK() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img src={heroUkBg} alt="United Kingdom landmarks" className="w-full h-full object-cover" loading="eager" />
-          {/* Multi-layer overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#020817]/70 via-[#020817]/50 to-[#020817]/90" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#020817]/40 via-transparent to-[#020817]/40" />
+          {/* Light overlay — let natural image show with subtle blue tint */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1C3D]/30 via-[#0B1C3D]/25 to-[#020817]/85" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1C3D]/20 via-transparent to-[#0B1C3D]/20" />
         </div>
         {/* Subtle animated grid */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
@@ -105,7 +105,7 @@ export default function ZohoPartnerUK() {
               ERP, CRM, Agentic AI & Robotic Process Automation Experts
             </p>
 
-            <p className="text-base lg:text-lg text-white/65 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base lg:text-lg text-white mb-8 max-w-3xl mx-auto leading-relaxed">
               Helping United Kingdom businesses scale with Zoho, ERP systems, and AI-powered automation. Transform your operations with our proven expertise.
             </p>
 
@@ -141,14 +141,14 @@ export default function ZohoPartnerUK() {
       </section>
 
       {/* ═══════ MIGRATION STRIP ═══════ */}
-      <section className="py-4 relative" style={{ background: "linear-gradient(90deg, #020817 0%, #0B1426 50%, #020817 100%)", borderTop: "1px solid rgba(63,224,240,0.06)", borderBottom: "1px solid rgba(63,224,240,0.06)" }}>
+      <section className="py-6 relative" style={{ background: "#000000", borderTop: "1px solid rgba(63,224,240,0.15)", borderBottom: "1px solid rgba(63,224,240,0.15)" }}>
         <div className="container-custom">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-white text-sm text-center md:text-left">
-              <span className="text-[#3FE0F0] font-semibold">Looking to migrate from Salesforce, HubSpot, or legacy ERP?</span>{" "}
-              We provide structured Zoho migration for UK businesses.
+          <div className="flex flex-col md:flex-row items-center justify-between gap-5">
+            <p className="text-center md:text-left text-base">
+              <span className="text-[#3FE0F0] font-bold text-lg">Looking to migrate from Salesforce, HubSpot, or legacy ERP?</span>{" "}
+              <span className="text-white font-medium">We provide structured Zoho migration for UK businesses.</span>
             </p>
-            <Button variant="heroDark" size="sm" className="whitespace-nowrap">
+            <Button variant="heroDark" size="default" className="whitespace-nowrap">
               Request Migration Assessment <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
