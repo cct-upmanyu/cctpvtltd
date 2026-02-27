@@ -170,7 +170,7 @@ export default function ZohoPartnerUK() {
               <span className="text-white/95">United Kingdom</span>
             </h1>
 
-            <p className="inline-block text-xl md:text-2xl lg:text-3xl font-bold mb-6 px-6 py-3 rounded-lg text-white" style={{ background: "#0B1C3D", boxShadow: "0 0 15px rgba(63,224,240,0.15)", border: "1px solid rgba(63,224,240,0.1)" }}>
+            <p className="inline-block text-xl md:text-2xl lg:text-3xl font-bold mb-6 px-6 py-3 rounded-lg text-white" style={{ background: "#3FE0F0", color: "#FFFFFF", boxShadow: "0 0 15px rgba(63,224,240,0.15)", border: "1px solid rgba(63,224,240,0.1)", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
               ERP, CRM, Agentic AI & Robotic Process Automation Experts
             </p>
 
