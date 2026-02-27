@@ -90,21 +90,21 @@ function MigrationStrip() {
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left font-mono">
-            <p className="text-[#0B1C3D] font-bold text-lg md:text-xl min-h-[1.8em]">
+            <p className="text-[#0B1C3D] font-extrabold text-xl md:text-2xl lg:text-3xl min-h-[1.8em]">
               {text1}
-              {!line1Done && <span className="inline-block w-[3px] h-6 bg-[#0B1C3D] ml-1 animate-pulse" />}
+              {!line1Done && <span className="inline-block w-[3px] h-7 bg-[#0B1C3D] ml-1 animate-pulse" />}
             </p>
-            <p className="text-[#374151] font-semibold text-base mt-2 min-h-[1.5em]">
+            <p className="text-[#374151] font-bold text-lg md:text-xl mt-2 min-h-[1.5em]">
               {line1Done ? text2 : ""}
-              {line1Done && !line2Done && <span className="inline-block w-[3px] h-5 bg-[#374151] ml-1 animate-pulse" />}
+              {line1Done && !line2Done && <span className="inline-block w-[3px] h-6 bg-[#374151] ml-1 animate-pulse" />}
             </p>
           </div>
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={line2Done ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.4, type: "spring" }}
+            initial={{ opacity: 0, x: -200 }}
+            animate={line2Done ? { opacity: 1, x: 0 } : { opacity: 0, x: -200 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <Button variant="heroPrimary" size="xl" className="whitespace-nowrap bg-[#0B1C3D] border-[#0B1C3D] text-white hover:bg-[#0F2A5F] hover:border-[#0F2A5F] hover:shadow-[0_0_30px_-5px_rgba(11,28,61,0.5)] animate-pulse hover:animate-none">
+            <Button variant="heroPrimary" size="xl" className="whitespace-nowrap bg-[#0B1C3D] border-[#0B1C3D] text-white hover:bg-[#0F2A5F] hover:border-[#0F2A5F] hover:shadow-[0_0_30px_-5px_rgba(11,28,61,0.5)]">
               Request Migration Assessment <ArrowRight className="w-5 h-5" />
             </Button>
           </motion.div>
@@ -170,7 +170,7 @@ export default function ZohoPartnerUK() {
               <span className="text-white/95">United Kingdom</span>
             </h1>
 
-            <p className="text-xl md:text-2xl lg:text-3xl font-semibold mb-6 bg-gradient-to-r from-[#3FE0F0] via-[#4DA3FF] to-[#3FE0F0] bg-clip-text text-transparent">
+            <p className="inline-block text-xl md:text-2xl lg:text-3xl font-bold mb-6 px-6 py-3 rounded-lg text-white" style={{ background: "#C8102E" }}>
               ERP, CRM, Agentic AI & Robotic Process Automation Experts
             </p>
 
