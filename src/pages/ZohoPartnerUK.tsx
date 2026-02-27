@@ -49,40 +49,65 @@ const lightCard = {
 
 // Typewriter Migration Strip Component
 function MigrationStrip() {
-  const fullText = "Looking to migrate from Salesforce, HubSpot, or legacy ERP?";
-  const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
+  const line1 = "Looking to migrate from Salesforce, HubSpot, or legacy ERP?";
+  const line2 = "We provide structured Zoho migration for UK businesses.";
+  const [text1, setText1] = useState("");
+  const [text2, setText2] = useState("");
+  const [line1Done, setLine1Done] = useState(false);
+  const [line2Done, setLine2Done] = useState(false);
 
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
-      if (i <= fullText.length) {
-        setDisplayed(fullText.slice(0, i));
+      if (i <= line1.length) {
+        setText1(line1.slice(0, i));
         i++;
       } else {
-        setDone(true);
+        setLine1Done(true);
         clearInterval(interval);
       }
-    }, 35);
+    }, 30);
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (!line1Done) return;
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i <= line2.length) {
+        setText2(line2.slice(0, i));
+        i++;
+      } else {
+        setLine2Done(true);
+        clearInterval(interval);
+      }
+    }, 25);
+    return () => clearInterval(interval);
+  }, [line1Done]);
+
   return (
-    <section className="py-8 relative" style={{ background: "linear-gradient(135deg, #F0F4FA 0%, #E8EEF8 50%, #F0F4FA 100%)", borderBottom: "1px solid #D6DEE8" }}>
+    <section className="py-10 relative" style={{ background: "linear-gradient(135deg, #F0F4FA 0%, #E8EEF8 50%, #F0F4FA 100%)" }}>
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left font-mono">
             <p className="text-[#0B1C3D] font-bold text-lg md:text-xl min-h-[1.8em]">
-              {displayed}
-              {!done && <span className="inline-block w-[2px] h-5 bg-[#1a56db] ml-1 animate-pulse" />}
+              {text1}
+              {!line1Done && <span className="inline-block w-[3px] h-6 bg-[#0B1C3D] ml-1 animate-pulse" />}
             </p>
-            <p className="text-[#374151] font-medium text-base mt-1">
-              We provide structured Zoho migration for UK businesses.
+            <p className="text-[#374151] font-semibold text-base mt-2 min-h-[1.5em]">
+              {line1Done ? text2 : ""}
+              {line1Done && !line2Done && <span className="inline-block w-[3px] h-5 bg-[#374151] ml-1 animate-pulse" />}
             </p>
           </div>
-          <Button variant="heroPrimary" size="xl" className="whitespace-nowrap bg-[#0B1C3D] border-[#0B1C3D] text-white hover:bg-[#0F2A5F] hover:border-[#0F2A5F] hover:shadow-[0_0_30px_-5px_rgba(11,28,61,0.5)]">
-            Request Migration Assessment <ArrowRight className="w-5 h-5" />
-          </Button>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={line2Done ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.4, type: "spring" }}
+          >
+            <Button variant="heroPrimary" size="xl" className="whitespace-nowrap bg-[#0B1C3D] border-[#0B1C3D] text-white hover:bg-[#0F2A5F] hover:border-[#0F2A5F] hover:shadow-[0_0_30px_-5px_rgba(11,28,61,0.5)] animate-pulse hover:animate-none">
+              Request Migration Assessment <ArrowRight className="w-5 h-5" />
+            </Button>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -180,8 +205,7 @@ export default function ZohoPartnerUK() {
           </motion.div>
         </div>
 
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F0F4FA] to-transparent pointer-events-none" />
+        {/* Clean bottom edge */}
       </section>
 
       {/* ═══════ MIGRATION STRIP — Light with Typewriter ═══════ */}
