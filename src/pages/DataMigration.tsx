@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -674,6 +675,42 @@ export default function DataMigration() {
           >
             Don't see your platform? We also migrate from <strong>SQL databases, Access, FileMaker, Excel-based CRMs, XML files</strong>, and any system that can export data.
           </motion.p>
+        </div>
+      </section>
+
+      {/* CRM Comparison Section */}
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-4">
+              Compare CRM Platforms Before You Migrate
+            </h2>
+            <p className="text-[#E5E7EB] text-lg max-w-2xl mx-auto">
+              Not sure which CRM is right for you? Explore our detailed comparisons.
+            </p>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            {[
+              { label: "Zoho CRM vs Salesforce", path: "/compare/zoho-crm-vs-salesforce" },
+              { label: "Zoho CRM vs HubSpot", path: "/compare/zoho-crm-vs-hubspot" },
+              { label: "Zoho CRM vs Pipedrive", path: "/compare/zoho-crm-vs-pipedrive" },
+              { label: "Zoho CRM vs Freshsales", path: "/compare/zoho-crm-vs-freshsales" },
+              { label: "Zoho CRM vs Dynamics 365", path: "/compare/zoho-crm-vs-microsoft-dynamics" },
+              { label: "Zoho CRM vs Monday CRM", path: "/compare/zoho-crm-vs-monday-crm" },
+            ].map((comp, i) => (
+              <motion.div key={comp.path} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
+                <Link to={comp.path} className="block bg-[#0B1C3D]/80 rounded-xl p-5 border border-[#3FE0F0]/20 hover:border-[#3FE0F0]/50 transition-all text-center group">
+                  <p className="font-semibold text-[#FFFFFF] group-hover:text-[#3FE0F0] transition-colors">{comp.label}</p>
+                  <span className="text-xs text-[#3FE0F0] mt-1 inline-block">View Comparison →</span>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
