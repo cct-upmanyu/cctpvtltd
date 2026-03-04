@@ -68,11 +68,11 @@ export function Footer() {
       {/* Main Footer Content */}
       <div className="bg-[#050D1A]">
         <div className="container-custom py-16">
-          {/* Top row: Brand + Link columns */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-12 mb-14">
+          {/* Row 1: Brand + Industries + Services + Company + Global Presence */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12 mb-14">
             
-            {/* Brand Column - spans 3 cols */}
-            <div className="lg:col-span-3">
+            {/* Brand Column */}
+            <div>
               <Link to="/" className="inline-block mb-5">
                 <img 
                   src={cctLogoFooter} 
@@ -97,8 +97,6 @@ export function Footer() {
                   <span>Global Offices: India, UK, USA, UAE</span>
                 </div>
               </div>
-
-              {/* Social Links */}
               <div className="flex gap-3 mt-6">
                 <a href="#" className="w-9 h-9 rounded-lg bg-[#0B1C3D] flex items-center justify-center text-[#94A3B8] hover:bg-[#3FE0F0] hover:text-white transition-all">
                   <Linkedin className="w-4 h-4" />
@@ -112,98 +110,97 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Industries column */}
-            <div className="lg:col-span-2">
+            {/* Industries */}
+            <div>
               <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Industries</h4>
               <ul className="space-y-2.5">
                 {footerLinks.industries.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">
-                      {link.label}
-                    </Link>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Services column */}
-            <div className="lg:col-span-2">
+            {/* Services */}
+            <div>
               <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Services</h4>
               <ul className="space-y-2.5">
                 {footerLinks.solutions.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">
-                      {link.label}
-                    </Link>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* CRM Comparisons & Migration */}
-            <div className="lg:col-span-3">
-              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">CRM Comparisons</h4>
-              <ul className="space-y-2.5 mb-7">
-                {footerLinks.crmComparisons.map((link) => (
-                  <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-
-              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">CRM Migration</h4>
-              <ul className="space-y-2.5">
-                {footerLinks.crmMigration.map((link) => (
-                  <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Company & Global Presence */}
-            <div className="lg:col-span-2">
+            {/* Company */}
+            <div>
               <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Company</h4>
-              <ul className="space-y-2.5 mb-7">
+              <ul className="space-y-2.5">
                 {footerLinks.company.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">
-                      {link.label}
-                    </Link>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
                   </li>
                 ))}
               </ul>
+            </div>
 
+            {/* Global Presence */}
+            <div>
               <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Global Presence</h4>
-              <ul className="space-y-2.5 mb-7">
+              <ul className="space-y-2.5">
                 {footerLinks.globalPresence.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-
-              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">CRM Alternatives</h4>
-              <ul className="space-y-2.5">
-                {footerLinks.crmAlternatives.map((link) => (
-                  <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">
-                      {link.label}
-                    </Link>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="border-t border-[#1A365D]" />
+          {/* Divider between rows */}
+          <div className="border-t border-[#1A365D] mb-14" />
+
+          {/* Row 2: CRM Comparisons + CRM Migration + CRM Alternatives */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mb-14">
+            
+            {/* CRM Comparisons */}
+            <div>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">CRM Comparisons</h4>
+              <ul className="space-y-2.5">
+                {footerLinks.crmComparisons.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CRM Migration */}
+            <div>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">CRM Migration</h4>
+              <ul className="space-y-2.5">
+                {footerLinks.crmMigration.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CRM Alternatives */}
+            <div>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">CRM Alternatives</h4>
+              <ul className="space-y-2.5">
+                {footerLinks.crmAlternatives.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
