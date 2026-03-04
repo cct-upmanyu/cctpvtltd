@@ -10,8 +10,9 @@ import {
   Rocket, TrendingUp, Shield, Headphones, Database,
   BookOpen, Target, ArrowRightLeft, Star, Award,
   ChevronDown, ChevronUp, Globe, Layers, DollarSign,
+  ExternalLink, FileDown, ClipboardCheck, Map, Upload, GraduationCap,
 } from "lucide-react";
-import { CRMComparisonData, comparisonLinks } from "@/data/crmComparisonData";
+import { CRMComparisonData, PlatformPricing, comparisonLinks } from "@/data/crmComparisonData";
 import { useState } from "react";
 
 const ratingIcon = (rating: string) => {
@@ -48,6 +49,73 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
     </div>
   );
 }
+
+function PricingCard({ data, highlight }: { data: PlatformPricing; highlight?: boolean }) {
+  return (
+    <div className={`rounded-2xl p-6 border ${highlight ? "border-[#3FE0F0]/40 bg-[#3FE0F0]/5" : "border-gray-200 bg-white"}`}>
+      <div className="flex items-center gap-2 mb-5">
+        <h3 className="text-xl font-bold text-[#111827]">{data.label}</h3>
+        {highlight && <span className="px-2 py-0.5 bg-[#3FE0F0]/20 text-[#00A0B0] text-xs font-bold rounded-full">Recommended</span>}
+      </div>
+
+      {data.free && (
+        <div className="mb-4 px-3 py-2 bg-emerald-50 rounded-lg text-sm font-medium text-emerald-700">{data.free}</div>
+      )}
+
+      {data.billedAnnually && (
+        <div className="mb-4">
+          <p className="text-xs font-semibold text-[#374151] uppercase tracking-wide mb-2">Billed Annually</p>
+          <div className="space-y-1.5">
+            {data.billedAnnually.map((t) => (
+              <div key={t.name} className="flex items-center justify-between text-sm">
+                <span className="text-[#374151]">{t.name}</span>
+                <span className={`font-bold ${highlight ? "text-[#3FE0F0]" : "text-[#111827]"}`}>{t.price}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {data.billedMonthly && (
+        <div className="mb-4">
+          <p className="text-xs font-semibold text-[#374151] uppercase tracking-wide mb-2">Billed Monthly</p>
+          <div className="space-y-1.5">
+            {data.billedMonthly.map((t) => (
+              <div key={t.name} className="flex items-center justify-between text-sm">
+                <span className="text-[#374151]">{t.name}</span>
+                <span className={`font-bold ${highlight ? "text-[#3FE0F0]" : "text-[#111827]"}`}>{t.price}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {data.startingPrice && (
+        <div className="mb-4">
+          <p className="text-xs font-semibold text-[#374151] uppercase tracking-wide mb-2">Starting Price</p>
+          <p className="text-lg font-bold text-[#111827]">{data.startingPrice}</p>
+        </div>
+      )}
+
+      {data.note && (
+        <p className="text-xs text-[#374151]/70 italic mb-3">{data.note}</p>
+      )}
+
+      <a href={data.pricingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-[#3FE0F0] hover:underline font-medium">
+        View official pricing <ExternalLink className="w-3 h-3" />
+      </a>
+    </div>
+  );
+}
+
+const migrationStripSteps = [
+  { icon: FileDown, label: "Extract" },
+  { icon: Shield, label: "Clean" },
+  { icon: Map, label: "Map" },
+  { icon: Upload, label: "Import" },
+  { icon: ClipboardCheck, label: "Validate" },
+  { icon: GraduationCap, label: "Train" },
+];
 
 export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
   const otherComparisons = comparisonLinks.filter((c) => c.slug !== data.slug);
@@ -105,7 +173,7 @@ export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
                 { icon: DollarSign, label: "Pricing Analysis", color: "#10B981" },
                 { icon: Brain, label: "AI & Automation", color: "#4DA3FF" },
                 { icon: ArrowRightLeft, label: "Migration Guide", color: "#8B5CF6" },
-              ].map((item, i) => (
+              ].map((item) => (
                 <div key={item.label} className="p-5 bg-[#0B1C3D]/60 backdrop-blur-sm rounded-2xl border border-[#3FE0F0]/20 text-center">
                   <item.icon className="w-8 h-8 mx-auto mb-2" style={{ color: item.color }} />
                   <p className="text-sm text-[#E5E7EB] font-medium">{item.label}</p>
@@ -123,7 +191,6 @@ export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
             Platform Overview
           </motion.h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Zoho */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white rounded-2xl p-8 border border-[#3FE0F0]/30 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-[#3FE0F0]/10 flex items-center justify-center"><Star className="w-5 h-5 text-[#3FE0F0]" /></div>
@@ -137,7 +204,6 @@ export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
                 ))}
               </div>
             </motion.div>
-            {/* Competitor */}
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center"><Database className="w-5 h-5 text-[#374151]" /></div>
@@ -164,7 +230,6 @@ export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
             Feature-by-Feature Comparison
           </motion.h2>
           <div className="max-w-4xl mx-auto">
-            {/* Header */}
             <div className="grid grid-cols-3 gap-4 mb-4 px-4">
               <div className="text-sm font-semibold text-[#E5E7EB]">Feature</div>
               <div className="text-sm font-semibold text-[#3FE0F0] text-center">Zoho CRM</div>
@@ -188,32 +253,24 @@ export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
         </div>
       </section>
 
-      {/* 4. Pricing Comparison */}
+      {/* 4. Pricing Snapshot (USD) */}
       <section className="bg-light-gradient section-padding">
         <div className="container-custom">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold text-[#111827] text-center mb-4">
-            Pricing Comparison
-          </motion.h2>
-          <p className="text-[#374151] text-center text-lg mb-12 max-w-2xl mx-auto">{data.pricing.tcoNote}</p>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {[
-              { label: "Entry Level", zoho: data.pricing.entry.zoho, comp: data.pricing.entry.competitor },
-              { label: "Professional", zoho: data.pricing.professional.zoho, comp: data.pricing.professional.competitor },
-              { label: "Enterprise", zoho: data.pricing.enterprise.zoho, comp: data.pricing.enterprise.competitor },
-            ].map((tier, i) => (
-              <motion.div key={tier.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm text-center">
-                <h3 className="font-bold text-[#111827] mb-6">{tier.label}</h3>
-                <div className="mb-4">
-                  <p className="text-xs text-[#374151] mb-1">Zoho CRM</p>
-                  <p className="text-2xl font-bold text-[#3FE0F0]">{tier.zoho}</p>
-                </div>
-                <div className="border-t border-gray-100 pt-4">
-                  <p className="text-xs text-[#374151] mb-1">{data.competitorShort}</p>
-                  <p className="text-2xl font-bold text-[#374151]">{tier.comp}</p>
-                </div>
-              </motion.div>
-            ))}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827]">Pricing Snapshot (USD)</h2>
+          </motion.div>
+          <p className="text-[#374151] text-center text-sm mb-10 max-w-2xl mx-auto">
+            Pricing shown in USD. Vendor pricing can change; confirm on official pricing pages.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <PricingCard data={data.pricingSnapshot.zoho} highlight />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <PricingCard data={data.pricingSnapshot.competitor} />
+            </motion.div>
           </div>
+          <p className="text-[#374151] text-center text-sm mt-8 max-w-2xl mx-auto italic">{data.pricing.tcoNote}</p>
         </div>
       </section>
 
@@ -305,15 +362,36 @@ export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
         </div>
       </section>
 
-      {/* 8. Migration Section */}
+      {/* 8. Migration Steps Strip */}
       <section className="bg-light-gradient section-padding">
         <div className="container-custom">
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold text-[#111827] text-center mb-4">
             Migrating from {data.competitor} to Zoho CRM
           </motion.h2>
-          <p className="text-[#374151] text-center text-lg mb-12 max-w-2xl mx-auto">
+          <p className="text-[#374151] text-center text-lg mb-10 max-w-2xl mx-auto">
             Our structured migration process ensures zero data loss and minimal business disruption.
           </p>
+
+          {/* Visual migration strip */}
+          <div className="flex flex-wrap justify-center items-center gap-2 md:gap-0 mb-10 max-w-4xl mx-auto">
+            {migrationStripSteps.map((step, i) => (
+              <motion.div key={step.label} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+                className="flex items-center"
+              >
+                <div className="flex flex-col items-center px-3 md:px-5 py-3">
+                  <div className="w-12 h-12 rounded-xl bg-[#3FE0F0]/10 border border-[#3FE0F0]/30 flex items-center justify-center mb-2">
+                    <step.icon className="w-5 h-5 text-[#3FE0F0]" />
+                  </div>
+                  <span className="text-xs font-semibold text-[#111827]">{step.label}</span>
+                </div>
+                {i < migrationStripSteps.length - 1 && (
+                  <ArrowRight className="w-4 h-4 text-[#3FE0F0] hidden md:block flex-shrink-0" />
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Detailed steps */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto mb-10">
             {data.migrationSteps.map((step, i) => (
               <motion.div key={step} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
@@ -356,22 +434,47 @@ export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
         </div>
       </section>
 
-      {/* 10. ClubCode Technology Section */}
+      {/* 10. Planning a Migration? (Internal Backlinks) */}
       <section className="bg-light-gradient section-padding">
         <div className="container-custom">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] text-center mb-10">Planning a Migration?</h2>
+            <div className="grid sm:grid-cols-3 gap-6">
+              {[
+                { title: "CRM Migration Services", desc: "Expert-led CRM data migration with zero downtime and 100% data integrity.", path: "/data-migration", icon: ArrowRightLeft },
+                { title: "Data Migration Services", desc: "Enterprise-grade data migration from any platform to Zoho ecosystem.", path: "/data-migration", icon: Database },
+                { title: "Zoho CRM Implementation Partner", desc: "Full Zoho CRM setup, customization, and go-live support by certified experts.", path: "/crm-implementation", icon: Target },
+              ].map((link, i) => (
+                <motion.div key={link.title} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+                  <Link to={link.path} className="block bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#3FE0F0]/40 hover:shadow-md transition-all group h-full">
+                    <link.icon className="w-8 h-8 text-[#3FE0F0] mb-3" />
+                    <h3 className="font-bold text-[#111827] mb-2 group-hover:text-[#00A0B0] transition-colors">{link.title}</h3>
+                    <p className="text-sm text-[#374151] mb-3">{link.desc}</p>
+                    <span className="text-sm text-[#3FE0F0] font-medium inline-flex items-center gap-1">Learn more <ArrowRight className="w-3 h-3" /></span>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 11. ClubCode Technology Section */}
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
+        <div className="container-custom relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-bold rounded-full mb-4">Global Zoho Premium Partner</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">Club Code Technology</h2>
-            <p className="text-[#374151] text-lg mb-8 leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">Club Code Technology</h2>
+            <p className="text-[#E5E7EB] text-lg mb-8 leading-relaxed">
               As a Global Zoho Premium Partner, Club Code Technology brings deep expertise in CRM implementation, CRM migration, 
               workflow automation, and Zoho ecosystem integration. We've helped hundreds of businesses transition to Zoho CRM 
               with 100% data integrity and zero business disruption.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="heroLight" size="lg" asChild>
+              <Button variant="heroDark" size="lg" asChild>
                 <Link to="/contact">Book Consultation <ArrowRight className="w-5 h-5" /></Link>
               </Button>
-              <Button variant="secondary" size="lg" asChild>
+              <Button variant="heroSecondary" size="lg" asChild>
                 <Link to="/data-migration">Request CRM Migration</Link>
               </Button>
             </div>
@@ -379,10 +482,10 @@ export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
         </div>
       </section>
 
-      {/* 11. FAQ Section */}
-      <section className="bg-dark-gradient section-padding relative overflow-hidden">
-        <div className="container-custom relative z-10">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center mb-12">
+      {/* 12. FAQ Section */}
+      <section className="bg-light-gradient section-padding">
+        <div className="container-custom">
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold text-[#111827] text-center mb-12">
             Frequently Asked Questions
           </motion.h2>
           <div className="max-w-3xl mx-auto space-y-3">
@@ -395,18 +498,18 @@ export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
         </div>
       </section>
 
-      {/* 12. Related Comparisons */}
-      <section className="bg-light-gradient section-padding">
-        <div className="container-custom">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold text-[#111827] text-center mb-4">
+      {/* 13. Related Comparisons */}
+      <section className="bg-dark-gradient section-padding relative overflow-hidden">
+        <div className="container-custom relative z-10">
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center mb-4">
             Compare Zoho CRM With Other Platforms
           </motion.h2>
-          <p className="text-[#374151] text-center text-lg mb-12">Explore more CRM comparisons to find the right fit for your business.</p>
+          <p className="text-[#E5E7EB] text-center text-lg mb-12">Explore more CRM comparisons to find the right fit for your business.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {otherComparisons.map((comp, i) => (
               <motion.div key={comp.slug} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
-                <Link to={comp.path} className="block bg-white rounded-xl p-6 border border-gray-200 hover:border-[#3FE0F0]/40 hover:shadow-md transition-all group text-center">
-                  <p className="font-semibold text-[#111827] group-hover:text-[#00A0B0] transition-colors">Zoho CRM vs {comp.competitor}</p>
+                <Link to={comp.path} className="block bg-[#0B1C3D]/80 rounded-xl p-6 border border-[#3FE0F0]/20 hover:border-[#3FE0F0]/40 hover:shadow-md transition-all group text-center">
+                  <p className="font-semibold text-[#FFFFFF] group-hover:text-[#3FE0F0] transition-colors">Zoho CRM vs {comp.competitor}</p>
                   <ArrowRight className="w-4 h-4 mx-auto mt-2 text-[#3FE0F0] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </motion.div>
@@ -416,19 +519,16 @@ export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-dark-gradient section-padding relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#3FE0F0]/5 rounded-full blur-3xl" />
-        </div>
-        <div className="container-custom relative z-10 text-center">
+      <section className="bg-light-gradient section-padding">
+        <div className="container-custom text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
               Ready to Switch to Zoho CRM?
             </h2>
-            <p className="text-[#E5E7EB] text-lg mb-8">
+            <p className="text-[#374151] text-lg mb-8">
               Get a free migration assessment and discover how Zoho CRM can transform your business.
             </p>
-            <Button variant="heroDark" size="xl" asChild>
+            <Button variant="heroLight" size="xl" asChild>
               <Link to="/contact">Book Free Consultation <ArrowRight className="w-5 h-5" /></Link>
             </Button>
           </motion.div>

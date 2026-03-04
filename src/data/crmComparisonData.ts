@@ -1,3 +1,18 @@
+export interface PricingTier {
+  name: string;
+  price: string;
+}
+
+export interface PlatformPricing {
+  label: string;
+  free?: string;
+  billedAnnually?: PricingTier[];
+  billedMonthly?: PricingTier[];
+  startingPrice?: string;
+  note?: string;
+  pricingUrl: string;
+}
+
 export interface CRMComparisonData {
   slug: string;
   competitor: string;
@@ -20,6 +35,10 @@ export interface CRMComparisonData {
     enterprise: { zoho: string; competitor: string; };
     tcoNote: string;
   };
+  pricingSnapshot: {
+    zoho: PlatformPricing;
+    competitor: PlatformPricing;
+  };
   zohoAutomation: string[];
   competitorAutomation: string[];
   faqs: { question: string; answer: string; }[];
@@ -31,6 +50,24 @@ export interface CRMComparisonData {
   };
   migrationSteps: string[];
 }
+
+const zohoPricing: PlatformPricing = {
+  label: "Zoho CRM",
+  free: "Free for up to 3 users",
+  billedAnnually: [
+    { name: "Standard", price: "$14" },
+    { name: "Professional", price: "$23" },
+    { name: "Enterprise", price: "$40" },
+    { name: "Ultimate", price: "$52" },
+  ],
+  billedMonthly: [
+    { name: "Standard", price: "$20" },
+    { name: "Professional", price: "$35" },
+    { name: "Enterprise", price: "$50" },
+    { name: "Ultimate", price: "$65" },
+  ],
+  pricingUrl: "https://www.zoho.com/crm/zohocrm-pricing.html",
+};
 
 const comparisons: CRMComparisonData[] = [
   {
@@ -55,23 +92,32 @@ const comparisons: CRMComparisonData[] = [
       { name: "Implementation Time", zoho: "excellent", competitor: "basic" },
     ],
     pricing: {
-      entry: { zoho: "£12/user/mo", competitor: "£20/user/mo" },
-      professional: { zoho: "£20/user/mo", competitor: "£60/user/mo" },
-      enterprise: { zoho: "£35/user/mo", competitor: "£120/user/mo" },
+      entry: { zoho: "$14/user/mo", competitor: "$25/user/mo" },
+      professional: { zoho: "$23/user/mo", competitor: "Varies by edition" },
+      enterprise: { zoho: "$40/user/mo", competitor: "Varies by edition" },
       tcoNote: "Salesforce hidden costs include add-ons for storage, sandboxes, API calls, and premium support — often doubling the sticker price. Zoho CRM includes most features in base plans.",
+    },
+    pricingSnapshot: {
+      zoho: { ...zohoPricing },
+      competitor: {
+        label: "Salesforce",
+        startingPrice: "$25/user/month (Starter Suite)",
+        note: "Higher editions vary by features and contract.",
+        pricingUrl: "https://www.salesforce.com/pricing/",
+      },
     },
     zohoAutomation: ["Blueprint visual process builder", "Zia AI lead scoring & predictions", "Macro automation for repetitive tasks", "Custom functions & webhooks", "Sales signals & SalesInbox"],
     competitorAutomation: ["Flow automation builder", "Einstein AI (premium add-on)", "Process Builder & Workflow Rules", "Apex triggers for custom logic", "Einstein Activity Capture"],
     faqs: [
       { question: "Is Zoho CRM better than Salesforce?", answer: "For most small-to-midsize businesses, Zoho CRM offers better value with comparable features at 60-70% lower cost. Salesforce may be preferred for very large enterprises with complex multi-cloud requirements." },
-      { question: "Which CRM is cheaper, Zoho or Salesforce?", answer: "Zoho CRM is significantly cheaper — Enterprise edition costs £35/user/month vs Salesforce's £120/user/month. Plus Zoho has fewer hidden costs for storage, APIs, and add-ons." },
-      { question: "Can I migrate from Salesforce to Zoho CRM?", answer: "Yes. ClubCode Technology has migrated hundreds of businesses from Salesforce to Zoho CRM with 100% data integrity, including contacts, deals, workflows, and custom objects." },
+      { question: "Which CRM is cheaper, Zoho or Salesforce?", answer: "Zoho CRM is significantly cheaper — Enterprise edition costs $40/user/month vs Salesforce's $25+/user/month starting. Plus Zoho has fewer hidden costs for storage, APIs, and add-ons." },
+      { question: "Can I migrate from Salesforce to Zoho CRM?", answer: "Yes. Club Code Technology has migrated hundreds of businesses from Salesforce to Zoho CRM with 100% data integrity, including contacts, deals, workflows, and custom objects." },
       { question: "Is Zoho CRM suitable for enterprises?", answer: "Absolutely. Zoho CRM Enterprise and Ultimate editions support advanced customization, multi-org management, and handle millions of records with AI-powered insights." },
       { question: "Does Zoho CRM have AI like Salesforce Einstein?", answer: "Yes. Zoho's Zia AI is included in standard plans and offers lead scoring, anomaly detection, sales forecasting, and conversational AI — features that require premium add-ons in Salesforce." },
     ],
     bestFor: {
       startups: "Zoho CRM — Free edition available for up to 3 users with essential features. Salesforce has no free tier.",
-      smallBiz: "Zoho CRM — Professional features at £20/user/mo vs £60+ for Salesforce. Full automation included.",
+      smallBiz: "Zoho CRM — Professional features at $23/user/mo vs $25+ for Salesforce. Full automation included.",
       growing: "Zoho CRM — Scales without cost surprises. Zoho One bundles 45+ apps for one price.",
       enterprise: "Both viable — Salesforce for complex multi-cloud needs; Zoho CRM for cost-effective enterprise deployment.",
     },
@@ -85,7 +131,7 @@ const comparisons: CRMComparisonData[] = [
     seoDescription: "Compare Zoho CRM vs HubSpot: features, pricing, marketing automation, and migration. Learn why businesses switch from HubSpot to Zoho CRM.",
     heroSubtitle: "HubSpot excels at inbound marketing, but Zoho CRM offers deeper customization and a broader ecosystem at a lower price point. Compare before you decide.",
     competitorOverview: "HubSpot is a popular inbound marketing and CRM platform known for its free tier, content management, and marketing automation. It's especially strong for marketing-led businesses but costs escalate quickly at scale.",
-    zohoOverview: "Zoho CRM combines powerful sales automation, AI-driven insights, and deep customization with seamless integration across Zoho's 45+ business applications — delivering more functionality per pound spent than HubSpot.",
+    zohoOverview: "Zoho CRM combines powerful sales automation, AI-driven insights, and deep customization with seamless integration across Zoho's 45+ business applications — delivering more functionality per dollar spent than HubSpot.",
     competitorStrengths: ["Excellent free CRM tier", "Superior content marketing tools", "Intuitive user interface", "Strong inbound marketing methodology"],
     zohoStrengths: ["More affordable at scale", "Deeper CRM customization", "Built-in AI (Zia) in standard plans", "45+ native app ecosystem", "Blueprint process automation"],
     features: [
@@ -99,24 +145,36 @@ const comparisons: CRMComparisonData[] = [
       { name: "Implementation Time", zoho: "excellent", competitor: "excellent" },
     ],
     pricing: {
-      entry: { zoho: "£12/user/mo", competitor: "Free (limited)" },
-      professional: { zoho: "£20/user/mo", competitor: "£72/mo (2 users)" },
-      enterprise: { zoho: "£35/user/mo", competitor: "£990/mo (5 users)" },
+      entry: { zoho: "$14/user/mo", competitor: "Free (limited)" },
+      professional: { zoho: "$23/user/mo", competitor: "From $100/seat/mo" },
+      enterprise: { zoho: "$40/user/mo", competitor: "Custom pricing" },
       tcoNote: "HubSpot's free tier is attractive but professional and enterprise tiers are among the most expensive in the market. Zoho CRM maintains consistent, predictable pricing at every tier.",
+    },
+    pricingSnapshot: {
+      zoho: { ...zohoPricing },
+      competitor: {
+        label: "HubSpot",
+        billedAnnually: [
+          { name: "Sales Hub Starter", price: "From $20/seat/mo" },
+          { name: "Sales Hub Professional", price: "From $100/seat/mo" },
+        ],
+        note: "Pricing may show promotions. Enterprise pricing is custom.",
+        pricingUrl: "https://www.hubspot.com/pricing/sales",
+      },
     },
     zohoAutomation: ["Blueprint visual workflows", "Zia AI predictions & scoring", "Macros for task automation", "Custom functions & Deluge scripting", "CommandCenter for journey orchestration"],
     competitorAutomation: ["Sequences for email automation", "Workflows (professional+ only)", "Lead scoring (enterprise only)", "Chatbot builder", "ABM tools (enterprise)"],
     faqs: [
-      { question: "Why do companies migrate from HubSpot to Zoho CRM?", answer: "Most migrate due to HubSpot's steep pricing at scale, limited customization, and the desire for a broader integrated ecosystem. Zoho CRM offers more features per pound." },
-      { question: "Is HubSpot free CRM really free?", answer: "The basic CRM is free but severely limited. Most businesses need Professional or Enterprise tiers, which cost £72-£990+/month — far more than equivalent Zoho CRM plans." },
+      { question: "Why do companies migrate from HubSpot to Zoho CRM?", answer: "Most migrate due to HubSpot's steep pricing at scale, limited customization, and the desire for a broader integrated ecosystem. Zoho CRM offers more features per dollar." },
+      { question: "Is HubSpot free CRM really free?", answer: "The basic CRM is free but severely limited. Most businesses need Professional or Enterprise tiers, which cost $100+/seat/month — far more than equivalent Zoho CRM plans." },
       { question: "Which is better for sales teams, Zoho or HubSpot?", answer: "Zoho CRM offers deeper sales customization with Blueprint automation, territory management, and AI scoring included in standard plans. HubSpot reserves many sales features for premium tiers." },
-      { question: "Can I migrate my HubSpot data to Zoho CRM?", answer: "Yes. ClubCode Technology provides complete HubSpot-to-Zoho CRM migrations including contacts, deals, email history, workflows, and marketing lists." },
+      { question: "Can I migrate my HubSpot data to Zoho CRM?", answer: "Yes. Club Code Technology provides complete HubSpot-to-Zoho CRM migrations including contacts, deals, email history, workflows, and marketing lists." },
     ],
     bestFor: {
       startups: "HubSpot's free tier is good for starting; Zoho CRM's free edition supports more customization for growing startups.",
-      smallBiz: "Zoho CRM — Professional features at £20/user/mo vs HubSpot's £72/mo minimum for comparable functionality.",
+      smallBiz: "Zoho CRM — Professional features at $23/user/mo vs HubSpot's $100/seat/mo minimum for comparable functionality.",
       growing: "Zoho CRM — Scales predictably. HubSpot costs increase dramatically as you add users and features.",
-      enterprise: "Zoho CRM — Enterprise at £35/user/mo vs HubSpot's £990/mo. More customization and AI included.",
+      enterprise: "Zoho CRM — Enterprise at $40/user/mo vs HubSpot's custom pricing. More customization and AI included.",
     },
     migrationSteps: ["Export HubSpot contacts, deals, and company data", "Map HubSpot properties to Zoho CRM fields", "Recreate HubSpot workflows in Zoho Blueprint", "Migrate email templates and sequences", "Set up marketing automation in Zoho Campaigns", "User training and parallel run"],
   },
@@ -142,16 +200,29 @@ const comparisons: CRMComparisonData[] = [
       { name: "Implementation Time", zoho: "excellent", competitor: "excellent" },
     ],
     pricing: {
-      entry: { zoho: "£12/user/mo", competitor: "£12/user/mo" },
-      professional: { zoho: "£20/user/mo", competitor: "£24/user/mo" },
-      enterprise: { zoho: "£35/user/mo", competitor: "£49/user/mo" },
+      entry: { zoho: "$14/user/mo", competitor: "$14/seat/mo" },
+      professional: { zoho: "$23/user/mo", competitor: "$24/seat/mo" },
+      enterprise: { zoho: "$40/user/mo", competitor: "$49/seat/mo" },
       tcoNote: "While entry pricing is similar, Zoho CRM includes significantly more features at each tier. Pipedrive charges extra for AI, project management, and advanced reporting.",
+    },
+    pricingSnapshot: {
+      zoho: { ...zohoPricing },
+      competitor: {
+        label: "Pipedrive",
+        billedAnnually: [
+          { name: "Lite", price: "$14/seat/mo" },
+          { name: "Growth", price: "$24/seat/mo" },
+          { name: "Premium", price: "$49/seat/mo" },
+          { name: "Ultimate", price: "$69/seat/mo" },
+        ],
+        pricingUrl: "https://www.pipedrive.com/en/pricing",
+      },
     },
     zohoAutomation: ["Blueprint process builder", "Zia AI scoring & predictions", "Macros & custom functions", "Journey orchestration", "SalesSignals real-time notifications"],
     competitorAutomation: ["Basic workflow automation", "AI Sales Assistant (limited)", "Email sequences", "Activity reminders", "Deal rotting alerts"],
     faqs: [
       { question: "Is Zoho CRM better than Pipedrive?", answer: "For businesses needing more than basic pipeline management, yes. Zoho CRM offers deeper customization, AI, and ecosystem integration that Pipedrive simply doesn't match." },
-      { question: "Can I migrate from Pipedrive to Zoho CRM?", answer: "Yes. ClubCode Technology migrates all Pipedrive data including deals, contacts, activities, notes, and custom fields to Zoho CRM with full pipeline reconstruction." },
+      { question: "Can I migrate from Pipedrive to Zoho CRM?", answer: "Yes. Club Code Technology migrates all Pipedrive data including deals, contacts, activities, notes, and custom fields to Zoho CRM with full pipeline reconstruction." },
       { question: "Is Pipedrive good for growing companies?", answer: "Pipedrive works for small sales teams but lacks the customization, AI, and multi-department integration that growing companies need. Zoho CRM scales better." },
       { question: "Which CRM has better automation?", answer: "Zoho CRM's Blueprint automation is far more powerful than Pipedrive's basic workflows, offering visual process design, conditional logic, and multi-department orchestration." },
     ],
@@ -185,18 +256,30 @@ const comparisons: CRMComparisonData[] = [
       { name: "Implementation Time", zoho: "excellent", competitor: "excellent" },
     ],
     pricing: {
-      entry: { zoho: "£12/user/mo", competitor: "Free (3 users)" },
-      professional: { zoho: "£20/user/mo", competitor: "£15/user/mo" },
-      enterprise: { zoho: "£35/user/mo", competitor: "£39/user/mo" },
-      tcoNote: "Pricing is comparable, but Zoho CRM includes significantly more features at each tier. Freshsales charges extra for advanced customization and reporting.",
+      entry: { zoho: "$14/user/mo", competitor: "Free (3 users)" },
+      professional: { zoho: "$23/user/mo", competitor: "$9/user/mo" },
+      enterprise: { zoho: "$40/user/mo", competitor: "Custom pricing" },
+      tcoNote: "Pricing is comparable at entry level, but Zoho CRM includes significantly more features at each tier. Freshsales charges extra for advanced customization and reporting.",
+    },
+    pricingSnapshot: {
+      zoho: { ...zohoPricing },
+      competitor: {
+        label: "Freshsales",
+        free: "Free for up to 3 users",
+        billedAnnually: [
+          { name: "Growth", price: "$9/user/mo" },
+        ],
+        note: "Pro and Enterprise pricing available on request.",
+        pricingUrl: "https://www.freshworks.com/crm/pricing/",
+      },
     },
     zohoAutomation: ["Blueprint visual workflows", "Zia AI lead scoring", "CommandCenter journey builder", "Custom functions & webhooks", "Assignment & escalation rules"],
     competitorAutomation: ["Basic workflow automation", "Freddy AI insights", "Auto-assignment rules", "Sales sequences", "Territory management"],
     faqs: [
       { question: "Is Zoho CRM better than Freshsales?", answer: "Zoho CRM offers significantly more customization, automation depth, and ecosystem breadth than Freshsales, making it better for businesses planning to scale." },
-      { question: "Can I migrate from Freshsales to Zoho CRM?", answer: "Yes. ClubCode Technology handles complete Freshsales-to-Zoho CRM migrations including contacts, deals, accounts, and workflow configurations." },
+      { question: "Can I migrate from Freshsales to Zoho CRM?", answer: "Yes. Club Code Technology handles complete Freshsales-to-Zoho CRM migrations including contacts, deals, accounts, and workflow configurations." },
       { question: "Which has better AI, Zoho or Freshsales?", answer: "Zoho's Zia AI is more mature and feature-rich than Freshsales' Freddy AI, offering anomaly detection, sentiment analysis, and predictive forecasting in standard plans." },
-      { question: "Is Freshsales cheaper than Zoho CRM?", answer: "Entry pricing is similar, but Zoho CRM provides more features per pound. The Zoho One bundle (45+ apps) offers unmatched value vs Freshworks' suite pricing." },
+      { question: "Is Freshsales cheaper than Zoho CRM?", answer: "Entry pricing is similar, but Zoho CRM provides more features per dollar. The Zoho One bundle (45+ apps) offers unmatched value vs Freshworks' suite pricing." },
     ],
     bestFor: {
       startups: "Both offer free tiers. Zoho CRM provides more customization room for startups planning to scale.",
@@ -228,16 +311,29 @@ const comparisons: CRMComparisonData[] = [
       { name: "Implementation Time", zoho: "excellent", competitor: "limited" },
     ],
     pricing: {
-      entry: { zoho: "£12/user/mo", competitor: "£49/user/mo" },
-      professional: { zoho: "£20/user/mo", competitor: "£75/user/mo" },
-      enterprise: { zoho: "£35/user/mo", competitor: "£105/user/mo" },
+      entry: { zoho: "$14/user/mo", competitor: "$65/user/mo" },
+      professional: { zoho: "$23/user/mo", competitor: "$105/user/mo" },
+      enterprise: { zoho: "$40/user/mo", competitor: "$150/user/mo" },
       tcoNote: "Dynamics 365 requires additional licensing for many features (Power Apps, Power BI, premium connectors). Implementation costs are typically 3-5x higher than Zoho CRM.",
+    },
+    pricingSnapshot: {
+      zoho: { ...zohoPricing },
+      competitor: {
+        label: "Microsoft Dynamics 365 Sales",
+        billedAnnually: [
+          { name: "Sales Professional", price: "$65/user/mo" },
+          { name: "Sales Enterprise", price: "$105/user/mo" },
+          { name: "Sales Premium", price: "$150/user/mo" },
+        ],
+        note: "Paid yearly. Additional licensing for Power Apps, Power BI may apply.",
+        pricingUrl: "https://www.microsoft.com/en-us/dynamics-365/products/sales/pricing",
+      },
     },
     zohoAutomation: ["Blueprint process automation", "Zia AI (included)", "CommandCenter orchestration", "Custom functions & Deluge", "SalesSignals multi-channel"],
     competitorAutomation: ["Power Automate (separate license)", "Dynamics AI (premium)", "Business process flows", "Custom plugins (.NET)", "Virtual agents (premium)"],
     faqs: [
       { question: "Is Zoho CRM better than Microsoft Dynamics?", answer: "For businesses seeking faster implementation and lower costs without sacrificing capability, Zoho CRM is the better choice. Dynamics 365 may suit organizations deeply embedded in the Microsoft ecosystem." },
-      { question: "Can I migrate from Dynamics 365 to Zoho CRM?", answer: "Yes. ClubCode Technology specializes in Dynamics-to-Zoho migrations, handling contacts, opportunities, custom entities, and workflow recreation." },
+      { question: "Can I migrate from Dynamics 365 to Zoho CRM?", answer: "Yes. Club Code Technology specializes in Dynamics-to-Zoho migrations, handling contacts, opportunities, custom entities, and workflow recreation." },
       { question: "Why is Dynamics 365 so expensive?", answer: "Dynamics 365 uses a modular licensing model where each capability (Sales, Marketing, Service) is separately licensed, and many features require premium add-ons like Power Platform." },
       { question: "Which is faster to implement?", answer: "Zoho CRM can be implemented in weeks, while Dynamics 365 typically takes 3-6 months for comparable functionality, plus higher consulting costs." },
     ],
@@ -271,16 +367,29 @@ const comparisons: CRMComparisonData[] = [
       { name: "Implementation Time", zoho: "excellent", competitor: "excellent" },
     ],
     pricing: {
-      entry: { zoho: "£12/user/mo", competitor: "£10/seat/mo (min 3)" },
-      professional: { zoho: "£20/user/mo", competitor: "£14/seat/mo" },
-      enterprise: { zoho: "£35/user/mo", competitor: "£22/seat/mo" },
+      entry: { zoho: "$14/user/mo", competitor: "$9/seat/mo" },
+      professional: { zoho: "$23/user/mo", competitor: "$12/seat/mo" },
+      enterprise: { zoho: "$40/user/mo", competitor: "$19/seat/mo" },
       tcoNote: "Monday CRM appears cheaper but lacks many CRM-specific features that Zoho includes. You'll need additional Monday products or third-party tools to match Zoho CRM's capabilities.",
+    },
+    pricingSnapshot: {
+      zoho: { ...zohoPricing },
+      competitor: {
+        label: "Monday CRM",
+        billedAnnually: [
+          { name: "Basic", price: "$9/seat/mo" },
+          { name: "Standard", price: "$12/seat/mo" },
+          { name: "Pro", price: "$19/seat/mo" },
+        ],
+        note: "Enterprise: contact sales for pricing.",
+        pricingUrl: "https://monday.com/pricing",
+      },
     },
     zohoAutomation: ["Blueprint sales process automation", "Zia AI lead scoring & predictions", "CommandCenter journey orchestration", "Custom functions & webhooks", "Multi-department workflow automation"],
     competitorAutomation: ["Basic column-based automations", "Recipe-based triggers", "Status change notifications", "Date-based reminders", "Integration automations"],
     faqs: [
       { question: "Is Monday CRM a real CRM?", answer: "Monday CRM is built on a project management platform. While functional for basic sales tracking, it lacks the depth of purpose-built CRMs like Zoho CRM in areas like AI, process automation, and enterprise customization." },
-      { question: "Can I migrate from Monday CRM to Zoho CRM?", answer: "Yes. ClubCode Technology can migrate your Monday CRM boards, contacts, deals, and activities to Zoho CRM with proper field mapping and workflow recreation." },
+      { question: "Can I migrate from Monday CRM to Zoho CRM?", answer: "Yes. Club Code Technology can migrate your Monday CRM boards, contacts, deals, and activities to Zoho CRM with proper field mapping and workflow recreation." },
       { question: "Which is better for sales teams?", answer: "Zoho CRM is purpose-built for sales teams with features like territory management, sales forecasting, and Blueprint — capabilities Monday CRM doesn't offer." },
       { question: "Is Monday CRM cheaper than Zoho CRM?", answer: "Per-seat pricing appears lower, but Monday CRM requires minimum seats (3) and lacks CRM features that Zoho includes, often requiring additional products to fill gaps." },
     ],
