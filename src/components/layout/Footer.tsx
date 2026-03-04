@@ -69,9 +69,9 @@ export function Footer() {
       {/* Main Footer Content - Even Darker */}
       <div className="bg-[#050D1A]">
         <div className="container-custom py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-12 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-10 mb-12">
             {/* Brand Column */}
-            <div className="lg:col-span-2 xl:col-span-1">
+            <div className="md:col-span-2 lg:col-span-3 xl:col-span-2">
               <Link to="/" className="inline-block mb-6">
                 <img 
                   src={cctLogoFooter} 
@@ -104,7 +104,7 @@ export function Footer() {
               <ul className="space-y-3">
                 {footerLinks.solutions.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors text-sm">
                       {link.label}
                     </Link>
                   </li>
@@ -112,13 +112,13 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* CRM Comparisons */}
+            {/* CRM Comparisons + Alternatives */}
             <div>
               <h4 className="text-white font-semibold mb-4">CRM Comparisons</h4>
               <ul className="space-y-3">
                 {footerLinks.crmComparisons.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors text-sm">
                       {link.label}
                     </Link>
                   </li>
@@ -129,7 +129,7 @@ export function Footer() {
               <ul className="space-y-3">
                 {footerLinks.crmAlternatives.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors text-sm">
                       {link.label}
                     </Link>
                   </li>
@@ -143,7 +143,7 @@ export function Footer() {
               <ul className="space-y-3">
                 {footerLinks.crmMigration.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors text-sm">
                       {link.label}
                     </Link>
                   </li>
@@ -151,13 +151,13 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Company & Global Presence */}
+            {/* Company + Industries + Global Presence — each in own sub-section */}
             <div>
               <h4 className="text-white font-semibold mb-4">Company</h4>
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-3 mb-8">
                 {footerLinks.company.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors text-sm">
                       {link.label}
                     </Link>
                   </li>
@@ -165,21 +165,21 @@ export function Footer() {
               </ul>
 
               <h4 className="text-white font-semibold mb-4">Industries</h4>
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-3 mb-8">
                 {footerLinks.industries.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors text-sm">
                       {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
 
-              <h4 className="text-white font-semibold mb-4">Zoho Partner by Country</h4>
+              <h4 className="text-white font-semibold mb-4">Global Presence</h4>
               <ul className="space-y-3">
                 {footerLinks.globalPresence.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors text-sm">
                       {link.label}
                     </Link>
                   </li>
