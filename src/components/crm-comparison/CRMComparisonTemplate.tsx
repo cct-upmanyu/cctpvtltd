@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
-  ArrowRight, CheckCircle, XCircle, MinusCircle,
+  ArrowRight, CheckCircle,
   Zap, Brain, BarChart3, Settings, Users, Building2,
   Rocket, TrendingUp, Shield, Headphones, Database,
   BookOpen, Target, ArrowRightLeft, Star, Award,
@@ -15,25 +15,6 @@ import {
 import { CRMComparisonData, PlatformPricing, comparisonLinks } from "@/data/crmComparisonData";
 import { useState } from "react";
 
-const ratingIcon = (rating: string) => {
-  switch (rating) {
-    case "excellent": return <CheckCircle className="w-5 h-5 text-emerald-400" />;
-    case "good": return <MinusCircle className="w-5 h-5 text-amber-400" />;
-    case "basic": return <MinusCircle className="w-5 h-5 text-orange-400" />;
-    case "limited": return <XCircle className="w-5 h-5 text-red-400" />;
-    default: return null;
-  }
-};
-
-const ratingLabel = (rating: string) => {
-  switch (rating) {
-    case "excellent": return "Excellent";
-    case "good": return "Good";
-    case "basic": return "Basic";
-    case "limited": return "Limited";
-    default: return "";
-  }
-};
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
@@ -229,8 +210,9 @@ export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center mb-12">
             Feature-by-Feature Comparison
           </motion.h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-3 gap-4 mb-4 px-4">
+          <div className="max-w-5xl mx-auto">
+            {/* Table header */}
+            <div className="grid grid-cols-1 md:grid-cols-[200px_1fr_1fr] gap-4 mb-4 px-4 hidden md:grid">
               <div className="text-sm font-semibold text-[#E5E7EB]">Feature</div>
               <div className="text-sm font-semibold text-[#3FE0F0] text-center">Zoho CRM</div>
               <div className="text-sm font-semibold text-[#E5E7EB] text-center">{data.competitorShort}</div>
@@ -242,11 +224,17 @@ export function CRMComparisonTemplate({ data }: { data: CRMComparisonData }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="grid grid-cols-3 gap-4 p-4 rounded-xl bg-[#0B1C3D]/60 border border-[#3FE0F0]/10 mb-2"
+                className="grid grid-cols-1 md:grid-cols-[200px_1fr_1fr] gap-4 p-4 md:p-5 rounded-xl bg-[#0B1C3D]/60 border border-[#3FE0F0]/10 mb-2"
               >
-                <div className="text-[#FFFFFF] font-medium text-sm">{feature.name}</div>
-                <div className="flex items-center justify-center gap-2">{ratingIcon(feature.zoho)}<span className="text-xs text-[#E5E7EB] hidden sm:inline">{ratingLabel(feature.zoho)}</span></div>
-                <div className="flex items-center justify-center gap-2">{ratingIcon(feature.competitor)}<span className="text-xs text-[#E5E7EB] hidden sm:inline">{ratingLabel(feature.competitor)}</span></div>
+                <div className="text-[#3FE0F0] font-semibold text-sm md:text-base md:self-start">{feature.name}</div>
+                <div className="space-y-1">
+                  <span className="text-[#3FE0F0] text-xs font-semibold uppercase tracking-wide md:hidden">Zoho CRM</span>
+                  <p className="text-[#E5E7EB] text-sm leading-relaxed">{feature.zoho}</p>
+                </div>
+                <div className="space-y-1">
+                  <span className="text-[#E5E7EB]/60 text-xs font-semibold uppercase tracking-wide md:hidden">{data.competitorShort}</span>
+                  <p className="text-[#E5E7EB]/80 text-sm leading-relaxed">{feature.competitor}</p>
+                </div>
               </motion.div>
             ))}
           </div>

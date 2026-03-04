@@ -26,8 +26,8 @@ export interface CRMComparisonData {
   zohoStrengths: string[];
   features: {
     name: string;
-    zoho: "excellent" | "good" | "basic" | "limited";
-    competitor: "excellent" | "good" | "basic" | "limited";
+    zoho: string;
+    competitor: string;
   }[];
   pricing: {
     entry: { zoho: string; competitor: string; };
@@ -82,14 +82,14 @@ const comparisons: CRMComparisonData[] = [
     competitorStrengths: ["Largest CRM marketplace (AppExchange)", "Deep enterprise customization (Apex/Visualforce)", "Extensive third-party ecosystem", "Industry-specific cloud solutions"],
     zohoStrengths: ["60-70% lower total cost of ownership", "Built-in AI assistant (Zia)", "45+ native Zoho app integrations", "Canvas design for custom UI", "No per-feature licensing surprises"],
     features: [
-      { name: "Ease of Use", zoho: "excellent", competitor: "good" },
-      { name: "Customization", zoho: "excellent", competitor: "excellent" },
-      { name: "Automation", zoho: "excellent", competitor: "excellent" },
-      { name: "AI Features", zoho: "excellent", competitor: "excellent" },
-      { name: "Integrations", zoho: "excellent", competitor: "excellent" },
-      { name: "Reporting", zoho: "excellent", competitor: "excellent" },
-      { name: "Scalability", zoho: "excellent", competitor: "excellent" },
-      { name: "Implementation Time", zoho: "excellent", competitor: "basic" },
+      { name: "Ease of Implementation", zoho: "Typical implementation takes 1–3 weeks for SMBs depending on customization.", competitor: "Implementation often requires longer deployment cycles, consulting partners, and significant budget allocation." },
+      { name: "Customization", zoho: "Custom modules, fields, layouts, Blueprints, Canvas UI designer, and Deluge scripting allow deep customization.", competitor: "Highly customizable with Apex, Visualforce, and Lightning, but requires developer resources and costs more." },
+      { name: "Workflow Automation", zoho: "Advanced workflow automation with Blueprint, macros, process automation, and AI-assisted triggers.", competitor: "Powerful automation via Flow Builder, Process Builder, and Apex triggers. Some features require premium editions." },
+      { name: "AI Capabilities", zoho: "Zia AI provides lead scoring, anomaly detection, forecasting insights, and automation suggestions — included in standard plans.", competitor: "Einstein AI offers predictive analytics and recommendations but is typically a premium add-on with additional licensing costs." },
+      { name: "Integration Ecosystem", zoho: "Native integration with 50+ Zoho applications and thousands of third-party apps via Zoho Marketplace.", competitor: "Extensive AppExchange marketplace with thousands of integrations, though many are paid add-ons." },
+      { name: "Reporting & Analytics", zoho: "Built-in reporting plus advanced analytics through Zoho Analytics integration included in ecosystem.", competitor: "Robust reporting with Einstein Analytics available as a premium add-on for deeper insights." },
+      { name: "Scalability", zoho: "Suitable for startups, SMBs, and growing enterprises scaling with the Zoho One ecosystem.", competitor: "Designed primarily for mid-market to large enterprise deployments with complex multi-cloud architectures." },
+      { name: "Implementation Cost", zoho: "Lower implementation cost and faster onboarding compared to most enterprise CRMs.", competitor: "Implementation typically requires significant consulting investment, often 3–5x the licensing cost." },
     ],
     pricing: {
       entry: { zoho: "$14/user/mo", competitor: "$25/user/mo" },
@@ -135,14 +135,14 @@ const comparisons: CRMComparisonData[] = [
     competitorStrengths: ["Excellent free CRM tier", "Superior content marketing tools", "Intuitive user interface", "Strong inbound marketing methodology"],
     zohoStrengths: ["More affordable at scale", "Deeper CRM customization", "Built-in AI (Zia) in standard plans", "45+ native app ecosystem", "Blueprint process automation"],
     features: [
-      { name: "Ease of Use", zoho: "excellent", competitor: "excellent" },
-      { name: "Customization", zoho: "excellent", competitor: "good" },
-      { name: "Automation", zoho: "excellent", competitor: "good" },
-      { name: "AI Features", zoho: "excellent", competitor: "good" },
-      { name: "Integrations", zoho: "excellent", competitor: "excellent" },
-      { name: "Reporting", zoho: "excellent", competitor: "good" },
-      { name: "Scalability", zoho: "excellent", competitor: "good" },
-      { name: "Implementation Time", zoho: "excellent", competitor: "excellent" },
+      { name: "Ease of Implementation", zoho: "Typical implementation takes 1–3 weeks for SMBs with guided setup wizards.", competitor: "Quick onboarding for free tier; Professional and Enterprise tiers require more configuration effort." },
+      { name: "Customization", zoho: "Custom modules, fields, layouts, Blueprints, Canvas UI designer, and Deluge scripting.", competitor: "Limited customization on free/starter tiers. Advanced customization requires Professional+ plans." },
+      { name: "Workflow Automation", zoho: "Advanced workflow automation with Blueprint, macros, and CommandCenter journey orchestration.", competitor: "Workflows available from Professional tier ($100+/seat/mo). Sequences limited in starter plans." },
+      { name: "AI Capabilities", zoho: "Zia AI provides lead scoring, anomaly detection, forecasting, and automation suggestions in standard plans.", competitor: "AI features (Breeze) are newer and limited compared to Zia. Advanced AI requires Enterprise tier." },
+      { name: "Integration Ecosystem", zoho: "Native integration with 50+ Zoho applications and thousands of third-party apps.", competitor: "Strong App Marketplace with 1,000+ integrations. Native marketing tools are a key strength." },
+      { name: "Reporting & Analytics", zoho: "Built-in reporting plus advanced analytics through Zoho Analytics integration.", competitor: "Basic reporting in starter plans. Custom reporting requires Professional tier or higher." },
+      { name: "Scalability", zoho: "Suitable for startups to enterprises scaling with the Zoho One ecosystem at predictable pricing.", competitor: "Costs escalate significantly at scale. Enterprise pricing is custom and typically much higher." },
+      { name: "Implementation Cost", zoho: "Lower implementation cost with faster onboarding at every tier.", competitor: "Free tier has minimal cost, but Professional+ implementations can be expensive due to per-seat pricing." },
     ],
     pricing: {
       entry: { zoho: "$14/user/mo", competitor: "Free (limited)" },
@@ -190,14 +190,14 @@ const comparisons: CRMComparisonData[] = [
     competitorStrengths: ["Intuitive visual pipeline", "Quick setup and onboarding", "Activity-based selling approach", "Simple sales reporting"],
     zohoStrengths: ["Far more customization options", "Built-in AI (Zia)", "Complete business ecosystem (45+ apps)", "Advanced automation (Blueprint)", "Better value at every tier"],
     features: [
-      { name: "Ease of Use", zoho: "excellent", competitor: "excellent" },
-      { name: "Customization", zoho: "excellent", competitor: "basic" },
-      { name: "Automation", zoho: "excellent", competitor: "good" },
-      { name: "AI Features", zoho: "excellent", competitor: "basic" },
-      { name: "Integrations", zoho: "excellent", competitor: "good" },
-      { name: "Reporting", zoho: "excellent", competitor: "good" },
-      { name: "Scalability", zoho: "excellent", competitor: "basic" },
-      { name: "Implementation Time", zoho: "excellent", competitor: "excellent" },
+      { name: "Ease of Implementation", zoho: "Typical implementation takes 1–3 weeks. Guided setup with templates for common workflows.", competitor: "Very quick setup focused on visual pipeline management. Minimal configuration needed for basic use." },
+      { name: "Customization", zoho: "Custom modules, fields, layouts, Blueprints, Canvas UI designer, and Deluge scripting.", competitor: "Limited to custom fields and pipeline stages. No custom modules, scripting, or layout designer." },
+      { name: "Workflow Automation", zoho: "Advanced Blueprint automation with conditional logic, multi-department orchestration, and macros.", competitor: "Basic workflow automation with triggers and actions. No visual process designer or journey orchestration." },
+      { name: "AI Capabilities", zoho: "Zia AI provides lead scoring, anomaly detection, forecasting insights, and automation suggestions.", competitor: "AI Sales Assistant offers basic deal insights. No predictive scoring, anomaly detection, or forecasting." },
+      { name: "Integration Ecosystem", zoho: "Native integration with 50+ Zoho applications and thousands of third-party apps.", competitor: "Marketplace with 300+ integrations. No native accounting, HR, or support desk applications." },
+      { name: "Reporting & Analytics", zoho: "Built-in reporting plus advanced analytics through Zoho Analytics integration.", competitor: "Basic sales reports and dashboards. Advanced reporting requires higher-tier plans or add-ons." },
+      { name: "Scalability", zoho: "Suitable for startups to enterprises with multi-department support and Zoho One ecosystem.", competitor: "Best suited for small sales teams. Lacks enterprise features like territory management and multi-org support." },
+      { name: "Implementation Cost", zoho: "Lower long-term cost with more features included at each pricing tier.", competitor: "Similar entry pricing but fewer features per tier. AI and advanced features cost extra." },
     ],
     pricing: {
       entry: { zoho: "$14/user/mo", competitor: "$14/seat/mo" },
@@ -246,14 +246,14 @@ const comparisons: CRMComparisonData[] = [
     competitorStrengths: ["Built-in phone and email", "Clean modern interface", "Freddy AI basics included", "Quick initial setup"],
     zohoStrengths: ["Deeper customization (Canvas, Blueprint)", "More powerful AI (Zia)", "Larger ecosystem (45+ apps)", "Better reporting and analytics", "More automation capabilities"],
     features: [
-      { name: "Ease of Use", zoho: "excellent", competitor: "excellent" },
-      { name: "Customization", zoho: "excellent", competitor: "good" },
-      { name: "Automation", zoho: "excellent", competitor: "good" },
-      { name: "AI Features", zoho: "excellent", competitor: "good" },
-      { name: "Integrations", zoho: "excellent", competitor: "good" },
-      { name: "Reporting", zoho: "excellent", competitor: "good" },
-      { name: "Scalability", zoho: "excellent", competitor: "good" },
-      { name: "Implementation Time", zoho: "excellent", competitor: "excellent" },
+      { name: "Ease of Implementation", zoho: "Typical implementation takes 1–3 weeks with guided setup and migration tools.", competitor: "Quick initial setup with a clean modern interface. Basic CRM configuration is straightforward." },
+      { name: "Customization", zoho: "Custom modules, fields, layouts, Blueprints, Canvas UI designer, and Deluge scripting.", competitor: "Moderate customization with custom fields and modules. Less flexible than Zoho CRM for complex requirements." },
+      { name: "Workflow Automation", zoho: "Advanced Blueprint automation, CommandCenter journey orchestration, macros, and custom functions.", competitor: "Basic workflow automation with triggers and actions. Sales sequences for email follow-ups." },
+      { name: "AI Capabilities", zoho: "Zia AI provides lead scoring, anomaly detection, forecasting insights, and sentiment analysis.", competitor: "Freddy AI offers basic lead scoring and deal insights. Less mature than Zia for predictive analytics." },
+      { name: "Integration Ecosystem", zoho: "Native integration with 50+ Zoho applications and thousands of third-party apps.", competitor: "Part of Freshworks suite (Freshdesk, Freshchat). Smaller third-party marketplace than Zoho." },
+      { name: "Reporting & Analytics", zoho: "Built-in reporting plus advanced analytics through Zoho Analytics integration.", competitor: "Standard reporting included. Advanced analytics and custom dashboards limited in lower tiers." },
+      { name: "Scalability", zoho: "Suitable for startups to enterprises with complete Zoho One ecosystem support.", competitor: "Good for SMBs but less proven for large enterprise deployments compared to Zoho CRM." },
+      { name: "Implementation Cost", zoho: "Lower total cost with more features included per tier and Zoho One bundled pricing.", competitor: "Competitive entry pricing but advanced features and Freshworks suite add-ons increase total cost." },
     ],
     pricing: {
       entry: { zoho: "$14/user/mo", competitor: "Free (3 users)" },
@@ -301,14 +301,14 @@ const comparisons: CRMComparisonData[] = [
     competitorStrengths: ["Deep Microsoft 365 integration", "Power Platform extensibility", "Azure cloud infrastructure", "Industry-specific modules"],
     zohoStrengths: ["70% lower total cost of ownership", "Faster implementation (weeks vs months)", "Simpler administration", "Built-in AI without premium add-ons", "Complete ecosystem at one price (Zoho One)"],
     features: [
-      { name: "Ease of Use", zoho: "excellent", competitor: "basic" },
-      { name: "Customization", zoho: "excellent", competitor: "excellent" },
-      { name: "Automation", zoho: "excellent", competitor: "excellent" },
-      { name: "AI Features", zoho: "excellent", competitor: "good" },
-      { name: "Integrations", zoho: "excellent", competitor: "excellent" },
-      { name: "Reporting", zoho: "excellent", competitor: "excellent" },
-      { name: "Scalability", zoho: "excellent", competitor: "excellent" },
-      { name: "Implementation Time", zoho: "excellent", competitor: "limited" },
+      { name: "Ease of Implementation", zoho: "Typical implementation takes 1–3 weeks for SMBs with low-code configuration tools.", competitor: "Complex implementation often taking 3–6 months requiring certified consultants and developers." },
+      { name: "Customization", zoho: "Custom modules, fields, layouts, Blueprints, Canvas UI designer, and Deluge scripting.", competitor: "Highly customizable with Power Platform, Dataverse, and .NET plugins. Requires developer expertise." },
+      { name: "Workflow Automation", zoho: "Advanced Blueprint automation, CommandCenter orchestration, macros, and custom functions included.", competitor: "Power Automate provides robust automation but requires separate licensing. Business process flows included." },
+      { name: "AI Capabilities", zoho: "Zia AI provides lead scoring, anomaly detection, forecasting, and automation suggestions in standard plans.", competitor: "Dynamics AI and Copilot offer sales insights but require premium licensing (Sales Premium at $150/user/mo)." },
+      { name: "Integration Ecosystem", zoho: "Native integration with 50+ Zoho applications and thousands of third-party apps.", competitor: "Deep Microsoft 365 integration (Outlook, Teams, SharePoint). Power Platform connectors require additional licensing." },
+      { name: "Reporting & Analytics", zoho: "Built-in reporting plus advanced analytics through Zoho Analytics integration included.", competitor: "Power BI integration for analytics is powerful but separately licensed. Built-in reports are functional." },
+      { name: "Scalability", zoho: "Suitable for startups to enterprises scaling with Zoho One at predictable pricing.", competitor: "Enterprise-grade scalability on Azure infrastructure but with complex and expensive licensing models." },
+      { name: "Implementation Cost", zoho: "Lower implementation cost — typically 70% less than comparable Dynamics 365 deployments.", competitor: "High implementation costs with consulting fees often 3–5x the annual licensing cost." },
     ],
     pricing: {
       entry: { zoho: "$14/user/mo", competitor: "$65/user/mo" },
@@ -357,14 +357,14 @@ const comparisons: CRMComparisonData[] = [
     competitorStrengths: ["Visual and colorful interface", "Good project management integration", "Easy drag-and-drop customization", "Work OS flexibility"],
     zohoStrengths: ["Purpose-built CRM with 20+ years of development", "Far superior AI capabilities (Zia)", "Advanced sales automation (Blueprint)", "Complete business ecosystem", "Enterprise-grade scalability"],
     features: [
-      { name: "Ease of Use", zoho: "excellent", competitor: "excellent" },
-      { name: "Customization", zoho: "excellent", competitor: "good" },
-      { name: "Automation", zoho: "excellent", competitor: "good" },
-      { name: "AI Features", zoho: "excellent", competitor: "basic" },
-      { name: "Integrations", zoho: "excellent", competitor: "good" },
-      { name: "Reporting", zoho: "excellent", competitor: "good" },
-      { name: "Scalability", zoho: "excellent", competitor: "basic" },
-      { name: "Implementation Time", zoho: "excellent", competitor: "excellent" },
+      { name: "Ease of Implementation", zoho: "Typical implementation takes 1–3 weeks with guided CRM-specific setup and templates.", competitor: "Quick setup leveraging Monday.com's visual Work OS. CRM-specific configuration is straightforward." },
+      { name: "Customization", zoho: "Custom modules, fields, layouts, Blueprints, Canvas UI designer, and Deluge scripting.", competitor: "Drag-and-drop column customization and board views. No custom modules, scripting, or advanced layouts." },
+      { name: "Workflow Automation", zoho: "Advanced Blueprint automation, CommandCenter journey orchestration, and multi-department workflows.", competitor: "Recipe-based automations with triggers and actions. No visual process designer or conditional branching." },
+      { name: "AI Capabilities", zoho: "Zia AI provides lead scoring, anomaly detection, forecasting insights, and automation suggestions.", competitor: "Basic AI features for work management. No CRM-specific predictive scoring or sales forecasting." },
+      { name: "Integration Ecosystem", zoho: "Native integration with 50+ Zoho applications and thousands of third-party apps.", competitor: "200+ integrations via marketplace. No native accounting, HR, or customer support applications." },
+      { name: "Reporting & Analytics", zoho: "Built-in CRM reporting plus advanced analytics through Zoho Analytics integration.", competitor: "Dashboard widgets and chart views. Lacks dedicated CRM analytics and sales forecasting tools." },
+      { name: "Scalability", zoho: "Suitable for startups to enterprises with territory management, multi-org, and Zoho One ecosystem.", competitor: "Best suited for small teams. Lacks enterprise CRM features like territory management and advanced security." },
+      { name: "Implementation Cost", zoho: "Comprehensive CRM features included at every tier with predictable per-user pricing.", competitor: "Lower per-seat pricing but requires additional Monday products or third-party tools to match CRM functionality." },
     ],
     pricing: {
       entry: { zoho: "$14/user/mo", competitor: "$9/seat/mo" },
