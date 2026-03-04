@@ -37,6 +37,29 @@ const footerLinks = {
     { label: "India", href: "/zoho-partner-india" },
     { label: "Europe", href: "/zoho-partner-europe" },
   ],
+  crmComparisons: [
+    { label: "Zoho CRM vs Salesforce", href: "/compare/zoho-crm-vs-salesforce" },
+    { label: "Zoho CRM vs HubSpot", href: "/compare/zoho-crm-vs-hubspot" },
+    { label: "Zoho CRM vs Pipedrive", href: "/compare/zoho-crm-vs-pipedrive" },
+    { label: "Zoho CRM vs Freshsales", href: "/compare/zoho-crm-vs-freshsales" },
+    { label: "Zoho CRM vs Microsoft Dynamics 365", href: "/compare/zoho-crm-vs-microsoft-dynamics" },
+    { label: "Zoho CRM vs Monday CRM", href: "/compare/zoho-crm-vs-monday-crm" },
+  ],
+  crmMigration: [
+    { label: "CRM Migration Services", href: "/data-migration" },
+    { label: "Salesforce to Zoho CRM Migration", href: "/data-migration" },
+    { label: "HubSpot to Zoho CRM Migration", href: "/data-migration" },
+    { label: "Pipedrive to Zoho CRM Migration", href: "/data-migration" },
+    { label: "Freshsales to Zoho CRM Migration", href: "/data-migration" },
+    { label: "Microsoft Dynamics to Zoho CRM Migration", href: "/data-migration" },
+    { label: "Monday CRM to Zoho CRM Migration", href: "/data-migration" },
+  ],
+  crmAlternatives: [
+    { label: "Salesforce Alternative CRM", href: "/compare/zoho-crm-vs-salesforce" },
+    { label: "HubSpot Alternative CRM", href: "/compare/zoho-crm-vs-hubspot" },
+    { label: "Pipedrive Alternative CRM", href: "/compare/zoho-crm-vs-pipedrive" },
+    { label: "Freshsales Alternative CRM", href: "/compare/zoho-crm-vs-freshsales" },
+  ],
 };
 
 export function Footer() {
@@ -46,9 +69,9 @@ export function Footer() {
       {/* Main Footer Content - Even Darker */}
       <div className="bg-[#050D1A]">
         <div className="container-custom py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-12 mb-12">
             {/* Brand Column */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 xl:col-span-1">
               <Link to="/" className="inline-block mb-6">
                 <img 
                   src={cctLogoFooter} 
@@ -89,11 +112,22 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Industries */}
+            {/* CRM Comparisons */}
             <div>
-              <h4 className="text-white font-semibold mb-4">Industries</h4>
+              <h4 className="text-white font-semibold mb-4">CRM Comparisons</h4>
               <ul className="space-y-3">
-                {footerLinks.industries.map((link) => (
+                {footerLinks.crmComparisons.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <h4 className="text-white font-semibold mb-4 mt-8">CRM Alternatives</h4>
+              <ul className="space-y-3">
+                {footerLinks.crmAlternatives.map((link) => (
                   <li key={link.label}>
                     <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
                       {link.label}
@@ -103,11 +137,36 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Company & Global Presence Combined */}
+            {/* CRM Migration Services */}
+            <div>
+              <h4 className="text-white font-semibold mb-4">CRM Migration Services</h4>
+              <ul className="space-y-3">
+                {footerLinks.crmMigration.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company & Global Presence */}
             <div>
               <h4 className="text-white font-semibold mb-4">Company</h4>
               <ul className="space-y-3 mb-6">
                 {footerLinks.company.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <h4 className="text-white font-semibold mb-4">Industries</h4>
+              <ul className="space-y-3 mb-6">
+                {footerLinks.industries.map((link) => (
                   <li key={link.label}>
                     <Link to={link.href} className="text-[#94A3B8] hover:text-[#3FE0F0] transition-colors">
                       {link.label}
