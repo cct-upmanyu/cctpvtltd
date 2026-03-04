@@ -53,6 +53,14 @@ import AIVoiceBots from "./pages/ai/AIVoiceBots";
 import AICRMAutomation from "./pages/ai/AICRMAutomation";
 import AIAnalytics from "./pages/ai/AIAnalytics";
 
+// CRM Comparison Pages
+import ZohoCRMvsSalesforce from "./pages/compare/ZohoCRMvsSalesforce";
+import ZohoCRMvsHubSpot from "./pages/compare/ZohoCRMvsHubSpot";
+import ZohoCRMvsPipedrive from "./pages/compare/ZohoCRMvsPipedrive";
+import ZohoCRMvsFreshsales from "./pages/compare/ZohoCRMvsFreshsales";
+import ZohoCRMvsDynamics from "./pages/compare/ZohoCRMvsDynamics";
+import ZohoCRMvsMonday from "./pages/compare/ZohoCRMvsMonday";
+
 // Industry Pages
 import ManufacturingIndustry from "./pages/industries/ManufacturingIndustry";
 import RetailIndustry from "./pages/industries/RetailIndustry";
@@ -144,6 +152,13 @@ const App = () => (
             <Route path="/industries/financial-services" element={<FinancialServicesIndustry />} />
             <Route path="/industries/marketing-creative" element={<MarketingCreativeIndustry />} />
             <Route path="/industries/saas" element={<SaaSIndustry />} />
+            {/* CRM Comparison Pages */}
+            <Route path="/compare/zoho-crm-vs-salesforce" element={<ZohoCRMvsSalesforce />} />
+            <Route path="/compare/zoho-crm-vs-hubspot" element={<ZohoCRMvsHubSpot />} />
+            <Route path="/compare/zoho-crm-vs-pipedrive" element={<ZohoCRMvsPipedrive />} />
+            <Route path="/compare/zoho-crm-vs-freshsales" element={<ZohoCRMvsFreshsales />} />
+            <Route path="/compare/zoho-crm-vs-microsoft-dynamics" element={<ZohoCRMvsDynamics />} />
+            <Route path="/compare/zoho-crm-vs-monday-crm" element={<ZohoCRMvsMonday />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
