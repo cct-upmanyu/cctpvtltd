@@ -34,81 +34,66 @@ const ukIndustries = [
   { name: "Recruitment & HR", icon: <Users className="w-7 h-7" />, description: "Automate hiring workflows, candidate tracking, and employee onboarding with Zoho Recruit and People.", image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" },
 ];
 
-// Shared styles for consistency
-const darkSectionBg = "linear-gradient(180deg, #020817 0%, #0B1426 50%, #020817 100%)";
+// Background styles
+const darkSectionBg = "linear-gradient(180deg, #0B1C3D 0%, #0F2A5F 50%, #0B1C3D 100%)";
 const lightSectionBg = "linear-gradient(180deg, #F8FAFC 0%, #EFF4FB 100%)";
+const skyGradientBg = "linear-gradient(180deg, #EBF4FF 0%, #F0F7FF 50%, #F8FAFC 100%)";
+const warmLightBg = "linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%)";
+
+const lightCard = {
+  background: "#FFFFFF",
+  border: "1px solid rgba(63, 224, 240, 0.12)",
+};
 const glassCard = {
   background: "rgba(15, 25, 50, 0.6)",
   border: "1px solid rgba(63, 224, 240, 0.08)",
   backdropFilter: "blur(12px)",
 };
-const lightCard = {
-  background: "#FFFFFF",
-  border: "1px solid rgba(63, 224, 240, 0.12)",
-};
 
-// Typewriter Migration Strip Component
-function MigrationStrip() {
-  const line1 = "Looking to migrate from Salesforce, HubSpot, or legacy ERP?";
-  const line2 = "We provide structured Zoho migration for UK businesses.";
-  const [text1, setText1] = useState("");
-  const [text2, setText2] = useState("");
-  const [line1Done, setLine1Done] = useState(false);
-  const [line2Done, setLine2Done] = useState(false);
-
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i <= line1.length) {
-        setText1(line1.slice(0, i));
-        i++;
-      } else {
-        setLine1Done(true);
-        clearInterval(interval);
-      }
-    }, 30);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    if (!line1Done) return;
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i <= line2.length) {
-        setText2(line2.slice(0, i));
-        i++;
-      } else {
-        setLine2Done(true);
-        clearInterval(interval);
-      }
-    }, 25);
-    return () => clearInterval(interval);
-  }, [line1Done]);
-
+// Migration CTA Component — Competitor-inspired card style
+function MigrationCTA() {
   return (
-    <section className="py-10 relative" style={{ background: "linear-gradient(135deg, #F0F4FA 0%, #E8EEF8 50%, #F0F4FA 100%)" }}>
+    <section className="py-12" style={{ background: lightSectionBg }}>
       <div className="container-custom">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left font-mono">
-            <p className="text-[#0B1C3D] font-extrabold text-xl md:text-2xl lg:text-3xl min-h-[1.8em]">
-              {text1}
-              {!line1Done && <span className="inline-block w-[3px] h-7 bg-[#0B1C3D] ml-1 animate-pulse" />}
-            </p>
-            <p className="text-[#374151] font-bold text-lg md:text-xl mt-2 min-h-[1.5em]">
-              {line1Done ? text2 : ""}
-              {line1Done && !line2Done && <span className="inline-block w-[3px] h-6 bg-[#374151] ml-1 animate-pulse" />}
-            </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="rounded-2xl overflow-hidden border border-[#3FE0F0]/20"
+          style={{ background: "linear-gradient(135deg, #F0FDFF 0%, #E0F7FA 30%, #E8F4FD 60%, #EFF6FF 100%)" }}
+        >
+          <div className="flex flex-col md:flex-row items-center">
+            {/* Text Content */}
+            <div className="flex-1 p-8 md:p-12">
+              <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-3">
+                Looking to Migrate from Salesforce, HubSpot, or Legacy ERP?
+              </h3>
+              <p className="text-[#374151] text-base md:text-lg mb-6 leading-relaxed">
+                Connect with our certified Zoho specialists who will streamline your migration process and maximize your platform's performance. One step away from transforming your operational efficiency!
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Button variant="heroLight" size="lg">
+                  Request Migration Assessment
+                </Button>
+                <Button variant="heroSecondary" size="lg">
+                  Talk to Sales
+                </Button>
+              </div>
+            </div>
+            {/* Decorative right side */}
+            <div className="hidden md:flex w-64 lg:w-80 h-full items-center justify-center p-8">
+              <div className="relative">
+                <div className="w-40 h-40 rounded-full bg-gradient-to-br from-[#3FE0F0]/20 to-[#4DA3FF]/20 flex items-center justify-center">
+                  <div className="w-28 h-28 rounded-full bg-gradient-to-br from-[#3FE0F0]/30 to-[#4DA3FF]/30 flex items-center justify-center">
+                    <ArrowRight className="w-10 h-10 text-[#0B1C3D]" />
+                  </div>
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-[#3FE0F0]/20 animate-pulse" />
+                <div className="absolute -bottom-3 -left-3 w-6 h-6 rounded-full bg-[#4DA3FF]/20 animate-pulse delay-500" />
+              </div>
+            </div>
           </div>
-          <motion.div
-            initial={{ opacity: 0, x: -200 }}
-            animate={line2Done ? { opacity: 1, x: 0 } : { opacity: 0, x: -200 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <Button variant="heroPrimary" size="xl" className="whitespace-nowrap bg-[#0B1C3D] border-[#0B1C3D] text-white hover:bg-[#0F2A5F] hover:border-[#0F2A5F] hover:shadow-[0_0_30px_-5px_rgba(11,28,61,0.5)]">
-              Request Migration Assessment <ArrowRight className="w-5 h-5" />
-            </Button>
-          </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -127,36 +112,29 @@ export default function ZohoPartnerUK() {
   }));
 
   return (
-    <div className="min-h-screen bg-[#020817]">
+    <div className="min-h-screen bg-white">
       <Helmet>
         <title>Zoho Premium Partner UK – ERP, CRM & AI Automation | ClubCode Technology</title>
         <meta name="description" content="Helping UK businesses implement Zoho CRM, Zoho One, ERP systems, and AI-powered automation with GDPR-compliant and FCA-ready architecture." />
       </Helmet>
       <Navbar />
 
-      {/* ═══════════════════════════════════════════
-          HERO — UK Landmarks + Deep Tech Overlay
-      ═══════════════════════════════════════════ */}
+      {/* ═══════ HERO — UK Landmarks ═══════ */}
       <section className="relative pt-32 pb-28 overflow-hidden min-h-[90vh] flex items-center">
-        {/* Background Image */}
         <div className="absolute inset-0">
           <img src={heroUkBg} alt="United Kingdom landmarks" className="w-full h-full object-cover" loading="eager" />
-          {/* Light overlay — let natural image show with subtle blue tint */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B1C3D]/30 via-[#0B1C3D]/25 to-[#020817]/85" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B1C3D]/20 via-transparent to-[#0B1C3D]/20" />
         </div>
-        {/* Subtle animated grid */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: "linear-gradient(rgba(63,224,240,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(63,224,240,0.5) 1px, transparent 1px)",
           backgroundSize: "80px 80px"
         }} />
-        {/* Glow orbs */}
         <div className="absolute top-1/3 left-1/4 w-[500px] h-[300px] bg-[#3FE0F0]/[0.06] rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[250px] bg-[#4DA3FF]/[0.05] rounded-full blur-[100px] pointer-events-none" />
 
         <div className="container-custom relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="text-center max-w-5xl mx-auto">
-            {/* Badge */}
             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full mb-8"
               style={{ background: "rgba(63,224,240,0.08)", border: "1px solid rgba(63,224,240,0.25)", backdropFilter: "blur(8px)" }}>
@@ -170,7 +148,7 @@ export default function ZohoPartnerUK() {
               <span className="text-white/95">United Kingdom</span>
             </h1>
 
-            <p className="inline-block text-xl md:text-2xl lg:text-3xl font-bold mb-6 px-6 py-3 rounded-lg text-white" style={{ background: "#3FE0F0", color: "#FFFFFF", boxShadow: "0 0 15px rgba(63,224,240,0.15)", border: "1px solid rgba(63,224,240,0.1)", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
+            <p className="inline-block text-xl md:text-2xl lg:text-3xl font-bold mb-6 px-6 py-3 rounded-lg text-white" style={{ background: "#3FE0F0", boxShadow: "0 0 15px rgba(63,224,240,0.15)", textShadow: "0 1px 2px rgba(0,0,0,0.3)" }}>
               ERP, CRM, Agentic AI & Robotic Process Automation Experts
             </p>
 
@@ -178,7 +156,6 @@ export default function ZohoPartnerUK() {
               Helping United Kingdom businesses scale with Zoho, ERP systems, and AI-powered automation. Transform your operations with our proven expertise.
             </p>
 
-            {/* Trust Indicators */}
             <div className="flex flex-wrap gap-5 justify-center text-sm mb-10">
               {[
                 { icon: <Award className="w-4 h-4" />, text: "Global Zoho Premium Partner" },
@@ -204,14 +181,12 @@ export default function ZohoPartnerUK() {
             </div>
           </motion.div>
         </div>
-
-        {/* Clean bottom edge */}
       </section>
 
-      {/* ═══════ MIGRATION STRIP — Light with Typewriter ═══════ */}
-      <MigrationStrip />
+      {/* ═══════ MIGRATION CTA — Competitor-style card ═══════ */}
+      <MigrationCTA />
 
-      {/* ═══════ SOCIAL PROOF — White Background ═══════ */}
+      {/* ═══════ SOCIAL PROOF — White ═══════ */}
       <section className="py-8" style={{ background: "#FFFFFF" }}>
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
@@ -243,40 +218,40 @@ export default function ZohoPartnerUK() {
         </div>
       </section>
 
-      {/* ═══════ LOCAL MARKET UNDERSTANDING — DARK BLUE ═══════ */}
-      <section className="py-20 relative" style={{ background: darkSectionBg }}>
+      {/* ═══════ LOCAL MARKET — LIGHT SKY ═══════ */}
+      <section className="py-20" style={{ background: skyGradientBg }}>
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">
               Understanding the United Kingdom Market
             </h2>
-            <p className="text-white/80 text-lg mb-10 max-w-3xl mx-auto">
+            <p className="text-[#374151] text-lg mb-10 max-w-3xl mx-auto">
               UK businesses face unique challenges—from Brexit-related regulatory shifts to intense digital competition. We deliver tailored Zoho solutions that address compliance, efficiency, and growth.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="rounded-2xl p-6 text-left" style={glassCard}>
-                <h3 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
+              <div className="rounded-2xl p-6 text-left bg-white border border-[#E2E8F0] shadow-sm">
+                <h3 className="text-[#111827] font-semibold text-lg mb-4 flex items-center gap-2">
                   <span className="w-8 h-8 rounded-lg bg-[#3FE0F0]/10 flex items-center justify-center"><TrendingUp className="w-4 h-4 text-[#3FE0F0]" /></span>
                   Local Challenges We Address
                 </h3>
                 <ul className="space-y-3">
                   {country.challenges.map((challenge, index) => (
-                    <li key={index} className="flex items-start gap-3 text-white/90">
+                    <li key={index} className="flex items-start gap-3 text-[#374151]">
                       <CheckCircle className="w-4 h-4 text-[#3FE0F0] flex-shrink-0 mt-1" />
                       <span className="text-sm">{challenge}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="rounded-2xl p-6 text-left" style={glassCard}>
-                <h3 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
+              <div className="rounded-2xl p-6 text-left bg-white border border-[#E2E8F0] shadow-sm">
+                <h3 className="text-[#111827] font-semibold text-lg mb-4 flex items-center gap-2">
                   <span className="w-8 h-8 rounded-lg bg-[#4DA3FF]/10 flex items-center justify-center"><Award className="w-4 h-4 text-[#4DA3FF]" /></span>
                   Why Partner With Us
                 </h3>
                 <ul className="space-y-3">
                   {country.benefits.map((benefit, index) => (
-                    <li key={index} className="flex items-start gap-3 text-white/90">
+                    <li key={index} className="flex items-start gap-3 text-[#374151]">
                       <CheckCircle className="w-4 h-4 text-[#4DA3FF] flex-shrink-0 mt-1" />
                       <span className="text-sm">{benefit}</span>
                     </li>
@@ -288,47 +263,8 @@ export default function ZohoPartnerUK() {
         </div>
       </section>
 
-      {/* ═══════ SERVICES — DARK BLUE (swapped) ═══════ */}
-      <section className="py-20 relative" style={{ background: "linear-gradient(180deg, #0B1426 0%, #0F2A5F 50%, #0B1426 100%)" }}>
-        <div className="container-custom">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Zoho Services for UK Businesses
-            </h2>
-            <p className="text-white/80 text-lg max-w-2xl mx-auto">
-              End-to-end Zoho implementation, ERP development, and AI automation tailored for UK enterprises.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="rounded-2xl p-6 hover:shadow-xl hover:shadow-[#3FE0F0]/10 transition-all duration-300 group"
-                style={glassCard}
-              >
-                <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
-                <p className="text-white/70 mb-4 text-sm leading-relaxed">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-white/80 text-sm">
-                      <CheckCircle className="w-3.5 h-3.5 text-[#3FE0F0]" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════ SERVICES — LIGHT ═══════ */}
-      <section className="py-20" style={{ background: lightSectionBg }}>
+      {/* ═══════ SERVICES — WHITE ═══════ */}
+      <section className="py-20" style={{ background: warmLightBg }}>
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
@@ -347,8 +283,7 @@ export default function ZohoPartnerUK() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
-                className="rounded-2xl p-6 hover:shadow-xl hover:shadow-[#3FE0F0]/5 transition-all duration-300 group"
-                style={lightCard}
+                className="rounded-2xl p-6 bg-white border border-[#E2E8F0] hover:shadow-xl hover:shadow-[#3FE0F0]/5 transition-all duration-300 group"
               >
                 <h3 className="text-xl font-semibold text-[#111827] mb-3 group-hover:text-[#0B1426] transition-colors">{service.title}</h3>
                 <p className="text-[#374151] mb-4 text-sm leading-relaxed">{service.description}</p>
@@ -366,9 +301,8 @@ export default function ZohoPartnerUK() {
         </div>
       </section>
 
-      {/* ═══════ BUSINESS OUTCOMES — DARK ═══════ */}
+      {/* ═══════ BUSINESS OUTCOMES — NAVY (1st dark) ═══════ */}
       <section className="py-16 relative" style={{ background: darkSectionBg }}>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[2px] bg-gradient-to-r from-transparent via-[#4DA3FF]/15 to-transparent" />
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Business Outcomes We Deliver</h3>
@@ -400,20 +334,18 @@ export default function ZohoPartnerUK() {
         </div>
       </section>
 
-      {/* ═══════ AI AUTOMATION — DARK ═══════ */}
-      <section className="py-20 relative" style={{ background: "linear-gradient(180deg, #0B1426 0%, #020817 100%)" }}>
-        <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-[#3FE0F0]/[0.03] rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-0 w-[250px] h-[250px] bg-[#4DA3FF]/[0.03] rounded-full blur-[100px] pointer-events-none" />
-        <div className="container-custom relative z-10">
+      {/* ═══════ AI AUTOMATION — LIGHT SKY ═══════ */}
+      <section className="py-20" style={{ background: skyGradientBg }}>
+        <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "rgba(63,224,240,0.06)", border: "1px solid rgba(63,224,240,0.15)" }}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 border border-[#3FE0F0]/20 bg-[#3FE0F0]/5">
               <Brain className="w-4 h-4 text-[#3FE0F0]" />
-              <span className="text-[#3FE0F0] text-sm font-medium">AI-Powered Solutions</span>
+              <span className="text-[#0B1C3D] text-sm font-medium">AI-Powered Solutions</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
               AI Automation & Agentic AI
             </h2>
-            <p className="text-white/80 text-lg max-w-3xl mx-auto">
+            <p className="text-[#374151] text-lg max-w-3xl mx-auto">
               Our AI solutions are designed to assist, not replace, your team. We implement human-in-the-loop governance to ensure AI agents work safely within your business processes while respecting United Kingdom data privacy regulations.
             </p>
           </motion.div>
@@ -426,36 +358,35 @@ export default function ZohoPartnerUK() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="rounded-2xl p-6 hover:border-[#3FE0F0]/15 transition-colors"
-                style={glassCard}
+                className="rounded-2xl p-6 bg-white border border-[#E2E8F0] hover:shadow-lg transition-all"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-[#3FE0F0]/10">
                     <Bot className="w-6 h-6 text-[#3FE0F0]" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-white mb-2">{capability.title}</h3>
-                    <p className="text-white/80 text-sm leading-relaxed">{capability.description}</p>
+                    <h3 className="text-lg font-semibold text-[#111827] mb-2">{capability.title}</h3>
+                    <p className="text-[#374151] text-sm leading-relaxed">{capability.description}</p>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <div className="rounded-2xl p-6 max-w-3xl mx-auto" style={{ ...glassCard, borderColor: "rgba(77,163,255,0.12)" }}>
+          <div className="rounded-2xl p-6 max-w-3xl mx-auto bg-white border border-[#4DA3FF]/15 shadow-sm">
             <div className="flex items-center gap-3 mb-3">
               <Shield className="w-5 h-5 text-[#4DA3FF]" />
-              <h3 className="text-lg font-semibold text-white">Data Privacy & Compliance</h3>
+              <h3 className="text-lg font-semibold text-[#111827]">Data Privacy & Compliance</h3>
             </div>
-            <p className="text-white/80 text-sm leading-relaxed">
+            <p className="text-[#374151] text-sm leading-relaxed">
               All AI implementations comply with United Kingdom data protection requirements including GDPR, UK Data Protection Act, FCA Compliance. Your data security and privacy are our top priorities.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ═══════ COMPLIANCE — LIGHT ═══════ */}
-      <section className="py-20" style={{ background: lightSectionBg }}>
+      {/* ═══════ COMPLIANCE — WHITE ═══════ */}
+      <section className="py-20" style={{ background: warmLightBg }}>
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
@@ -474,8 +405,7 @@ export default function ZohoPartnerUK() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="rounded-2xl p-6 text-center hover:shadow-xl hover:shadow-[#3FE0F0]/5 transition-all"
-                style={lightCard}
+                className="rounded-2xl p-6 text-center bg-white border border-[#E2E8F0] hover:shadow-xl hover:shadow-[#3FE0F0]/5 transition-all"
               >
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3FE0F0]/10 to-[#4DA3FF]/10 flex items-center justify-center mx-auto mb-4">
                   <FileCheck className="w-8 h-8 text-[#3FE0F0]" />
@@ -488,9 +418,8 @@ export default function ZohoPartnerUK() {
         </div>
       </section>
 
-      {/* ═══════ INDUSTRIES — DARK (16 Industries) ═══════ */}
+      {/* ═══════ INDUSTRIES — NAVY (2nd dark) ═══════ */}
       <section className="py-20 relative" style={{ background: darkSectionBg }}>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[2px] bg-gradient-to-r from-transparent via-[#3FE0F0]/15 to-transparent" />
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -518,7 +447,7 @@ export default function ZohoPartnerUK() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#020817] via-[#020817]/75 to-[#020817]/30 group-hover:from-[#020817]/95 transition-all duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C3D] via-[#0B1C3D]/75 to-[#0B1C3D]/30 group-hover:from-[#0B1C3D]/95 transition-all duration-300" />
                 </div>
                 <div className="relative z-10 p-5 flex flex-col justify-end h-full">
                   <div className="w-10 h-10 rounded-lg bg-[#3FE0F0]/15 backdrop-blur-sm flex items-center justify-center mb-2.5 text-[#3FE0F0] border border-[#3FE0F0]/10">
@@ -533,8 +462,8 @@ export default function ZohoPartnerUK() {
         </div>
       </section>
 
-      {/* ═══════ DELIVERY MODEL — LIGHT ═══════ */}
-      <section className="py-20" style={{ background: lightSectionBg }}>
+      {/* ═══════ DELIVERY MODEL — LIGHT SKY ═══════ */}
+      <section className="py-20" style={{ background: skyGradientBg }}>
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
@@ -558,8 +487,7 @@ export default function ZohoPartnerUK() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="rounded-2xl p-6 text-center hover:shadow-xl hover:shadow-[#3FE0F0]/5 transition-all"
-                style={lightCard}
+                className="rounded-2xl p-6 text-center bg-white border border-[#E2E8F0] hover:shadow-xl hover:shadow-[#3FE0F0]/5 transition-all"
               >
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#3FE0F0]/10 to-[#4DA3FF]/10 flex items-center justify-center mx-auto mb-4 text-[#3FE0F0]">
                   {item.icon}
@@ -572,12 +500,11 @@ export default function ZohoPartnerUK() {
         </div>
       </section>
 
-      {/* ═══════ WHY CHOOSE US — DARK ═══════ */}
-      <section className="py-20 relative" style={{ background: darkSectionBg }}>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[2px] bg-gradient-to-r from-transparent via-[#3FE0F0]/15 to-transparent" />
+      {/* ═══════ WHY CHOOSE US — WHITE ═══════ */}
+      <section className="py-20" style={{ background: warmLightBg }}>
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
               Why Choose ClubCode Technology Pvt Ltd in the United Kingdom
             </h2>
           </motion.div>
@@ -597,15 +524,14 @@ export default function ZohoPartnerUK() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
-                className="rounded-2xl p-5 flex items-start gap-4 hover:border-[#3FE0F0]/15 transition-colors"
-                style={glassCard}
+                className="rounded-2xl p-5 flex items-start gap-4 bg-white border border-[#E2E8F0] hover:shadow-lg transition-all"
               >
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#3FE0F0]/10 text-[#3FE0F0]">
                   {item.icon}
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-white mb-1">{item.title}</h3>
-                  <p className="text-white/80 text-sm">{item.description}</p>
+                  <h3 className="text-base font-semibold text-[#111827] mb-1">{item.title}</h3>
+                  <p className="text-[#374151] text-sm">{item.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -613,8 +539,8 @@ export default function ZohoPartnerUK() {
         </div>
       </section>
 
-      {/* ═══════ FAQs — LIGHT ═══════ */}
-      <section className="py-20" style={{ background: lightSectionBg }}>
+      {/* ═══════ FAQs — LIGHT SKY ═══════ */}
+      <section className="py-20" style={{ background: skyGradientBg }}>
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
@@ -628,8 +554,7 @@ export default function ZohoPartnerUK() {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="rounded-2xl px-6 overflow-hidden"
-                  style={lightCard}
+                  className="rounded-2xl px-6 overflow-hidden bg-white border border-[#E2E8F0]"
                 >
                   <AccordionTrigger className="text-[#111827] font-semibold text-left hover:no-underline text-sm">
                     {faq.question}
@@ -644,10 +569,9 @@ export default function ZohoPartnerUK() {
         </div>
       </section>
 
-      {/* ═══════ FINAL CTA — DARK ═══════ */}
+      {/* ═══════ FINAL CTA — NAVY (3rd dark) ═══════ */}
       <section className="py-20 relative overflow-hidden" style={{ background: darkSectionBg }}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#3FE0F0]/[0.04] rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[2px] bg-gradient-to-r from-transparent via-[#3FE0F0]/15 to-transparent" />
         <div className="container-custom relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
