@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Blocks, Code, Database, Workflow } from "lucide-react";
+import { ArrowRight, CheckCircle, Blocks, Code, Database, Workflow, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -19,6 +19,15 @@ const suites = [
   { name: "Service Plus", logo: servicePlusLogo, description: "Customer service excellence with help desk, live chat, and field service tools.", href: "/crm-solutions" },
   { name: "Projects Plus", logo: projectsPlusLogo, description: "Project planning, task management, and collaboration for agile teams.", href: "/zoho-solutions" },
   { name: "Workplace", logo: workplaceLogo, description: "Business communication and collaboration suite replacing fragmented tools.", href: "/zoho-solutions" },
+];
+
+const migrationRoutes = [
+  { label: "Salesforce → Zoho", href: "/data-migration" },
+  { label: "HubSpot → Zoho", href: "/data-migration" },
+  { label: "SAP/Oracle → Zoho Creator", href: "/data-migration" },
+  { label: "HIPAA Compliant", href: "/industries/healthcare" },
+  { label: "SOX Ready", href: "/industries/financial-services" },
+  { label: "CCPA Safe", href: "/contact" },
 ];
 
 const migrationCapabilities = [
@@ -80,15 +89,29 @@ export function ZohoEcosystemModule() {
                   Every migration is an opportunity to re-engineer. Our team combines deep Deluge scripting expertise with API orchestration to ensure your transition is seamless, compliant, and optimized for scale.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {["Salesforce → Zoho", "HubSpot → Zoho", "SAP/Oracle → Zoho Creator", "HIPAA Compliant", "SOX Ready", "CCPA Safe"].map(tag => (
-                    <span key={tag} className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full bg-white border border-[#3FE0F0]/20 text-[#0B1C3D]">{tag}</span>
+                  {migrationRoutes.map(route => (
+                    <Link
+                      key={route.label}
+                      to={route.href}
+                      className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full bg-white border border-[#3FE0F0]/20 text-[#0B1C3D] hover:bg-[#3FE0F0]/10 hover:border-[#3FE0F0]/40 transition-all cursor-pointer"
+                    >
+                      {route.label}
+                      <ExternalLink className="w-2.5 h-2.5 text-[#3FE0F0]" />
+                    </Link>
                   ))}
                 </div>
-                <Button variant="heroLight" size="lg" asChild>
-                  <Link to="/data-migration">
-                    Explore Migration Services <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </Button>
+                <div className="flex flex-wrap gap-3">
+                  <Button variant="heroLight" size="lg" asChild>
+                    <Link to="/data-migration">
+                      Explore Migration Services <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </Button>
+                  <Button variant="heroSecondary" size="lg" asChild>
+                    <Link to="/third-party-integrations">
+                      Explore Third-Party Integrations <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {migrationCapabilities.map((cap, i) => (
