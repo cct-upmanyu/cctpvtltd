@@ -224,8 +224,6 @@ export default function ZohoPartnerUSA() {
         </div>
       </section>
 
-      {/* ═══════ TIMEZONE SUPPORT ═══════ */}
-      <TimezoneSupport />
 
       {/* ═══════ WHY CHOOSE US ═══════ */}
       <section className="py-20" style={{ background: warmLightBg }}>
