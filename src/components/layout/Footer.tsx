@@ -105,8 +105,8 @@ export function Footer() {
       {/* Main Footer Content */}
       <div className="bg-[#050D1A]">
         <div className="container-custom py-16">
-          {/* Row 1: Brand + Industries + Services + Company + Global Presence */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12 mb-14">
+          {/* Row 1: Brand + Zoho Products + Services + CRM Services + AI Solutions + Company + Global Presence */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mb-14">
             
             {/* Brand Column */}
             <div>
@@ -147,11 +147,11 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Industries */}
+            {/* Zoho Products */}
             <div>
-              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Industries</h4>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Zoho Products</h4>
               <ul className="space-y-2.5">
-                {footerLinks.industries.map((link) => (
+                {footerLinks.zohoProducts.map((link) => (
                   <li key={link.label}>
                     <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
                   </li>
@@ -163,7 +163,7 @@ export function Footer() {
             <div>
               <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Services</h4>
               <ul className="space-y-2.5">
-                {footerLinks.solutions.map((link) => (
+                {footerLinks.services.map((link) => (
                   <li key={link.label}>
                     <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
                   </li>
@@ -171,7 +171,7 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Company */}
+            {/* Company & Global */}
             <div>
               <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Company</h4>
               <ul className="space-y-2.5">
@@ -181,11 +181,7 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* Global Presence */}
-            <div>
-              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Global Presence</h4>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5 mt-8">Global Presence</h4>
               <ul className="space-y-2.5">
                 {footerLinks.globalPresence.map((link) => (
                   <li key={link.label}>
@@ -196,10 +192,53 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Divider between rows */}
+          {/* Divider */}
           <div className="border-t border-[#1A365D] mb-14" />
 
-          {/* Row 2: CRM Comparisons + CRM Migration + CRM Alternatives */}
+          {/* Row 2: CRM Services + AI Solutions + Industries */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mb-14">
+            
+            {/* CRM Services */}
+            <div>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">CRM Services</h4>
+              <ul className="space-y-2.5">
+                {footerLinks.crmServices.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* AI Solutions */}
+            <div>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">AI Solutions</h4>
+              <ul className="space-y-2.5">
+                {footerLinks.aiSolutions.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Industries */}
+            <div>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Industries</h4>
+              <ul className="space-y-2.5">
+                {footerLinks.industries.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-[#1A365D] mb-14" />
+
+          {/* Row 3: CRM Comparisons + CRM Migration + CRM Alternatives */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mb-14">
             
             {/* CRM Comparisons */}
