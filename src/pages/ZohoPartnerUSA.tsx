@@ -15,7 +15,7 @@ import heroUsaBg from "@/assets/hero-usa-landmarks.png";
 
 // Custom USA sections
 import { GrowthCounter } from "@/components/usa/GrowthCounter";
-import { TimezoneSupport } from "@/components/usa/TimezoneSupport";
+
 import { AgenticAIHub } from "@/components/usa/AgenticAIHub";
 import { MigrationPortal } from "@/components/usa/MigrationPortal";
 import { ComplianceRibbon } from "@/components/usa/ComplianceRibbon";
