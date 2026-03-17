@@ -168,19 +168,6 @@ export function HeroSection() {
 
       <div className="container-custom relative z-10 py-16 lg:py-24">
         <div className="max-w-5xl mx-auto text-center">
-          {/* CCT Logo - Larger Size */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <img 
-              src={cctLogo} 
-              alt="ClubCode Technology Pvt Ltd" 
-              className="h-20 md:h-24 lg:h-28 w-auto mx-auto drop-shadow-2xl"
-            />
-          </motion.div>
 
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
