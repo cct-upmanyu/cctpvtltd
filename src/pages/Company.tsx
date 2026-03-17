@@ -112,6 +112,16 @@ const teamMembers = [
     role: "Zoho Developer", 
     description: "Gaurav works across the Zoho ecosystem, including Zoho CRM, Creator, Books, Projects, Analytics, and FSM. He designs governed data models, custom workflows, automation logic, and reporting structures aligned to business processes. Gaurav focuses on data accuracy, operational clarity, and system reliability. His implementations help organizations gain better visibility, control, and trust in their business data."
   },
+  { 
+    name: "Ruchi Maurya", 
+    role: "Web Designer | WordPress & Shopify Developer", 
+    description: "Ruchi crafts visually compelling and conversion-focused websites using WordPress and Shopify, ensuring every design is responsive, on-brand, and optimized for user engagement. She brings creative layouts to life with clean UI/UX principles, custom theme development, and seamless e-commerce integrations. Ruchi's work helps businesses establish a strong digital presence that drives growth and customer trust."
+  },
+  { 
+    name: "Amit", 
+    role: "Full Stack Developer | ERPNext Expert", 
+    description: "Amit specializes in building and customizing ERPNext solutions alongside full-stack web development, delivering end-to-end business systems tailored to operational needs. He handles everything from database design and API integrations to frontend interfaces, ensuring seamless data flow across modules like accounting, inventory, and HR. Amit's expertise enables organizations to streamline complex workflows with scalable, production-ready ERP implementations."
+  },
 ];
 
 // Commitment items
