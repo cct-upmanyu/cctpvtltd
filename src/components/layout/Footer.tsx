@@ -3,30 +3,67 @@ import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from "lucide-react";
 import cctLogoFooter from "@/assets/cct-logo-footer-new.png";
 
 const footerLinks = {
-  solutions: [
+  zohoProducts: [
     { label: "Zoho Solutions", href: "/zoho-solutions" },
+    { label: "Zoho One Premium Partner", href: "/zoho-one-premium-partner" },
+    { label: "Zoho CRM", href: "/zoho-crm" },
+    { label: "Zoho Creator", href: "/zoho-creator" },
+    { label: "Zoho Books", href: "/zoho-books" },
+    { label: "Zoho Inventory", href: "/zoho-inventory" },
+    { label: "Zoho People", href: "/zoho-people" },
+    { label: "Zoho Analytics", href: "/zoho-analytics" },
+  ],
+  services: [
     { label: "AI Solutions", href: "/ai-solutions" },
     { label: "CRM Solutions", href: "/crm-solutions" },
     { label: "Data Migration", href: "/data-migration" },
-    { label: "Website Development", href: "/website-development" },
     { label: "Custom ERP", href: "/custom-erp" },
+    { label: "Website Development", href: "/website-development" },
     { label: "Third-Party Integrations", href: "/third-party-integrations" },
     { label: "Zoho Extension Development", href: "/zoho-extension-development" },
-    { label: "Industry Solutions", href: "/industries" },
+    { label: "AI Chatbot Solutions", href: "/ai-chatbot-solutions" },
+  ],
+  crmServices: [
+    { label: "CRM Consulting", href: "/crm-consulting" },
+    { label: "CRM Implementation", href: "/crm-implementation" },
+    { label: "CRM Customisation", href: "/crm-customisation" },
+    { label: "CRM Development", href: "/crm-development" },
+    { label: "CRM Automation", href: "/crm-automation" },
+    { label: "CRM Integrations", href: "/crm-integrations" },
+    { label: "CRM Audit", href: "/crm-audit" },
+  ],
+  aiSolutions: [
+    { label: "AI Agents", href: "/ai-agents" },
+    { label: "AI Sales Automation", href: "/ai-sales-automation" },
+    { label: "AI Customer Support", href: "/ai-customer-support" },
+    { label: "AI Voice Bots", href: "/ai-voice-bots" },
+    { label: "AI CRM Automation", href: "/ai-crm-automation" },
+    { label: "AI Analytics", href: "/ai-analytics" },
   ],
   industries: [
-    { label: "Manufacturing", href: "/industries#manufacturing" },
-    { label: "Recruitment", href: "/industries#recruitment" },
-    { label: "Real Estate", href: "/industries#real-estate" },
-    { label: "Healthcare", href: "/industries#healthcare" },
-    { label: "Education", href: "/industries#education" },
-    { label: "Retail", href: "/industries#retail" },
+    { label: "Manufacturing", href: "/industries/manufacturing" },
+    { label: "Retail & E-commerce", href: "/industries/retail" },
+    { label: "Education", href: "/industries/education" },
+    { label: "Healthcare", href: "/industries/healthcare" },
+    { label: "Real Estate", href: "/industries/real-estate" },
+    { label: "Logistics & Transport", href: "/industries/logistics" },
+    { label: "Hospitality & Tourism", href: "/industries/hospitality" },
+    { label: "IT & SaaS", href: "/industries/it" },
+    { label: "Nonprofits & NGOs", href: "/industries/nonprofits" },
+    { label: "Media & Entertainment", href: "/industries/media" },
+    { label: "Professional Services", href: "/industries/professional-services" },
+    { label: "Recruitment & HR", href: "/industries/recruitment" },
+    { label: "Legal Services", href: "/industries/legal" },
+    { label: "Financial Services", href: "/industries/financial-services" },
+    { label: "Marketing & Creative", href: "/industries/marketing-creative" },
+    { label: "SaaS & Startups", href: "/industries/saas" },
   ],
   company: [
     { label: "About Us", href: "/company" },
-    { label: "Our Team", href: "/company#team" },
-    { label: "Careers", href: "/company#careers" },
     { label: "Contact", href: "/contact" },
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "Blog", href: "/blog" },
+    { label: "Industry Solutions", href: "/industries" },
   ],
   globalPresence: [
     { label: "UK", href: "/zoho-partner-uk" },
@@ -68,8 +105,8 @@ export function Footer() {
       {/* Main Footer Content */}
       <div className="bg-[#050D1A]">
         <div className="container-custom py-16">
-          {/* Row 1: Brand + Industries + Services + Company + Global Presence */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12 mb-14">
+          {/* Row 1: Brand + Zoho Products + Services + CRM Services + AI Solutions + Company + Global Presence */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mb-14">
             
             {/* Brand Column */}
             <div>
@@ -110,11 +147,11 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Industries */}
+            {/* Zoho Products */}
             <div>
-              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Industries</h4>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Zoho Products</h4>
               <ul className="space-y-2.5">
-                {footerLinks.industries.map((link) => (
+                {footerLinks.zohoProducts.map((link) => (
                   <li key={link.label}>
                     <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
                   </li>
@@ -126,7 +163,7 @@ export function Footer() {
             <div>
               <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Services</h4>
               <ul className="space-y-2.5">
-                {footerLinks.solutions.map((link) => (
+                {footerLinks.services.map((link) => (
                   <li key={link.label}>
                     <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
                   </li>
@@ -134,7 +171,7 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Company */}
+            {/* Company & Global */}
             <div>
               <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Company</h4>
               <ul className="space-y-2.5">
@@ -144,11 +181,7 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* Global Presence */}
-            <div>
-              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Global Presence</h4>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5 mt-8">Global Presence</h4>
               <ul className="space-y-2.5">
                 {footerLinks.globalPresence.map((link) => (
                   <li key={link.label}>
@@ -159,10 +192,53 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Divider between rows */}
+          {/* Divider */}
           <div className="border-t border-[#1A365D] mb-14" />
 
-          {/* Row 2: CRM Comparisons + CRM Migration + CRM Alternatives */}
+          {/* Row 2: CRM Services + AI Solutions + Industries */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mb-14">
+            
+            {/* CRM Services */}
+            <div>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">CRM Services</h4>
+              <ul className="space-y-2.5">
+                {footerLinks.crmServices.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* AI Solutions */}
+            <div>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">AI Solutions</h4>
+              <ul className="space-y-2.5">
+                {footerLinks.aiSolutions.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Industries */}
+            <div>
+              <h4 className="text-[#3FE0F0] font-semibold text-sm uppercase tracking-wider mb-5">Industries</h4>
+              <ul className="space-y-2.5">
+                {footerLinks.industries.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-[#94A3B8] hover:text-white transition-colors text-sm">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-[#1A365D] mb-14" />
+
+          {/* Row 3: CRM Comparisons + CRM Migration + CRM Alternatives */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mb-14">
             
             {/* CRM Comparisons */}
