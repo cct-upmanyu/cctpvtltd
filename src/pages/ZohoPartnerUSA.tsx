@@ -143,8 +143,14 @@ export default function ZohoPartnerUSA() {
       {/* ═══════ GROWTH COUNTER ═══════ */}
       <GrowthCounter />
 
-      {/* ═══════ COMPLIANCE RIBBON ═══════ */}
-      <ComplianceRibbon />
+      {/* ═══════ DEVELOPER SERVICES HUB (Light Sky Blue) ═══════ */}
+      <DeveloperServicesHub />
+
+      {/* ═══════ TRUST & PACKAGES (Deep Blue) ═══════ */}
+      <TrustAndPackages />
+
+      {/* ═══════ ZOHO ECOSYSTEM MODULE ═══════ */}
+      <ZohoEcosystemModule />
 
       {/* ═══════ AGENTIC AI HUB ═══════ */}
       <AgenticAIHub />
@@ -152,11 +158,11 @@ export default function ZohoPartnerUSA() {
       {/* ═══════ MIGRATION PORTAL ═══════ */}
       <MigrationPortal />
 
+      {/* ═══════ COMPLIANCE RIBBON ═══════ */}
+      <ComplianceRibbon />
+
       {/* ═══════ ZOHO ONE ERP ═══════ */}
       <ZohoOneERP />
-
-      {/* ═══════ LOW-CODE APPS ═══════ */}
-      <LowCodeApps />
 
       {/* ═══════ COMPARISON ENGINE ═══════ */}
       <ComparisonEngine />
