@@ -144,6 +144,9 @@ export default function ZohoPartnerUSA() {
       {/* ═══════ GROWTH COUNTER ═══════ */}
       <GrowthCounter />
 
+      {/* ═══════ MIGRATION CTA ═══════ */}
+      <USAMigrationCTA />
+
       {/* ═══════ DEVELOPER SERVICES HUB (Light Sky Blue) ═══════ */}
       <DeveloperServicesHub />
 
