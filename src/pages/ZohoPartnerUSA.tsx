@@ -22,6 +22,9 @@ import { ComplianceRibbon } from "@/components/usa/ComplianceRibbon";
 import { ComparisonEngine } from "@/components/usa/ComparisonEngine";
 import { ZohoOneERP } from "@/components/usa/ZohoOneERP";
 import { LowCodeApps } from "@/components/usa/LowCodeApps";
+import { DeveloperServicesHub } from "@/components/usa/DeveloperServicesHub";
+import { TrustAndPackages } from "@/components/usa/TrustAndPackages";
+import { ZohoEcosystemModule } from "@/components/usa/ZohoEcosystemModule";
 
 const darkSectionBg = "linear-gradient(180deg, #0B1C3D 0%, #0F2A5F 50%, #0B1C3D 100%)";
 const skyGradientBg = "linear-gradient(180deg, #EBF4FF 0%, #F0F7FF 50%, #F8FAFC 100%)";
