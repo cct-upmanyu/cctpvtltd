@@ -31,12 +31,12 @@ const migrationPaths = [
 ];
 
 const migrationSteps = [
-  { icon: <Database className="w-5 h-5" />, label: "Extract" },
-  { icon: <FileCheck className="w-5 h-5" />, label: "Clean" },
-  { icon: <Map className="w-5 h-5" />, label: "Map" },
-  { icon: <Upload className="w-5 h-5" />, label: "Import" },
-  { icon: <CheckCircle className="w-5 h-5" />, label: "Validate" },
-  { icon: <GraduationCap className="w-5 h-5" />, label: "Train" },
+  { icon: <Database className="w-6 h-6" />, label: "Extract", description: "Pull all records & metadata" },
+  { icon: <FileCheck className="w-6 h-6" />, label: "Clean", description: "De-duplicate & normalize" },
+  { icon: <Map className="w-6 h-6" />, label: "Map", description: "Field-to-field alignment" },
+  { icon: <Upload className="w-6 h-6" />, label: "Import", description: "Staged batch migration" },
+  { icon: <CheckCircle className="w-6 h-6" />, label: "Validate", description: "Automated integrity checks" },
+  { icon: <GraduationCap className="w-6 h-6" />, label: "Train", description: "Team onboarding & support" },
 ];
 
 export function MigrationPortal() {
