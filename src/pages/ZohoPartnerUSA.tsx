@@ -209,20 +209,22 @@ export default function ZohoPartnerUSA() {
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {usaIndustries.map((industry, i) => (
-              <motion.div key={industry.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-                className="rounded-2xl overflow-hidden relative min-h-[240px] group cursor-pointer">
-                <div className="absolute inset-0">
-                  <img src={industry.image} alt={industry.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C3D] via-[#0B1C3D]/75 to-[#0B1C3D]/30 group-hover:from-[#0B1C3D]/95 transition-all duration-300" />
-                </div>
-                <div className="relative z-10 p-5 flex flex-col justify-end h-full">
-                  <div className="w-10 h-10 rounded-lg bg-[#3FE0F0]/15 backdrop-blur-sm flex items-center justify-center mb-2.5 text-[#3FE0F0] border border-[#3FE0F0]/10">
-                    {industry.icon}
+              <Link key={industry.name} to={industry.href}>
+                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
+                  className="rounded-2xl overflow-hidden relative min-h-[240px] group cursor-pointer">
+                  <div className="absolute inset-0">
+                    <img src={industry.image} alt={industry.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C3D] via-[#0B1C3D]/75 to-[#0B1C3D]/30 group-hover:from-[#0B1C3D]/95 transition-all duration-300" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-1.5">{industry.name}</h3>
-                  <p className="text-white/80 text-xs leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-h-0 group-hover:max-h-20 overflow-hidden">{industry.description}</p>
-                </div>
-              </motion.div>
+                  <div className="relative z-10 p-5 flex flex-col justify-end h-full">
+                    <div className="w-10 h-10 rounded-lg bg-[#3FE0F0]/15 backdrop-blur-sm flex items-center justify-center mb-2.5 text-[#3FE0F0] border border-[#3FE0F0]/10">
+                      {industry.icon}
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-1.5">{industry.name}</h3>
+                    <p className="text-white/80 text-xs leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-h-0 group-hover:max-h-20 overflow-hidden">{industry.description}</p>
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>
