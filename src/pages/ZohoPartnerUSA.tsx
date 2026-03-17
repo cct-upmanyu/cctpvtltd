@@ -25,28 +25,29 @@ import { LowCodeApps } from "@/components/usa/LowCodeApps";
 import { DeveloperServicesHub } from "@/components/usa/DeveloperServicesHub";
 import { TrustAndPackages } from "@/components/usa/TrustAndPackages";
 import { ZohoEcosystemModule } from "@/components/usa/ZohoEcosystemModule";
+import { USAMigrationCTA } from "@/components/usa/USAMigrationCTA";
 
 const darkSectionBg = "linear-gradient(180deg, #0B1C3D 0%, #0F2A5F 50%, #0B1C3D 100%)";
 const skyGradientBg = "linear-gradient(180deg, #EBF4FF 0%, #F0F7FF 50%, #F8FAFC 100%)";
 const warmLightBg = "linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%)";
 
 const usaIndustries = [
-  { name: "Technology & SaaS", icon: <Code className="w-7 h-7" />, description: "Accelerate growth with integrated CRM, marketing automation, and customer success platforms.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" },
-  { name: "Healthcare", icon: <Heart className="w-7 h-7" />, description: "Ensure HIPAA compliance while improving patient care with secure management solutions.", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" },
-  { name: "Financial Services", icon: <Landmark className="w-7 h-7" />, description: "Maintain SOX compliance while streamlining operations with compliant automation.", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" },
-  { name: "Manufacturing", icon: <Factory className="w-7 h-7" />, description: "Optimize production with lean manufacturing principles and supply chain automation.", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&q=80" },
-  { name: "Retail & E-commerce", icon: <ShoppingCart className="w-7 h-7" />, description: "Dominate omnichannel retail with integrated inventory, POS, and customer engagement.", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80" },
-  { name: "Professional Services", icon: <Briefcase className="w-7 h-7" />, description: "Optimize legal, accounting, and consulting workflows with integrated CRM and project management.", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" },
-  { name: "Education", icon: <GraduationCap className="w-7 h-7" />, description: "Transform institutions with student management, fee collection, and learning management systems.", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&q=80" },
-  { name: "Real Estate", icon: <Home className="w-7 h-7" />, description: "Manage property portfolios, tenant relationships, and sales pipelines with integrated CRM solutions.", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" },
-  { name: "Logistics & Transport", icon: <Truck className="w-7 h-7" />, description: "Optimize fleet management, route planning, and supply chain visibility with real-time tracking.", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" },
-  { name: "Marketing & Creative", icon: <Megaphone className="w-7 h-7" />, description: "Manage campaigns, client relationships, and project workflows with unified marketing automation.", image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&q=80" },
-  { name: "SaaS & Startups", icon: <Cpu className="w-7 h-7" />, description: "Accelerate growth with subscription billing, customer success, and product analytics tools.", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" },
-  { name: "Nonprofits & NGOs", icon: <HandHeart className="w-7 h-7" />, description: "Track donors, manage volunteers, and automate fundraising with purpose-built CRM solutions.", image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80" },
-  { name: "Hospitality & Tourism", icon: <Building2 className="w-7 h-7" />, description: "Enhance guest experiences with CRM, booking management, and loyalty program automation.", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" },
-  { name: "Legal Services", icon: <Scale className="w-7 h-7" />, description: "Streamline case management, client billing, and compliance tracking for law firms.", image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80" },
-  { name: "Media & Entertainment", icon: <Clapperboard className="w-7 h-7" />, description: "Manage content pipelines, talent relationships, and distribution with integrated workflows.", image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80" },
-  { name: "Recruitment & HR", icon: <Users className="w-7 h-7" />, description: "Automate hiring workflows, candidate tracking, and employee onboarding with Zoho Recruit and People.", image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" },
+  { name: "Technology & SaaS", icon: <Code className="w-7 h-7" />, description: "Accelerate growth with integrated CRM, marketing automation, and customer success platforms.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80", href: "/industries/saas" },
+  { name: "Healthcare", icon: <Heart className="w-7 h-7" />, description: "Ensure HIPAA compliance while improving patient care with secure management solutions.", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80", href: "/industries/healthcare" },
+  { name: "Financial Services", icon: <Landmark className="w-7 h-7" />, description: "Maintain SOX compliance while streamlining operations with compliant automation.", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80", href: "/industries/financial-services" },
+  { name: "Manufacturing", icon: <Factory className="w-7 h-7" />, description: "Optimize production with lean manufacturing principles and supply chain automation.", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&q=80", href: "/industries/manufacturing" },
+  { name: "Retail & E-commerce", icon: <ShoppingCart className="w-7 h-7" />, description: "Dominate omnichannel retail with integrated inventory, POS, and customer engagement.", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80", href: "/industries/retail" },
+  { name: "Professional Services", icon: <Briefcase className="w-7 h-7" />, description: "Optimize legal, accounting, and consulting workflows with integrated CRM and project management.", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80", href: "/industries/professional-services" },
+  { name: "Education", icon: <GraduationCap className="w-7 h-7" />, description: "Transform institutions with student management, fee collection, and learning management systems.", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&q=80", href: "/industries/education" },
+  { name: "Real Estate", icon: <Home className="w-7 h-7" />, description: "Manage property portfolios, tenant relationships, and sales pipelines with integrated CRM solutions.", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80", href: "/industries/real-estate" },
+  { name: "Logistics & Transport", icon: <Truck className="w-7 h-7" />, description: "Optimize fleet management, route planning, and supply chain visibility with real-time tracking.", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80", href: "/industries/logistics" },
+  { name: "Marketing & Creative", icon: <Megaphone className="w-7 h-7" />, description: "Manage campaigns, client relationships, and project workflows with unified marketing automation.", image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&q=80", href: "/industries/marketing-creative" },
+  { name: "SaaS & Startups", icon: <Cpu className="w-7 h-7" />, description: "Accelerate growth with subscription billing, customer success, and product analytics tools.", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80", href: "/industries/it" },
+  { name: "Nonprofits & NGOs", icon: <HandHeart className="w-7 h-7" />, description: "Track donors, manage volunteers, and automate fundraising with purpose-built CRM solutions.", image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80", href: "/industries/nonprofits" },
+  { name: "Hospitality & Tourism", icon: <Building2 className="w-7 h-7" />, description: "Enhance guest experiences with CRM, booking management, and loyalty program automation.", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80", href: "/industries/hospitality" },
+  { name: "Legal Services", icon: <Scale className="w-7 h-7" />, description: "Streamline case management, client billing, and compliance tracking for law firms.", image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80", href: "/industries/legal" },
+  { name: "Media & Entertainment", icon: <Clapperboard className="w-7 h-7" />, description: "Manage content pipelines, talent relationships, and distribution with integrated workflows.", image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80", href: "/industries/media" },
+  { name: "Recruitment & HR", icon: <Users className="w-7 h-7" />, description: "Automate hiring workflows, candidate tracking, and employee onboarding with Zoho Recruit and People.", image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80", href: "/industries/recruitment" },
 ];
 
 const services = [
@@ -143,6 +144,9 @@ export default function ZohoPartnerUSA() {
       {/* ═══════ GROWTH COUNTER ═══════ */}
       <GrowthCounter />
 
+      {/* ═══════ MIGRATION CTA ═══════ */}
+      <USAMigrationCTA />
+
       {/* ═══════ DEVELOPER SERVICES HUB (Light Sky Blue) ═══════ */}
       <DeveloperServicesHub />
 
@@ -205,20 +209,22 @@ export default function ZohoPartnerUSA() {
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {usaIndustries.map((industry, i) => (
-              <motion.div key={industry.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-                className="rounded-2xl overflow-hidden relative min-h-[240px] group cursor-pointer">
-                <div className="absolute inset-0">
-                  <img src={industry.image} alt={industry.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C3D] via-[#0B1C3D]/75 to-[#0B1C3D]/30 group-hover:from-[#0B1C3D]/95 transition-all duration-300" />
-                </div>
-                <div className="relative z-10 p-5 flex flex-col justify-end h-full">
-                  <div className="w-10 h-10 rounded-lg bg-[#3FE0F0]/15 backdrop-blur-sm flex items-center justify-center mb-2.5 text-[#3FE0F0] border border-[#3FE0F0]/10">
-                    {industry.icon}
+              <Link key={industry.name} to={industry.href}>
+                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
+                  className="rounded-2xl overflow-hidden relative min-h-[240px] group cursor-pointer">
+                  <div className="absolute inset-0">
+                    <img src={industry.image} alt={industry.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C3D] via-[#0B1C3D]/75 to-[#0B1C3D]/30 group-hover:from-[#0B1C3D]/95 transition-all duration-300" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-1.5">{industry.name}</h3>
-                  <p className="text-white/80 text-xs leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-h-0 group-hover:max-h-20 overflow-hidden">{industry.description}</p>
-                </div>
-              </motion.div>
+                  <div className="relative z-10 p-5 flex flex-col justify-end h-full">
+                    <div className="w-10 h-10 rounded-lg bg-[#3FE0F0]/15 backdrop-blur-sm flex items-center justify-center mb-2.5 text-[#3FE0F0] border border-[#3FE0F0]/10">
+                      {industry.icon}
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-1.5">{industry.name}</h3>
+                    <p className="text-white/80 text-xs leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-h-0 group-hover:max-h-20 overflow-hidden">{industry.description}</p>
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>
