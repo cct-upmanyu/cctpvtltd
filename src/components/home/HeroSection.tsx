@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight, Award, Globe, Users, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import cctLogo from "@/assets/cct-logo.png";
+
 
 const heroSlides = [
   {
