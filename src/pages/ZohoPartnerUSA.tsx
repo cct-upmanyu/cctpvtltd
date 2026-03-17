@@ -145,8 +145,6 @@ export default function ZohoPartnerUSA() {
       {/* ═══════ MIGRATION CTA (2nd Section) ═══════ */}
       <USAMigrationCTA />
 
-      {/* ═══════ TRUSTED BY ENTERPRISES (3rd Section) ═══════ */}
-      <TrustSection />
 
       {/* ═══════ GROWTH COUNTER ═══════ */}
       <GrowthCounter />
