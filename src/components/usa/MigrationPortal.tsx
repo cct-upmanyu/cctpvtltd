@@ -97,26 +97,68 @@ export function MigrationPortal() {
           ))}
         </div>
 
-        {/* Migration Process Strip */}
+        {/* Migration Process Strip - Animated */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="rounded-2xl p-6 md:p-8 border border-[#3FE0F0]/15"
+          className="rounded-2xl p-8 md:p-10 border border-[#3FE0F0]/15 relative overflow-hidden"
           style={{ background: "linear-gradient(135deg, #F0FDFF 0%, #E8F4FD 50%, #EFF6FF 100%)" }}
         >
-          <h3 className="text-center text-lg font-bold text-[#111827] mb-6">Our Proven 6-Step Migration Process</h3>
-          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-1">
+          {/* Animated background pulse */}
+          <div className="absolute inset-0 opacity-30">
+            <motion.div
+              className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#3FE0F0] to-transparent"
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            />
+          </div>
+
+          <h3 className="text-center text-xl md:text-2xl font-bold text-[#111827] mb-2">Our Proven 6-Step Migration Process</h3>
+          <p className="text-center text-[#6B7280] text-sm mb-8">Zero downtime. Zero data loss. 100% validated.</p>
+
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-0">
             {migrationSteps.map((step, i) => (
-              <div key={step.label} className="flex items-center gap-1 md:gap-2">
-                <div className="flex flex-col items-center gap-1.5 px-3 py-2">
-                  <div className="w-10 h-10 rounded-xl bg-white border border-[#3FE0F0]/20 flex items-center justify-center text-[#3FE0F0] shadow-sm">
+              <div key={step.label} className="flex items-center gap-2 md:gap-3">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15, type: "spring", stiffness: 200 }}
+                  className="flex flex-col items-center gap-2 relative group"
+                >
+                  {/* Step number */}
+                  <motion.div
+                    className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-[#0B1C3D] text-white text-[10px] font-bold flex items-center justify-center z-10"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.15 + 0.2, type: "spring" }}
+                  >
+                    {i + 1}
+                  </motion.div>
+
+                  <motion.div
+                    className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-white border-2 border-[#3FE0F0]/30 flex items-center justify-center text-[#3FE0F0] shadow-md group-hover:shadow-lg group-hover:border-[#3FE0F0] transition-all duration-300"
+                    whileHover={{ scale: 1.1, y: -4 }}
+                  >
                     {step.icon}
-                  </div>
-                  <span className="text-xs font-semibold text-[#0B1C3D]">{step.label}</span>
-                </div>
+                  </motion.div>
+                  <span className="text-xs md:text-sm font-bold text-[#0B1C3D]">{step.label}</span>
+                  <span className="text-[10px] text-[#6B7280] max-w-[80px] text-center leading-tight">{step.description}</span>
+                </motion.div>
+
                 {i < migrationSteps.length - 1 && (
-                  <ArrowRight className="w-4 h-4 text-[#3FE0F0]/40 hidden md:block" />
+                  <motion.div
+                    className="hidden md:flex items-center mx-1"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.15 + 0.3, duration: 0.4 }}
+                  >
+                    <div className="w-8 h-0.5 bg-gradient-to-r from-[#3FE0F0] to-[#4DA3FF]" />
+                    <ArrowRight className="w-4 h-4 text-[#3FE0F0]" />
+                  </motion.div>
                 )}
               </div>
             ))}
