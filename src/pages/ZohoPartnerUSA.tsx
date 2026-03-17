@@ -142,11 +142,14 @@ export default function ZohoPartnerUSA() {
         </div>
       </section>
 
+      {/* ═══════ MIGRATION CTA (2nd Section) ═══════ */}
+      <USAMigrationCTA />
+
+      {/* ═══════ TRUSTED BY ENTERPRISES (3rd Section) ═══════ */}
+      <TrustSection />
+
       {/* ═══════ GROWTH COUNTER ═══════ */}
       <GrowthCounter />
-
-      {/* ═══════ MIGRATION CTA ═══════ */}
-      <USAMigrationCTA />
 
       {/* ═══════ DEVELOPER SERVICES HUB (Light Sky Blue) ═══════ */}
       <DeveloperServicesHub />
