@@ -109,35 +109,47 @@ const zohoOneEnables = [
 
 const implementationFramework = [
   {
-    step: "1",
+    step: "01",
     title: "Discovery & Business Mapping",
-    description: "We analyze your current tools, workflows, data flow, and pain points. Every department is mapped before any configuration begins."
+    description: "We deep dive into your business processes, systems, and operational gaps to define clear transformation goals.",
+    tags: ["Requirement Analysis", "Stakeholder Interviews", "System Audit"],
   },
   {
-    step: "2",
-    title: "Solution Architecture",
-    description: "We design how Zoho CRM, Books, Inventory, People, Desk, Creator, and other apps interact—before enabling them."
+    step: "02",
+    title: "Solution Architecture & Strategy",
+    description: "We design a scalable Zoho One architecture tailored to your workflows, integrations, and long-term growth.",
+    tags: ["Solution Design", "App Mapping", "Data Architecture"],
   },
   {
-    step: "3",
-    title: "Data Migration & System Setup",
-    description: "Clean, structured data migration from legacy CRMs, ERPs, spreadsheets, or third-party tools."
+    step: "03",
+    title: "Configuration & Custom Development",
+    description: "We configure Zoho applications and build custom workflows using Zoho Creator, APIs, and automation tools.",
+    tags: ["CRM Setup", "Creator Apps", "Workflow Automation"],
   },
   {
-    step: "4",
-    title: "Automation & Integrations",
-    description: "Workflow automation, approval rules, third-party integrations, and API-based connections."
+    step: "04",
+    title: "Integration & Data Migration",
+    description: "We ensure seamless integration with third-party systems and securely migrate your existing data.",
+    tags: ["API Integration", "Data Migration", "System Sync"],
   },
   {
-    step: "5",
-    title: "Role-Based Training & Go-Live",
-    description: "Department-wise training ensures real adoption—not shelfware."
+    step: "05",
+    title: "Testing, QA & User Acceptance",
+    description: "We rigorously test workflows, validate processes, and conduct UAT to ensure system reliability.",
+    tags: ["QA Testing", "UAT", "Performance Optimization"],
   },
   {
-    step: "6",
-    title: "Post-Launch Optimization",
-    description: "Monitoring, performance tuning, reporting enhancements, and future scalability planning."
-  }
+    step: "06",
+    title: "Deployment & Training",
+    description: "We launch your Zoho ecosystem and train your team for smooth adoption and efficient usage.",
+    tags: ["Go-Live", "Team Training", "Documentation"],
+  },
+  {
+    step: "07",
+    title: "Continuous Support & Optimization",
+    description: "We provide ongoing support, performance monitoring, and continuous improvements as your business evolves.",
+    tags: ["Support", "Optimization", "AI Enhancements"],
+  },
 ];
 
 const departmentImplementations = [
