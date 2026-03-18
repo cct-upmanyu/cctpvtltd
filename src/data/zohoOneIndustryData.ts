@@ -115,6 +115,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Integrated Marketing Automation", description: "Zoho Campaigns and Social connect marketing directly to CRM for measurable lead generation.", apps: ["Zoho Campaigns", "Zoho Social", "Zoho CRM"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Creator", "Zoho Sign", "Zoho Analytics", "Zoho Campaigns", "Zoho SalesIQ", "Zoho WorkDrive"],
+    workflow: { title: "Lead-to-Close Workflow", steps: ["Lead captured from portals in CRM", "Auto-assigned to nearest agent", "Property tour scheduled via Bookings", "Offer & contract via Zoho Sign", "Transaction tracked in Creator", "Commission & invoice in Zoho Books"] },
   },
   {
     icon: GraduationCap,
