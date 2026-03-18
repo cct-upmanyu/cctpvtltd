@@ -490,7 +490,7 @@ export default function Pricing() {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">What You Gain with Zoho One + AI</h2>
               <p className="text-muted-foreground">Measurable business outcomes from intelligent automation.</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
               {roiItems.map((item, i) => (
                 <motion.div
                   key={item.label}
@@ -498,15 +498,15 @@ export default function Pricing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white border border-border rounded-2xl p-6 text-center hover:border-[hsl(210,90%,55%)]/30 hover:shadow-lg hover:shadow-[hsl(210,90%,55%)]/5 transition-all duration-300 group"
+                  className="bg-white border border-border rounded-2xl px-6 py-10 text-center hover:border-[hsl(210,90%,55%)]/30 hover:shadow-lg hover:shadow-[hsl(210,90%,55%)]/5 transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-[hsl(210,90%,55%)]/10 flex items-center justify-center group-hover:bg-[hsl(210,90%,55%)]/15 transition-colors">
-                    <item.icon className="w-6 h-6 text-[hsl(210,90%,55%)]" />
+                  <div className="w-14 h-14 mx-auto mb-5 rounded-xl bg-[hsl(210,90%,55%)]/10 flex items-center justify-center group-hover:bg-[hsl(210,90%,55%)]/15 transition-colors">
+                    <item.icon className="w-7 h-7 text-[hsl(210,90%,55%)]" />
                   </div>
-                  <p className="text-2xl md:text-3xl font-bold text-foreground mb-1">
+                  <p className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                     {item.value}{item.suffix}
                   </p>
-                  <p className="text-xs text-muted-foreground">{item.label}</p>
+                  <p className="text-sm text-muted-foreground">{item.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -528,14 +528,16 @@ export default function Pricing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="bg-white border border-border rounded-2xl p-6 hover:border-[hsl(190,85%,50%)]/30 hover:shadow-lg hover:shadow-[hsl(190,85%,50%)]/5 transition-all duration-300"
+                  className="bg-white border border-border rounded-2xl overflow-hidden hover:border-[hsl(190,85%,50%)]/30 hover:shadow-lg hover:shadow-[hsl(190,85%,50%)]/5 transition-all duration-300 group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-[hsl(190,85%,50%)]/10 flex items-center justify-center mb-4">
-                    <addon.icon className="w-5 h-5 text-[hsl(190,85%,50%)]" />
+                  <div className="h-40 bg-[hsl(210,40%,97%)] flex items-center justify-center overflow-hidden">
+                    <img src={addon.image} alt={addon.title} className="w-28 h-28 object-contain group-hover:scale-110 transition-transform duration-500" />
                   </div>
-                  <h3 className="text-foreground font-semibold mb-1">{addon.title}</h3>
-                  <p className="text-[hsl(210,90%,55%)] font-bold text-sm mb-2">{addon.price}</p>
-                  <p className="text-muted-foreground text-xs">{addon.desc}</p>
+                  <div className="p-6">
+                    <h3 className="text-foreground font-semibold mb-1">{addon.title}</h3>
+                    <p className="text-[hsl(210,90%,55%)] font-bold text-sm mb-2">{addon.price}</p>
+                    <p className="text-muted-foreground text-xs">{addon.desc}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -545,15 +547,29 @@ export default function Pricing() {
         {/* ═══ SECTION 9: PRICING LOGIC ═══ */}
         <section className="py-20 bg-[hsl(210,40%,97%)]">
           <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How We Price Our Projects</h2>
-              <p className="text-muted-foreground mb-12">Every project is unique. Our pricing is based on five key factors:</p>
-              <div className="flex flex-wrap justify-center gap-4">
-                {pricingLogic.map((item) => (
-                  <div key={item.label} className="flex items-center gap-3 bg-white border border-border rounded-full px-6 py-3 shadow-sm hover:border-[hsl(210,90%,55%)]/30 transition-colors">
-                    <item.icon className="w-4 h-4 text-[hsl(210,90%,55%)]" />
-                    <span className="text-sm text-foreground">{item.label}</span>
-                  </div>
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-14">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How We Price Our Projects</h2>
+                <p className="text-muted-foreground">Every project is unique. Our pricing is based on five key factors:</p>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
+                {pricingLogic.map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08 }}
+                    className="relative bg-white border border-border rounded-2xl p-6 text-center hover:border-[hsl(210,90%,55%)]/40 hover:shadow-xl hover:shadow-[hsl(210,90%,55%)]/8 hover:-translate-y-1 transition-all duration-300 group"
+                  >
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[hsl(210,90%,55%)]/5 to-[hsl(190,85%,50%)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative z-10">
+                      <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[hsl(210,90%,55%)]/10 to-[hsl(190,85%,50%)]/10 flex items-center justify-center group-hover:from-[hsl(210,90%,55%)]/20 group-hover:to-[hsl(190,85%,50%)]/20 transition-all">
+                        <item.icon className="w-7 h-7 text-[hsl(210,90%,55%)]" />
+                      </div>
+                      <span className="text-sm font-semibold text-foreground">{item.label}</span>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
