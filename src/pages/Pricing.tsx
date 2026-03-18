@@ -69,8 +69,8 @@ const roiItems = [
 ];
 
 const comparisonData = [
-  { metric: "Effective Hourly Rate", project: "$40/hr", retainer: "From $28/hr", partner: "Custom" },
-  { metric: "80-Hour Cost", project: "$3,200", retainer: "$2,240", partner: "Included" },
+  { metric: "Effective Hourly Rate", project: "$40/hr", retainer: "From $32/hr", partner: "Custom" },
+  { metric: "80-Hour Cost", project: "$3,200", retainer: "$2,560", partner: "Included" },
   { metric: "Priority Level", project: "Standard", retainer: "High", partner: "VIP" },
   { metric: "Support Speed", project: "48 hrs", retainer: "12 hrs", partner: "4 hrs" },
   { metric: "Strategy Calls", project: "On request", retainer: "Weekly", partner: "Unlimited" },
