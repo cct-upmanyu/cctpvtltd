@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Blocks, Code, Database, Workflow, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Blocks } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import crmPlusLogo from "@/assets/zoho-suite-logos/crm-plus.svg";
