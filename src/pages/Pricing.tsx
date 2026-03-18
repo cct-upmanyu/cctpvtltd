@@ -98,9 +98,9 @@ export default function Pricing() {
 
   const getEstimate = (h: number) => {
     if (h <= 10) return { plan: "Starter", cost: 400, rate: 40 };
-    if (h <= 25) return { plan: "Growth", cost: 900, rate: 36 };
-    if (h <= 50) return { plan: "Scale", cost: 1600, rate: 32 };
-    return { plan: "Enterprise", cost: Math.round(h * 28), rate: 28 };
+    if (h <= 25) return { plan: "Growth", cost: 950, rate: 38 };
+    if (h <= 50) return { plan: "Scale", cost: 1700, rate: 34 };
+    return { plan: "Enterprise", cost: Math.round(h * 32), rate: 32 };
   };
 
   const estimate = getEstimate(hours[0]);
