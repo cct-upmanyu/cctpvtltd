@@ -390,6 +390,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Audience Analytics Platform", description: "Zoho Analytics consolidates performance data across platforms for unified content insights.", apps: ["Zoho Analytics", "Zoho Creator"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Projects", "Zoho Creator", "Zoho Analytics", "Zoho Books", "Zoho Sign", "Zoho WorkDrive"],
+    workflow: { title: "Content Production Workflow", steps: ["Project brief logged in Zoho CRM", "Production schedule in Zoho Projects", "Assets managed in WorkDrive", "Review & approval workflows", "Content distributed to channels", "Royalties tracked in Zoho Books"] },
   },
   {
     icon: Scale,
