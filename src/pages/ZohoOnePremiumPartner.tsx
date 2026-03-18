@@ -168,18 +168,18 @@ const implementationFramework = [
 
 
 const industryImplementations = [
-  { name: "Manufacturing & Distribution", icon: Factory, description: "Sales orders, inventory tracking, vendor management, production reporting, and finance automation under one system.", route: "/industries/manufacturing" },
-  { name: "Healthcare & Clinics", icon: HeartPulse, description: "Lead management, appointment scheduling, billing, staff management, and compliance-ready workflows.", route: "/industries/healthcare" },
-  { name: "Recruitment & Staffing", icon: Users, description: "Candidate pipelines, client management, contracts, payroll, and reporting—all connected.", route: "/industries/recruitment" },
-  { name: "Real Estate & Property", icon: Home, description: "Lead capture, site visits, listings, contracts, commissions, and post-sales service.", route: "/industries/real-estate" },
-  { name: "Professional Services", icon: Briefcase, description: "CRM, project management, invoicing, timesheets, and client communication in one flow.", route: "/industries/professional-services" },
-  { name: "Education & Training", icon: GraduationCap, description: "Admissions, CRM, fee management, staff workflows, and reporting.", route: "/industries/education" },
-  { name: "Retail & eCommerce", icon: ShoppingCart, description: "Inventory, orders, CRM, marketing, accounting, and customer support in one ecosystem.", route: "/industries/retail" },
-  { name: "Logistics & Supply Chain", icon: Truck, description: "Order tracking, invoicing, vendor coordination, and reporting automation.", route: "/industries/logistics" },
-  { name: "Legal & Law Firms", icon: Scale, description: "Client intake, document management, billing, and compliance-driven workflows.", route: "/industries/legal" },
-  { name: "Financial Services", icon: DollarSign, description: "Lead management, compliance tracking, reporting, and client servicing.", route: "/industries/financial-services" },
-  { name: "Marketing & Creative", icon: Palette, description: "CRM, project tracking, billing, performance reporting, and collaboration.", route: "/industries/marketing-creative" },
-  { name: "SaaS & Technology", icon: Code, description: "Sales pipelines, onboarding automation, customer success, billing, and analytics.", route: "/industries/saas" }
+  { name: "Manufacturing & Distribution", icon: Factory, image: imgManufacturing, description: "Sales orders, inventory tracking, vendor management, production reporting, and finance automation under one system.", route: "/zoho-one-manufacturing" },
+  { name: "Healthcare & Clinics", icon: HeartPulse, image: imgHealthcare, description: "Lead management, appointment scheduling, billing, staff management, and compliance-ready workflows.", route: "/zoho-one-healthcare" },
+  { name: "Recruitment & Staffing", icon: Users, image: imgRecruitment, description: "Candidate pipelines, client management, contracts, payroll, and reporting—all connected.", route: "/zoho-one-recruitment-staffing" },
+  { name: "Real Estate & Property", icon: Home, image: imgRealEstate, description: "Lead capture, site visits, listings, contracts, commissions, and post-sales service.", route: "/zoho-one-real-estate" },
+  { name: "Professional Services", icon: Briefcase, image: imgProfessionalServices, description: "CRM, project management, invoicing, timesheets, and client communication in one flow.", route: "/zoho-one-professional-services" },
+  { name: "Education & Training", icon: GraduationCap, image: imgEducation, description: "Admissions, CRM, fee management, staff workflows, and reporting.", route: "/zoho-one-education" },
+  { name: "Retail & eCommerce", icon: ShoppingCart, image: imgRetail, description: "Inventory, orders, CRM, marketing, accounting, and customer support in one ecosystem.", route: "/zoho-one-retail" },
+  { name: "Logistics & Supply Chain", icon: Truck, image: imgLogistics, description: "Order tracking, invoicing, vendor coordination, and reporting automation.", route: "/zoho-one-logistics" },
+  { name: "Legal & Law Firms", icon: Scale, image: imgLegal, description: "Client intake, document management, billing, and compliance-driven workflows.", route: "/zoho-one-legal" },
+  { name: "Financial Services", icon: DollarSign, image: imgFinancialServices, description: "Lead management, compliance tracking, reporting, and client servicing.", route: "/zoho-one-financial-services" },
+  { name: "Marketing & Creative", icon: Palette, image: imgMarketingCreative, description: "CRM, project tracking, billing, performance reporting, and collaboration.", route: "/zoho-one-pr-marketing" },
+  { name: "SaaS & Technology", icon: Code, image: imgSaasTechnology, description: "Sales pipelines, onboarding automation, customer success, billing, and analytics.", route: "/zoho-one-saas-technology" }
 ];
 
 const whyChooseUs = [
