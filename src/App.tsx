@@ -195,6 +195,9 @@ const App = () => (
             <Route path="/zoho-one-pr-marketing" element={<ZohoOnePRMarketing />} />
             <Route path="/zoho-one-aviation" element={<ZohoOneAviation />} />
             <Route path="/zoho-one-media" element={<ZohoOneMedia />} />
+            <Route path="/zoho-one-legal" element={<ZohoOneLegal />} />
+            <Route path="/zoho-one-financial-services" element={<ZohoOneFinancialServices />} />
+            <Route path="/zoho-one-saas-technology" element={<ZohoOneSaaS />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
