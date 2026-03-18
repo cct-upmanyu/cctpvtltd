@@ -340,6 +340,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Creative Collaboration Platform", description: "Zoho WorkDrive and Writer enable seamless content creation, review, and approval workflows.", apps: ["Zoho WorkDrive", "Zoho Writer", "Zoho Cliq"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Campaigns", "Zoho Social", "Zoho Projects", "Zoho Analytics", "Zoho WorkDrive", "Zoho Writer"],
+    workflow: { title: "Brief-to-Report Workflow", steps: ["Client brief captured in Zoho CRM", "Campaign plan created in Projects", "Content drafted in Zoho Writer", "Published via Zoho Social", "Performance tracked in Analytics", "Client report auto-generated"] },
   },
   {
     icon: Plane,
