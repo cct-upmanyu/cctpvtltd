@@ -90,6 +90,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Patient Engagement Platform", description: "Automated email, SMS reminders, and patient portals built with Zoho Creator improve engagement and reduce no-shows.", apps: ["Zoho Campaigns", "Zoho Creator"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Creator", "Zoho Bookings", "Zoho Sign", "Zoho Analytics", "Zoho Campaigns", "Zoho WorkDrive"],
+    workflow: { title: "Patient Journey Workflow", steps: ["Patient inquiry captured in Zoho CRM", "Appointment booked via Zoho Bookings", "Intake forms completed digitally", "Consultation notes logged in Creator", "Follow-up reminders automated", "Billing processed in Zoho Books"] },
   },
   {
     icon: Building2,
@@ -114,6 +115,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Integrated Marketing Automation", description: "Zoho Campaigns and Social connect marketing directly to CRM for measurable lead generation.", apps: ["Zoho Campaigns", "Zoho Social", "Zoho CRM"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Creator", "Zoho Sign", "Zoho Analytics", "Zoho Campaigns", "Zoho SalesIQ", "Zoho WorkDrive"],
+    workflow: { title: "Lead-to-Close Workflow", steps: ["Lead captured from portals in CRM", "Auto-assigned to nearest agent", "Property tour scheduled via Bookings", "Offer & contract via Zoho Sign", "Transaction tracked in Creator", "Commission & invoice in Zoho Books"] },
   },
   {
     icon: GraduationCap,
@@ -138,6 +140,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Real-Time Analytics", description: "Zoho Analytics dashboards track enrollment trends, revenue, and student performance metrics.", apps: ["Zoho Analytics", "Zoho CRM"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Creator", "Zoho Books", "Zoho Analytics", "Zoho People", "Zoho Campaigns", "Zoho Sign"],
+    workflow: { title: "Inquiry-to-Enrollment Workflow", steps: ["Student inquiry captured in CRM", "Application form sent via Creator", "Documents uploaded to WorkDrive", "Admission offer generated", "Fee payment tracked in Zoho Books", "Student onboarded to portal"] },
   },
   {
     icon: ShoppingCart,
@@ -162,6 +165,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Streamlined Order Management", description: "Automated order routing, fulfillment workflows, and shipping integrations reduce processing time.", apps: ["Zoho Inventory", "Zoho Creator"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Inventory", "Zoho Books", "Zoho Commerce", "Zoho Campaigns", "Zoho Analytics", "Zoho SalesIQ"],
+    workflow: { title: "Order-to-Fulfillment Workflow", steps: ["Order placed on Zoho Commerce", "Inventory checked automatically", "Picking & packing initiated", "Shipping label generated", "Customer notified via email", "Payment reconciled in Zoho Books"] },
   },
   {
     icon: Hotel,
@@ -186,6 +190,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Team Coordination Hub", description: "Zoho Cliq and Projects coordinate housekeeping, maintenance, and front desk operations in real-time.", apps: ["Zoho Cliq", "Zoho Projects"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Creator", "Zoho Bookings", "Zoho Analytics", "Zoho Cliq", "Zoho Projects", "Zoho People"],
+    workflow: { title: "Guest Experience Workflow", steps: ["Reservation captured in Zoho CRM", "Booking confirmed via Zoho Bookings", "Pre-arrival preferences collected", "Housekeeping assigned via Cliq", "Guest feedback captured post-stay", "Loyalty points updated in CRM"] },
   },
   {
     icon: Briefcase,
@@ -235,6 +240,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Team Collaboration Suite", description: "Zoho Cliq, WorkDrive, and Mail create a unified communication and document collaboration environment.", apps: ["Zoho Cliq", "Zoho WorkDrive", "Zoho Mail"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Desk", "Zoho Projects", "Zoho Creator", "Zoho Analytics", "Zoho Cliq", "Zoho WorkDrive"],
+    workflow: { title: "Ticket-to-Resolution Workflow", steps: ["Support ticket raised in Zoho Desk", "Auto-assigned based on SLA rules", "Developer task created in Projects", "Code fix deployed and tested", "Client notified via portal", "Ticket closed and feedback collected"] },
   },
   {
     icon: HandHeart,
@@ -259,6 +265,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Impact Analytics Dashboard", description: "Zoho Analytics visualizes program outcomes, donor trends, and financial health for stakeholder reporting.", apps: ["Zoho Analytics", "Zoho Creator"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Creator", "Zoho Books", "Zoho Campaigns", "Zoho Analytics", "Zoho People", "Zoho Sign"],
+    workflow: { title: "Donor-to-Impact Workflow", steps: ["Donor inquiry captured in CRM", "Campaign launched via Zoho Campaigns", "Donation processed in Zoho Books", "Receipt auto-generated and emailed", "Volunteer assigned to program", "Impact report generated in Analytics"] },
   },
   {
     icon: Users,
@@ -283,6 +290,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Digital Onboarding Suite", description: "Zoho Sign and People automate offer letters, background check consent, and onboarding workflows.", apps: ["Zoho Sign", "Zoho People"] },
     ],
     recommendedApps: ["Zoho Recruit", "Zoho CRM", "Zoho People", "Zoho Creator", "Zoho Analytics", "Zoho Sign", "Zoho Bookings"],
+    workflow: { title: "Hire-to-Onboard Workflow", steps: ["Job order received in Zoho CRM", "Candidates sourced via Zoho Recruit", "Interview scheduled via Bookings", "Offer letter signed with Zoho Sign", "Background check initiated", "Employee onboarded in Zoho People"] },
   },
   {
     icon: Sun,
@@ -332,6 +340,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Creative Collaboration Platform", description: "Zoho WorkDrive and Writer enable seamless content creation, review, and approval workflows.", apps: ["Zoho WorkDrive", "Zoho Writer", "Zoho Cliq"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Campaigns", "Zoho Social", "Zoho Projects", "Zoho Analytics", "Zoho WorkDrive", "Zoho Writer"],
+    workflow: { title: "Brief-to-Report Workflow", steps: ["Client brief captured in Zoho CRM", "Campaign plan created in Projects", "Content drafted in Zoho Writer", "Published via Zoho Social", "Performance tracked in Analytics", "Client report auto-generated"] },
   },
   {
     icon: Plane,
@@ -356,6 +365,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Operations Command Center", description: "Real-time dashboards for flight status, resource allocation, and customer service metrics.", apps: ["Zoho Analytics", "Zoho Cliq", "Zoho Desk"] },
     ],
     recommendedApps: ["Zoho Creator", "Zoho CRM", "Zoho Projects", "Zoho Analytics", "Zoho People", "Zoho Sign", "Zoho Desk"],
+    workflow: { title: "Flight Operations Workflow", steps: ["Flight scheduled in Zoho Creator", "Crew assigned based on certifications", "Pre-flight checks logged digitally", "Real-time ops tracked in Analytics", "Maintenance logged post-flight", "Crew hours updated in Zoho People"] },
   },
   {
     icon: Film,
@@ -380,6 +390,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Audience Analytics Platform", description: "Zoho Analytics consolidates performance data across platforms for unified content insights.", apps: ["Zoho Analytics", "Zoho Creator"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Projects", "Zoho Creator", "Zoho Analytics", "Zoho Books", "Zoho Sign", "Zoho WorkDrive"],
+    workflow: { title: "Content Production Workflow", steps: ["Project brief logged in Zoho CRM", "Production schedule in Zoho Projects", "Assets managed in WorkDrive", "Review & approval workflows", "Content distributed to channels", "Royalties tracked in Zoho Books"] },
   },
   {
     icon: Scale,
@@ -429,6 +440,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Real-Time Analytics & Reporting", description: "Zoho Analytics delivers cross-functional dashboards for portfolio performance, compliance, and operations.", apps: ["Zoho Analytics", "Zoho Books"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Creator", "Zoho Books", "Zoho Analytics", "Zoho Sign", "Zoho WorkDrive", "Zoho Campaigns"],
+    workflow: { title: "Client Onboarding Workflow", steps: ["Prospect captured in Zoho CRM", "KYC documents collected via Creator", "Compliance verified automatically", "Agreement signed with Zoho Sign", "Portfolio setup in Creator", "Quarterly report via Analytics"] },
   },
   {
     icon: Code,
