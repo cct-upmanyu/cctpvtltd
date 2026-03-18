@@ -16,7 +16,10 @@ import {
   ChevronRight, Globe, Sparkles, X, Send
 } from "lucide-react";
 
-const CONSULTATION_URL = "https://booknow.clubcodetechnology.com/";
+import addonChatbot from "@/assets/addon-chatbot.png";
+import addonCreator from "@/assets/addon-creator.png";
+import addonApi from "@/assets/addon-api.png";
+import addonAnalytics from "@/assets/addon-analytics.png";
 
 const pricingModels = ["Project-Based", "Monthly Retainer", "Dedicated Partner"] as const;
 type PricingModel = typeof pricingModels[number];
