@@ -29,8 +29,8 @@ const retainerPlans = [
   {
     name: "Growth",
     hours: 25,
-    price: 900,
-    rate: 36,
+    price: 950,
+    rate: 38,
     features: ["Monthly hours rollover", "Priority support", "Continuous optimization", "AI workflow implementation", "Weekly progress reports"],
     highlighted: true,
     badge: "MOST POPULAR",
@@ -38,16 +38,16 @@ const retainerPlans = [
   {
     name: "Scale",
     hours: 50,
-    price: 1600,
-    rate: 32,
+    price: 1700,
+    rate: 34,
     features: ["Monthly hours rollover", "Priority support", "Continuous optimization", "AI workflow implementation", "Bi-weekly strategy calls", "Dedicated project manager"],
     highlighted: false,
   },
   {
     name: "Enterprise",
     hours: 100,
-    price: 2800,
-    rate: 28,
+    price: 3200,
+    rate: 32,
     features: ["Monthly hours rollover", "24/7 priority support", "Continuous optimization", "AI workflow implementation", "Weekly strategy calls", "Dedicated architect", "Custom SLA"],
     highlighted: false,
   },
@@ -69,8 +69,8 @@ const roiItems = [
 ];
 
 const comparisonData = [
-  { metric: "Effective Hourly Rate", project: "$40/hr", retainer: "From $28/hr", partner: "Custom" },
-  { metric: "80-Hour Cost", project: "$3,200", retainer: "$2,240", partner: "Included" },
+  { metric: "Effective Hourly Rate", project: "$40/hr", retainer: "From $32/hr", partner: "Custom" },
+  { metric: "80-Hour Cost", project: "$3,200", retainer: "$2,560", partner: "Included" },
   { metric: "Priority Level", project: "Standard", retainer: "High", partner: "VIP" },
   { metric: "Support Speed", project: "48 hrs", retainer: "12 hrs", partner: "4 hrs" },
   { metric: "Strategy Calls", project: "On request", retainer: "Weekly", partner: "Unlimited" },
@@ -98,9 +98,9 @@ export default function Pricing() {
 
   const getEstimate = (h: number) => {
     if (h <= 10) return { plan: "Starter", cost: 400, rate: 40 };
-    if (h <= 25) return { plan: "Growth", cost: 900, rate: 36 };
-    if (h <= 50) return { plan: "Scale", cost: 1600, rate: 32 };
-    return { plan: "Enterprise", cost: Math.round(h * 28), rate: 28 };
+    if (h <= 25) return { plan: "Growth", cost: 950, rate: 38 };
+    if (h <= 50) return { plan: "Scale", cost: 1700, rate: 34 };
+    return { plan: "Enterprise", cost: Math.round(h * 32), rate: 32 };
   };
 
   const estimate = getEstimate(hours[0]);
