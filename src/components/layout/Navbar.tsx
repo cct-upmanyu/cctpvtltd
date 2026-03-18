@@ -253,7 +253,7 @@ export function Navbar() {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             <Button variant="navCta" size="sm" asChild>
-              <Link to="/contact">Talk to a Zoho Expert</Link>
+              <Link to="/pricing">Contact for Pricing</Link>
             </Button>
             <Button variant="heroPrimary" size="sm" asChild>
               <Link to="/contact">Book Free Consultation</Link>
@@ -390,7 +390,7 @@ export function Navbar() {
                 ))}
                 <div className="px-4 pt-4 space-y-3">
                   <Button variant="navCta" className="w-full" asChild>
-                    <Link to="/contact" onClick={() => setIsOpen(false)}>Talk to a Zoho Expert</Link>
+                    <Link to="/pricing" onClick={() => setIsOpen(false)}>Contact for Pricing</Link>
                   </Button>
                   <Button variant="heroPrimary" className="w-full" asChild>
                     <Link to="/contact" onClick={() => setIsOpen(false)}>Book Free Consultation</Link>

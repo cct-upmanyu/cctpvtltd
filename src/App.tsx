@@ -35,6 +35,7 @@ import ZohoCRM from "./pages/ZohoCRM";
 import TermsConditions from "./pages/TermsConditions";
 import CaseStudies from "./pages/CaseStudies";
 import Blog from "./pages/Blog";
+import Pricing from "./pages/Pricing";
 
 // CRM Service Pages
 import CRMConsulting from "./pages/crm/CRMConsulting";
@@ -132,6 +133,7 @@ const App = () => (
             <Route path="/terms-and-conditions" element={<TermsConditions />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/pricing" element={<Pricing />} />
             {/* CRM Service Pages */}
             <Route path="/crm-consulting" element={<CRMConsulting />} />
             <Route path="/crm-implementation" element={<CRMImplementation />} />
