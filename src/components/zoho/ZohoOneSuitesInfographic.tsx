@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Layers, ArrowRight, Building2, Zap, RefreshCw } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Layers, ArrowRight, Building2, Zap, RefreshCw, Target, TrendingUp, HeadphonesIcon, DollarSign, Briefcase, Settings, Mail } from "lucide-react";
 import zohoLogo from "@/assets/zoho-logo-official.svg";
 
 // Official Zoho Suite logos from assets
