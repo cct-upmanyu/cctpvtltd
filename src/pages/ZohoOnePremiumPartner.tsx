@@ -721,7 +721,7 @@ export default function ZohoOnePremiumPartner() {
               </h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {industryImplementations.map((industry, index) => (
                 <motion.div
                   key={index}
@@ -732,22 +732,32 @@ export default function ZohoOnePremiumPartner() {
                 >
                   <Link
                     to={industry.route}
-                    className="block bg-white border border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-primary/50 transition-all group h-full"
+                    className="block bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-primary/50 transition-all group h-full"
                   >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                        <industry.icon className="w-5 h-5 text-primary" />
+                    <div className="relative h-40 overflow-hidden">
+                      <img 
+                        src={industry.image} 
+                        alt={`Zoho One for ${industry.name}`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                        <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                          <industry.icon className="w-4 h-4 text-white" />
+                        </div>
+                        <h3 className="font-semibold text-white text-sm">{industry.name}</h3>
                       </div>
-                      <h3 className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors">{industry.name}</h3>
                     </div>
-                    <p className="text-muted-foreground text-xs leading-relaxed mb-3">{industry.description}</p>
-                    <div className="flex items-center gap-1 text-primary text-xs font-medium">
-                      Learn More <ArrowRight className="w-3 h-3" />
+                    <div className="p-4">
+                      <p className="text-muted-foreground text-xs leading-relaxed mb-3">{industry.description}</p>
+                      <div className="flex items-center gap-1 text-primary text-xs font-medium group-hover:gap-2 transition-all">
+                        Explore Zoho One Solution <ArrowRight className="w-3 h-3" />
+                      </div>
                     </div>
                   </Link>
                 </motion.div>
               ))}
-            </div>
           </div>
         </section>
 
