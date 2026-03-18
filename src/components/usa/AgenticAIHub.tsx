@@ -4,6 +4,9 @@ import { Brain, Sparkles, FileSearch, ShieldCheck, Bot, Zap, TrendingUp, Users }
 import aiChatbotImg from "@/assets/ai-chatbot-scenario.jpg";
 import aiDocProcessImg from "@/assets/ai-document-processing.jpg";
 import aiDashboardImg from "@/assets/ai-predictive-dashboard.jpg";
+import aiGovernanceImg from "@/assets/ai-governance-dashboard.jpg";
+import aiWorkflowImg from "@/assets/ai-workflow-orchestration.jpg";
+import aiSupportImg from "@/assets/ai-customer-support.jpg";
 
 const aiFeatures = [
   {
