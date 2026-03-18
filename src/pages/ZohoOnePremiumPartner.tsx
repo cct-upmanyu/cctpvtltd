@@ -633,7 +633,7 @@ export default function ZohoOnePremiumPartner() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-[#E88C30]/30 bg-[#E88C30]/10 text-[#E88C30] text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
                 Our Process
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -647,7 +647,7 @@ export default function ZohoOnePremiumPartner() {
             {/* Vertical Timeline */}
             <div className="relative max-w-4xl mx-auto">
               {/* Center line */}
-              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#E88C30]/60 via-[#E88C30]/30 to-transparent md:-translate-x-px" />
+              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-primary/30 to-transparent md:-translate-x-px" />
 
               {implementationFramework.map((step, index) => {
                 const isLeft = index % 2 === 0;
