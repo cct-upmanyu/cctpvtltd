@@ -176,6 +176,22 @@ const App = () => (
             <Route path="/compare/zoho-crm-vs-freshsales" element={<ZohoCRMvsFreshsales />} />
             <Route path="/compare/zoho-crm-vs-microsoft-dynamics" element={<ZohoCRMvsDynamics />} />
             <Route path="/compare/zoho-crm-vs-monday-crm" element={<ZohoCRMvsMonday />} />
+            {/* Zoho One Industry Pages */}
+            <Route path="/zoho-one-logistics" element={<ZohoOneLogistics />} />
+            <Route path="/zoho-one-manufacturing" element={<ZohoOneManufacturing />} />
+            <Route path="/zoho-one-healthcare" element={<ZohoOneHealthcare />} />
+            <Route path="/zoho-one-real-estate" element={<ZohoOneRealEstate />} />
+            <Route path="/zoho-one-education" element={<ZohoOneEducation />} />
+            <Route path="/zoho-one-retail" element={<ZohoOneRetail />} />
+            <Route path="/zoho-one-hospitality" element={<ZohoOneHospitality />} />
+            <Route path="/zoho-one-professional-services" element={<ZohoOneProfessionalServices />} />
+            <Route path="/zoho-one-information-technology" element={<ZohoOneIT />} />
+            <Route path="/zoho-one-nonprofits" element={<ZohoOneNonprofits />} />
+            <Route path="/zoho-one-recruitment-staffing" element={<ZohoOneRecruitment />} />
+            <Route path="/zoho-one-solar-renewable" element={<ZohoOneSolar />} />
+            <Route path="/zoho-one-pr-marketing" element={<ZohoOnePRMarketing />} />
+            <Route path="/zoho-one-aviation" element={<ZohoOneAviation />} />
+            <Route path="/zoho-one-media" element={<ZohoOneMedia />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
