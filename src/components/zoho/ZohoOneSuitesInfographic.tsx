@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Layers, ArrowRight, Building2, Zap, RefreshCw } from "lucide-react";
 import zohoLogo from "@/assets/zoho-logo-official.svg";
-import zohoOneDevices from "@/assets/zoho-one-devices-mockup.jpg";
 
 // Official Zoho Suite logos from assets
 import crmPlusLogo from "@/assets/zoho-suite-logos/crm-plus.svg";
