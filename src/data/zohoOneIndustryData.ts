@@ -290,6 +290,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Digital Onboarding Suite", description: "Zoho Sign and People automate offer letters, background check consent, and onboarding workflows.", apps: ["Zoho Sign", "Zoho People"] },
     ],
     recommendedApps: ["Zoho Recruit", "Zoho CRM", "Zoho People", "Zoho Creator", "Zoho Analytics", "Zoho Sign", "Zoho Bookings"],
+    workflow: { title: "Hire-to-Onboard Workflow", steps: ["Job order received in Zoho CRM", "Candidates sourced via Zoho Recruit", "Interview scheduled via Bookings", "Offer letter signed with Zoho Sign", "Background check initiated", "Employee onboarded in Zoho People"] },
   },
   {
     icon: Sun,
