@@ -144,7 +144,10 @@ export default function ZohoPartnerUSA() {
         </div>
       </section>
 
-      {/* ═══════ MIGRATION CTA (2nd Section) ═══════ */}
+      {/* ═══════ CHALLENGES US BUSINESSES FACE ═══════ */}
+      <USAChallengesSection />
+
+      {/* ═══════ MIGRATION CTA ═══════ */}
       <USAMigrationCTA />
 
 
