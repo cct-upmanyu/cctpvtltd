@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Layers, ArrowRight, Building2, Zap, RefreshCw } from "lucide-react";
 import zohoLogo from "@/assets/zoho-logo-official.svg";
-import zohoOneDevices from "@/assets/zoho-one-devices-mockup.jpg";
 
 // Official Zoho Suite logos from assets
 import crmPlusLogo from "@/assets/zoho-suite-logos/crm-plus.svg";
@@ -204,26 +203,6 @@ export function ZohoOneSuitesInfographic() {
 
         {viewMode === "suites" ? (
           <>
-            {/* Central Zoho One Hub - Device Mockup */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="flex justify-center mb-14"
-            >
-              <div className="relative max-w-3xl w-full">
-                <img 
-                  src={zohoOneDevices} 
-                  alt="Zoho One - Single source of truth across laptop and mobile" 
-                  className="w-full h-auto rounded-xl"
-                />
-                <div className="text-center mt-6">
-                  <h3 className="text-2xl font-bold text-foreground">Zoho One</h3>
-                  <p className="text-muted-foreground mt-1">The Operating System for Your Entire Business — One Login, 50+ Apps</p>
-                </div>
-              </div>
-            </motion.div>
-
             {/* Suite Cards Grid - Clean Professional Layout */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {zohoSuites.map((suite, index) => (
