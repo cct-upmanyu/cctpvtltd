@@ -1,4 +1,4 @@
-import { Factory, ShoppingCart, GraduationCap, Truck, Heart, Building2, Hotel, Monitor, HandHeart, Film, Briefcase, Users, Sun, Megaphone, Plane } from "lucide-react";
+import { Factory, ShoppingCart, GraduationCap, Truck, Heart, Building2, Hotel, Monitor, HandHeart, Film, Briefcase, Users, Sun, Megaphone, Plane, Scale, DollarSign, Code } from "lucide-react";
 
 export interface ZohoOneIndustry {
   icon: any;
