@@ -20,21 +20,6 @@ const suites = [
   { name: "Workplace", logo: workplaceLogo, description: "Business communication and collaboration suite replacing fragmented tools.", href: "/zoho-solutions" },
 ];
 
-const migrationRoutes = [
-  { label: "Salesforce → Zoho", href: "/data-migration" },
-  { label: "HubSpot → Zoho", href: "/data-migration" },
-  { label: "SAP/Oracle → Zoho Creator", href: "/data-migration" },
-  { label: "HIPAA Compliant", href: "/industries/healthcare" },
-  { label: "SOX Ready", href: "/industries/financial-services" },
-  { label: "CCPA Safe", href: "/contact" },
-];
-
-const migrationCapabilities = [
-  { icon: <Code className="w-5 h-5" />, title: "Deluge Scripting Expertise", description: "Custom business logic, workflow automation, and API integrations using Zoho's proprietary scripting language." },
-  { icon: <Database className="w-5 h-5" />, title: "API Orchestration", description: "Multi-system data synchronization across REST/SOAP APIs with real-time webhooks and error handling." },
-  { icon: <Workflow className="w-5 h-5" />, title: "Process Re-Engineering", description: "Map, optimize, and automate business processes during migration—not just lift-and-shift." },
-  { icon: <Blocks className="w-5 h-5" />, title: "Zero-Downtime Cutover", description: "Parallel-run strategy ensures your business never stops operating during the transition." },
-];
 
 export function ZohoEcosystemModule() {
   return (
