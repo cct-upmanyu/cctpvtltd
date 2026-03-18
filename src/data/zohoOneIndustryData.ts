@@ -90,6 +90,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Patient Engagement Platform", description: "Automated email, SMS reminders, and patient portals built with Zoho Creator improve engagement and reduce no-shows.", apps: ["Zoho Campaigns", "Zoho Creator"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Creator", "Zoho Bookings", "Zoho Sign", "Zoho Analytics", "Zoho Campaigns", "Zoho WorkDrive"],
+    workflow: { title: "Patient Journey Workflow", steps: ["Patient inquiry captured in Zoho CRM", "Appointment booked via Zoho Bookings", "Intake forms completed digitally", "Consultation notes logged in Creator", "Follow-up reminders automated", "Billing processed in Zoho Books"] },
   },
   {
     icon: Building2,
