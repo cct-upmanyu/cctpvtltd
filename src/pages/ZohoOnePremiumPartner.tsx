@@ -42,6 +42,20 @@ import zohoOneLogo from "@/assets/zoho-one-logo.png";
 import clientLogosRow1 from "@/assets/client-logos-row1.png";
 import clientLogosRow2 from "@/assets/client-logos-row2.png";
 
+// Industry images
+import imgManufacturing from "@/assets/industries/manufacturing.jpg";
+import imgHealthcare from "@/assets/industries/healthcare.jpg";
+import imgRecruitment from "@/assets/industries/recruitment.jpg";
+import imgRealEstate from "@/assets/industries/real-estate.jpg";
+import imgProfessionalServices from "@/assets/industries/professional-services.jpg";
+import imgEducation from "@/assets/industries/education.jpg";
+import imgRetail from "@/assets/industries/retail.jpg";
+import imgLogistics from "@/assets/industries/logistics.jpg";
+import imgLegal from "@/assets/industries/legal.jpg";
+import imgFinancialServices from "@/assets/industries/financial-services.jpg";
+import imgMarketingCreative from "@/assets/industries/marketing-creative.jpg";
+import imgSaasTechnology from "@/assets/industries/saas-technology.jpg";
+
 // JSON-LD Structured Data for SEO
 const structuredData = {
   "@context": "https://schema.org",
