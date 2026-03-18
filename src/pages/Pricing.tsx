@@ -61,10 +61,10 @@ const retainerPlans = [
 ];
 
 const addOns = [
-  { icon: Bot, title: "AI Chatbot Setup", price: "$500 – $2,000", desc: "Custom AI chatbot for sales, support, or internal use" },
-  { icon: Code, title: "Zoho Creator Apps", price: "$800 – $5,000", desc: "Custom low-code applications built on Zoho Creator" },
-  { icon: Plug, title: "API Integrations", price: "$300 – $2,500", desc: "Third-party API connections and data sync" },
-  { icon: BarChart3, title: "Analytics Dashboards", price: "$400 – $2,000", desc: "Custom reporting and BI dashboards" },
+  { icon: Bot, title: "AI Chatbot Setup", price: "$500 – $2,000", desc: "Custom AI chatbot for sales, support, or internal use", image: addonChatbot },
+  { icon: Code, title: "Zoho Creator Apps", price: "$800 – $5,000", desc: "Custom low-code applications built on Zoho Creator", image: addonCreator },
+  { icon: Plug, title: "API Integrations", price: "$300 – $2,500", desc: "Third-party API connections and data sync", image: addonApi },
+  { icon: BarChart3, title: "Analytics Dashboards", price: "$400 – $2,000", desc: "Custom reporting and BI dashboards", image: addonAnalytics },
 ];
 
 const roiItems = [
