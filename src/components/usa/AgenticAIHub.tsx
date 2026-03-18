@@ -106,7 +106,7 @@ export function AgenticAIHub() {
           ))}
         </div>
 
-        {/* Bottom 3 cards without images */}
+        {/* Bottom 3 cards with images */}
         <div className="grid md:grid-cols-3 gap-6">
           {aiFeatures.slice(3).map((feature, i) => (
             <motion.div
@@ -115,12 +115,21 @@ export function AgenticAIHub() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="rounded-2xl p-6 bg-white border border-[#E2E8F0] hover:shadow-xl hover:shadow-[#3FE0F0]/8 transition-all duration-300 group relative overflow-hidden"
+              className="rounded-2xl bg-white border border-[#E2E8F0] hover:shadow-xl hover:shadow-[#3FE0F0]/8 transition-all duration-300 group relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#3FE0F0]/5 to-transparent rounded-bl-full" />
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#3FE0F0]/10 to-[#4DA3FF]/10 text-[#3FE0F0] group-hover:from-[#3FE0F0]/20 group-hover:to-[#4DA3FF]/20 transition-all">
+              {feature.image && (
+                <div className="w-full h-40 overflow-hidden">
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#3FE0F0]/10 to-[#4DA3FF]/10 text-[#3FE0F0]">
                     {feature.icon}
                   </div>
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[#3FE0F0] bg-[#3FE0F0]/8 px-2.5 py-1 rounded-full">{feature.tag}</span>

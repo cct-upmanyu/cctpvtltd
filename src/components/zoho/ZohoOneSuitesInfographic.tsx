@@ -204,18 +204,22 @@ export function ZohoOneSuitesInfographic() {
 
         {viewMode === "suites" ? (
           <>
-            {/* Central Zoho One Hub */}
+            {/* Central Zoho One Hub - Device Mockup */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="flex justify-center mb-12"
+              className="flex justify-center mb-14"
             >
-              <div className="bg-white rounded-2xl px-10 py-8 border border-border shadow-lg flex flex-col items-center gap-4 max-w-md">
-                <img src={zohoLogo} alt="Zoho" className="h-14 w-auto" />
-                <div className="text-center">
+              <div className="relative max-w-3xl w-full">
+                <img 
+                  src={zohoOneDevices} 
+                  alt="Zoho One - Single source of truth across laptop and mobile" 
+                  className="w-full h-auto rounded-xl"
+                />
+                <div className="text-center mt-6">
                   <h3 className="text-2xl font-bold text-foreground">Zoho One</h3>
-                  <p className="text-muted-foreground mt-1">The Operating System for Your Entire Business</p>
+                  <p className="text-muted-foreground mt-1">The Operating System for Your Entire Business — One Login, 50+ Apps</p>
                 </div>
               </div>
             </motion.div>
