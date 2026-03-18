@@ -663,19 +663,19 @@ export default function ZohoOnePremiumPartner() {
                     } flex-row`}
                   >
                     {/* Glowing dot */}
-                    <div className="absolute left-6 md:left-1/2 w-3 h-3 rounded-full bg-[#E88C30] shadow-[0_0_12px_rgba(232,140,48,0.6)] -translate-x-1.5 md:-translate-x-1.5 mt-8 z-10" />
+                    <div className="absolute left-6 md:left-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.6)] -translate-x-1.5 md:-translate-x-1.5 mt-8 z-10" />
 
                     {/* Spacer for mobile */}
                     <div className="w-14 flex-shrink-0 md:hidden" />
 
                     {/* Card */}
                     <div className={`flex-1 ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"}`}>
-                      <div className="group relative bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:border-[#E88C30]/40 hover:bg-white/[0.07] transition-all duration-300">
+                      <div className="group relative bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:border-primary/40 hover:bg-white/[0.07] transition-all duration-300">
                         {/* Step number */}
-                        <span className="inline-block text-xs font-bold tracking-widest text-[#E88C30] uppercase mb-2">
+                        <span className="inline-block text-xs font-bold tracking-widest text-primary uppercase mb-2">
                           Step {step.step}
                         </span>
-                        <h3 className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-[#E88C30] transition-colors">
+                        <h3 className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
                           {step.title}
                         </h3>
                         <p className="text-[#94A3B8] text-sm leading-relaxed mb-4">
@@ -685,7 +685,7 @@ export default function ZohoOnePremiumPartner() {
                           {step.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="px-3 py-1 rounded-full bg-[#E88C30]/10 text-[#E88C30] text-xs font-medium border border-[#E88C30]/20"
+                              className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium border border-primary/20"
                             >
                               {tag}
                             </span>
