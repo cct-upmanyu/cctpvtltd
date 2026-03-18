@@ -35,6 +35,7 @@ import ZohoCRM from "./pages/ZohoCRM";
 import TermsConditions from "./pages/TermsConditions";
 import CaseStudies from "./pages/CaseStudies";
 import Blog from "./pages/Blog";
+import Pricing from "./pages/Pricing";
 
 // CRM Service Pages
 import CRMConsulting from "./pages/crm/CRMConsulting";
