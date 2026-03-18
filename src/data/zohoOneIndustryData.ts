@@ -240,6 +240,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Team Collaboration Suite", description: "Zoho Cliq, WorkDrive, and Mail create a unified communication and document collaboration environment.", apps: ["Zoho Cliq", "Zoho WorkDrive", "Zoho Mail"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Desk", "Zoho Projects", "Zoho Creator", "Zoho Analytics", "Zoho Cliq", "Zoho WorkDrive"],
+    workflow: { title: "Ticket-to-Resolution Workflow", steps: ["Support ticket raised in Zoho Desk", "Auto-assigned based on SLA rules", "Developer task created in Projects", "Code fix deployed and tested", "Client notified via portal", "Ticket closed and feedback collected"] },
   },
   {
     icon: HandHeart,
