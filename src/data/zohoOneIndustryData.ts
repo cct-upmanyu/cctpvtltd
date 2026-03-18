@@ -165,6 +165,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Streamlined Order Management", description: "Automated order routing, fulfillment workflows, and shipping integrations reduce processing time.", apps: ["Zoho Inventory", "Zoho Creator"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Inventory", "Zoho Books", "Zoho Commerce", "Zoho Campaigns", "Zoho Analytics", "Zoho SalesIQ"],
+    workflow: { title: "Order-to-Fulfillment Workflow", steps: ["Order placed on Zoho Commerce", "Inventory checked automatically", "Picking & packing initiated", "Shipping label generated", "Customer notified via email", "Payment reconciled in Zoho Books"] },
   },
   {
     icon: Hotel,
