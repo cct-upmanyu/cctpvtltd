@@ -79,6 +79,23 @@ import FinancialServicesIndustry from "./pages/industries/FinancialServicesIndus
 import MarketingCreativeIndustry from "./pages/industries/MarketingCreativeIndustry";
 import SaaSIndustry from "./pages/industries/SaaSIndustry";
 
+// Zoho One Industry Pages
+import ZohoOneLogistics from "./pages/zoho-one/ZohoOneLogistics";
+import ZohoOneManufacturing from "./pages/zoho-one/ZohoOneManufacturing";
+import ZohoOneHealthcare from "./pages/zoho-one/ZohoOneHealthcare";
+import ZohoOneRealEstate from "./pages/zoho-one/ZohoOneRealEstate";
+import ZohoOneEducation from "./pages/zoho-one/ZohoOneEducation";
+import ZohoOneRetail from "./pages/zoho-one/ZohoOneRetail";
+import ZohoOneHospitality from "./pages/zoho-one/ZohoOneHospitality";
+import ZohoOneProfessionalServices from "./pages/zoho-one/ZohoOneProfessionalServices";
+import ZohoOneIT from "./pages/zoho-one/ZohoOneIT";
+import ZohoOneNonprofits from "./pages/zoho-one/ZohoOneNonprofits";
+import ZohoOneRecruitment from "./pages/zoho-one/ZohoOneRecruitment";
+import ZohoOneSolar from "./pages/zoho-one/ZohoOneSolar";
+import ZohoOnePRMarketing from "./pages/zoho-one/ZohoOnePRMarketing";
+import ZohoOneAviation from "./pages/zoho-one/ZohoOneAviation";
+import ZohoOneMedia from "./pages/zoho-one/ZohoOneMedia";
+
 const queryClient = new QueryClient();
 
 const App = () => (
