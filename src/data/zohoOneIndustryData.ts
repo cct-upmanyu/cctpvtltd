@@ -140,6 +140,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Real-Time Analytics", description: "Zoho Analytics dashboards track enrollment trends, revenue, and student performance metrics.", apps: ["Zoho Analytics", "Zoho CRM"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Creator", "Zoho Books", "Zoho Analytics", "Zoho People", "Zoho Campaigns", "Zoho Sign"],
+    workflow: { title: "Inquiry-to-Enrollment Workflow", steps: ["Student inquiry captured in CRM", "Application form sent via Creator", "Documents uploaded to WorkDrive", "Admission offer generated", "Fee payment tracked in Zoho Books", "Student onboarded to portal"] },
   },
   {
     icon: ShoppingCart,
