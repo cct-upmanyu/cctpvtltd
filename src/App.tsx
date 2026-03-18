@@ -95,6 +95,9 @@ import ZohoOneSolar from "./pages/zoho-one/ZohoOneSolar";
 import ZohoOnePRMarketing from "./pages/zoho-one/ZohoOnePRMarketing";
 import ZohoOneAviation from "./pages/zoho-one/ZohoOneAviation";
 import ZohoOneMedia from "./pages/zoho-one/ZohoOneMedia";
+import ZohoOneLegal from "./pages/zoho-one/ZohoOneLegal";
+import ZohoOneFinancialServices from "./pages/zoho-one/ZohoOneFinancialServices";
+import ZohoOneSaaS from "./pages/zoho-one/ZohoOneSaaS";
 
 const queryClient = new QueryClient();
 
@@ -192,6 +195,9 @@ const App = () => (
             <Route path="/zoho-one-pr-marketing" element={<ZohoOnePRMarketing />} />
             <Route path="/zoho-one-aviation" element={<ZohoOneAviation />} />
             <Route path="/zoho-one-media" element={<ZohoOneMedia />} />
+            <Route path="/zoho-one-legal" element={<ZohoOneLegal />} />
+            <Route path="/zoho-one-financial-services" element={<ZohoOneFinancialServices />} />
+            <Route path="/zoho-one-saas-technology" element={<ZohoOneSaaS />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

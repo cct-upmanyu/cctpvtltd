@@ -42,6 +42,20 @@ import zohoOneLogo from "@/assets/zoho-one-logo.png";
 import clientLogosRow1 from "@/assets/client-logos-row1.png";
 import clientLogosRow2 from "@/assets/client-logos-row2.png";
 
+// Industry images
+import imgManufacturing from "@/assets/industries/manufacturing.jpg";
+import imgHealthcare from "@/assets/industries/healthcare.jpg";
+import imgRecruitment from "@/assets/industries/recruitment.jpg";
+import imgRealEstate from "@/assets/industries/real-estate.jpg";
+import imgProfessionalServices from "@/assets/industries/professional-services.jpg";
+import imgEducation from "@/assets/industries/education.jpg";
+import imgRetail from "@/assets/industries/retail.jpg";
+import imgLogistics from "@/assets/industries/logistics.jpg";
+import imgLegal from "@/assets/industries/legal.jpg";
+import imgFinancialServices from "@/assets/industries/financial-services.jpg";
+import imgMarketingCreative from "@/assets/industries/marketing-creative.jpg";
+import imgSaasTechnology from "@/assets/industries/saas-technology.jpg";
+
 // JSON-LD Structured Data for SEO
 const structuredData = {
   "@context": "https://schema.org",
@@ -154,18 +168,18 @@ const implementationFramework = [
 
 
 const industryImplementations = [
-  { name: "Manufacturing & Distribution", icon: Factory, description: "Sales orders, inventory tracking, vendor management, production reporting, and finance automation under one system.", route: "/industries/manufacturing" },
-  { name: "Healthcare & Clinics", icon: HeartPulse, description: "Lead management, appointment scheduling, billing, staff management, and compliance-ready workflows.", route: "/industries/healthcare" },
-  { name: "Recruitment & Staffing", icon: Users, description: "Candidate pipelines, client management, contracts, payroll, and reporting—all connected.", route: "/industries/recruitment" },
-  { name: "Real Estate & Property", icon: Home, description: "Lead capture, site visits, listings, contracts, commissions, and post-sales service.", route: "/industries/real-estate" },
-  { name: "Professional Services", icon: Briefcase, description: "CRM, project management, invoicing, timesheets, and client communication in one flow.", route: "/industries/professional-services" },
-  { name: "Education & Training", icon: GraduationCap, description: "Admissions, CRM, fee management, staff workflows, and reporting.", route: "/industries/education" },
-  { name: "Retail & eCommerce", icon: ShoppingCart, description: "Inventory, orders, CRM, marketing, accounting, and customer support in one ecosystem.", route: "/industries/retail" },
-  { name: "Logistics & Supply Chain", icon: Truck, description: "Order tracking, invoicing, vendor coordination, and reporting automation.", route: "/industries/logistics" },
-  { name: "Legal & Law Firms", icon: Scale, description: "Client intake, document management, billing, and compliance-driven workflows.", route: "/industries/legal" },
-  { name: "Financial Services", icon: DollarSign, description: "Lead management, compliance tracking, reporting, and client servicing.", route: "/industries/financial-services" },
-  { name: "Marketing & Creative", icon: Palette, description: "CRM, project tracking, billing, performance reporting, and collaboration.", route: "/industries/marketing-creative" },
-  { name: "SaaS & Technology", icon: Code, description: "Sales pipelines, onboarding automation, customer success, billing, and analytics.", route: "/industries/saas" }
+  { name: "Manufacturing & Distribution", icon: Factory, image: imgManufacturing, description: "Sales orders, inventory tracking, vendor management, production reporting, and finance automation under one system.", route: "/zoho-one-manufacturing" },
+  { name: "Healthcare & Clinics", icon: HeartPulse, image: imgHealthcare, description: "Lead management, appointment scheduling, billing, staff management, and compliance-ready workflows.", route: "/zoho-one-healthcare" },
+  { name: "Recruitment & Staffing", icon: Users, image: imgRecruitment, description: "Candidate pipelines, client management, contracts, payroll, and reporting—all connected.", route: "/zoho-one-recruitment-staffing" },
+  { name: "Real Estate & Property", icon: Home, image: imgRealEstate, description: "Lead capture, site visits, listings, contracts, commissions, and post-sales service.", route: "/zoho-one-real-estate" },
+  { name: "Professional Services", icon: Briefcase, image: imgProfessionalServices, description: "CRM, project management, invoicing, timesheets, and client communication in one flow.", route: "/zoho-one-professional-services" },
+  { name: "Education & Training", icon: GraduationCap, image: imgEducation, description: "Admissions, CRM, fee management, staff workflows, and reporting.", route: "/zoho-one-education" },
+  { name: "Retail & eCommerce", icon: ShoppingCart, image: imgRetail, description: "Inventory, orders, CRM, marketing, accounting, and customer support in one ecosystem.", route: "/zoho-one-retail" },
+  { name: "Logistics & Supply Chain", icon: Truck, image: imgLogistics, description: "Order tracking, invoicing, vendor coordination, and reporting automation.", route: "/zoho-one-logistics" },
+  { name: "Legal & Law Firms", icon: Scale, image: imgLegal, description: "Client intake, document management, billing, and compliance-driven workflows.", route: "/zoho-one-legal" },
+  { name: "Financial Services", icon: DollarSign, image: imgFinancialServices, description: "Lead management, compliance tracking, reporting, and client servicing.", route: "/zoho-one-financial-services" },
+  { name: "Marketing & Creative", icon: Palette, image: imgMarketingCreative, description: "CRM, project tracking, billing, performance reporting, and collaboration.", route: "/zoho-one-pr-marketing" },
+  { name: "SaaS & Technology", icon: Code, image: imgSaasTechnology, description: "Sales pipelines, onboarding automation, customer success, billing, and analytics.", route: "/zoho-one-saas-technology" }
 ];
 
 const whyChooseUs = [
@@ -557,33 +571,33 @@ export default function ZohoOnePremiumPartner() {
         </section>
 
         {/* Top 10 Reasons Why Zoho One */}
-        <section className="section-padding" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFECD2 50%, #FFF8F0 100%)" }}>
+        <section className="section-padding" style={{ background: "linear-gradient(135deg, hsl(210,90%,96%) 0%, hsl(190,85%,94%) 30%, hsl(0,80%,96%) 60%, hsl(45,90%,95%) 100%)" }}>
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="max-w-4xl mx-auto bg-[#FFF3E4] rounded-2xl p-8 md:p-12 border border-[#F5D5B0]/40"
+              className="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-[hsl(210,90%,85%)]/40 shadow-sm"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mb-3">
                 10 reasons why Zoho One is the right business management solution
               </h2>
-              <p className="text-[#4A4A4A] mb-8 leading-relaxed">
+              <p className="text-[#374151] mb-8 leading-relaxed">
                 Zoho One brings together 50+ integrated apps to run your entire business—from sales and marketing to finance, HR, and operations—on a single platform.
               </p>
 
               <div className="space-y-5">
                 {[
-                  { bold: "Unify", text: "all your business apps under one login, one admin panel, and one bill—eliminating tool sprawl and reducing software costs by up to 60%." },
-                  { bold: "Automate", text: "repetitive workflows across departments with built-in workflow rules, approval chains, and cross-app triggers that save hours of manual work." },
-                  { bold: "Sell", text: "smarter with Zoho CRM's AI-powered lead scoring, pipeline management, and real-time deal tracking—connected to marketing and support." },
-                  { bold: "Manage", text: "finances end-to-end with Zoho Books, Inventory, Invoice, and Expense—fully compliant, audit-ready, and synced with your CRM." },
-                  { bold: "Support", text: "customers across chat, email, phone, and remote assistance with Zoho Desk, SalesIQ, and Assist—all feeding into one customer timeline." },
-                  { bold: "Recruit", text: "and manage employees seamlessly with Zoho People and Recruit—from hiring to onboarding, attendance, and performance reviews." },
-                  { bold: "Collaborate", text: "internally with Zoho Mail, Cliq, WorkDrive, and Meeting—secure enterprise-grade tools that keep your team aligned." },
-                  { bold: "Analyze", text: "everything with Zoho Analytics—build cross-department dashboards and reports that give leadership real-time visibility." },
-                  { bold: "Customize", text: "with Zoho Creator's low-code platform—build custom apps, portals, and workflows without expensive development cycles." },
-                  { bold: "Scale", text: "confidently knowing that Zoho One grows with your business—add users, apps, and integrations without switching platforms." },
+                  { bold: "Unify", text: "all your business apps under one login, one admin panel, and one bill—eliminating tool sprawl and reducing software costs by up to 60%.", color: "hsl(210,90%,55%)" },
+                  { bold: "Automate", text: "repetitive workflows across departments with built-in workflow rules, approval chains, and cross-app triggers that save hours of manual work.", color: "hsl(0,75%,50%)" },
+                  { bold: "Sell", text: "smarter with Zoho CRM's AI-powered lead scoring, pipeline management, and real-time deal tracking—connected to marketing and support.", color: "hsl(145,65%,40%)" },
+                  { bold: "Manage", text: "finances end-to-end with Zoho Books, Inventory, Invoice, and Expense—fully compliant, audit-ready, and synced with your CRM.", color: "hsl(35,90%,50%)" },
+                  { bold: "Support", text: "customers across chat, email, phone, and remote assistance with Zoho Desk, SalesIQ, and Assist—all feeding into one customer timeline.", color: "hsl(210,90%,55%)" },
+                  { bold: "Recruit", text: "and manage employees seamlessly with Zoho People and Recruit—from hiring to onboarding, attendance, and performance reviews.", color: "hsl(0,75%,50%)" },
+                  { bold: "Collaborate", text: "internally with Zoho Mail, Cliq, WorkDrive, and Meeting—secure enterprise-grade tools that keep your team aligned.", color: "hsl(145,65%,40%)" },
+                  { bold: "Analyze", text: "everything with Zoho Analytics—build cross-department dashboards and reports that give leadership real-time visibility.", color: "hsl(35,90%,50%)" },
+                  { bold: "Customize", text: "with Zoho Creator's low-code platform—build custom apps, portals, and workflows without expensive development cycles.", color: "hsl(210,90%,55%)" },
+                  { bold: "Scale", text: "confidently knowing that Zoho One grows with your business—add users, apps, and integrations without switching platforms.", color: "hsl(0,75%,50%)" },
                 ].map((reason, index) => (
                   <motion.div
                     key={index}
@@ -593,11 +607,11 @@ export default function ZohoOnePremiumPartner() {
                     transition={{ delay: index * 0.05 }}
                     className="flex items-start gap-3"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#D97706]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <div className="w-2 h-2 rounded-full bg-[#D97706]" />
+                    <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: `${reason.color}20` }}>
+                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: reason.color }} />
                     </div>
-                    <p className="text-[#2D2D2D] text-[15px] leading-relaxed">
-                      <strong className="font-bold">{reason.bold}</strong> {reason.text}
+                    <p className="text-[#111827] text-[15px] leading-relaxed">
+                      <strong className="font-bold" style={{ color: reason.color }}>{reason.bold}</strong> {reason.text}
                     </p>
                   </motion.div>
                 ))}
@@ -609,8 +623,8 @@ export default function ZohoOnePremiumPartner() {
         {/* Implementation Framework — Consulting-Grade Timeline */}
         <section className="section-padding bg-[#0B1C3D] relative overflow-hidden">
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-[#E88C30]/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+            <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
           </div>
           <div className="container-custom relative z-10">
             <motion.div
@@ -619,7 +633,7 @@ export default function ZohoOnePremiumPartner() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-[#E88C30]/30 bg-[#E88C30]/10 text-[#E88C30] text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
                 Our Process
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -633,7 +647,7 @@ export default function ZohoOnePremiumPartner() {
             {/* Vertical Timeline */}
             <div className="relative max-w-4xl mx-auto">
               {/* Center line */}
-              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#E88C30]/60 via-[#E88C30]/30 to-transparent md:-translate-x-px" />
+              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-primary/30 to-transparent md:-translate-x-px" />
 
               {implementationFramework.map((step, index) => {
                 const isLeft = index % 2 === 0;
@@ -649,19 +663,19 @@ export default function ZohoOnePremiumPartner() {
                     } flex-row`}
                   >
                     {/* Glowing dot */}
-                    <div className="absolute left-6 md:left-1/2 w-3 h-3 rounded-full bg-[#E88C30] shadow-[0_0_12px_rgba(232,140,48,0.6)] -translate-x-1.5 md:-translate-x-1.5 mt-8 z-10" />
+                    <div className="absolute left-6 md:left-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.6)] -translate-x-1.5 md:-translate-x-1.5 mt-8 z-10" />
 
                     {/* Spacer for mobile */}
                     <div className="w-14 flex-shrink-0 md:hidden" />
 
                     {/* Card */}
                     <div className={`flex-1 ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"}`}>
-                      <div className="group relative bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:border-[#E88C30]/40 hover:bg-white/[0.07] transition-all duration-300">
+                      <div className="group relative bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:border-primary/40 hover:bg-white/[0.07] transition-all duration-300">
                         {/* Step number */}
-                        <span className="inline-block text-xs font-bold tracking-widest text-[#E88C30] uppercase mb-2">
+                        <span className="inline-block text-xs font-bold tracking-widest text-primary uppercase mb-2">
                           Step {step.step}
                         </span>
-                        <h3 className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-[#E88C30] transition-colors">
+                        <h3 className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
                           {step.title}
                         </h3>
                         <p className="text-[#94A3B8] text-sm leading-relaxed mb-4">
@@ -671,7 +685,7 @@ export default function ZohoOnePremiumPartner() {
                           {step.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="px-3 py-1 rounded-full bg-[#E88C30]/10 text-[#E88C30] text-xs font-medium border border-[#E88C30]/20"
+                              className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium border border-primary/20"
                             >
                               {tag}
                             </span>
@@ -707,7 +721,7 @@ export default function ZohoOnePremiumPartner() {
               </h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {industryImplementations.map((industry, index) => (
                 <motion.div
                   key={index}
@@ -718,17 +732,28 @@ export default function ZohoOnePremiumPartner() {
                 >
                   <Link
                     to={industry.route}
-                    className="block bg-white border border-gray-200 rounded-xl p-5 hover:shadow-lg hover:border-primary/50 transition-all group h-full"
+                    className="block bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-primary/50 transition-all group h-full"
                   >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                        <industry.icon className="w-5 h-5 text-primary" />
+                    <div className="relative h-40 overflow-hidden">
+                      <img 
+                        src={industry.image} 
+                        alt={`Zoho One for ${industry.name}`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                        <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                          <industry.icon className="w-4 h-4 text-white" />
+                        </div>
+                        <h3 className="font-semibold text-white text-sm">{industry.name}</h3>
                       </div>
-                      <h3 className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors">{industry.name}</h3>
                     </div>
-                    <p className="text-muted-foreground text-xs leading-relaxed mb-3">{industry.description}</p>
-                    <div className="flex items-center gap-1 text-primary text-xs font-medium">
-                      Learn More <ArrowRight className="w-3 h-3" />
+                    <div className="p-4">
+                      <p className="text-muted-foreground text-xs leading-relaxed mb-3">{industry.description}</p>
+                      <div className="flex items-center gap-1 text-primary text-xs font-medium group-hover:gap-2 transition-all">
+                        Explore Zoho One Solution <ArrowRight className="w-3 h-3" />
+                      </div>
                     </div>
                   </Link>
                 </motion.div>
