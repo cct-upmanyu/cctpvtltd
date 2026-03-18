@@ -109,35 +109,47 @@ const zohoOneEnables = [
 
 const implementationFramework = [
   {
-    step: "1",
+    step: "01",
     title: "Discovery & Business Mapping",
-    description: "We analyze your current tools, workflows, data flow, and pain points. Every department is mapped before any configuration begins."
+    description: "We deep dive into your business processes, systems, and operational gaps to define clear transformation goals.",
+    tags: ["Requirement Analysis", "Stakeholder Interviews", "System Audit"],
   },
   {
-    step: "2",
-    title: "Solution Architecture",
-    description: "We design how Zoho CRM, Books, Inventory, People, Desk, Creator, and other apps interact—before enabling them."
+    step: "02",
+    title: "Solution Architecture & Strategy",
+    description: "We design a scalable Zoho One architecture tailored to your workflows, integrations, and long-term growth.",
+    tags: ["Solution Design", "App Mapping", "Data Architecture"],
   },
   {
-    step: "3",
-    title: "Data Migration & System Setup",
-    description: "Clean, structured data migration from legacy CRMs, ERPs, spreadsheets, or third-party tools."
+    step: "03",
+    title: "Configuration & Custom Development",
+    description: "We configure Zoho applications and build custom workflows using Zoho Creator, APIs, and automation tools.",
+    tags: ["CRM Setup", "Creator Apps", "Workflow Automation"],
   },
   {
-    step: "4",
-    title: "Automation & Integrations",
-    description: "Workflow automation, approval rules, third-party integrations, and API-based connections."
+    step: "04",
+    title: "Integration & Data Migration",
+    description: "We ensure seamless integration with third-party systems and securely migrate your existing data.",
+    tags: ["API Integration", "Data Migration", "System Sync"],
   },
   {
-    step: "5",
-    title: "Role-Based Training & Go-Live",
-    description: "Department-wise training ensures real adoption—not shelfware."
+    step: "05",
+    title: "Testing, QA & User Acceptance",
+    description: "We rigorously test workflows, validate processes, and conduct UAT to ensure system reliability.",
+    tags: ["QA Testing", "UAT", "Performance Optimization"],
   },
   {
-    step: "6",
-    title: "Post-Launch Optimization",
-    description: "Monitoring, performance tuning, reporting enhancements, and future scalability planning."
-  }
+    step: "06",
+    title: "Deployment & Training",
+    description: "We launch your Zoho ecosystem and train your team for smooth adoption and efficient usage.",
+    tags: ["Go-Live", "Team Training", "Documentation"],
+  },
+  {
+    step: "07",
+    title: "Continuous Support & Optimization",
+    description: "We provide ongoing support, performance monitoring, and continuous improvements as your business evolves.",
+    tags: ["Support", "Optimization", "AI Enhancements"],
+  },
 ];
 
 const departmentImplementations = [
@@ -652,42 +664,85 @@ export default function ZohoOnePremiumPartner() {
           </div>
         </section>
 
-        <section className="section-padding bg-background">
-          <div className="container-custom">
+        {/* Implementation Framework — Consulting-Grade Timeline */}
+        <section className="section-padding bg-[#0B1C3D] relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-[#E88C30]/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          </div>
+          <div className="container-custom relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-16"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-[#E88C30]/30 bg-[#E88C30]/10 text-[#E88C30] text-sm font-medium mb-4">
                 Our Process
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Our Zoho One Implementation Framework
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                A Proven, Enterprise-Ready Methodology
+              <p className="text-[#94A3B8] max-w-2xl mx-auto text-lg">
+                A consulting-grade, enterprise-ready methodology refined over 500+ implementations
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {implementationFramework.map((step, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="relative bg-card border border-border rounded-xl p-6 hover:border-primary/30 transition-colors group"
-                >
-                  <div className="absolute -top-3 -left-3 w-10 h-10 bg-primary text-primary-foreground rounded-lg flex items-center justify-center font-bold text-lg shadow-lg">
-                    {step.step}
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-3 mt-4">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm">{step.description}</p>
-                </motion.div>
-              ))}
+            {/* Vertical Timeline */}
+            <div className="relative max-w-4xl mx-auto">
+              {/* Center line */}
+              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#E88C30]/60 via-[#E88C30]/30 to-transparent md:-translate-x-px" />
+
+              {implementationFramework.map((step, index) => {
+                const isLeft = index % 2 === 0;
+                return (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`relative flex items-start mb-12 last:mb-0 ${
+                      isLeft ? "md:flex-row" : "md:flex-row-reverse"
+                    } flex-row`}
+                  >
+                    {/* Glowing dot */}
+                    <div className="absolute left-6 md:left-1/2 w-3 h-3 rounded-full bg-[#E88C30] shadow-[0_0_12px_rgba(232,140,48,0.6)] -translate-x-1.5 md:-translate-x-1.5 mt-8 z-10" />
+
+                    {/* Spacer for mobile */}
+                    <div className="w-14 flex-shrink-0 md:hidden" />
+
+                    {/* Card */}
+                    <div className={`flex-1 ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"}`}>
+                      <div className="group relative bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:border-[#E88C30]/40 hover:bg-white/[0.07] transition-all duration-300">
+                        {/* Step number */}
+                        <span className="inline-block text-xs font-bold tracking-widest text-[#E88C30] uppercase mb-2">
+                          Step {step.step}
+                        </span>
+                        <h3 className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-[#E88C30] transition-colors">
+                          {step.title}
+                        </h3>
+                        <p className="text-[#94A3B8] text-sm leading-relaxed mb-4">
+                          {step.description}
+                        </p>
+                        <div className={`flex flex-wrap gap-2 ${isLeft ? "md:justify-end" : "md:justify-start"}`}>
+                          {step.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-3 py-1 rounded-full bg-[#E88C30]/10 text-[#E88C30] text-xs font-medium border border-[#E88C30]/20"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Spacer for opposite side on desktop */}
+                    <div className="hidden md:block flex-1" />
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
