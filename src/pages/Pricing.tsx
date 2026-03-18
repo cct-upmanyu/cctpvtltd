@@ -21,6 +21,8 @@ import addonCreator from "@/assets/addon-creator.png";
 import addonApi from "@/assets/addon-api.png";
 import addonAnalytics from "@/assets/addon-analytics.png";
 
+const CONSULTATION_URL = "https://booknow.clubcodetechnology.com/";
+
 const pricingModels = ["Project-Based", "Monthly Retainer", "Dedicated Partner"] as const;
 type PricingModel = typeof pricingModels[number];
 
