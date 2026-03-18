@@ -661,22 +661,40 @@ export default function ZohoOnePremiumPartner() {
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {departmentImplementations.map((dept, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors"
-                >
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
-                    <dept.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">{dept.title}</h3>
-                  <p className="text-dark-text-secondary text-sm">{dept.description}</p>
-                </motion.div>
-              ))}
+              {departmentImplementations.map((dept, index) => {
+                const CardContent = (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08 }}
+                    className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 hover:border-[#3FE0F0]/30 transition-all duration-300 group"
+                  >
+                    <div className="w-12 h-12 bg-[#3FE0F0]/15 rounded-lg flex items-center justify-center mb-4">
+                      <dept.icon className="w-6 h-6 text-[#3FE0F0]" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-1">{dept.title}</h3>
+                    <p className="text-[#3FE0F0] text-xs font-medium mb-3 tracking-wide uppercase">{dept.tagline}</p>
+                    <p className="text-[#94A3B8] text-sm mb-4 leading-relaxed">{dept.description}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {dept.apps.map((app) => (
+                        <span key={app} className="text-[11px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#CBD5E1]">
+                          {app}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+
+                return dept.route ? (
+                  <Link key={index} to={dept.route} className="block">
+                    {CardContent}
+                  </Link>
+                ) : (
+                  <div key={index}>{CardContent}</div>
+                );
+              })}
             </div>
           </div>
         </section>
