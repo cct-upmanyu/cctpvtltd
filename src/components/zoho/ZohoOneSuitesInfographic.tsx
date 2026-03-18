@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Layers, ArrowRight, Building2, Zap, RefreshCw } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Layers, ArrowRight, Building2, Zap, RefreshCw, Target, TrendingUp, HeadphonesIcon, DollarSign, Briefcase, Settings, Mail } from "lucide-react";
 import zohoLogo from "@/assets/zoho-logo-official.svg";
 
 // Official Zoho Suite logos from assets
@@ -80,70 +81,62 @@ const zohoSuites: ZohoSuite[] = [
   }
 ];
 
-const departmentData = [
-  { 
-    name: "Sales & Customer Experience", 
-    icon: "📈",
-    suites: ["CRM Plus", "Service Plus"],
-    apps: ["CRM", "SalesIQ", "Desk", "Bookings"],
-    color: "hsl(var(--primary))",
-    bgColor: "bg-blue-50"
+const departmentImplementations = [
+  {
+    title: "Sales & CRM Automation",
+    tagline: "Close faster with structured pipelines",
+    description: "We implement Zoho CRM, Bigin, and Bookings to create structured pipelines, lead scoring, and automated follow-ups—aligned with real sales behavior.",
+    apps: ["CRM", "Bigin", "Bookings", "SalesIQ"],
+    icon: Target,
+    route: "/zoho-crm"
   },
-  { 
-    name: "Finance & Operations", 
-    icon: "💰",
-    suites: ["Finance Plus"],
-    apps: ["Books", "Inventory", "Invoice", "Expense"],
-    color: "hsl(174, 100%, 29%)",
-    bgColor: "bg-teal-50"
+  {
+    title: "Marketing & Lead Nurturing",
+    tagline: "Turn campaigns into measurable revenue",
+    description: "Zoho Campaigns, Marketing Automation, Forms, and PageSense are connected directly to CRM for measurable ROI.",
+    apps: ["Campaigns", "Marketing Automation", "Forms", "PageSense"],
+    icon: TrendingUp,
+    route: null
   },
-  { 
-    name: "Human Resources", 
-    icon: "👥",
-    suites: ["People Plus"],
+  {
+    title: "Customer Support & Experience",
+    tagline: "Unified support across every channel",
+    description: "Zoho Desk, SalesIQ, Assist, and Lens create a unified support experience across chat, email, phone, and remote assistance.",
+    apps: ["Desk", "SalesIQ", "Assist", "Lens"],
+    icon: HeadphonesIcon,
+    route: null
+  },
+  {
+    title: "Finance & Accounting",
+    tagline: "Compliance-ready financial operations",
+    description: "Zoho Books, Inventory, Invoice, Expense, and Payroll are implemented with compliance, reporting, and audit readiness in mind.",
+    apps: ["Books", "Inventory", "Invoice", "Expense", "Payroll"],
+    icon: DollarSign,
+    route: "/zoho-books"
+  },
+  {
+    title: "HR & Recruitment",
+    tagline: "Seamless people management end-to-end",
+    description: "Zoho People and Recruit manage onboarding, attendance, performance, and hiring workflows seamlessly.",
     apps: ["People", "Recruit", "Workerly"],
-    color: "hsl(0, 79%, 55%)",
-    bgColor: "bg-red-50"
+    icon: Briefcase,
+    route: "/zoho-people"
   },
-  { 
-    name: "Marketing & Growth", 
-    icon: "📣",
-    suites: ["Marketing Plus"],
-    apps: ["Campaigns", "Social", "PageSense", "Survey"],
-    color: "hsl(36, 100%, 50%)",
-    bgColor: "bg-amber-50"
+  {
+    title: "Operations, ERP & Custom Apps",
+    tagline: "Custom ERP where off-the-shelf fails",
+    description: "Zoho Creator, Projects, Sprints, and Inventory allow us to build custom ERP workflows where off-the-shelf systems fail.",
+    apps: ["Creator", "Projects", "Sprints", "Inventory"],
+    icon: Settings,
+    route: "/custom-erp"
   },
-  { 
-    name: "Collaboration", 
-    icon: "🤝",
-    suites: ["Workplace"],
-    apps: ["Mail", "Cliq", "WorkDrive", "Meeting"],
-    color: "hsl(291, 64%, 42%)",
-    bgColor: "bg-purple-50"
-  },
-  { 
-    name: "Support & Service", 
-    icon: "🎧",
-    suites: ["Service Plus"],
-    apps: ["Desk", "Assist", "Lens"],
-    color: "hsl(122, 39%, 49%)",
-    bgColor: "bg-green-50"
-  },
-  { 
-    name: "Project Management", 
-    icon: "📋",
-    suites: ["Projects Plus"],
-    apps: ["Projects", "Sprints", "BugTracker"],
-    color: "hsl(16, 25%, 38%)",
-    bgColor: "bg-orange-50"
-  },
-  { 
-    name: "Business Intelligence", 
-    icon: "📊",
-    suites: ["Analytics"],
-    apps: ["Analytics", "DataPrep", "Embedded BI"],
-    color: "hsl(200, 18%, 46%)",
-    bgColor: "bg-slate-50"
+  {
+    title: "Workplace & Collaboration",
+    tagline: "Secure enterprise collaboration tools",
+    description: "Zoho Mail, Cliq, WorkDrive, Writer, Sheet, and Show enable secure internal collaboration with enterprise control.",
+    apps: ["Mail", "Cliq", "WorkDrive", "Writer", "Sheet", "Show"],
+    icon: Mail,
+    route: null
   }
 ];
 
@@ -254,41 +247,42 @@ export function ZohoOneSuitesInfographic() {
             </div>
           </>
         ) : (
-          /* Department View - Grid Layout */
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {departmentData.map((dept, index) => (
-              <motion.div
-                key={dept.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className={`p-5 rounded-xl border border-border ${dept.bgColor} hover:shadow-lg transition-all duration-300`}
-              >
-                <div className="text-3xl mb-3">{dept.icon}</div>
-                <h4 className="font-bold text-foreground mb-2">{dept.name}</h4>
-                <div className="flex flex-wrap gap-1 mb-3">
-                  {dept.suites.map((suite) => (
-                    <span 
-                      key={suite}
-                      className="text-xs px-2 py-0.5 rounded-full bg-white border font-medium text-foreground"
-                    >
-                      {suite}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {dept.apps.map((app) => (
-                    <span 
-                      key={app}
-                      className="text-xs px-2 py-0.5 rounded-full bg-white/80 text-muted-foreground"
-                    >
-                      {app}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+          /* Department View - Dark Glassmorphism Cards */
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {departmentImplementations.map((dept, index) => {
+              const CardContent = (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="bg-[#0B1C3D] border border-white/10 rounded-xl p-6 hover:bg-[#0F2A5F] hover:border-[#3FE0F0]/30 transition-all duration-300 group h-full"
+                >
+                  <div className="w-12 h-12 bg-[#3FE0F0]/15 rounded-lg flex items-center justify-center mb-4">
+                    <dept.icon className="w-6 h-6 text-[#3FE0F0]" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-1">{dept.title}</h3>
+                  <p className="text-[#3FE0F0] text-xs font-medium mb-3 tracking-wide uppercase">{dept.tagline}</p>
+                  <p className="text-[#94A3B8] text-sm mb-4 leading-relaxed">{dept.description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {dept.apps.map((app) => (
+                      <span key={app} className="text-[11px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#CBD5E1]">
+                        {app}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+
+              return dept.route ? (
+                <Link key={index} to={dept.route} className="block">
+                  {CardContent}
+                </Link>
+              ) : (
+                <div key={index}>{CardContent}</div>
+              );
+            })}
           </div>
         )}
 
