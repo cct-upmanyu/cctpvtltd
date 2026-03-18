@@ -95,6 +95,9 @@ import ZohoOneSolar from "./pages/zoho-one/ZohoOneSolar";
 import ZohoOnePRMarketing from "./pages/zoho-one/ZohoOnePRMarketing";
 import ZohoOneAviation from "./pages/zoho-one/ZohoOneAviation";
 import ZohoOneMedia from "./pages/zoho-one/ZohoOneMedia";
+import ZohoOneLegal from "./pages/zoho-one/ZohoOneLegal";
+import ZohoOneFinancialServices from "./pages/zoho-one/ZohoOneFinancialServices";
+import ZohoOneSaaS from "./pages/zoho-one/ZohoOneSaaS";
 
 const queryClient = new QueryClient();
 
