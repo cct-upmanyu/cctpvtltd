@@ -153,7 +153,7 @@ const implementationFramework = [
 ];
 
 
-
+const industryImplementations = [
   { name: "Manufacturing & Distribution", icon: Factory, description: "Sales orders, inventory tracking, vendor management, production reporting, and finance automation under one system.", route: "/industries/manufacturing" },
   { name: "Healthcare & Clinics", icon: HeartPulse, description: "Lead management, appointment scheduling, billing, staff management, and compliance-ready workflows.", route: "/industries/healthcare" },
   { name: "Recruitment & Staffing", icon: Users, description: "Candidate pipelines, client management, contracts, payroll, and reporting—all connected.", route: "/industries/recruitment" },
