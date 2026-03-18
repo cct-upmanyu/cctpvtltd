@@ -79,6 +79,23 @@ import FinancialServicesIndustry from "./pages/industries/FinancialServicesIndus
 import MarketingCreativeIndustry from "./pages/industries/MarketingCreativeIndustry";
 import SaaSIndustry from "./pages/industries/SaaSIndustry";
 
+// Zoho One Industry Pages
+import ZohoOneLogistics from "./pages/zoho-one/ZohoOneLogistics";
+import ZohoOneManufacturing from "./pages/zoho-one/ZohoOneManufacturing";
+import ZohoOneHealthcare from "./pages/zoho-one/ZohoOneHealthcare";
+import ZohoOneRealEstate from "./pages/zoho-one/ZohoOneRealEstate";
+import ZohoOneEducation from "./pages/zoho-one/ZohoOneEducation";
+import ZohoOneRetail from "./pages/zoho-one/ZohoOneRetail";
+import ZohoOneHospitality from "./pages/zoho-one/ZohoOneHospitality";
+import ZohoOneProfessionalServices from "./pages/zoho-one/ZohoOneProfessionalServices";
+import ZohoOneIT from "./pages/zoho-one/ZohoOneIT";
+import ZohoOneNonprofits from "./pages/zoho-one/ZohoOneNonprofits";
+import ZohoOneRecruitment from "./pages/zoho-one/ZohoOneRecruitment";
+import ZohoOneSolar from "./pages/zoho-one/ZohoOneSolar";
+import ZohoOnePRMarketing from "./pages/zoho-one/ZohoOnePRMarketing";
+import ZohoOneAviation from "./pages/zoho-one/ZohoOneAviation";
+import ZohoOneMedia from "./pages/zoho-one/ZohoOneMedia";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -159,6 +176,22 @@ const App = () => (
             <Route path="/compare/zoho-crm-vs-freshsales" element={<ZohoCRMvsFreshsales />} />
             <Route path="/compare/zoho-crm-vs-microsoft-dynamics" element={<ZohoCRMvsDynamics />} />
             <Route path="/compare/zoho-crm-vs-monday-crm" element={<ZohoCRMvsMonday />} />
+            {/* Zoho One Industry Pages */}
+            <Route path="/zoho-one-logistics" element={<ZohoOneLogistics />} />
+            <Route path="/zoho-one-manufacturing" element={<ZohoOneManufacturing />} />
+            <Route path="/zoho-one-healthcare" element={<ZohoOneHealthcare />} />
+            <Route path="/zoho-one-real-estate" element={<ZohoOneRealEstate />} />
+            <Route path="/zoho-one-education" element={<ZohoOneEducation />} />
+            <Route path="/zoho-one-retail" element={<ZohoOneRetail />} />
+            <Route path="/zoho-one-hospitality" element={<ZohoOneHospitality />} />
+            <Route path="/zoho-one-professional-services" element={<ZohoOneProfessionalServices />} />
+            <Route path="/zoho-one-information-technology" element={<ZohoOneIT />} />
+            <Route path="/zoho-one-nonprofits" element={<ZohoOneNonprofits />} />
+            <Route path="/zoho-one-recruitment-staffing" element={<ZohoOneRecruitment />} />
+            <Route path="/zoho-one-solar-renewable" element={<ZohoOneSolar />} />
+            <Route path="/zoho-one-pr-marketing" element={<ZohoOnePRMarketing />} />
+            <Route path="/zoho-one-aviation" element={<ZohoOneAviation />} />
+            <Route path="/zoho-one-media" element={<ZohoOneMedia />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
