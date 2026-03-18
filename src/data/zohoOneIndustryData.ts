@@ -365,6 +365,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Operations Command Center", description: "Real-time dashboards for flight status, resource allocation, and customer service metrics.", apps: ["Zoho Analytics", "Zoho Cliq", "Zoho Desk"] },
     ],
     recommendedApps: ["Zoho Creator", "Zoho CRM", "Zoho Projects", "Zoho Analytics", "Zoho People", "Zoho Sign", "Zoho Desk"],
+    workflow: { title: "Flight Operations Workflow", steps: ["Flight scheduled in Zoho Creator", "Crew assigned based on certifications", "Pre-flight checks logged digitally", "Real-time ops tracked in Analytics", "Maintenance logged post-flight", "Crew hours updated in Zoho People"] },
   },
   {
     icon: Film,
