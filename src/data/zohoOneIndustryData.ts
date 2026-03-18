@@ -265,6 +265,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Impact Analytics Dashboard", description: "Zoho Analytics visualizes program outcomes, donor trends, and financial health for stakeholder reporting.", apps: ["Zoho Analytics", "Zoho Creator"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Creator", "Zoho Books", "Zoho Campaigns", "Zoho Analytics", "Zoho People", "Zoho Sign"],
+    workflow: { title: "Donor-to-Impact Workflow", steps: ["Donor inquiry captured in CRM", "Campaign launched via Zoho Campaigns", "Donation processed in Zoho Books", "Receipt auto-generated and emailed", "Volunteer assigned to program", "Impact report generated in Analytics"] },
   },
   {
     icon: Users,
