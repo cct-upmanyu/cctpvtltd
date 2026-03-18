@@ -1,18 +1,22 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Check, Zap, TrendingUp, DollarSign, Clock, Shield,
   Bot, Code, BarChart3, Plug, Star, ArrowRight,
   Users, Rocket, Award, Layers, Target, Cpu,
-  ChevronRight, Globe, Sparkles
+  ChevronRight, Globe, Sparkles, X, Send
 } from "lucide-react";
+
+const CONSULTATION_URL = "https://booknow.clubcodetechnology.com/";
 
 const pricingModels = ["Project-Based", "Monthly Retainer", "Dedicated Partner"] as const;
 type PricingModel = typeof pricingModels[number];
@@ -65,7 +69,6 @@ const roiItems = [
   { icon: DollarSign, value: "30–50", suffix: "%", label: "Software Cost Reduction" },
   { icon: TrendingUp, value: "2–3×", suffix: "", label: "Sales Conversion Lift" },
   { icon: Zap, value: "80", suffix: "%", label: "Manual Work Eliminated" },
-  { icon: Users, value: "0", suffix: " extra hires", label: "Scale Without Hiring" },
 ];
 
 const comparisonData = [
@@ -92,9 +95,81 @@ const projectFeatures = [
   { icon: Code, label: "Custom Workflows" },
 ];
 
+function PlanFormModal({ plan, onClose }: { plan: string; onClose: () => void }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 relative"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button onClick={onClose} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors">
+          <X className="w-5 h-5" />
+        </button>
+        <h3 className="text-2xl font-bold text-foreground mb-1">Get Started with {plan}</h3>
+        <p className="text-muted-foreground text-sm mb-6">Tell us about your requirements and we'll get back within 24 hours.</p>
+        <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); onClose(); }}>
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-1.5">Selected Plan</label>
+            <Input value={plan} readOnly className="bg-[hsl(210,40%,97%)] border-border" />
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Full Name *</label>
+              <Input placeholder="John Doe" required className="border-border" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Email *</label>
+              <Input type="email" placeholder="john@company.com" required className="border-border" />
+            </div>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Company</label>
+              <Input placeholder="Your Company" className="border-border" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Phone</label>
+              <Input placeholder="+1 234 567 890" className="border-border" />
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-1.5">What are you interested in?</label>
+            <select className="w-full h-10 px-3 rounded-lg border border-border bg-background text-foreground text-sm">
+              <option>Zoho One Implementation</option>
+              <option>CRM Setup & Customization</option>
+              <option>AI & Automation</option>
+              <option>Data Migration</option>
+              <option>Custom ERP Development</option>
+              <option>Ongoing Support & Optimization</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-1.5">Project Requirements</label>
+            <Textarea placeholder="Briefly describe your project, goals, and any specific requirements..." className="border-border min-h-[100px]" />
+          </div>
+          <Button type="submit" className="w-full bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(190,85%,50%)] hover:from-[hsl(210,90%,50%)] hover:to-[hsl(190,85%,45%)] text-white py-5 rounded-xl text-base">
+            Submit Request <Send className="ml-2 w-4 h-4" />
+          </Button>
+        </form>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function Pricing() {
   const [activeModel, setActiveModel] = useState<PricingModel>("Monthly Retainer");
   const [hours, setHours] = useState([50]);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
 
   const getEstimate = (h: number) => {
     if (h <= 10) return { plan: "Starter", cost: 400, rate: 40 };
@@ -118,7 +193,6 @@ export default function Pricing() {
 
         {/* ═══ SECTION 1: HERO ═══ */}
         <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#0B1C3D] via-[#0F2847] to-[#0B1C3D]">
-          {/* Decorative elements */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.04)_1px,transparent_1px)] bg-[size:60px_60px]" />
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[hsl(210,90%,55%)]/10 rounded-full blur-[120px]" />
@@ -147,7 +221,7 @@ export default function Pricing() {
                   <Link to="/contact">Get Custom Pricing</Link>
                 </Button>
                 <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-6 text-lg rounded-xl backdrop-blur-sm">
-                  <Link to="/contact">Book Free Consultation</Link>
+                  <a href={CONSULTATION_URL} target="_blank" rel="noopener noreferrer">Book 1-Hour Free Consultation</a>
                 </Button>
               </div>
             </motion.div>
@@ -206,8 +280,8 @@ export default function Pricing() {
                         </div>
                       ))}
                     </div>
-                    <Button asChild className="w-full bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(190,85%,50%)] hover:from-[hsl(210,90%,50%)] hover:to-[hsl(190,85%,45%)] text-white py-6 text-lg rounded-xl">
-                      <Link to="/contact">Start Your Project <ArrowRight className="ml-2 w-5 h-5" /></Link>
+                    <Button onClick={() => setSelectedPlan("Project-Based")} className="w-full bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(190,85%,50%)] hover:from-[hsl(210,90%,50%)] hover:to-[hsl(190,85%,45%)] text-white py-6 text-lg rounded-xl">
+                      Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
                   </div>
                 </div>
@@ -265,12 +339,15 @@ export default function Pricing() {
                         </div>
                       ))}
                     </div>
-                    <Button asChild className={`w-full rounded-xl py-5 ${
-                      plan.highlighted
-                        ? "bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(270,70%,60%)] hover:from-[hsl(210,90%,50%)] hover:to-[hsl(270,70%,55%)] text-white"
-                        : "bg-[hsl(210,40%,96%)] hover:bg-[hsl(210,40%,93%)] text-foreground border border-border"
-                    }`}>
-                      <Link to="/contact">Choose Plan</Link>
+                    <Button
+                      onClick={() => setSelectedPlan(`${plan.name} – ${plan.hours} hrs @ $${plan.rate}/hr`)}
+                      className={`w-full rounded-xl py-5 ${
+                        plan.highlighted
+                          ? "bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(270,70%,60%)] hover:from-[hsl(210,90%,50%)] hover:to-[hsl(270,70%,55%)] text-white"
+                          : "bg-[hsl(210,40%,96%)] hover:bg-[hsl(210,40%,93%)] text-foreground border border-border"
+                      }`}
+                    >
+                      Choose Plan
                     </Button>
                   </motion.div>
                 ))}
@@ -322,8 +399,8 @@ export default function Pricing() {
                         </div>
                       ))}
                     </div>
-                    <Button asChild className="bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(270,70%,60%)] hover:from-[hsl(210,90%,50%)] hover:to-[hsl(270,70%,55%)] text-white px-10 py-6 text-lg rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.2)]">
-                      <Link to="/contact">Become a Priority Client <ChevronRight className="ml-2 w-5 h-5" /></Link>
+                    <Button onClick={() => setSelectedPlan("Dedicated Partner – $3,000–$10,000/mo")} className="bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(270,70%,60%)] hover:from-[hsl(210,90%,50%)] hover:to-[hsl(270,70%,55%)] text-white px-10 py-6 text-lg rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+                      Become a Priority Client <ChevronRight className="ml-2 w-5 h-5" />
                     </Button>
                   </div>
                 </div>
@@ -413,7 +490,7 @@ export default function Pricing() {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">What You Gain with Zoho One + AI</h2>
               <p className="text-muted-foreground">Measurable business outcomes from intelligent automation.</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               {roiItems.map((item, i) => (
                 <motion.div
                   key={item.label}
@@ -504,7 +581,7 @@ export default function Pricing() {
                   <Link to="/contact">Get Custom Pricing</Link>
                 </Button>
                 <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10 px-10 py-6 text-lg rounded-xl">
-                  <Link to="/contact">Book Free Consultation</Link>
+                  <a href={CONSULTATION_URL} target="_blank" rel="noopener noreferrer">Book 1-Hour Free Consultation</a>
                 </Button>
               </div>
             </motion.div>
@@ -513,6 +590,13 @@ export default function Pricing() {
 
       </main>
       <Footer />
+
+      {/* Plan Form Modal */}
+      <AnimatePresence>
+        {selectedPlan && (
+          <PlanFormModal plan={selectedPlan} onClose={() => setSelectedPlan(null)} />
+        )}
+      </AnimatePresence>
     </>
   );
 }
