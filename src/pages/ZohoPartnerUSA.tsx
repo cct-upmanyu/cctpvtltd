@@ -27,6 +27,7 @@ import { TrustAndPackages } from "@/components/usa/TrustAndPackages";
 import { ZohoEcosystemModule } from "@/components/usa/ZohoEcosystemModule";
 import { USAMigrationCTA } from "@/components/usa/USAMigrationCTA";
 import { MigrationMasterySection } from "@/components/usa/MigrationMasterySection";
+import { USAChallengesSection } from "@/components/usa/USAChallengesSection";
 import { TrustSection } from "@/components/home/TrustSection";
 
 const darkSectionBg = "linear-gradient(180deg, #0B1C3D 0%, #0F2A5F 50%, #0B1C3D 100%)";
@@ -143,7 +144,10 @@ export default function ZohoPartnerUSA() {
         </div>
       </section>
 
-      {/* ═══════ MIGRATION CTA (2nd Section) ═══════ */}
+      {/* ═══════ CHALLENGES US BUSINESSES FACE ═══════ */}
+      <USAChallengesSection />
+
+      {/* ═══════ MIGRATION CTA ═══════ */}
       <USAMigrationCTA />
 
 
