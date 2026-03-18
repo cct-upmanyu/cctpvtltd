@@ -1,41 +1,48 @@
 import { motion } from "framer-motion";
-import { Code, Puzzle, Server, Layout, AppWindow, Layers, ArrowRight, CheckCircle } from "lucide-react";
+import { Code, ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+import verticalStudioLogo from "@/assets/zoho-products/vertical-studio.jpg";
+import zohoCatalystLogo from "@/assets/zoho-products/zoho-catalyst.png";
+import zohoMarketplaceLogo from "@/assets/zoho-products/zoho-marketplace.png";
+import zohoCrmLogo from "@/assets/zoho-products/zoho-crm-logo.png";
+import delugeLogo from "@/assets/zoho-products/deluge.webp";
+import zohoCreatorLogo from "@/assets/zoho-creator-interface.jpg";
+
 const devServices = [
   {
-    icon: <Layers className="w-7 h-7" />,
+    logo: verticalStudioLogo,
     title: "Vertical Studio Solutions",
     description: "Industry-specific deep-dive applications purpose-built for healthcare, finance, logistics, and manufacturing workflows.",
     features: ["Domain-specific modules", "Pre-built compliance layers", "Rapid deployment"],
   },
   {
-    icon: <AppWindow className="w-7 h-7" />,
+    logo: zohoCreatorLogo,
     title: "Zoho Creator Custom Apps",
     description: "Bespoke low-code solutions for niche workflows that off-the-shelf products simply can't address.",
     features: ["Drag-and-drop builders", "Deluge scripting", "Mobile-first design"],
   },
   {
-    icon: <Server className="w-7 h-7" />,
+    logo: zohoCatalystLogo,
     title: "Zoho Catalyst (Serverless)",
     description: "High-performance, scalable backend development using Zoho's serverless compute platform for complex business logic.",
     features: ["Event-driven functions", "Auto-scaling infra", "Zero server management"],
   },
   {
-    icon: <Puzzle className="w-7 h-7" />,
+    logo: zohoMarketplaceLogo,
     title: "Widgets & Extensions",
     description: "Creating Marketplace extensions and custom dashboard widgets that extend Zoho's native capabilities for your team.",
     features: ["Marketplace-ready", "Embedded analytics", "Cross-app widgets"],
   },
   {
-    icon: <Layout className="w-7 h-7" />,
+    logo: zohoCrmLogo,
     title: "Custom UI for Zoho CRM",
     description: "Tailoring the user interface for specialized sales pipelines, industry-specific views, and advanced data visualization.",
     features: ["Canvas design studio", "Custom related lists", "Pipeline-specific UX"],
   },
   {
-    icon: <Code className="w-7 h-7" />,
+    logo: delugeLogo,
     title: "API Orchestration & Deluge",
     description: "Enterprise-grade API integrations and Deluge scripting to connect Zoho with your entire tech ecosystem seamlessly.",
     features: ["REST/SOAP APIs", "Webhook automation", "Multi-system sync"],
@@ -69,8 +76,8 @@ export function DeveloperServicesHub() {
               transition={{ delay: i * 0.08 }}
               className="rounded-2xl p-6 bg-white/80 backdrop-blur-sm border border-[#E2E8F0] hover:shadow-xl hover:shadow-[#4DA3FF]/8 transition-all duration-300 group"
             >
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#4DA3FF]/10 to-[#3FE0F0]/10 text-[#4DA3FF] group-hover:from-[#4DA3FF]/20 group-hover:to-[#3FE0F0]/20 transition-all mb-4">
-                {service.icon}
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-white border border-[#E2E8F0] overflow-hidden mb-4">
+                <img src={service.logo} alt={service.title} className="w-10 h-10 object-contain" />
               </div>
               <h3 className="text-lg font-bold text-[#111827] mb-2">{service.title}</h3>
               <p className="text-[#374151] text-sm leading-relaxed mb-4">{service.description}</p>
