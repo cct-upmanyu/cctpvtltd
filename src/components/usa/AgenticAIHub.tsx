@@ -35,21 +35,21 @@ const aiFeatures = [
     title: "Human-in-the-Loop AI Governance",
     description: "Enterprise-grade AI with built-in approval workflows. AI agents escalate edge cases to human reviewers, ensuring compliance with HIPAA, SOX, and CCPA regulations.",
     tag: "Governance",
-    image: null,
+    image: aiGovernanceImg,
   },
   {
     icon: <Zap className="w-7 h-7" />,
     title: "Workflow Orchestration Agents",
     description: "Deploy autonomous agents that monitor CRM and ERP data, trigger multi-step workflows, coordinate across apps, and self-correct without human triggers.",
     tag: "Agentic AI",
-    image: null,
+    image: aiWorkflowImg,
   },
   {
     icon: <Users className="w-7 h-7" />,
     title: "AI Customer Support Agents",
     description: "Intelligent support agents that resolve tickets, suggest knowledge base articles, and escalate complex issues—reducing first-response time by 75%.",
     tag: "Support",
-    image: null,
+    image: aiSupportImg,
   },
 ];
 
