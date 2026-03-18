@@ -4,9 +4,9 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Zap, AlertTriangle, Lightbulb } from "lucide-react";
-import zohoOneLogo from "@/assets/zoho-one-logo.png";
+import { ArrowRight, CheckCircle, AlertTriangle, Lightbulb } from "lucide-react";
 import type { ZohoOneIndustry } from "@/data/zohoOneIndustryData";
+import WorkflowInfographic from "./WorkflowInfographic";
 
 interface Props {
   industry: ZohoOneIndustry;
@@ -62,10 +62,10 @@ export default function ZohoOneIndustryTemplate({ industry }: Props) {
         </div>
       </section>
 
-      {/* Challenges — Infographic Style */}
+      {/* Challenges — Infographic Cards */}
       <section className="bg-[#0B1C3D] section-padding overflow-hidden">
         <div className="container-custom">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full border border-red-400/30 bg-red-500/10 text-red-400 text-sm font-medium mb-4">
               <AlertTriangle className="w-4 h-4 inline mr-1" /> Industry Challenges
             </span>
@@ -74,47 +74,37 @@ export default function ZohoOneIndustryTemplate({ industry }: Props) {
             </h2>
           </motion.div>
 
-          {/* Infographic layout — central spine with branching cards */}
-          <div className="relative max-w-5xl mx-auto">
-            {/* Central vertical line */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-red-500/60 via-orange-400/40 to-red-500/60" />
-
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
             {industry.challenges.map((challenge, i) => {
-              const isLeft = i % 2 === 0;
-              const colors = [
-                { border: "border-red-500/30", bg: "bg-red-500/10", dot: "bg-red-500", glow: "shadow-[0_0_12px_rgba(239,68,68,0.4)]", num: "text-red-400" },
-                { border: "border-orange-500/30", bg: "bg-orange-500/10", dot: "bg-orange-500", glow: "shadow-[0_0_12px_rgba(249,115,22,0.4)]", num: "text-orange-400" },
-                { border: "border-amber-500/30", bg: "bg-amber-500/10", dot: "bg-amber-500", glow: "shadow-[0_0_12px_rgba(245,158,11,0.4)]", num: "text-amber-400" },
-                { border: "border-rose-500/30", bg: "bg-rose-500/10", dot: "bg-rose-500", glow: "shadow-[0_0_12px_rgba(244,63,94,0.4)]", num: "text-rose-400" },
+              const cardStyles = [
+                { bg: "bg-gradient-to-br from-[#E94235] to-[#FF6F61]", icon: "bg-white/20" },
+                { bg: "bg-gradient-to-br from-[#4285F4] to-[#6FA8FF]", icon: "bg-white/20" },
+                { bg: "bg-gradient-to-br from-[#FBBC05] to-[#FFD54F]", icon: "bg-black/10" },
+                { bg: "bg-gradient-to-br from-[#34A853] to-[#5CDB7B]", icon: "bg-white/20" },
               ];
-              const c = colors[i % colors.length];
+              const s = cardStyles[i % cardStyles.length];
+              const isYellow = i % 4 === 2;
 
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.15 }}
-                  className={`relative flex items-center mb-8 md:mb-12 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
+                  transition={{ delay: i * 0.1 }}
+                  className={`${s.bg} rounded-2xl p-6 shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all`}
                 >
-                  {/* Card */}
-                  <div className={`flex-1 ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"}`}>
-                    <div className={`bg-white/[0.04] backdrop-blur-md rounded-2xl ${c.border} border p-6 max-w-md ${isLeft ? "md:ml-auto" : ""} hover:bg-white/[0.08] transition-all`}>
-                      <div className={`flex items-center gap-3 mb-3 ${isLeft ? "md:flex-row-reverse" : ""}`}>
-                        <div className={`w-10 h-10 rounded-xl ${c.bg} flex items-center justify-center`}>
-                          <span className={`font-bold text-lg ${c.num}`}>{String(i + 1).padStart(2, '0')}</span>
-                        </div>
-                        <h3 className="font-bold text-white text-lg">{challenge.title}</h3>
-                      </div>
-                      <p className="text-white/60 text-sm leading-relaxed">{challenge.description}</p>
-                    </div>
+                  <div className={`w-12 h-12 rounded-xl ${s.icon} flex items-center justify-center mb-4`}>
+                    <span className={`font-black text-xl ${isYellow ? "text-[#1a1a1a]" : "text-white"}`}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
                   </div>
-
-                  {/* Center dot */}
-                  <div className={`hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full ${c.dot} ${c.glow} border-2 border-[#0B1C3D] z-10`} />
-
-                  <div className="hidden md:block flex-1" />
+                  <h3 className={`font-bold text-lg mb-2 ${isYellow ? "text-[#1a1a1a]" : "text-white"}`}>
+                    {challenge.title}
+                  </h3>
+                  <p className={`text-sm leading-relaxed ${isYellow ? "text-[#1a1a1a]/70" : "text-white/80"}`}>
+                    {challenge.description}
+                  </p>
                 </motion.div>
               );
             })}
@@ -170,104 +160,9 @@ export default function ZohoOneIndustryTemplate({ industry }: Props) {
         </div>
       </section>
 
-      {/* Workflow — Horizontal Alternating Timeline */}
+      {/* Workflow — Snake Wave Infographic */}
       {industry.workflow && (
-        <section className="bg-[#0B1C3D] section-padding overflow-hidden">
-          <div className="container-custom">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-6">
-              <img src={zohoOneLogo} alt="Zoho One" className="h-10 mx-auto mb-4 object-contain" />
-              <span className="inline-block px-4 py-1.5 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/10 text-[#3FE0F0] text-sm font-medium mb-4">
-                <Zap className="w-4 h-4 inline mr-1" /> Automated Workflow
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">{industry.workflow.title}</h2>
-              <p className="text-white/60 mt-3">See how Zoho One apps work together in a seamless flow</p>
-            </motion.div>
-
-            {/* Horizontal timeline — desktop */}
-            <div className="hidden lg:block relative mt-16">
-              {/* Horizontal track */}
-              <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-[#3FE0F0]/20 via-[#3FE0F0]/60 to-[#3FE0F0]/20 -translate-y-1/2" />
-
-              <div className="grid" style={{ gridTemplateColumns: `repeat(${industry.workflow.steps.length}, 1fr)` }}>
-                {industry.workflow.steps.map((step, i) => {
-                  const isUp = i % 2 === 0;
-                  const stepColors = [
-                    "from-[#E94235] to-[#FF6F61]",
-                    "from-[#4285F4] to-[#6FA8FF]",
-                    "from-[#34A853] to-[#5CDB7B]",
-                    "from-[#FBBC05] to-[#FFD54F]",
-                    "from-[#3FE0F0] to-[#4DA3FF]",
-                    "from-[#A259FF] to-[#C77DFF]",
-                  ];
-
-                  return (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: isUp ? -30 : 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.12 }}
-                      className={`relative flex flex-col items-center ${isUp ? "pb-20" : "pt-20"}`}
-                    >
-                      {/* Connector dot on the track */}
-                      <div className={`absolute ${isUp ? "bottom-0" : "top-0"} left-1/2 -translate-x-1/2`}>
-                        <div className={`w-4 h-4 rounded-full bg-gradient-to-br ${stepColors[i % stepColors.length]} shadow-[0_0_12px_rgba(63,224,240,0.5)] border-2 border-[#0B1C3D]`} />
-                        {/* Vertical connector line */}
-                        <div className={`absolute left-1/2 -translate-x-1/2 w-px h-12 bg-gradient-to-b from-[#3FE0F0]/50 to-transparent ${isUp ? "bottom-full" : "top-full"}`} />
-                      </div>
-
-                      {/* Card */}
-                      <div className={`bg-white/[0.05] backdrop-blur-md border border-white/10 rounded-xl p-4 mx-1 hover:bg-white/[0.1] transition-all ${isUp ? "mb-4" : "mt-4"}`}>
-                        <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${stepColors[i % stepColors.length]} flex items-center justify-center text-white font-bold text-xs mb-2 mx-auto`}>
-                          {String(i + 1).padStart(2, '0')}
-                        </div>
-                        <p className="text-white/90 text-xs text-center leading-relaxed font-medium">{step}</p>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Mobile — vertical timeline */}
-            <div className="lg:hidden mt-8 relative">
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[#3FE0F0]/60 via-[#3FE0F0]/30 to-[#3FE0F0]/60" />
-              <div className="space-y-6">
-                {industry.workflow.steps.map((step, i) => {
-                  const stepColors = [
-                    "from-[#E94235] to-[#FF6F61]",
-                    "from-[#4285F4] to-[#6FA8FF]",
-                    "from-[#34A853] to-[#5CDB7B]",
-                    "from-[#FBBC05] to-[#FFD54F]",
-                    "from-[#3FE0F0] to-[#4DA3FF]",
-                    "from-[#A259FF] to-[#C77DFF]",
-                  ];
-
-                  return (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 }}
-                      className="relative flex items-center gap-4 pl-12"
-                    >
-                      <div className={`absolute left-4 w-5 h-5 rounded-full bg-gradient-to-br ${stepColors[i % stepColors.length]} border-2 border-[#0B1C3D] shadow-[0_0_10px_rgba(63,224,240,0.4)]`} />
-                      <div className="bg-white/[0.05] backdrop-blur-md border border-white/10 rounded-xl p-4 flex-1">
-                        <div className="flex items-center gap-3">
-                          <span className={`text-sm font-bold bg-gradient-to-br ${stepColors[i % stepColors.length]} bg-clip-text text-transparent`}>
-                            {String(i + 1).padStart(2, '0')}
-                          </span>
-                          <p className="text-white/90 text-sm font-medium">{step}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
+        <WorkflowInfographic title={industry.workflow.title} steps={industry.workflow.steps} />
       )}
 
       {/* Internal Links */}
