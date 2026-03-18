@@ -143,38 +143,59 @@ const implementationFramework = [
 const departmentImplementations = [
   {
     title: "Sales & CRM Automation",
+    tagline: "Close faster with structured pipelines",
     description: "We implement Zoho CRM, Bigin, and Bookings to create structured pipelines, lead scoring, and automated follow-ups—aligned with real sales behavior.",
-    icon: Target
+    apps: ["CRM", "Bigin", "Bookings", "SalesIQ"],
+    icon: Target,
+    route: "/zoho-crm"
   },
   {
     title: "Marketing & Lead Nurturing",
+    tagline: "Turn campaigns into measurable revenue",
     description: "Zoho Campaigns, Marketing Automation, Forms, and PageSense are connected directly to CRM for measurable ROI.",
-    icon: TrendingUp
+    apps: ["Campaigns", "Marketing Automation", "Forms", "PageSense"],
+    icon: TrendingUp,
+    route: null
   },
   {
     title: "Customer Support & Experience",
+    tagline: "Unified support across every channel",
     description: "Zoho Desk, SalesIQ, Assist, and Lens create a unified support experience across chat, email, phone, and remote assistance.",
-    icon: HeadphonesIcon
+    apps: ["Desk", "SalesIQ", "Assist", "Lens"],
+    icon: HeadphonesIcon,
+    route: null
   },
   {
     title: "Finance & Accounting",
+    tagline: "Compliance-ready financial operations",
     description: "Zoho Books, Inventory, Invoice, Expense, and Payroll are implemented with compliance, reporting, and audit readiness in mind.",
-    icon: DollarSign
+    apps: ["Books", "Inventory", "Invoice", "Expense", "Payroll"],
+    icon: DollarSign,
+    route: "/zoho-books"
   },
   {
     title: "HR & Recruitment",
+    tagline: "Seamless people management end-to-end",
     description: "Zoho People and Recruit manage onboarding, attendance, performance, and hiring workflows seamlessly.",
-    icon: Briefcase
+    apps: ["People", "Recruit", "Workerly"],
+    icon: Briefcase,
+    route: "/zoho-people"
   },
   {
     title: "Operations, ERP & Custom Apps",
+    tagline: "Custom ERP where off-the-shelf fails",
     description: "Zoho Creator, Projects, Sprints, and Inventory allow us to build custom ERP workflows where off-the-shelf systems fail.",
-    icon: Settings
+    apps: ["Creator", "Projects", "Sprints", "Inventory"],
+    icon: Settings,
+    route: "/custom-erp"
   },
   {
     title: "Workplace & Collaboration",
+    tagline: "Secure enterprise collaboration tools",
     description: "Zoho Mail, Cliq, WorkDrive, Writer, Sheet, and Show enable secure internal collaboration with enterprise control.",
-    icon: Mail
+    apps: ["Mail", "Cliq", "WorkDrive", "Writer", "Sheet", "Show"],
+    icon: Mail,
+    route: null
   }
 ];
 
@@ -640,22 +661,40 @@ export default function ZohoOnePremiumPartner() {
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {departmentImplementations.map((dept, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors"
-                >
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
-                    <dept.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-3">{dept.title}</h3>
-                  <p className="text-dark-text-secondary text-sm">{dept.description}</p>
-                </motion.div>
-              ))}
+              {departmentImplementations.map((dept, index) => {
+                const CardContent = (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08 }}
+                    className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 hover:border-[#3FE0F0]/30 transition-all duration-300 group"
+                  >
+                    <div className="w-12 h-12 bg-[#3FE0F0]/15 rounded-lg flex items-center justify-center mb-4">
+                      <dept.icon className="w-6 h-6 text-[#3FE0F0]" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-1">{dept.title}</h3>
+                    <p className="text-[#3FE0F0] text-xs font-medium mb-3 tracking-wide uppercase">{dept.tagline}</p>
+                    <p className="text-[#94A3B8] text-sm mb-4 leading-relaxed">{dept.description}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {dept.apps.map((app) => (
+                        <span key={app} className="text-[11px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#CBD5E1]">
+                          {app}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+
+                return dept.route ? (
+                  <Link key={index} to={dept.route} className="block">
+                    {CardContent}
+                  </Link>
+                ) : (
+                  <div key={index}>{CardContent}</div>
+                );
+              })}
             </div>
           </div>
         </section>
