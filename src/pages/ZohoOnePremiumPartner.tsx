@@ -602,7 +602,56 @@ export default function ZohoOnePremiumPartner() {
           </div>
         </section>
 
-        {/* Implementation Framework */}
+        {/* Top 10 Reasons Why Zoho One */}
+        <section className="section-padding" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFECD2 50%, #FFF8F0 100%)" }}>
+          <div className="container-custom">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto bg-[#FFF3E4] rounded-2xl p-8 md:p-12 border border-[#F5D5B0]/40"
+            >
+              <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-3">
+                10 reasons why Zoho One is the right business management solution
+              </h2>
+              <p className="text-[#4A4A4A] mb-8 leading-relaxed">
+                Zoho One brings together 50+ integrated apps to run your entire business—from sales and marketing to finance, HR, and operations—on a single platform.
+              </p>
+
+              <div className="space-y-5">
+                {[
+                  { bold: "Unify", text: "all your business apps under one login, one admin panel, and one bill—eliminating tool sprawl and reducing software costs by up to 60%." },
+                  { bold: "Automate", text: "repetitive workflows across departments with built-in workflow rules, approval chains, and cross-app triggers that save hours of manual work." },
+                  { bold: "Sell", text: "smarter with Zoho CRM's AI-powered lead scoring, pipeline management, and real-time deal tracking—connected to marketing and support." },
+                  { bold: "Manage", text: "finances end-to-end with Zoho Books, Inventory, Invoice, and Expense—fully compliant, audit-ready, and synced with your CRM." },
+                  { bold: "Support", text: "customers across chat, email, phone, and remote assistance with Zoho Desk, SalesIQ, and Assist—all feeding into one customer timeline." },
+                  { bold: "Recruit", text: "and manage employees seamlessly with Zoho People and Recruit—from hiring to onboarding, attendance, and performance reviews." },
+                  { bold: "Collaborate", text: "internally with Zoho Mail, Cliq, WorkDrive, and Meeting—secure enterprise-grade tools that keep your team aligned." },
+                  { bold: "Analyze", text: "everything with Zoho Analytics—build cross-department dashboards and reports that give leadership real-time visibility." },
+                  { bold: "Customize", text: "with Zoho Creator's low-code platform—build custom apps, portals, and workflows without expensive development cycles." },
+                  { bold: "Scale", text: "confidently knowing that Zoho One grows with your business—add users, apps, and integrations without switching platforms." },
+                ].map((reason, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -15 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="flex items-start gap-3"
+                  >
+                    <div className="w-5 h-5 rounded-full bg-[#D97706]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-2 h-2 rounded-full bg-[#D97706]" />
+                    </div>
+                    <p className="text-[#2D2D2D] text-[15px] leading-relaxed">
+                      <strong className="font-bold">{reason.bold}</strong> {reason.text}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         <section className="section-padding bg-background">
           <div className="container-custom">
             <motion.div
