@@ -1,7 +1,43 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, X, Send, CheckCircle, Building2, Users, Database, Layers } from "lucide-react";
+import { ArrowRight, X, Send, CheckCircle, Building2, Users, Database, Code, Globe, RefreshCw, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+const migrationLinks = [
+  { label: "Salesforce → Zoho", href: "/compare/zoho-crm-vs-salesforce" },
+  { label: "HubSpot → Zoho", href: "/compare/zoho-crm-vs-hubspot" },
+  { label: "SAP/Oracle → Zoho Creator", href: "/custom-erp" },
+];
+
+const complianceBadges = [
+  { label: "HIPAA Compliant", href: null },
+  { label: "SOX Ready", href: null },
+  { label: "CCPA Safe", href: null },
+];
+
+const migrationFeatures = [
+  {
+    icon: <Code className="w-6 h-6" />,
+    title: "Deluge Scripting Expertise",
+    description: "Custom business logic, workflow automation, and API integrations using Zoho's proprietary scripting language.",
+  },
+  {
+    icon: <Globe className="w-6 h-6" />,
+    title: "API Orchestration",
+    description: "Multi-system data synchronization across REST/SOAP APIs with real-time webhooks and error handling.",
+  },
+  {
+    icon: <RefreshCw className="w-6 h-6" />,
+    title: "Process Re-Engineering",
+    description: "Map, optimize, and automate business processes during migration—not just lift-and-shift.",
+  },
+  {
+    icon: <Layers className="w-6 h-6" />,
+    title: "Zero-Downtime Cutover",
+    description: "Parallel-run strategy ensures your business never stops operating during the transition.",
+  },
+];
 
 const serviceOptions = [
   "Salesforce to Zoho Migration",
@@ -49,45 +85,73 @@ export function USAMigrationCTA() {
 
   return (
     <>
-      <section className="py-12" style={{ background: "linear-gradient(180deg, #F8FAFC 0%, #EFF4FB 100%)" }}>
+      <section className="py-16" style={{ background: "linear-gradient(180deg, #F8FAFC 0%, #EFF4FB 100%)" }}>
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-2xl overflow-hidden border border-[#3FE0F0]/20"
-            style={{ background: "linear-gradient(135deg, #F0FDFF 0%, #E0F7FA 30%, #E8F4FD 60%, #EFF6FF 100%)" }}
-          >
-            <div className="flex flex-col md:flex-row items-center">
-              <div className="flex-1 p-8 md:p-12">
-                <h3 className="text-2xl md:text-3xl font-bold text-[#111827] mb-3">
-                  Looking to Migrate from Salesforce, HubSpot, or Legacy ERP?
-                </h3>
-                <p className="text-[#374151] text-base md:text-lg mb-6 leading-relaxed">
-                  Connect with our certified US-based Zoho specialists who will streamline your migration process and maximize your platform's performance. One step away from transforming your operational efficiency!
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <Button variant="heroLight" size="lg" onClick={() => setShowForm(true)}>
-                    Request Migration Assessment <ArrowRight className="w-4 h-4" />
-                  </Button>
-                  <Button variant="heroSecondary" size="lg" onClick={() => setShowForm(true)}>
-                    Talk to Sales
-                  </Button>
-                </div>
+          <div className="grid lg:grid-cols-2 gap-10 items-start">
+            {/* Left: Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4 leading-tight">
+                Implementation & Migration with Deluge Mastery
+              </h2>
+              <p className="text-[#374151] text-base md:text-lg mb-6 leading-relaxed">
+                Every migration is an opportunity to re-engineer. Our team combines deep Deluge scripting expertise with API orchestration to ensure your transition is seamless, compliant, and optimized for scale.
+              </p>
+
+              {/* Migration route links */}
+              <div className="flex flex-wrap gap-2.5 mb-4">
+                {migrationLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#3FE0F0]/30 bg-[#3FE0F0]/5 text-[#0B1C3D] text-sm font-semibold hover:bg-[#3FE0F0]/15 hover:border-[#3FE0F0]/50 transition-all"
+                  >
+                    {link.label.toUpperCase()}
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </Link>
+                ))}
               </div>
-              <div className="hidden md:flex w-64 lg:w-80 h-full items-center justify-center p-8">
-                <div className="relative">
-                  <div className="w-40 h-40 rounded-full bg-gradient-to-br from-[#3FE0F0]/20 to-[#4DA3FF]/20 flex items-center justify-center">
-                    <div className="w-28 h-28 rounded-full bg-gradient-to-br from-[#3FE0F0]/30 to-[#4DA3FF]/30 flex items-center justify-center">
-                      <ArrowRight className="w-10 h-10 text-[#0B1C3D]" />
-                    </div>
+
+              {/* Compliance badges */}
+              <div className="flex flex-wrap gap-2.5 mb-8">
+                {complianceBadges.map((badge) => (
+                  <span
+                    key={badge.label}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-[#4DA3FF]/20 bg-[#4DA3FF]/5 text-[#0B1C3D] text-sm font-semibold"
+                  >
+                    {badge.label.toUpperCase()}
+                  </span>
+                ))}
+              </div>
+
+              <Button variant="heroLight" size="lg" onClick={() => setShowForm(true)}>
+                Explore Migration Services <ArrowRight className="w-4 h-4" />
+              </Button>
+            </motion.div>
+
+            {/* Right: Feature cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {migrationFeatures.map((feature, i) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="rounded-xl p-5 bg-white border border-[#E2E8F0] hover:shadow-lg hover:shadow-[#3FE0F0]/8 transition-all duration-300"
+                >
+                  <div className="w-11 h-11 rounded-lg flex items-center justify-center bg-[#3FE0F0]/10 text-[#3FE0F0] mb-3">
+                    {feature.icon}
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-[#3FE0F0]/20 animate-pulse" />
-                  <div className="absolute -bottom-3 -left-3 w-6 h-6 rounded-full bg-[#4DA3FF]/20 animate-pulse delay-500" />
-                </div>
-              </div>
+                  <h4 className="text-base font-bold text-[#111827] mb-1.5">{feature.title}</h4>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">{feature.description}</p>
+                </motion.div>
+              ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -188,19 +252,6 @@ export function USAMigrationCTA() {
                           {budgetRanges.map(b => <option key={b} value={b}>{b}</option>)}
                         </select>
                       </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-semibold text-[#111827] mb-1.5">Expected Timeline</label>
-                      <select value={formData.timeline} onChange={e => setFormData(p => ({ ...p, timeline: e.target.value }))}
-                        className="w-full px-4 py-2.5 rounded-lg border border-[#D1D5DB] text-sm focus:outline-none focus:border-[#3FE0F0] focus:ring-1 focus:ring-[#3FE0F0]/30 bg-white">
-                        <option value="">Select timeline</option>
-                        <option value="ASAP">ASAP (Within 2 weeks)</option>
-                        <option value="1-3 months">1-3 months</option>
-                        <option value="3-6 months">3-6 months</option>
-                        <option value="6+ months">6+ months</option>
-                        <option value="Just exploring">Just exploring options</option>
-                      </select>
                     </div>
 
                     <div>
