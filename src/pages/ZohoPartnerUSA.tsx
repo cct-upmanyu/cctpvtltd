@@ -238,6 +238,9 @@ export default function ZohoPartnerUSA() {
       </section>
 
 
+      {/* ═══════ CHALLENGES US BUSINESSES FACE ═══════ */}
+      <USAChallengesSection />
+
       {/* ═══════ WHY CHOOSE US ═══════ */}
       <section className="py-20" style={{ background: warmLightBg }}>
         <div className="container-custom">
