@@ -247,41 +247,42 @@ export function ZohoOneSuitesInfographic() {
             </div>
           </>
         ) : (
-          /* Department View - Grid Layout */
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {departmentData.map((dept, index) => (
-              <motion.div
-                key={dept.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className={`p-5 rounded-xl border border-border ${dept.bgColor} hover:shadow-lg transition-all duration-300`}
-              >
-                <div className="text-3xl mb-3">{dept.icon}</div>
-                <h4 className="font-bold text-foreground mb-2">{dept.name}</h4>
-                <div className="flex flex-wrap gap-1 mb-3">
-                  {dept.suites.map((suite) => (
-                    <span 
-                      key={suite}
-                      className="text-xs px-2 py-0.5 rounded-full bg-white border font-medium text-foreground"
-                    >
-                      {suite}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {dept.apps.map((app) => (
-                    <span 
-                      key={app}
-                      className="text-xs px-2 py-0.5 rounded-full bg-white/80 text-muted-foreground"
-                    >
-                      {app}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+          /* Department View - Dark Glassmorphism Cards */
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {departmentImplementations.map((dept, index) => {
+              const CardContent = (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="bg-[#0B1C3D] border border-white/10 rounded-xl p-6 hover:bg-[#0F2A5F] hover:border-[#3FE0F0]/30 transition-all duration-300 group h-full"
+                >
+                  <div className="w-12 h-12 bg-[#3FE0F0]/15 rounded-lg flex items-center justify-center mb-4">
+                    <dept.icon className="w-6 h-6 text-[#3FE0F0]" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-1">{dept.title}</h3>
+                  <p className="text-[#3FE0F0] text-xs font-medium mb-3 tracking-wide uppercase">{dept.tagline}</p>
+                  <p className="text-[#94A3B8] text-sm mb-4 leading-relaxed">{dept.description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {dept.apps.map((app) => (
+                      <span key={app} className="text-[11px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#CBD5E1]">
+                        {app}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+
+              return dept.route ? (
+                <Link key={index} to={dept.route} className="block">
+                  {CardContent}
+                </Link>
+              ) : (
+                <div key={index}>{CardContent}</div>
+              );
+            })}
           </div>
         )}
 

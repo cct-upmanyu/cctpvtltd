@@ -747,63 +747,8 @@ export default function ZohoOnePremiumPartner() {
           </div>
         </section>
 
-        {/* Department Implementations */}
-        <section className="section-padding bg-[#0B1C3D]">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-4">
-                By Department
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Zoho One by Department – Implemented the Right Way
-              </h2>
-            </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {departmentImplementations.map((dept, index) => {
-                const CardContent = (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.08 }}
-                    className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 hover:border-[#3FE0F0]/30 transition-all duration-300 group"
-                  >
-                    <div className="w-12 h-12 bg-[#3FE0F0]/15 rounded-lg flex items-center justify-center mb-4">
-                      <dept.icon className="w-6 h-6 text-[#3FE0F0]" />
-                    </div>
-                    <h3 className="text-lg font-bold text-white mb-1">{dept.title}</h3>
-                    <p className="text-[#3FE0F0] text-xs font-medium mb-3 tracking-wide uppercase">{dept.tagline}</p>
-                    <p className="text-[#94A3B8] text-sm mb-4 leading-relaxed">{dept.description}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {dept.apps.map((app) => (
-                        <span key={app} className="text-[11px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#CBD5E1]">
-                          {app}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                );
 
-                return dept.route ? (
-                  <Link key={index} to={dept.route} className="block">
-                    {CardContent}
-                  </Link>
-                ) : (
-                  <div key={index}>{CardContent}</div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Industry Implementations */}
         <section className="section-padding bg-light-gradient">
           <div className="container-custom">
             <motion.div
