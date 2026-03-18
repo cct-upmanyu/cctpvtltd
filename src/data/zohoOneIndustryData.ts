@@ -440,6 +440,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Real-Time Analytics & Reporting", description: "Zoho Analytics delivers cross-functional dashboards for portfolio performance, compliance, and operations.", apps: ["Zoho Analytics", "Zoho Books"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Creator", "Zoho Books", "Zoho Analytics", "Zoho Sign", "Zoho WorkDrive", "Zoho Campaigns"],
+    workflow: { title: "Client Onboarding Workflow", steps: ["Prospect captured in Zoho CRM", "KYC documents collected via Creator", "Compliance verified automatically", "Agreement signed with Zoho Sign", "Portfolio setup in Creator", "Quarterly report via Analytics"] },
   },
   {
     icon: Code,
