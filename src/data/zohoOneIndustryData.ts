@@ -190,6 +190,7 @@ export const zohoOneIndustries: ZohoOneIndustry[] = [
       { title: "Team Coordination Hub", description: "Zoho Cliq and Projects coordinate housekeeping, maintenance, and front desk operations in real-time.", apps: ["Zoho Cliq", "Zoho Projects"] },
     ],
     recommendedApps: ["Zoho CRM", "Zoho Creator", "Zoho Bookings", "Zoho Analytics", "Zoho Cliq", "Zoho Projects", "Zoho People"],
+    workflow: { title: "Guest Experience Workflow", steps: ["Reservation captured in Zoho CRM", "Booking confirmed via Zoho Bookings", "Pre-arrival preferences collected", "Housekeeping assigned via Cliq", "Guest feedback captured post-stay", "Loyalty points updated in CRM"] },
   },
   {
     icon: Briefcase,
