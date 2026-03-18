@@ -152,66 +152,8 @@ const implementationFramework = [
   },
 ];
 
-const departmentImplementations = [
-  {
-    title: "Sales & CRM Automation",
-    tagline: "Close faster with structured pipelines",
-    description: "We implement Zoho CRM, Bigin, and Bookings to create structured pipelines, lead scoring, and automated follow-ups—aligned with real sales behavior.",
-    apps: ["CRM", "Bigin", "Bookings", "SalesIQ"],
-    icon: Target,
-    route: "/zoho-crm"
-  },
-  {
-    title: "Marketing & Lead Nurturing",
-    tagline: "Turn campaigns into measurable revenue",
-    description: "Zoho Campaigns, Marketing Automation, Forms, and PageSense are connected directly to CRM for measurable ROI.",
-    apps: ["Campaigns", "Marketing Automation", "Forms", "PageSense"],
-    icon: TrendingUp,
-    route: null
-  },
-  {
-    title: "Customer Support & Experience",
-    tagline: "Unified support across every channel",
-    description: "Zoho Desk, SalesIQ, Assist, and Lens create a unified support experience across chat, email, phone, and remote assistance.",
-    apps: ["Desk", "SalesIQ", "Assist", "Lens"],
-    icon: HeadphonesIcon,
-    route: null
-  },
-  {
-    title: "Finance & Accounting",
-    tagline: "Compliance-ready financial operations",
-    description: "Zoho Books, Inventory, Invoice, Expense, and Payroll are implemented with compliance, reporting, and audit readiness in mind.",
-    apps: ["Books", "Inventory", "Invoice", "Expense", "Payroll"],
-    icon: DollarSign,
-    route: "/zoho-books"
-  },
-  {
-    title: "HR & Recruitment",
-    tagline: "Seamless people management end-to-end",
-    description: "Zoho People and Recruit manage onboarding, attendance, performance, and hiring workflows seamlessly.",
-    apps: ["People", "Recruit", "Workerly"],
-    icon: Briefcase,
-    route: "/zoho-people"
-  },
-  {
-    title: "Operations, ERP & Custom Apps",
-    tagline: "Custom ERP where off-the-shelf fails",
-    description: "Zoho Creator, Projects, Sprints, and Inventory allow us to build custom ERP workflows where off-the-shelf systems fail.",
-    apps: ["Creator", "Projects", "Sprints", "Inventory"],
-    icon: Settings,
-    route: "/custom-erp"
-  },
-  {
-    title: "Workplace & Collaboration",
-    tagline: "Secure enterprise collaboration tools",
-    description: "Zoho Mail, Cliq, WorkDrive, Writer, Sheet, and Show enable secure internal collaboration with enterprise control.",
-    apps: ["Mail", "Cliq", "WorkDrive", "Writer", "Sheet", "Show"],
-    icon: Mail,
-    route: null
-  }
-];
 
-const industryImplementations = [
+
   { name: "Manufacturing & Distribution", icon: Factory, description: "Sales orders, inventory tracking, vendor management, production reporting, and finance automation under one system.", route: "/industries/manufacturing" },
   { name: "Healthcare & Clinics", icon: HeartPulse, description: "Lead management, appointment scheduling, billing, staff management, and compliance-ready workflows.", route: "/industries/healthcare" },
   { name: "Recruitment & Staffing", icon: Users, description: "Candidate pipelines, client management, contracts, payroll, and reporting—all connected.", route: "/industries/recruitment" },
