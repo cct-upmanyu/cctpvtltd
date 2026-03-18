@@ -114,38 +114,39 @@ export default function Pricing() {
         <link rel="canonical" href="https://cctpvtltd.lovable.app/pricing" />
       </Helmet>
       <Navbar />
-      <main className="min-h-screen bg-[#0A0A0F]">
+      <main className="min-h-screen bg-background">
 
         {/* ═══ SECTION 1: HERO ═══ */}
-        <section className="relative pt-32 pb-20 overflow-hidden">
-          {/* Animated grid background */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,165,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,165,0,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-[120px]" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/8 rounded-full blur-[120px]" />
+        <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#0B1C3D] via-[#0F2847] to-[#0B1C3D]">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.04)_1px,transparent_1px)] bg-[size:60px_60px]" />
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[hsl(210,90%,55%)]/10 rounded-full blur-[120px]" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[hsl(190,85%,50%)]/8 rounded-full blur-[120px]" />
+            <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-[hsl(270,70%,60%)]/6 rounded-full blur-[100px]" />
           </div>
           <div className="container-custom relative z-10 text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-              <Badge className="mb-6 bg-orange-500/10 text-orange-400 border-orange-500/20 px-4 py-1.5">
+              <Badge className="mb-6 bg-white/10 text-[hsl(190,85%,70%)] border-[hsl(190,85%,50%)]/20 px-4 py-1.5 backdrop-blur-sm">
                 <Globe className="w-3.5 h-3.5 mr-1.5" /> Transparent Pricing
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
                 Flexible Pricing for{" "}
-                <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-orange-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">
                   Zoho One & AI Solutions
                 </span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-4">
+              <p className="text-lg md:text-xl text-blue-100/70 max-w-3xl mx-auto mb-4">
                 Transparent, scalable pricing designed for businesses implementing Zoho One, automation, and AI-driven workflows.
               </p>
-              <p className="text-sm text-gray-500 mb-10">
+              <p className="text-sm text-blue-200/40 mb-10">
                 Global Zoho Premium Partner · 800+ Implementations · 40+ Countries Served
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-8 py-6 text-lg rounded-xl shadow-[0_0_30px_rgba(249,115,22,0.3)]">
+                <Button asChild className="bg-gradient-to-r from-primary to-[hsl(210,90%,55%)] hover:from-primary/90 hover:to-[hsl(210,90%,50%)] text-white px-8 py-6 text-lg rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)]">
                   <Link to="/contact">Get Custom Pricing</Link>
                 </Button>
-                <Button asChild variant="outline" className="border-gray-600 text-gray-300 hover:bg-white/5 px-8 py-6 text-lg rounded-xl">
+                <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-6 text-lg rounded-xl backdrop-blur-sm">
                   <Link to="/contact">Book Free Consultation</Link>
                 </Button>
               </div>
@@ -154,18 +155,18 @@ export default function Pricing() {
         </section>
 
         {/* ═══ SECTION 2: PRICING MODEL TOGGLE ═══ */}
-        <section className="py-4">
+        <section className="py-10 bg-[hsl(210,40%,97%)]">
           <div className="container-custom">
             <div className="flex justify-center">
-              <div className="inline-flex bg-white/5 border border-white/10 rounded-2xl p-1.5 backdrop-blur-sm">
+              <div className="inline-flex bg-white border border-border rounded-2xl p-1.5 shadow-sm">
                 {pricingModels.map((model) => (
                   <button
                     key={model}
                     onClick={() => setActiveModel(model)}
                     className={`px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                       activeModel === model
-                        ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg shadow-orange-500/20"
-                        : "text-gray-400 hover:text-white"
+                        ? "bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(190,85%,50%)] text-white shadow-lg shadow-[hsl(210,90%,55%)]/20"
+                        : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {model}
@@ -181,31 +182,31 @@ export default function Pricing() {
           initial={false}
           animate={{ height: activeModel === "Project-Based" ? "auto" : 0, opacity: activeModel === "Project-Based" ? 1 : 0 }}
           transition={{ duration: 0.4 }}
-          className="overflow-hidden"
+          className="overflow-hidden bg-[hsl(210,40%,97%)]"
         >
-          <div className="py-20">
+          <div className="pb-20">
             <div className="container-custom">
               <div className="max-w-3xl mx-auto">
-                <div className="relative bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/10 rounded-3xl p-10 md:p-14 backdrop-blur-sm hover:border-orange-500/30 transition-all duration-500 group">
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative bg-white border border-border rounded-3xl p-10 md:p-14 shadow-xl shadow-[hsl(210,90%,55%)]/5 hover:shadow-[hsl(210,90%,55%)]/10 transition-all duration-500 group">
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[hsl(210,90%,55%)]/3 to-[hsl(190,85%,50%)]/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative z-10">
-                    <h2 className="text-3xl font-bold text-white mb-2">One-Time Implementation Projects</h2>
-                    <p className="text-gray-400 mb-8">Fixed scope, timeline-based execution. Ideal for CRM setup, Zoho One implementations, and migrations.</p>
+                    <h2 className="text-3xl font-bold text-foreground mb-2">One-Time Implementation Projects</h2>
+                    <p className="text-muted-foreground mb-8">Fixed scope, timeline-based execution. Ideal for CRM setup, Zoho One implementations, and migrations.</p>
                     <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-5xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">$1,200</span>
-                      <span className="text-2xl text-gray-500">–</span>
-                      <span className="text-5xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">$8,000+</span>
+                      <span className="text-5xl font-bold bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(190,85%,50%)] bg-clip-text text-transparent">$1,200</span>
+                      <span className="text-2xl text-muted-foreground">–</span>
+                      <span className="text-5xl font-bold bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(190,85%,50%)] bg-clip-text text-transparent">$8,000+</span>
                     </div>
-                    <p className="text-sm text-gray-500 mb-10">Based on 30–200 hours @ $40/hr</p>
+                    <p className="text-sm text-muted-foreground mb-10">Based on 30–200 hours @ $40/hr</p>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
                       {projectFeatures.map((f) => (
-                        <div key={f.label} className="flex items-center gap-2.5 bg-white/5 rounded-xl px-4 py-3">
-                          <f.icon className="w-5 h-5 text-orange-400" />
-                          <span className="text-sm text-gray-300">{f.label}</span>
+                        <div key={f.label} className="flex items-center gap-2.5 bg-[hsl(210,40%,96%)] rounded-xl px-4 py-3 border border-[hsl(210,90%,55%)]/10">
+                          <f.icon className="w-5 h-5 text-[hsl(210,90%,55%)]" />
+                          <span className="text-sm text-foreground">{f.label}</span>
                         </div>
                       ))}
                     </div>
-                    <Button asChild className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-6 text-lg rounded-xl">
+                    <Button asChild className="w-full bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(190,85%,50%)] hover:from-[hsl(210,90%,50%)] hover:to-[hsl(190,85%,45%)] text-white py-6 text-lg rounded-xl">
                       <Link to="/contact">Start Your Project <ArrowRight className="ml-2 w-5 h-5" /></Link>
                     </Button>
                   </div>
@@ -220,13 +221,13 @@ export default function Pricing() {
           initial={false}
           animate={{ height: activeModel === "Monthly Retainer" ? "auto" : 0, opacity: activeModel === "Monthly Retainer" ? 1 : 0 }}
           transition={{ duration: 0.4 }}
-          className="overflow-hidden"
+          className="overflow-hidden bg-[hsl(210,40%,97%)]"
         >
-          <div className="py-20">
+          <div className="pb-20">
             <div className="container-custom">
               <div className="text-center mb-14">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Zoho One Growth Plans</h2>
-                <p className="text-gray-400 max-w-2xl mx-auto">Ongoing support and optimization with predictable monthly pricing. Scale your Zoho ecosystem with dedicated expertise.</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Zoho One Growth Plans</h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">Ongoing support and optimization with predictable monthly pricing. Scale your Zoho ecosystem with dedicated expertise.</p>
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {retainerPlans.map((plan, i) => (
@@ -238,36 +239,36 @@ export default function Pricing() {
                     transition={{ delay: i * 0.1 }}
                     className={`relative group rounded-2xl border backdrop-blur-sm p-7 transition-all duration-500 hover:-translate-y-2 ${
                       plan.highlighted
-                        ? "bg-gradient-to-br from-orange-500/10 to-amber-500/5 border-orange-500/40 shadow-[0_0_40px_rgba(249,115,22,0.15)]"
-                        : "bg-white/[0.04] border-white/10 hover:border-orange-500/30 hover:shadow-[0_0_30px_rgba(249,115,22,0.1)]"
+                        ? "bg-gradient-to-br from-[hsl(210,90%,55%)]/10 to-[hsl(270,70%,60%)]/5 border-[hsl(210,90%,55%)]/40 shadow-[0_0_40px_rgba(59,130,246,0.12)]"
+                        : "bg-white border-border hover:border-[hsl(210,90%,55%)]/30 hover:shadow-[0_0_30px_rgba(59,130,246,0.08)]"
                     }`}
                   >
                     {plan.badge && (
                       <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                        <Badge className="bg-gradient-to-r from-orange-500 to-amber-500 text-white border-0 px-4 py-1 text-xs font-bold shadow-lg shadow-orange-500/30">
+                        <Badge className="bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(270,70%,60%)] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg shadow-[hsl(210,90%,55%)]/30">
                           <Star className="w-3 h-3 mr-1" /> {plan.badge}
                         </Badge>
                       </div>
                     )}
-                    <h3 className="text-xl font-bold text-white mb-1">{plan.name}</h3>
-                    <p className="text-sm text-gray-500 mb-5">{plan.hours} hours/month</p>
+                    <h3 className="text-xl font-bold text-foreground mb-1">{plan.name}</h3>
+                    <p className="text-sm text-muted-foreground mb-5">{plan.hours} hours/month</p>
                     <div className="flex items-baseline gap-1 mb-1">
-                      <span className="text-4xl font-bold text-white">${plan.price.toLocaleString()}</span>
-                      <span className="text-gray-500">/mo</span>
+                      <span className="text-4xl font-bold text-foreground">${plan.price.toLocaleString()}</span>
+                      <span className="text-muted-foreground">/mo</span>
                     </div>
-                    <p className="text-xs text-gray-600 mb-6">Effective rate: ${plan.rate}/hr</p>
+                    <p className="text-xs text-muted-foreground mb-6">Effective rate: ${plan.rate}/hr</p>
                     <div className="space-y-3 mb-8">
                       {plan.features.map((f) => (
                         <div key={f} className="flex items-start gap-2.5">
-                          <Check className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-gray-300">{f}</span>
+                          <Check className="w-4 h-4 text-[hsl(190,85%,50%)] mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-foreground/80">{f}</span>
                         </div>
                       ))}
                     </div>
                     <Button asChild className={`w-full rounded-xl py-5 ${
                       plan.highlighted
-                        ? "bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white"
-                        : "bg-white/10 hover:bg-white/15 text-white border border-white/10"
+                        ? "bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(270,70%,60%)] hover:from-[hsl(210,90%,50%)] hover:to-[hsl(270,70%,55%)] text-white"
+                        : "bg-[hsl(210,40%,96%)] hover:bg-[hsl(210,40%,93%)] text-foreground border border-border"
                     }`}>
                       <Link to="/contact">Choose Plan</Link>
                     </Button>
@@ -283,25 +284,26 @@ export default function Pricing() {
           initial={false}
           animate={{ height: activeModel === "Dedicated Partner" ? "auto" : 0, opacity: activeModel === "Dedicated Partner" ? 1 : 0 }}
           transition={{ duration: 0.4 }}
-          className="overflow-hidden"
+          className="overflow-hidden bg-[hsl(210,40%,97%)]"
         >
-          <div className="py-20">
+          <div className="pb-20">
             <div className="container-custom">
               <div className="max-w-3xl mx-auto">
-                <div className="relative bg-gradient-to-br from-orange-500/10 via-white/[0.04] to-cyan-500/5 border border-orange-500/20 rounded-3xl p-10 md:p-14 backdrop-blur-sm group hover:border-orange-500/40 transition-all duration-500">
+                <div className="relative bg-white border border-[hsl(210,90%,55%)]/20 rounded-3xl p-10 md:p-14 shadow-xl shadow-[hsl(210,90%,55%)]/8 group hover:border-[hsl(210,90%,55%)]/40 transition-all duration-500">
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[hsl(210,90%,55%)]/5 via-transparent to-[hsl(270,70%,60%)]/5" />
                   <div className="absolute -top-4 left-8">
-                    <Badge className="bg-gradient-to-r from-orange-500 to-amber-500 text-white border-0 px-5 py-1.5 text-sm font-bold shadow-lg shadow-orange-500/30">
+                    <Badge className="bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(270,70%,60%)] text-white border-0 px-5 py-1.5 text-sm font-bold shadow-lg shadow-[hsl(210,90%,55%)]/30">
                       <Award className="w-4 h-4 mr-1.5" /> Premium Tier
                     </Badge>
                   </div>
                   <div className="relative z-10">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 mt-4">Dedicated Zoho + AI Partner</h2>
-                    <p className="text-gray-400 mb-8 max-w-xl">Your own Zoho architect, strategist, and AI automation specialist — fully embedded in your business operations.</p>
+                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3 mt-4">Dedicated Zoho + AI Partner</h2>
+                    <p className="text-muted-foreground mb-8 max-w-xl">Your own Zoho architect, strategist, and AI automation specialist — fully embedded in your business operations.</p>
                     <div className="flex items-baseline gap-2 mb-10">
-                      <span className="text-5xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">$3,000</span>
-                      <span className="text-2xl text-gray-500">–</span>
-                      <span className="text-5xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">$10,000</span>
-                      <span className="text-gray-500">/month</span>
+                      <span className="text-5xl font-bold bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">$3,000</span>
+                      <span className="text-2xl text-muted-foreground">–</span>
+                      <span className="text-5xl font-bold bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">$10,000</span>
+                      <span className="text-muted-foreground">/month</span>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4 mb-10">
                       {[
@@ -313,14 +315,14 @@ export default function Pricing() {
                         "Custom SLA & priority queue",
                       ].map((f) => (
                         <div key={f} className="flex items-center gap-3">
-                          <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center flex-shrink-0">
-                            <Check className="w-3.5 h-3.5 text-orange-400" />
+                          <div className="w-6 h-6 rounded-full bg-[hsl(210,90%,55%)]/10 flex items-center justify-center flex-shrink-0">
+                            <Check className="w-3.5 h-3.5 text-[hsl(210,90%,55%)]" />
                           </div>
-                          <span className="text-gray-300">{f}</span>
+                          <span className="text-foreground/80">{f}</span>
                         </div>
                       ))}
                     </div>
-                    <Button asChild className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-10 py-6 text-lg rounded-xl shadow-[0_0_30px_rgba(249,115,22,0.3)]">
+                    <Button asChild className="bg-gradient-to-r from-[hsl(210,90%,55%)] to-[hsl(270,70%,60%)] hover:from-[hsl(210,90%,50%)] hover:to-[hsl(270,70%,55%)] text-white px-10 py-6 text-lg rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                       <Link to="/contact">Become a Priority Client <ChevronRight className="ml-2 w-5 h-5" /></Link>
                     </Button>
                   </div>
@@ -331,18 +333,18 @@ export default function Pricing() {
         </motion.section>
 
         {/* ═══ SECTION 6: COST COMPARISON ═══ */}
-        <section className="py-20">
+        <section className="py-20 bg-background">
           <div className="container-custom">
             <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">See How You Save Over Time</h2>
-              <p className="text-gray-400">Long-term engagement = significant savings. Compare your options.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">See How You Save Over Time</h2>
+              <p className="text-muted-foreground">Long-term engagement = significant savings. Compare your options.</p>
             </div>
 
             {/* Interactive slider */}
-            <div className="max-w-xl mx-auto mb-14 bg-white/[0.04] border border-white/10 rounded-2xl p-8">
+            <div className="max-w-xl mx-auto mb-14 bg-[hsl(210,40%,97%)] border border-border rounded-2xl p-8 shadow-sm">
               <div className="flex justify-between items-center mb-4">
-                <span className="text-sm text-gray-400">Estimate your monthly hours</span>
-                <span className="text-2xl font-bold text-orange-400">{hours[0]} hrs</span>
+                <span className="text-sm text-muted-foreground">Estimate your monthly hours</span>
+                <span className="text-2xl font-bold text-[hsl(210,90%,55%)]">{hours[0]} hrs</span>
               </div>
               <Slider
                 value={hours}
@@ -350,51 +352,51 @@ export default function Pricing() {
                 min={10}
                 max={120}
                 step={5}
-                className="mb-6 [&_[data-radix-slider-track]]:bg-white/10 [&_[data-radix-slider-range]]:bg-gradient-to-r [&_[data-radix-slider-range]]:from-orange-500 [&_[data-radix-slider-range]]:to-amber-500 [&_[data-radix-slider-thumb]]:bg-orange-500 [&_[data-radix-slider-thumb]]:border-orange-400"
+                className="mb-6 [&_[data-radix-slider-track]]:bg-[hsl(210,90%,55%)]/10 [&_[data-radix-slider-range]]:bg-gradient-to-r [&_[data-radix-slider-range]]:from-[hsl(210,90%,55%)] [&_[data-radix-slider-range]]:to-[hsl(190,85%,50%)] [&_[data-radix-slider-thumb]]:bg-[hsl(210,90%,55%)] [&_[data-radix-slider-thumb]]:border-[hsl(210,90%,60%)]"
               />
               <div className="grid grid-cols-3 gap-4 text-center">
-                <div className="bg-white/5 rounded-xl p-4">
-                  <p className="text-xs text-gray-500 mb-1">Project Rate</p>
-                  <p className="text-xl font-bold text-white">${hours[0] * 40}</p>
+                <div className="bg-white rounded-xl p-4 border border-border">
+                  <p className="text-xs text-muted-foreground mb-1">Project Rate</p>
+                  <p className="text-xl font-bold text-foreground">${hours[0] * 40}</p>
                 </div>
-                <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4">
-                  <p className="text-xs text-orange-400 mb-1">{estimate.plan} Plan</p>
-                  <p className="text-xl font-bold text-orange-400">${estimate.cost.toLocaleString()}</p>
+                <div className="bg-[hsl(210,90%,55%)]/5 border border-[hsl(210,90%,55%)]/20 rounded-xl p-4">
+                  <p className="text-xs text-[hsl(210,90%,55%)] mb-1">{estimate.plan} Plan</p>
+                  <p className="text-xl font-bold text-[hsl(210,90%,55%)]">${estimate.cost.toLocaleString()}</p>
                 </div>
-                <div className="bg-white/5 rounded-xl p-4">
-                  <p className="text-xs text-green-400 mb-1">You Save</p>
-                  <p className="text-xl font-bold text-green-400">${(hours[0] * 40 - estimate.cost).toLocaleString()}</p>
+                <div className="bg-emerald-50 rounded-xl p-4 border border-emerald-200">
+                  <p className="text-xs text-emerald-600 mb-1">You Save</p>
+                  <p className="text-xl font-bold text-emerald-600">${(hours[0] * 40 - estimate.cost).toLocaleString()}</p>
                 </div>
               </div>
             </div>
 
             {/* Comparison table */}
             <div className="max-w-4xl mx-auto overflow-x-auto">
-              <div className="bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden">
+              <div className="bg-white border border-border rounded-2xl overflow-hidden shadow-sm">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-white/10">
-                      <th className="text-left p-5 text-gray-400 font-medium text-sm">Metric</th>
-                      <th className="p-5 text-gray-400 font-medium text-sm text-center">Project-Based</th>
-                      <th className="p-5 text-orange-400 font-medium text-sm text-center bg-orange-500/5">Retainer</th>
-                      <th className="p-5 text-gray-400 font-medium text-sm text-center">Premium Partner</th>
+                    <tr className="border-b border-border">
+                      <th className="text-left p-5 text-muted-foreground font-medium text-sm">Metric</th>
+                      <th className="p-5 text-muted-foreground font-medium text-sm text-center">Project-Based</th>
+                      <th className="p-5 text-[hsl(210,90%,55%)] font-medium text-sm text-center bg-[hsl(210,90%,55%)]/5">Retainer</th>
+                      <th className="p-5 text-muted-foreground font-medium text-sm text-center">Premium Partner</th>
                     </tr>
                   </thead>
                   <tbody>
                     {comparisonData.map((row, i) => (
-                      <tr key={i} className="border-b border-white/5 last:border-0">
-                        <td className="p-5 text-gray-300 text-sm font-medium">{row.metric}</td>
-                        <td className="p-5 text-gray-400 text-sm text-center">{row.project}</td>
-                        <td className="p-5 text-white text-sm text-center font-semibold bg-orange-500/5">{row.retainer}</td>
-                        <td className="p-5 text-gray-400 text-sm text-center">{row.partner}</td>
+                      <tr key={i} className="border-b border-border/50 last:border-0">
+                        <td className="p-5 text-foreground text-sm font-medium">{row.metric}</td>
+                        <td className="p-5 text-muted-foreground text-sm text-center">{row.project}</td>
+                        <td className="p-5 text-foreground text-sm text-center font-semibold bg-[hsl(210,90%,55%)]/5">{row.retainer}</td>
+                        <td className="p-5 text-muted-foreground text-sm text-center">{row.partner}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
               <p className="text-center mt-6 text-sm">
-                <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent font-semibold">
-                  Save up to 30% with long-term engagement
+                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent font-semibold">
+                  Save up to 20% with long-term engagement
                 </span>
               </p>
             </div>
@@ -402,12 +404,14 @@ export default function Pricing() {
         </section>
 
         {/* ═══ SECTION 7: ROI ═══ */}
-        <section className="py-20 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-500/[0.03] to-transparent" />
+        <section className="py-20 relative bg-[hsl(210,40%,97%)]">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[hsl(210,90%,55%)]/5 rounded-full blur-[150px]" />
+          </div>
           <div className="container-custom relative z-10">
             <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What You Gain with Zoho One + AI</h2>
-              <p className="text-gray-400">Measurable business outcomes from intelligent automation.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">What You Gain with Zoho One + AI</h2>
+              <p className="text-muted-foreground">Measurable business outcomes from intelligent automation.</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
               {roiItems.map((item, i) => (
@@ -417,15 +421,15 @@ export default function Pricing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white/[0.04] border border-white/10 rounded-2xl p-6 text-center hover:border-orange-500/30 transition-all duration-300 group"
+                  className="bg-white border border-border rounded-2xl p-6 text-center hover:border-[hsl(210,90%,55%)]/30 hover:shadow-lg hover:shadow-[hsl(210,90%,55%)]/5 transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-orange-500/10 flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
-                    <item.icon className="w-6 h-6 text-orange-400" />
+                  <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-[hsl(210,90%,55%)]/10 flex items-center justify-center group-hover:bg-[hsl(210,90%,55%)]/15 transition-colors">
+                    <item.icon className="w-6 h-6 text-[hsl(210,90%,55%)]" />
                   </div>
-                  <p className="text-2xl md:text-3xl font-bold text-white mb-1">
+                  <p className="text-2xl md:text-3xl font-bold text-foreground mb-1">
                     {item.value}{item.suffix}
                   </p>
-                  <p className="text-xs text-gray-500">{item.label}</p>
+                  <p className="text-xs text-muted-foreground">{item.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -433,11 +437,11 @@ export default function Pricing() {
         </section>
 
         {/* ═══ SECTION 8: ADD-ONS ═══ */}
-        <section className="py-20">
+        <section className="py-20 bg-background">
           <div className="container-custom">
             <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Optional Add-ons</h2>
-              <p className="text-gray-400">Extend your Zoho ecosystem with specialized solutions.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Optional Add-ons</h2>
+              <p className="text-muted-foreground">Extend your Zoho ecosystem with specialized solutions.</p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {addOns.map((addon, i) => (
@@ -447,14 +451,14 @@ export default function Pricing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="bg-white/[0.04] border border-white/10 rounded-2xl p-6 hover:border-cyan-500/30 hover:shadow-[0_0_20px_rgba(63,224,240,0.08)] transition-all duration-300"
+                  className="bg-white border border-border rounded-2xl p-6 hover:border-[hsl(190,85%,50%)]/30 hover:shadow-lg hover:shadow-[hsl(190,85%,50%)]/5 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center mb-4">
-                    <addon.icon className="w-5 h-5 text-cyan-400" />
+                  <div className="w-10 h-10 rounded-lg bg-[hsl(190,85%,50%)]/10 flex items-center justify-center mb-4">
+                    <addon.icon className="w-5 h-5 text-[hsl(190,85%,50%)]" />
                   </div>
-                  <h3 className="text-white font-semibold mb-1">{addon.title}</h3>
-                  <p className="text-orange-400 font-bold text-sm mb-2">{addon.price}</p>
-                  <p className="text-gray-500 text-xs">{addon.desc}</p>
+                  <h3 className="text-foreground font-semibold mb-1">{addon.title}</h3>
+                  <p className="text-[hsl(210,90%,55%)] font-bold text-sm mb-2">{addon.price}</p>
+                  <p className="text-muted-foreground text-xs">{addon.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -462,16 +466,16 @@ export default function Pricing() {
         </section>
 
         {/* ═══ SECTION 9: PRICING LOGIC ═══ */}
-        <section className="py-20">
+        <section className="py-20 bg-[hsl(210,40%,97%)]">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">How We Price Our Projects</h2>
-              <p className="text-gray-400 mb-12">Every project is unique. Our pricing is based on five key factors:</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How We Price Our Projects</h2>
+              <p className="text-muted-foreground mb-12">Every project is unique. Our pricing is based on five key factors:</p>
               <div className="flex flex-wrap justify-center gap-4">
                 {pricingLogic.map((item) => (
-                  <div key={item.label} className="flex items-center gap-3 bg-white/[0.04] border border-white/10 rounded-full px-6 py-3">
-                    <item.icon className="w-4 h-4 text-orange-400" />
-                    <span className="text-sm text-gray-300">{item.label}</span>
+                  <div key={item.label} className="flex items-center gap-3 bg-white border border-border rounded-full px-6 py-3 shadow-sm hover:border-[hsl(210,90%,55%)]/30 transition-colors">
+                    <item.icon className="w-4 h-4 text-[hsl(210,90%,55%)]" />
+                    <span className="text-sm text-foreground">{item.label}</span>
                   </div>
                 ))}
               </div>
@@ -480,26 +484,26 @@ export default function Pricing() {
         </section>
 
         {/* ═══ SECTION 10: FINAL CTA ═══ */}
-        <section className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-cyan-500/10" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-[150px]" />
+        <section className="py-24 relative overflow-hidden bg-gradient-to-br from-[#0B1C3D] via-[#0F2847] to-[#0B1C3D]">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[hsl(210,90%,55%)]/8 rounded-full blur-[150px]" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-[hsl(270,70%,60%)]/5 rounded-full blur-[120px]" />
           </div>
           <div className="container-custom relative z-10 text-center">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <Rocket className="w-12 h-12 text-orange-400 mx-auto mb-6" />
+              <Rocket className="w-12 h-12 text-[hsl(190,85%,50%)] mx-auto mb-6" />
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
                 Let's Build Your Zoho Ecosystem{" "}
-                <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">the Right Way</span>
+                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">the Right Way</span>
               </h2>
-              <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
+              <p className="text-blue-100/60 text-lg mb-10 max-w-2xl mx-auto">
                 Get a tailored pricing plan based on your business needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-10 py-6 text-lg rounded-xl shadow-[0_0_30px_rgba(249,115,22,0.3)]">
+                <Button asChild className="bg-gradient-to-r from-primary to-[hsl(210,90%,55%)] hover:from-primary/90 hover:to-[hsl(210,90%,50%)] text-white px-10 py-6 text-lg rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)]">
                   <Link to="/contact">Get Custom Pricing</Link>
                 </Button>
-                <Button asChild variant="outline" className="border-gray-600 text-gray-300 hover:bg-white/5 px-10 py-6 text-lg rounded-xl">
+                <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10 px-10 py-6 text-lg rounded-xl">
                   <Link to="/contact">Book Free Consultation</Link>
                 </Button>
               </div>
