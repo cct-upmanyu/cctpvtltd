@@ -240,11 +240,10 @@ const gradientBtnSecondary = "bg-transparent border-2 border-transparent text-wh
 function GradientButton({ children, className = "", ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { children: React.ReactNode }) {
   return (
     <button
-      className={`group relative inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-300 overflow-hidden hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] ${className}`}
+      className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-full bg-gradient-to-r from-[#0CC5B8] via-[#15BDD4] to-[#1AB4EC] text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(21,189,212,0.4)] hover:brightness-110 ${className}`}
       {...props}
     >
-      <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] opacity-100 group-hover:opacity-90 transition-opacity" />
-      <span className="relative z-10 flex items-center gap-2 text-white">{children}</span>
+      {children}
     </button>
   );
 }
@@ -252,12 +251,14 @@ function GradientButton({ children, className = "", ...props }: React.ButtonHTML
 function GradientOutlineButton({ children, className = "", variant = "dark", ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { children: React.ReactNode; variant?: "dark" | "light" }) {
   return (
     <button
-      className={`group relative inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-300 overflow-hidden hover:shadow-[0_0_25px_rgba(59,130,246,0.3)] ${className}`}
+      className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-full border transition-all duration-300 ${
+        variant === "dark"
+          ? "border-[#4A5568] text-white hover:border-[#8899AA] hover:bg-white/5"
+          : "border-[#D1D5DB] text-[#111827] hover:border-[hsl(188,90%,52%)] hover:bg-[hsl(188,90%,52%)]/5"
+      } ${className}`}
       {...props}
     >
-      <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] opacity-100" />
-      <span className={`absolute inset-[2px] rounded-[10px] transition-colors ${variant === "dark" ? "bg-[#0B1F3A] group-hover:bg-[#0B1F3A]/80" : "bg-white group-hover:bg-[#F4F6F8]"}`} />
-      <span className={`relative z-10 flex items-center gap-2 ${variant === "dark" ? "text-white" : "bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] bg-clip-text text-transparent"}`}>{children}</span>
+      {children}
     </button>
   );
 }
@@ -390,14 +391,14 @@ export default function Pricing() {
         <section className="py-10 bg-[#F4F6F8]">
           <div className="container mx-auto px-4">
             <div className="flex justify-center">
-              <div className="inline-flex bg-white border border-[#D1D5DB] rounded-2xl p-1.5 shadow-sm">
+              <div className="inline-flex bg-white border border-[#D1D5DB] rounded-full p-1.5 shadow-sm">
                 {pricingModels.map((model) => (
                   <button
                     key={model}
                     onClick={() => setActiveModel(model)}
-                    className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                    className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
                       activeModel === model
-                        ? "bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] text-white shadow-lg"
+                        ? "bg-gradient-to-r from-[#0CC5B8] via-[#15BDD4] to-[#1AB4EC] text-white shadow-lg"
                         : "text-[#6B7280] hover:text-[#111827]"
                     }`}
                   >
