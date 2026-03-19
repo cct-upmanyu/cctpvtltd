@@ -640,7 +640,7 @@ export default function Pricing() {
                         className="px-10 py-4 text-base"
                       >
                         Choose Your Plan <ArrowRight className="w-4 h-4" />
-                      </GradientButton>
+                      </GradientOutlineButton>
                     </div>
                   </div>
 
