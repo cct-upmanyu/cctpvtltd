@@ -240,7 +240,7 @@ const gradientBtnSecondary = "bg-transparent border-2 border-transparent text-wh
 function GradientButton({ children, className = "", ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { children: React.ReactNode }) {
   return (
     <button
-      className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-lg bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(13,184,167,0.3)] hover:brightness-105 ${className}`}
+      className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-lg bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(27,144,224,0.3)] hover:brightness-105 ${className}`}
       {...props}
     >
       {children}
@@ -253,8 +253,8 @@ function GradientOutlineButton({ children, className = "", variant = "dark", ...
     <button
       className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-lg border transition-all duration-300 ${
         variant === "dark"
-          ? "border-[#4A5568] text-white hover:border-[#718096] hover:bg-white/5"
-          : "border-[#CBD5E0] text-[#111827] hover:border-[#0DB8A7] hover:bg-[#0DB8A7]/5"
+          ? "border-[#22D3EE]/50 text-white hover:border-[#22D3EE] hover:bg-[#22D3EE]/5"
+          : "border-[#CBD5E0] text-[#111827] hover:border-[#22D3EE] hover:bg-[#1B90E0]/5"
       } ${className}`}
       {...props}
     >
@@ -361,7 +361,7 @@ export default function Pricing() {
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
                 Flexible Pricing for{" "}
-                <span className="bg-gradient-to-r from-[#6C8CFF] via-[#A855F7] to-[#22D3EE] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#1B90E0] via-[#A855F7] to-[#22D3EE] bg-clip-text text-transparent">
                   Zoho, ERP & AI Solutions
                 </span>
               </h1>
@@ -459,7 +459,7 @@ export default function Pricing() {
                       >
                         {pkg.badge && (
                           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                            <Badge className="bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
+                            <Badge className="bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
                               <Star className="w-3 h-3 mr-1" /> {pkg.badge}
                             </Badge>
                           </div>
@@ -468,7 +468,7 @@ export default function Pricing() {
                         <h3 className="text-xl font-bold text-[#111827] mb-1">{pkg.name}</h3>
                         <p className="text-sm text-[#6B7280] mb-2">{pkg.desc}</p>
                         <p className="text-xs text-[#1B90E0] font-medium mb-1">{pkg.hours}</p>
-                        <p className="text-3xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent mb-1">{pkg.price}</p>
+                        <p className="text-3xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent mb-1">{pkg.price}</p>
                         <p className="text-xs text-[#6B7280] mb-5">Timeline: {pkg.timeline}</p>
 
                         {/* Features */}
@@ -487,7 +487,7 @@ export default function Pricing() {
                           <div className="flex flex-wrap gap-2">
                             {pkg.phases.map((phase, pi) => (
                               <span key={phase} className="inline-flex items-center gap-1 text-xs bg-gradient-to-r from-[#1B90E0]/5 to-[#1B90E0]/5 text-[#1B90E0] px-3 py-1.5 rounded-full border border-[#1B90E0]/15">
-                                <span className="w-4 h-4 rounded-full bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] text-white flex items-center justify-center text-[9px] font-bold">{pi + 1}</span>
+                                <span className="w-4 h-4 rounded-full bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] text-white flex items-center justify-center text-[9px] font-bold">{pi + 1}</span>
                                 {phase}
                               </span>
                             ))}
@@ -564,7 +564,7 @@ export default function Pricing() {
                   <div className="max-w-md mx-auto mb-14">
                     <div className="bg-gradient-to-r from-[#1B90E0]/5 via-[hsl(190,85%,50%)]/5 to-[#1B90E0]/5 border border-[#1B90E0]/20 rounded-2xl p-8 text-center">
                       <p className="text-sm font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Hourly Rate Range</p>
-                      <p className="text-5xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent mb-3">$40 – $80<span className="text-lg text-[#6B7280]">/hour</span></p>
+                      <p className="text-5xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent mb-3">$40 – $80<span className="text-lg text-[#6B7280]">/hour</span></p>
                       <p className="text-sm text-[#6B7280]">Rate determined by your specific needs, complexity, and package size. The more hours you commit, the lower your rate.</p>
                     </div>
                   </div>
@@ -586,7 +586,7 @@ export default function Pricing() {
                       >
                         {tier.badge && (
                           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                            <Badge className="bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
+                            <Badge className="bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
                               <Star className="w-3 h-3 mr-1" /> {tier.badge}
                             </Badge>
                           </div>
@@ -594,7 +594,7 @@ export default function Pricing() {
 
                         {/* Hours circle */}
                         <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#1B90E0]/10 to-[#1B90E0]/10 flex items-center justify-center border border-[#1B90E0]/20">
-                          <span className="text-2xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent">{tier.hours}</span>
+                          <span className="text-2xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent">{tier.hours}</span>
                         </div>
                         <p className="text-xs text-[#6B7280] text-center mb-3">hrs/month</p>
 
@@ -666,9 +666,9 @@ export default function Pricing() {
                         <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-3">Dedicated Zoho, ERP & AI Partner</h2>
                         <p className="text-[#374151] mb-8 max-w-xl text-lg">Your own Zoho architect, strategist, and AI automation specialist — fully embedded in your business operations.</p>
                         <div className="flex items-baseline gap-2 mb-4">
-                          <span className="text-5xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent">$3,000</span>
+                          <span className="text-5xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent">$3,000</span>
                           <span className="text-2xl text-[#6B7280]">–</span>
-                          <span className="text-5xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent">$8,000</span>
+                          <span className="text-5xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent">$8,000</span>
                           <span className="text-[#6B7280]">/month</span>
                         </div>
                         <p className="text-sm text-[#6B7280] mb-8">(Based on scope & commitment)</p>
@@ -763,7 +763,7 @@ export default function Pricing() {
             <div className="max-w-xl mx-auto mb-14 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
               <div className="flex justify-between items-center mb-4">
                 <span className="text-sm text-[#B0C4DE]">Estimate your monthly hours</span>
-                <span className="text-2xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent">{hours[0]} hrs</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent">{hours[0]} hrs</span>
               </div>
               <Slider
                 value={hours}
@@ -814,7 +814,7 @@ export default function Pricing() {
                 </table>
               </div>
               <p className="text-center mt-6 text-sm">
-                <span className="bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent font-semibold">
+                <span className="bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent font-semibold">
                   Save up to 25–30% with long-term engagement
                 </span>
               </p>
@@ -861,7 +861,7 @@ export default function Pricing() {
             </div>
             <div className="max-w-4xl mx-auto relative">
               {/* Timeline line */}
-              <div className="absolute left-8 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#0DB8A7] to-[#1B90E0]" />
+              <div className="absolute left-8 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#1B90E0] to-[#22D3EE]" />
 
               {deliverySteps.map((step, i) => (
                 <motion.div
@@ -875,7 +875,7 @@ export default function Pricing() {
                   }`}
                 >
                   {/* Dot */}
-                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] border-4 border-white z-10 shadow-lg" />
+                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] border-4 border-white z-10 shadow-lg" />
 
                   {/* Content */}
                   <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${i % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8"}`}>
@@ -921,7 +921,7 @@ export default function Pricing() {
                   </div>
                   <h4 className="text-lg font-bold text-[#111827] mb-2">{proj.title}</h4>
                   <p className="text-sm text-[#6B7280] mb-4">{proj.desc}</p>
-                  <p className="text-2xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent">{proj.price}</p>
+                  <p className="text-2xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent">{proj.price}</p>
                 </motion.div>
               ))}
             </div>
@@ -950,7 +950,7 @@ export default function Pricing() {
                   </div>
                   <div className="p-6">
                     <h3 className="text-[#111827] font-semibold mb-1">{addon.title}</h3>
-                    <p className="bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent font-bold text-sm mb-2">{addon.price}</p>
+                    <p className="bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent font-bold text-sm mb-2">{addon.price}</p>
                     <p className="text-[#6B7280] text-xs">{addon.desc}</p>
                   </div>
                 </motion.div>
@@ -1036,7 +1036,7 @@ export default function Pricing() {
               <Rocket className="w-12 h-12 text-[#00D4FF] mx-auto mb-6" />
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
                 Let's Build Your Business System{" "}
-                <span className="bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent">the Right Way</span>
+                <span className="bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent">the Right Way</span>
               </h2>
               <p className="text-[#B0C4DE] text-lg mb-10 max-w-2xl mx-auto">
                 Get a tailored pricing plan based on your business needs.
