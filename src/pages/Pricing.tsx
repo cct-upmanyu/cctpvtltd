@@ -106,37 +106,37 @@ const retainerTiers = [
   {
     name: "Starter",
     hours: 5,
-    desc: "Light maintenance & quick fixes",
-    subtitle: "Best for occasional needs",
+    desc: "Ongoing maintenance, minor fixes & quick system tweaks",
+    subtitle: "Ideal for lean teams with periodic needs",
   },
   {
     name: "Growth",
     hours: 10,
-    desc: "Regular improvements & support",
-    subtitle: "Most popular starting point",
-    badge: "Most Common",
+    desc: "Regular feature builds, workflow upgrades & proactive support",
+    subtitle: "Where most scaling businesses start",
+    badge: "Most Popular",
   },
   {
     name: "Professional",
     hours: 20,
-    desc: "Continuous development & optimization",
-    subtitle: "Significant rate reduction",
+    desc: "Continuous development, multi-app optimization & deep customization",
+    subtitle: "Best value per hour — built for momentum",
   },
   {
     name: "Enterprise",
     hours: 40,
-    desc: "Near-dedicated resource",
-    subtitle: "Maximum savings",
+    desc: "Near-dedicated resource for complex, always-evolving ecosystems",
+    subtitle: "Maximum output, lowest effective rate",
   },
 ];
 
 const rateFactors = [
-  { icon: Cpu, title: "Technical Complexity", desc: "Simple admin vs. advanced custom development" },
-  { icon: Clock, title: "Hours Committed", desc: "Higher volume = lower per-hour rate" },
-  { icon: Zap, title: "Response Requirements", desc: "Standard vs. expedited turnaround" },
-  { icon: Network, title: "Integration Complexity", desc: "Number of APIs and external services" },
-  { icon: GraduationCap, title: "Training Requirements", desc: "Self-service vs. hands-on guidance" },
-  { icon: Building2, title: "Multi-Service Support", desc: "Single app vs. full Zoho ecosystem" },
+  { icon: Cpu, title: "Technical Depth", desc: "Basic configuration vs. advanced Deluge scripting & custom builds" },
+  { icon: Clock, title: "Hours Committed", desc: "Larger monthly buckets unlock significantly lower per-hour rates" },
+  { icon: Zap, title: "Turnaround Speed", desc: "Standard delivery vs. same-day priority execution" },
+  { icon: Network, title: "Integration Scope", desc: "Single app sync vs. multi-API orchestration across your stack" },
+  { icon: GraduationCap, title: "Training & Enablement", desc: "Self-serve documentation vs. live team workshops" },
+  { icon: Building2, title: "Ecosystem Breadth", desc: "Standalone app support vs. full Zoho One ecosystem management" },
 ];
 
 /* ── DEDICATED PARTNER BENEFITS ── */
