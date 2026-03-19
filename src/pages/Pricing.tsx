@@ -252,12 +252,12 @@ function GradientButton({ children, className = "", ...props }: React.ButtonHTML
 function GradientOutlineButton({ children, className = "", variant = "dark", ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { children: React.ReactNode; variant?: "dark" | "light" }) {
   return (
     <button
-      className={`group relative inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-300 overflow-hidden hover:shadow-[0_0_25px_rgba(46,168,255,0.3)] ${className}`}
+      className={`group relative inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-300 overflow-hidden hover:shadow-[0_0_25px_rgba(59,130,246,0.3)] ${className}`}
       {...props}
     >
       <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] opacity-100" />
       <span className={`absolute inset-[2px] rounded-[10px] transition-colors ${variant === "dark" ? "bg-[#0B1F3A] group-hover:bg-[#0B1F3A]/80" : "bg-white group-hover:bg-[#F4F6F8]"}`} />
-      <span className="relative z-10 flex items-center gap-2 bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] bg-clip-text text-transparent">{children}</span>
+      <span className={`relative z-10 flex items-center gap-2 ${variant === "dark" ? "text-white" : "bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] bg-clip-text text-transparent"}`}>{children}</span>
     </button>
   );
 }
