@@ -258,7 +258,7 @@ function GradientOutlineButton({ children, className = "", variant = "dark", ...
     >
       <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] opacity-100" />
       <span className={`absolute inset-[2px] rounded-[10px] transition-colors ${variant === "dark" ? "bg-[#0B1F3A] group-hover:bg-[#0B1F3A]/80" : "bg-white group-hover:bg-[#F4F6F8]"}`} />
-      <span className={`relative z-10 flex items-center gap-2 bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] bg-clip-text ${variant === "dark" ? "text-white" : "text-transparent"}`}>{children}</span>
+      <span className="relative z-10 flex items-center gap-2 bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">{children}</span>
     </button>
   );
 }
