@@ -398,7 +398,7 @@ export default function Pricing() {
                     onClick={() => setActiveModel(model)}
                     className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                       activeModel === model
-                        ? "bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] text-white shadow-lg"
+                        ? "bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] text-white shadow-lg"
                         : "text-[#6B7280] hover:text-[#111827]"
                     }`}
                   >
@@ -459,7 +459,7 @@ export default function Pricing() {
                       >
                         {pkg.badge && (
                           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                            <Badge className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
+                            <Badge className="bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
                               <Star className="w-3 h-3 mr-1" /> {pkg.badge}
                             </Badge>
                           </div>
@@ -468,7 +468,7 @@ export default function Pricing() {
                         <h3 className="text-xl font-bold text-[#111827] mb-1">{pkg.name}</h3>
                         <p className="text-sm text-[#6B7280] mb-2">{pkg.desc}</p>
                         <p className="text-xs text-[hsl(210,90%,55%)] font-medium mb-1">{pkg.hours}</p>
-                        <p className="text-3xl font-bold bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent mb-1">{pkg.price}</p>
+                        <p className="text-3xl font-bold bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] bg-clip-text text-transparent mb-1">{pkg.price}</p>
                         <p className="text-xs text-[#6B7280] mb-5">Timeline: {pkg.timeline}</p>
 
                         {/* Features */}
@@ -564,7 +564,7 @@ export default function Pricing() {
                   <div className="max-w-md mx-auto mb-14">
                     <div className="bg-gradient-to-r from-[hsl(210,90%,55%)]/5 via-[hsl(190,85%,50%)]/5 to-[hsl(270,70%,60%)]/5 border border-[hsl(210,90%,55%)]/20 rounded-2xl p-8 text-center">
                       <p className="text-sm font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Hourly Rate Range</p>
-                      <p className="text-5xl font-bold bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent mb-3">$40 – $80<span className="text-lg text-[#6B7280]">/hour</span></p>
+                      <p className="text-5xl font-bold bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] bg-clip-text text-transparent mb-3">$40 – $80<span className="text-lg text-[#6B7280]">/hour</span></p>
                       <p className="text-sm text-[#6B7280]">Rate determined by your specific needs, complexity, and package size. The more hours you commit, the lower your rate.</p>
                     </div>
                   </div>
@@ -586,7 +586,7 @@ export default function Pricing() {
                       >
                         {tier.badge && (
                           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                            <Badge className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
+                            <Badge className="bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
                               <Star className="w-3 h-3 mr-1" /> {tier.badge}
                             </Badge>
                           </div>
@@ -666,9 +666,9 @@ export default function Pricing() {
                         <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-3">Dedicated Zoho, ERP & AI Partner</h2>
                         <p className="text-[#374151] mb-8 max-w-xl text-lg">Your own Zoho architect, strategist, and AI automation specialist — fully embedded in your business operations.</p>
                         <div className="flex items-baseline gap-2 mb-4">
-                          <span className="text-5xl font-bold bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">$3,000</span>
+                          <span className="text-5xl font-bold bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] bg-clip-text text-transparent">$3,000</span>
                           <span className="text-2xl text-[#6B7280]">–</span>
-                          <span className="text-5xl font-bold bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">$8,000</span>
+                          <span className="text-5xl font-bold bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] bg-clip-text text-transparent">$8,000</span>
                           <span className="text-[#6B7280]">/month</span>
                         </div>
                         <p className="text-sm text-[#6B7280] mb-8">(Based on scope & commitment)</p>
@@ -814,7 +814,7 @@ export default function Pricing() {
                 </table>
               </div>
               <p className="text-center mt-6 text-sm">
-                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent font-semibold">
+                <span className="bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] bg-clip-text text-transparent font-semibold">
                   Save up to 25–30% with long-term engagement
                 </span>
               </p>
@@ -921,7 +921,7 @@ export default function Pricing() {
                   </div>
                   <h4 className="text-lg font-bold text-[#111827] mb-2">{proj.title}</h4>
                   <p className="text-sm text-[#6B7280] mb-4">{proj.desc}</p>
-                  <p className="text-2xl font-bold bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">{proj.price}</p>
+                  <p className="text-2xl font-bold bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] bg-clip-text text-transparent">{proj.price}</p>
                 </motion.div>
               ))}
             </div>
@@ -1036,7 +1036,7 @@ export default function Pricing() {
               <Rocket className="w-12 h-12 text-[#00D4FF] mx-auto mb-6" />
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
                 Let's Build Your Business System{" "}
-                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">the Right Way</span>
+                <span className="bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] bg-clip-text text-transparent">the Right Way</span>
               </h2>
               <p className="text-[#B0C4DE] text-lg mb-10 max-w-2xl mx-auto">
                 Get a tailored pricing plan based on your business needs.
