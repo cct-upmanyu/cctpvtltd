@@ -132,7 +132,7 @@ export function Footer() {
                 </a>
                 <div className="flex items-start gap-2.5 text-[#94A3B8] text-sm">
                   <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                  <span>Global Offices: India, UK, USA, UAE</span>
+                  <span>Global Offices: India, UK, USA, UAE, AU, NZ</span>
                 </div>
               </div>
               <div className="flex gap-3 mt-6">

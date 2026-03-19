@@ -633,10 +633,10 @@ export default function Pricing() {
                   {/* Unified CTA Section */}
                   <div className="max-w-2xl mx-auto mb-16">
                     <div className="bg-white border border-[#1B90E0]/20 rounded-2xl p-8 text-center shadow-lg shadow-[#1B90E0]/5">
-                      <h3 className="text-xl font-bold text-[#111827] mb-2">Ready to Get Started?</h3>
-                      <p className="text-sm text-[#6B7280] mb-6">Tell us which plan interests you and your requirements. We'll reach out with a tailored proposal within 24 hours.</p>
-                      <GradientButton
+                      <h3 className="text-xl font-bold text-[#111827] mb-6">Ready to Get Started?</h3>
+                      <GradientOutlineButton
                         onClick={() => setSelectedPlan("Monthly Retainer")}
+                        variant="light"
                         className="px-10 py-4 text-base"
                       >
                         Choose Your Plan <ArrowRight className="w-4 h-4" />
