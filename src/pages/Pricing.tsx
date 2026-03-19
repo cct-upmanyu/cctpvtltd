@@ -39,56 +39,56 @@ type PricingModel = typeof pricingModels[number];
 const projectPackages = [
   {
     name: "Starter",
-    hours: "10–30 hours",
+    hours: "10–30 Hours",
     price: "$500 – $1,500",
-    desc: "Quick wins & enhancements",
+    desc: "Best for quick wins, system fixes, and small-scale automation",
     features: [
-      "Single application setup",
-      "Basic workflow automation",
-      "Standard configuration",
-      "Email support",
-      "1 revision cycle",
+      "Zoho CRM or single-app setup configured to your business workflow",
+      "Basic automation to eliminate repetitive manual tasks",
+      "Standard field customization and layout optimization",
+      "Email-based support for quick iterations",
+      "One structured revision cycle for refinements",
     ],
-    phases: ["Discovery", "Implementation", "Go-Live"],
-    timeline: "1–2 weeks",
+    phases: ["Discovery & Requirement Mapping", "Implementation & Configuration", "Go-Live Deployment"],
+    timeline: "1–2 Weeks",
   },
   {
     name: "Professional",
-    hours: "30–100 hours",
+    hours: "30–100 Hours",
     price: "$1,500 – $5,000",
-    desc: "Full system implementations",
+    desc: "Ideal for growing businesses scaling CRM, ERP & automation systems",
     highlighted: true,
     badge: "MOST POPULAR",
     features: [
-      "Multi-application setup",
-      "Advanced workflow automation",
-      "Custom fields & layouts",
-      "Third-party integrations",
-      "User training sessions",
-      "2 revision cycles",
-      "30-day post-launch support",
+      "Multi-application Zoho ecosystem setup (CRM + Books + Desk, etc.)",
+      "Advanced workflow automation across departments",
+      "Custom modules, fields, and business logic implementation",
+      "Third-party integrations (payment gateways, APIs, external tools)",
+      "Hands-on user training sessions for team adoption",
+      "Two structured revision cycles for optimization",
+      "30-day post-launch support for stability and improvements",
     ],
-    phases: ["Discovery", "Architecture", "Build", "Testing", "Go-Live"],
-    timeline: "2–6 weeks",
+    phases: ["Discovery & Process Analysis", "System Architecture Design", "Core Build & Configuration", "Testing & Quality Assurance", "Go-Live & User Enablement"],
+    timeline: "2–6 Weeks",
   },
   {
     name: "Enterprise",
-    hours: "100–250+ hours",
+    hours: "100–250+ Hours",
     price: "$5,000 – $12,500+",
-    desc: "Advanced multi-dept systems",
+    desc: "Built for complex ERP systems, AI automation, and multi-department operations",
     features: [
-      "Full ERP/CRM ecosystem",
-      "AI-powered automations",
-      "Complex multi-system integrations",
-      "Custom application development",
-      "Cross-department workflows",
-      "Advanced analytics & dashboards",
-      "Dedicated project manager",
-      "3 revision cycles",
-      "60-day post-launch support",
+      "Full-scale Zoho ERP & CRM ecosystem implementation",
+      "AI-powered automation for operations, sales, and workflows",
+      "Advanced multi-system integrations across your tech stack",
+      "Custom application development using Zoho & low-code platforms",
+      "Cross-department workflow orchestration and process mapping",
+      "Advanced analytics dashboards for real-time business insights",
+      "Dedicated project manager for end-to-end execution",
+      "Three structured revision cycles for precision delivery",
+      "60-day post-launch support for continuous optimization",
     ],
-    phases: ["Discovery", "Architecture", "Phase 1 Build", "Phase 2 Build", "Testing", "Go-Live", "Optimization"],
-    timeline: "6–12 weeks",
+    phases: ["Discovery & Business Analysis", "Solution Architecture & Planning", "Phase 1 System Build", "Phase 2 Advanced Development", "Testing & Validation", "Go-Live Deployment", "Optimization & Scaling"],
+    timeline: "6–12 Weeks",
   },
 ];
 
@@ -443,7 +443,7 @@ export default function Pricing() {
                   </div>
 
                   {/* Package Cards */}
-                  <div className="grid md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
+                  <div className="grid md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto items-start">
                     {projectPackages.map((pkg, i) => (
                       <motion.div
                         key={pkg.name}
@@ -451,7 +451,7 @@ export default function Pricing() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.12 }}
-                        className={`relative rounded-2xl border p-8 transition-all duration-500 hover:-translate-y-2 flex flex-col ${
+                        className={`relative rounded-2xl border p-8 transition-all duration-500 hover:-translate-y-2 ${
                           pkg.highlighted
                             ? "bg-white border-[#1B90E0]/40 shadow-[0_0_50px_rgba(46,168,255,0.12)] ring-1 ring-[#1B90E0]/20"
                             : "bg-white border-[#D1D5DB] hover:border-[#1B90E0]/30 hover:shadow-lg"
@@ -466,24 +466,27 @@ export default function Pricing() {
                         )}
 
                         <h3 className="text-xl font-bold text-[#111827] mb-1">{pkg.name}</h3>
-                        <p className="text-sm text-[#6B7280] mb-2">{pkg.desc}</p>
+                        <p className="text-sm text-[#6B7280] mb-3">{pkg.desc}</p>
                         <p className="text-xs text-[#1B90E0] font-medium mb-1">{pkg.hours}</p>
                         <p className="text-3xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent mb-1">{pkg.price}</p>
                         <p className="text-xs text-[#6B7280] mb-5">Timeline: {pkg.timeline}</p>
 
-                        {/* Features */}
-                        <div className="space-y-2.5 mb-6 flex-1">
-                          {pkg.features.map((f) => (
-                            <div key={f} className="flex items-start gap-2.5">
-                              <Check className="w-4 h-4 text-[#1B90E0] mt-0.5 flex-shrink-0" />
-                              <span className="text-sm text-[#374151]">{f}</span>
-                            </div>
-                          ))}
+                        {/* What You Get */}
+                        <div className="mb-6">
+                          <p className="text-xs font-semibold text-[#111827] uppercase tracking-wider mb-3">What You Get</p>
+                          <div className="space-y-2.5">
+                            {pkg.features.map((f) => (
+                              <div key={f} className="flex items-start gap-2.5">
+                                <Check className="w-4 h-4 text-[#1B90E0] mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-[#374151]">{f}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
 
-                        {/* Phases */}
+                        {/* Delivery Phases */}
                         <div className="mb-6">
-                          <p className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-3">Milestone Phases</p>
+                          <p className="text-xs font-semibold text-[#111827] uppercase tracking-wider mb-3">Delivery Phases</p>
                           <div className="flex flex-wrap gap-2">
                             {pkg.phases.map((phase, pi) => (
                               <span key={phase} className="inline-flex items-center gap-1 text-xs bg-gradient-to-r from-[#1B90E0]/5 to-[#1B90E0]/5 text-[#1B90E0] px-3 py-1.5 rounded-full border border-[#1B90E0]/15">
@@ -494,13 +497,12 @@ export default function Pricing() {
                           </div>
                         </div>
 
-                        <GradientOutlineButton
-                          variant="light"
+                        <GradientButton
                           onClick={() => setSelectedPlan(`Project-Based: ${pkg.name}`)}
                           className="w-full py-4 text-sm"
                         >
-                          Get Estimate <ArrowRight className="w-4 h-4" />
-                        </GradientOutlineButton>
+                          Get Project Estimate <ArrowRight className="w-4 h-4" />
+                        </GradientButton>
                       </motion.div>
                     ))}
                   </div>
