@@ -361,7 +361,7 @@ export default function Pricing() {
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
                 Flexible Pricing for{" "}
-                <span className="bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#6C8CFF] via-[#A855F7] to-[#22D3EE] bg-clip-text text-transparent">
                   Zoho, ERP & AI Solutions
                 </span>
               </h1>
