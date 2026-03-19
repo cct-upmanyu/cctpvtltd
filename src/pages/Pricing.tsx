@@ -602,20 +602,20 @@ export default function Pricing() {
                         }`}
                       >
                         {tier.badge && (
-                          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap">
                             <Badge className="bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
                               <Star className="w-3 h-3 mr-1" /> {tier.badge}
                             </Badge>
                           </div>
                         )}
 
-                        {/* Plan name as highlighted header */}
-                        <div className={`rounded-xl px-4 py-3 mb-4 text-center ${
+                        {/* Plan name as compact pill */}
+                        <div className={`rounded-lg px-4 py-1.5 mb-4 text-center ${
                           tier.badge 
                             ? "bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] text-white" 
                             : "bg-[#F0F7FF] text-[#1B90E0]"
                         }`}>
-                          <h3 className="text-lg font-bold">{tier.name}</h3>
+                          <h3 className="text-sm font-bold">{tier.name}</h3>
                         </div>
 
                         {/* Hours displayed as bold text */}
@@ -633,14 +633,14 @@ export default function Pricing() {
                   {/* Unified CTA Section */}
                   <div className="max-w-2xl mx-auto mb-16">
                     <div className="bg-white border border-[#1B90E0]/20 rounded-2xl p-8 text-center shadow-lg shadow-[#1B90E0]/5">
-                      <h3 className="text-xl font-bold text-[#111827] mb-2">Ready to Get Started?</h3>
-                      <p className="text-sm text-[#6B7280] mb-6">Tell us which plan interests you and your requirements. We'll reach out with a tailored proposal within 24 hours.</p>
-                      <GradientButton
+                      <h3 className="text-xl font-bold text-[#111827] mb-6">Ready to Get Started?</h3>
+                      <GradientOutlineButton
                         onClick={() => setSelectedPlan("Monthly Retainer")}
+                        variant="light"
                         className="px-10 py-4 text-base"
                       >
                         Choose Your Plan <ArrowRight className="w-4 h-4" />
-                      </GradientButton>
+                      </GradientOutlineButton>
                     </div>
                   </div>
 
