@@ -264,6 +264,7 @@ function GradientOutlineButton({ children, className = "", variant = "dark", ...
 }
 
 function PlanFormModal({ plan, onClose }: { plan: string; onClose: () => void }) {
+  const isRetainer = plan === "Monthly Retainer";
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -276,19 +277,32 @@ function PlanFormModal({ plan, onClose }: { plan: string; onClose: () => void })
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 relative"
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 relative max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button onClick={onClose} className="absolute top-4 right-4 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">
           <X className="w-5 h-5" />
         </button>
-        <h3 className="text-2xl font-bold text-[hsl(var(--foreground))] mb-1">Get Started</h3>
-        <p className="text-[hsl(var(--muted-foreground))] text-sm mb-6">Tell us about your requirements and we'll get back within 24 hours.</p>
+        <h3 className="text-2xl font-bold text-[hsl(var(--foreground))] mb-1">Let's Build Your Proposal</h3>
+        <p className="text-[hsl(var(--muted-foreground))] text-sm mb-6">Share your details and requirements — we'll reach out within 24 hours with a tailored proposal.</p>
         <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); onClose(); }}>
-          <div>
-            <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Selected Plan</label>
-            <Input value={plan} readOnly className="bg-[#F4F6F8] border-[#D1D5DB]" />
-          </div>
+          {isRetainer ? (
+            <div>
+              <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Which Plan Interests You? *</label>
+              <select required className="flex h-10 w-full rounded-md border border-[#D1D5DB] bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B90E0]">
+                <option value="">Select a plan...</option>
+                <option value="Starter – 5 hrs/mo">Starter – 5 hrs/month</option>
+                <option value="Growth – 10 hrs/mo">Growth – 10 hrs/month</option>
+                <option value="Professional – 20 hrs/mo">Professional – 20 hrs/month</option>
+                <option value="Enterprise – 40 hrs/mo">Enterprise – 40 hrs/month</option>
+              </select>
+            </div>
+          ) : (
+            <div>
+              <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Selected Plan</label>
+              <Input value={plan} readOnly className="bg-[#F4F6F8] border-[#D1D5DB]" />
+            </div>
+          )}
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Full Name *</label>
@@ -301,21 +315,22 @@ function PlanFormModal({ plan, onClose }: { plan: string; onClose: () => void })
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
+              <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Phone *</label>
+              <Input placeholder="+1 234 567 890" required className="border-[#D1D5DB]" />
+            </div>
+            <div>
               <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Company</label>
               <Input placeholder="Your Company" className="border-[#D1D5DB]" />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Phone</label>
-              <Input placeholder="+1 234 567 890" className="border-[#D1D5DB]" />
-            </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Project Requirements</label>
-            <Textarea placeholder="Briefly describe your project, goals, and any specific requirements..." className="border-[#D1D5DB] min-h-[100px]" />
+            <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Requirements & Comments</label>
+            <Textarea placeholder="Tell us about your project goals, current systems, and any specific requirements..." className="border-[#D1D5DB] min-h-[100px]" />
           </div>
-          <GradientOutlineButton type="submit" variant="light" className="w-full py-5 text-base">
+          <GradientButton type="submit" className="w-full py-4 text-base">
             Submit Request <Send className="w-4 h-4" />
-          </GradientOutlineButton>
+          </GradientButton>
+          <p className="text-xs text-[#6B7280] text-center">We'll review your requirements and reach out with a customized proposal.</p>
         </form>
       </motion.div>
     </motion.div>
