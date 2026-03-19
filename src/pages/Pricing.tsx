@@ -602,20 +602,20 @@ export default function Pricing() {
                         }`}
                       >
                         {tier.badge && (
-                          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap">
                             <Badge className="bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
                               <Star className="w-3 h-3 mr-1" /> {tier.badge}
                             </Badge>
                           </div>
                         )}
 
-                        {/* Plan name as highlighted header */}
-                        <div className={`rounded-xl px-4 py-3 mb-4 text-center ${
+                        {/* Plan name as compact pill */}
+                        <div className={`rounded-lg px-4 py-1.5 mb-4 text-center ${
                           tier.badge 
                             ? "bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] text-white" 
                             : "bg-[#F0F7FF] text-[#1B90E0]"
                         }`}>
-                          <h3 className="text-lg font-bold">{tier.name}</h3>
+                          <h3 className="text-sm font-bold">{tier.name}</h3>
                         </div>
 
                         {/* Hours displayed as bold text */}
