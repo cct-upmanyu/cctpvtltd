@@ -398,7 +398,7 @@ export default function Pricing() {
                     onClick={() => setActiveModel(model)}
                     className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
                       activeModel === model
-                        ? "bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] text-white shadow-md"
+                        ? "bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] text-white shadow-md"
                         : "text-[#6B7280] hover:text-[#111827]"
                     }`}
                   >
