@@ -240,7 +240,7 @@ const gradientBtnSecondary = "bg-transparent border-2 border-transparent text-wh
 function GradientButton({ children, className = "", ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { children: React.ReactNode }) {
   return (
     <button
-      className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-full bg-gradient-to-r from-[#0CC5B8] via-[#15BDD4] to-[#1AB4EC] text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(21,189,212,0.4)] hover:brightness-110 ${className}`}
+      className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-lg bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(32,164,243,0.25)] hover:brightness-105 ${className}`}
       {...props}
     >
       {children}
@@ -251,10 +251,10 @@ function GradientButton({ children, className = "", ...props }: React.ButtonHTML
 function GradientOutlineButton({ children, className = "", variant = "dark", ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { children: React.ReactNode; variant?: "dark" | "light" }) {
   return (
     <button
-      className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-full border transition-all duration-300 ${
+      className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-lg border transition-all duration-300 ${
         variant === "dark"
-          ? "border-[#4A5568] text-white hover:border-[#8899AA] hover:bg-white/5"
-          : "border-[#D1D5DB] text-[#111827] hover:border-[hsl(188,90%,52%)] hover:bg-[hsl(188,90%,52%)]/5"
+          ? "border-[#4A5568] text-white hover:border-[#718096] hover:bg-white/5"
+          : "border-[#CBD5E0] text-[#111827] hover:border-[#2EC4B6] hover:bg-[#2EC4B6]/5"
       } ${className}`}
       {...props}
     >
