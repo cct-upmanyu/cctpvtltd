@@ -243,7 +243,7 @@ function GradientButton({ children, className = "", ...props }: React.ButtonHTML
       className={`group relative inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-300 overflow-hidden ${className}`}
       {...props}
     >
-      <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] opacity-100" />
+      <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] opacity-100" />
       <span className="absolute inset-[2px] rounded-[10px] bg-[#0B1F3A] group-hover:bg-[#0B1F3A]/80 transition-colors" />
       <span className="relative z-10 flex items-center gap-2">{children}</span>
     </button>
@@ -256,9 +256,9 @@ function GradientOutlineButton({ children, className = "", variant = "dark", ...
       className={`group relative inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-300 overflow-hidden hover:shadow-[0_0_25px_rgba(46,168,255,0.3)] ${className}`}
       {...props}
     >
-      <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] opacity-100" />
+      <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] opacity-100" />
       <span className={`absolute inset-[2px] rounded-[10px] transition-colors ${variant === "dark" ? "bg-[#0B1F3A] group-hover:bg-[#0B1F3A]/80" : "bg-white group-hover:bg-[#F4F6F8]"}`} />
-      <span className="relative z-10 flex items-center gap-2 bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">{children}</span>
+      <span className="relative z-10 flex items-center gap-2 bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] bg-clip-text text-transparent">{children}</span>
     </button>
   );
 }
@@ -361,7 +361,7 @@ export default function Pricing() {
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
                 Flexible Pricing for{" "}
-                <span className="bg-gradient-to-r from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] bg-clip-text text-transparent">
                   Zoho, ERP & AI Solutions
                 </span>
               </h1>
@@ -861,7 +861,7 @@ export default function Pricing() {
             </div>
             <div className="max-w-4xl mx-auto relative">
               {/* Timeline line */}
-              <div className="absolute left-8 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-[hsl(210,90%,55%)] via-[hsl(190,85%,50%)] via-[hsl(330,80%,65%)] to-[hsl(270,70%,60%)]" />
+              <div className="absolute left-8 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)]" />
 
               {deliverySteps.map((step, i) => (
                 <motion.div
