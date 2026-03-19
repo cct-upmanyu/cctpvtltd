@@ -240,7 +240,7 @@ const gradientBtnSecondary = "bg-transparent border-2 border-transparent text-wh
 function GradientButton({ children, className = "", ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { children: React.ReactNode }) {
   return (
     <button
-      className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-lg bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(32,164,243,0.25)] hover:brightness-105 ${className}`}
+      className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-lg bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(13,184,167,0.3)] hover:brightness-105 ${className}`}
       {...props}
     >
       {children}
@@ -254,7 +254,7 @@ function GradientOutlineButton({ children, className = "", variant = "dark", ...
       className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-lg border transition-all duration-300 ${
         variant === "dark"
           ? "border-[#4A5568] text-white hover:border-[#718096] hover:bg-white/5"
-          : "border-[#CBD5E0] text-[#111827] hover:border-[#2EC4B6] hover:bg-[#2EC4B6]/5"
+          : "border-[#CBD5E0] text-[#111827] hover:border-[#0DB8A7] hover:bg-[#0DB8A7]/5"
       } ${className}`}
       {...props}
     >
@@ -361,7 +361,7 @@ export default function Pricing() {
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
                 Flexible Pricing for{" "}
-                <span className="bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#6C8CFF] via-[#A855F7] to-[#22D3EE] bg-clip-text text-transparent">
                   Zoho, ERP & AI Solutions
                 </span>
               </h1>
@@ -398,7 +398,7 @@ export default function Pricing() {
                     onClick={() => setActiveModel(model)}
                     className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
                       activeModel === model
-                        ? "bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] text-white shadow-md"
+                        ? "bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] text-white shadow-md"
                         : "text-[#6B7280] hover:text-[#111827]"
                     }`}
                   >
@@ -431,10 +431,10 @@ export default function Pricing() {
 
                   {/* Hours-based highlight */}
                   <div className="max-w-2xl mx-auto mb-14">
-                    <div className="bg-gradient-to-r from-[#20A4F3]/5 via-[hsl(190,85%,50%)]/5 to-[#20A4F3]/5 border border-[#20A4F3]/20 rounded-2xl p-6 text-center">
+                    <div className="bg-gradient-to-r from-[#1B90E0]/5 via-[hsl(190,85%,50%)]/5 to-[#1B90E0]/5 border border-[#1B90E0]/20 rounded-2xl p-6 text-center">
                       <div className="flex items-center justify-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#20A4F3]/10 to-[#20A4F3]/10 flex items-center justify-center">
-                          <Clock className="w-5 h-5 text-[#20A4F3]" />
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#1B90E0]/10 to-[#1B90E0]/10 flex items-center justify-center">
+                          <Clock className="w-5 h-5 text-[#1B90E0]" />
                         </div>
                         <h3 className="text-lg font-bold text-[#111827]">How We Price Projects</h3>
                       </div>
@@ -453,13 +453,13 @@ export default function Pricing() {
                         transition={{ delay: i * 0.12 }}
                         className={`relative rounded-2xl border p-8 transition-all duration-500 hover:-translate-y-2 flex flex-col ${
                           pkg.highlighted
-                            ? "bg-white border-[#20A4F3]/40 shadow-[0_0_50px_rgba(46,168,255,0.12)] ring-1 ring-[#20A4F3]/20"
-                            : "bg-white border-[#D1D5DB] hover:border-[#20A4F3]/30 hover:shadow-lg"
+                            ? "bg-white border-[#1B90E0]/40 shadow-[0_0_50px_rgba(46,168,255,0.12)] ring-1 ring-[#1B90E0]/20"
+                            : "bg-white border-[#D1D5DB] hover:border-[#1B90E0]/30 hover:shadow-lg"
                         }`}
                       >
                         {pkg.badge && (
                           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                            <Badge className="bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
+                            <Badge className="bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
                               <Star className="w-3 h-3 mr-1" /> {pkg.badge}
                             </Badge>
                           </div>
@@ -467,15 +467,15 @@ export default function Pricing() {
 
                         <h3 className="text-xl font-bold text-[#111827] mb-1">{pkg.name}</h3>
                         <p className="text-sm text-[#6B7280] mb-2">{pkg.desc}</p>
-                        <p className="text-xs text-[#20A4F3] font-medium mb-1">{pkg.hours}</p>
-                        <p className="text-3xl font-bold bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] bg-clip-text text-transparent mb-1">{pkg.price}</p>
+                        <p className="text-xs text-[#1B90E0] font-medium mb-1">{pkg.hours}</p>
+                        <p className="text-3xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent mb-1">{pkg.price}</p>
                         <p className="text-xs text-[#6B7280] mb-5">Timeline: {pkg.timeline}</p>
 
                         {/* Features */}
                         <div className="space-y-2.5 mb-6 flex-1">
                           {pkg.features.map((f) => (
                             <div key={f} className="flex items-start gap-2.5">
-                              <Check className="w-4 h-4 text-[#20A4F3] mt-0.5 flex-shrink-0" />
+                              <Check className="w-4 h-4 text-[#1B90E0] mt-0.5 flex-shrink-0" />
                               <span className="text-sm text-[#374151]">{f}</span>
                             </div>
                           ))}
@@ -486,8 +486,8 @@ export default function Pricing() {
                           <p className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-3">Milestone Phases</p>
                           <div className="flex flex-wrap gap-2">
                             {pkg.phases.map((phase, pi) => (
-                              <span key={phase} className="inline-flex items-center gap-1 text-xs bg-gradient-to-r from-[#20A4F3]/5 to-[#20A4F3]/5 text-[#20A4F3] px-3 py-1.5 rounded-full border border-[#20A4F3]/15">
-                                <span className="w-4 h-4 rounded-full bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] text-white flex items-center justify-center text-[9px] font-bold">{pi + 1}</span>
+                              <span key={phase} className="inline-flex items-center gap-1 text-xs bg-gradient-to-r from-[#1B90E0]/5 to-[#1B90E0]/5 text-[#1B90E0] px-3 py-1.5 rounded-full border border-[#1B90E0]/15">
+                                <span className="w-4 h-4 rounded-full bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] text-white flex items-center justify-center text-[9px] font-bold">{pi + 1}</span>
                                 {phase}
                               </span>
                             ))}
@@ -516,10 +516,10 @@ export default function Pricing() {
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: i * 0.06 }}
-                          className="bg-white border border-[#D1D5DB] rounded-2xl p-5 text-center hover:border-[#20A4F3]/40 hover:shadow-lg transition-all duration-300 group"
+                          className="bg-white border border-[#D1D5DB] rounded-2xl p-5 text-center hover:border-[#1B90E0]/40 hover:shadow-lg transition-all duration-300 group"
                         >
-                          <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-r from-[#20A4F3]/8 to-[#20A4F3]/8 flex items-center justify-center group-hover:from-[#20A4F3]/15 group-hover:to-[#20A4F3]/15 transition-colors">
-                            <item.icon className="w-6 h-6 text-[#20A4F3]" />
+                          <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-r from-[#1B90E0]/8 to-[#1B90E0]/8 flex items-center justify-center group-hover:from-[#1B90E0]/15 group-hover:to-[#1B90E0]/15 transition-colors">
+                            <item.icon className="w-6 h-6 text-[#1B90E0]" />
                           </div>
                           <span className="text-xs font-semibold text-[#374151]">{item.label}</span>
                         </motion.div>
@@ -562,9 +562,9 @@ export default function Pricing() {
 
                   {/* Hourly Rate Range */}
                   <div className="max-w-md mx-auto mb-14">
-                    <div className="bg-gradient-to-r from-[#20A4F3]/5 via-[hsl(190,85%,50%)]/5 to-[#20A4F3]/5 border border-[#20A4F3]/20 rounded-2xl p-8 text-center">
+                    <div className="bg-gradient-to-r from-[#1B90E0]/5 via-[hsl(190,85%,50%)]/5 to-[#1B90E0]/5 border border-[#1B90E0]/20 rounded-2xl p-8 text-center">
                       <p className="text-sm font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Hourly Rate Range</p>
-                      <p className="text-5xl font-bold bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] bg-clip-text text-transparent mb-3">$40 – $80<span className="text-lg text-[#6B7280]">/hour</span></p>
+                      <p className="text-5xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent mb-3">$40 – $80<span className="text-lg text-[#6B7280]">/hour</span></p>
                       <p className="text-sm text-[#6B7280]">Rate determined by your specific needs, complexity, and package size. The more hours you commit, the lower your rate.</p>
                     </div>
                   </div>
@@ -580,21 +580,21 @@ export default function Pricing() {
                         transition={{ delay: i * 0.1 }}
                         className={`relative rounded-2xl border p-7 transition-all duration-500 hover:-translate-y-2 ${
                           tier.badge
-                            ? "bg-white border-[#20A4F3]/40 shadow-[0_0_50px_rgba(46,168,255,0.12)] ring-1 ring-[#20A4F3]/20"
-                            : "bg-white border-[#D1D5DB] hover:border-[#20A4F3]/30 hover:shadow-lg"
+                            ? "bg-white border-[#1B90E0]/40 shadow-[0_0_50px_rgba(46,168,255,0.12)] ring-1 ring-[#1B90E0]/20"
+                            : "bg-white border-[#D1D5DB] hover:border-[#1B90E0]/30 hover:shadow-lg"
                         }`}
                       >
                         {tier.badge && (
                           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                            <Badge className="bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
+                            <Badge className="bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] text-white border-0 px-4 py-1 text-xs font-bold shadow-lg">
                               <Star className="w-3 h-3 mr-1" /> {tier.badge}
                             </Badge>
                           </div>
                         )}
 
                         {/* Hours circle */}
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#20A4F3]/10 to-[#20A4F3]/10 flex items-center justify-center border border-[#20A4F3]/20">
-                          <span className="text-2xl font-bold bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] bg-clip-text text-transparent">{tier.hours}</span>
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#1B90E0]/10 to-[#1B90E0]/10 flex items-center justify-center border border-[#1B90E0]/20">
+                          <span className="text-2xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent">{tier.hours}</span>
                         </div>
                         <p className="text-xs text-[#6B7280] text-center mb-3">hrs/month</p>
 
@@ -624,10 +624,10 @@ export default function Pricing() {
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: i * 0.08 }}
-                          className="bg-white border border-[#D1D5DB] rounded-2xl p-6 hover:border-[#20A4F3]/30 hover:shadow-lg transition-all duration-300 group"
+                          className="bg-white border border-[#D1D5DB] rounded-2xl p-6 hover:border-[#1B90E0]/30 hover:shadow-lg transition-all duration-300 group"
                         >
-                          <div className="w-11 h-11 rounded-xl bg-gradient-to-r from-[#20A4F3]/8 to-[#20A4F3]/8 flex items-center justify-center mb-3 group-hover:from-[#20A4F3]/15 group-hover:to-[#20A4F3]/15 transition-colors">
-                            <factor.icon className="w-5 h-5 text-[#20A4F3]" />
+                          <div className="w-11 h-11 rounded-xl bg-gradient-to-r from-[#1B90E0]/8 to-[#1B90E0]/8 flex items-center justify-center mb-3 group-hover:from-[#1B90E0]/15 group-hover:to-[#1B90E0]/15 transition-colors">
+                            <factor.icon className="w-5 h-5 text-[#1B90E0]" />
                           </div>
                           <h4 className="font-semibold text-[#111827] mb-1 text-sm">{factor.title}</h4>
                           <p className="text-xs text-[#6B7280]">{factor.desc}</p>
@@ -656,7 +656,7 @@ export default function Pricing() {
                 <div className="container mx-auto px-4">
                   {/* Main Card */}
                   <div className="max-w-3xl mx-auto mb-16">
-                    <div className="relative bg-white border border-[#20A4F3]/20 rounded-3xl p-10 md:p-14 shadow-xl shadow-[#20A4F3]/8 group hover:border-[#20A4F3]/40 transition-all duration-500">
+                    <div className="relative bg-white border border-[#1B90E0]/20 rounded-3xl p-10 md:p-14 shadow-xl shadow-[#1B90E0]/8 group hover:border-[#1B90E0]/40 transition-all duration-500">
                       <div className="absolute -top-4 left-8">
                         <Badge className="bg-gradient-to-r from-[#0B1F3A] to-[#0E2A4D] text-white border-0 px-5 py-1.5 text-sm font-bold shadow-lg">
                           <Award className="w-4 h-4 mr-1.5" /> Premium Tier
@@ -666,9 +666,9 @@ export default function Pricing() {
                         <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-3">Dedicated Zoho, ERP & AI Partner</h2>
                         <p className="text-[#374151] mb-8 max-w-xl text-lg">Your own Zoho architect, strategist, and AI automation specialist — fully embedded in your business operations.</p>
                         <div className="flex items-baseline gap-2 mb-4">
-                          <span className="text-5xl font-bold bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] bg-clip-text text-transparent">$3,000</span>
+                          <span className="text-5xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent">$3,000</span>
                           <span className="text-2xl text-[#6B7280]">–</span>
-                          <span className="text-5xl font-bold bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] bg-clip-text text-transparent">$8,000</span>
+                          <span className="text-5xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent">$8,000</span>
                           <span className="text-[#6B7280]">/month</span>
                         </div>
                         <p className="text-sm text-[#6B7280] mb-8">(Based on scope & commitment)</p>
@@ -682,8 +682,8 @@ export default function Pricing() {
                             "Business process consulting",
                           ].map((f) => (
                             <div key={f} className="flex items-center gap-3">
-                              <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#20A4F3]/10 to-[#20A4F3]/10 flex items-center justify-center flex-shrink-0">
-                                <Check className="w-3.5 h-3.5 text-[#20A4F3]" />
+                              <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#1B90E0]/10 to-[#1B90E0]/10 flex items-center justify-center flex-shrink-0">
+                                <Check className="w-3.5 h-3.5 text-[#1B90E0]" />
                               </div>
                               <span className="text-[#374151]">{f}</span>
                             </div>
@@ -707,10 +707,10 @@ export default function Pricing() {
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: i * 0.1 }}
-                          className="bg-white border border-[#D1D5DB] rounded-2xl p-7 hover:border-[#20A4F3]/30 hover:shadow-xl transition-all duration-300 group"
+                          className="bg-white border border-[#D1D5DB] rounded-2xl p-7 hover:border-[#1B90E0]/30 hover:shadow-xl transition-all duration-300 group"
                         >
-                          <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#20A4F3]/10 to-[#20A4F3]/10 flex items-center justify-center mb-4 group-hover:from-[#20A4F3]/20 group-hover:to-[#20A4F3]/20 transition-colors">
-                            <benefit.icon className="w-6 h-6 text-[#20A4F3]" />
+                          <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#1B90E0]/10 to-[#1B90E0]/10 flex items-center justify-center mb-4 group-hover:from-[#1B90E0]/20 group-hover:to-[#1B90E0]/20 transition-colors">
+                            <benefit.icon className="w-6 h-6 text-[#1B90E0]" />
                           </div>
                           <h4 className="font-bold text-[#111827] mb-2">{benefit.title}</h4>
                           <p className="text-sm text-[#6B7280] leading-relaxed">{benefit.desc}</p>
@@ -733,8 +733,8 @@ export default function Pricing() {
                             transition={{ delay: i * 0.08 }}
                             className="flex items-start gap-3"
                           >
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[#20A4F3]/10 to-[#20A4F3]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                              <Check className="w-4 h-4 text-[#20A4F3]" />
+                            <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[#1B90E0]/10 to-[#1B90E0]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <Check className="w-4 h-4 text-[#1B90E0]" />
                             </div>
                             <div>
                               <p className="font-semibold text-[#111827] text-sm">{factor.label}</p>
@@ -763,7 +763,7 @@ export default function Pricing() {
             <div className="max-w-xl mx-auto mb-14 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
               <div className="flex justify-between items-center mb-4">
                 <span className="text-sm text-[#B0C4DE]">Estimate your monthly hours</span>
-                <span className="text-2xl font-bold bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] bg-clip-text text-transparent">{hours[0]} hrs</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent">{hours[0]} hrs</span>
               </div>
               <Slider
                 value={hours}
@@ -771,16 +771,16 @@ export default function Pricing() {
                 min={10}
                 max={120}
                 step={5}
-                className="mb-6 [&_[data-radix-slider-track]]:bg-white/10 [&_[data-radix-slider-range]]:bg-gradient-to-r [&_[data-radix-slider-range]]:from-[hsl(210,90%,55%)] [&_[data-radix-slider-range]]:to-[hsl(270,70%,60%)] [&_[data-radix-slider-thumb]]:bg-[#20A4F3] [&_[data-radix-slider-thumb]]:border-[hsl(270,70%,60%)]"
+                className="mb-6 [&_[data-radix-slider-track]]:bg-white/10 [&_[data-radix-slider-range]]:bg-gradient-to-r [&_[data-radix-slider-range]]:from-[hsl(210,90%,55%)] [&_[data-radix-slider-range]]:to-[hsl(270,70%,60%)] [&_[data-radix-slider-thumb]]:bg-[#1B90E0] [&_[data-radix-slider-thumb]]:border-[hsl(270,70%,60%)]"
               />
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
                   <p className="text-xs text-[#7A9CC6] mb-1">Project Rate</p>
                   <p className="text-xl font-bold text-white">${hours[0] * 50}</p>
                 </div>
-                <div className="bg-[#20A4F3]/10 border border-[#20A4F3]/30 rounded-xl p-4">
-                  <p className="text-xs text-[#20A4F3] mb-1">{estimate.plan} Plan</p>
-                  <p className="text-xl font-bold text-[#20A4F3]">${estimate.cost.toLocaleString()}</p>
+                <div className="bg-[#1B90E0]/10 border border-[#1B90E0]/30 rounded-xl p-4">
+                  <p className="text-xs text-[#1B90E0] mb-1">{estimate.plan} Plan</p>
+                  <p className="text-xl font-bold text-[#1B90E0]">${estimate.cost.toLocaleString()}</p>
                 </div>
                 <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-4">
                   <p className="text-xs text-emerald-400 mb-1">You Save</p>
@@ -797,7 +797,7 @@ export default function Pricing() {
                     <tr className="border-b border-white/10">
                       <th className="text-left p-5 text-[#7A9CC6] font-medium text-sm">Metric</th>
                       <th className="p-5 text-[#7A9CC6] font-medium text-sm text-center">Project-Based</th>
-                      <th className="p-5 text-[#20A4F3] font-medium text-sm text-center bg-[#20A4F3]/5">Retainer</th>
+                      <th className="p-5 text-[#1B90E0] font-medium text-sm text-center bg-[#1B90E0]/5">Retainer</th>
                       <th className="p-5 text-[#7A9CC6] font-medium text-sm text-center">Dedicated Partner</th>
                     </tr>
                   </thead>
@@ -806,7 +806,7 @@ export default function Pricing() {
                       <tr key={i} className="border-b border-white/5 last:border-0">
                         <td className="p-5 text-white text-sm font-medium">{row.metric}</td>
                         <td className="p-5 text-[#B0C4DE] text-sm text-center">{row.project}</td>
-                        <td className="p-5 text-white text-sm text-center font-semibold bg-[#20A4F3]/5">{row.retainer}</td>
+                        <td className="p-5 text-white text-sm text-center font-semibold bg-[#1B90E0]/5">{row.retainer}</td>
                         <td className="p-5 text-[#B0C4DE] text-sm text-center">{row.partner}</td>
                       </tr>
                     ))}
@@ -814,7 +814,7 @@ export default function Pricing() {
                 </table>
               </div>
               <p className="text-center mt-6 text-sm">
-                <span className="bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] bg-clip-text text-transparent font-semibold">
+                <span className="bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent font-semibold">
                   Save up to 25–30% with long-term engagement
                 </span>
               </p>
@@ -837,10 +837,10 @@ export default function Pricing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="bg-white border border-[#D1D5DB] rounded-2xl p-6 text-center hover:border-[#20A4F3]/30 hover:shadow-lg transition-all duration-300 group"
+                  className="bg-white border border-[#D1D5DB] rounded-2xl p-6 text-center hover:border-[#1B90E0]/30 hover:shadow-lg transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-r from-[#20A4F3]/8 to-[#20A4F3]/8 flex items-center justify-center group-hover:from-[#20A4F3]/15 group-hover:to-[#20A4F3]/15 transition-colors">
-                    <item.icon className="w-6 h-6 text-[#20A4F3]" />
+                  <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-r from-[#1B90E0]/8 to-[#1B90E0]/8 flex items-center justify-center group-hover:from-[#1B90E0]/15 group-hover:to-[#1B90E0]/15 transition-colors">
+                    <item.icon className="w-6 h-6 text-[#1B90E0]" />
                   </div>
                   <p className="text-2xl font-bold text-[#111827] mb-1">
                     {item.value}{item.suffix}
@@ -861,7 +861,7 @@ export default function Pricing() {
             </div>
             <div className="max-w-4xl mx-auto relative">
               {/* Timeline line */}
-              <div className="absolute left-8 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#2EC4B6] to-[#20A4F3]" />
+              <div className="absolute left-8 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#0DB8A7] to-[#1B90E0]" />
 
               {deliverySteps.map((step, i) => (
                 <motion.div
@@ -875,16 +875,16 @@ export default function Pricing() {
                   }`}
                 >
                   {/* Dot */}
-                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] border-4 border-white z-10 shadow-lg" />
+                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] border-4 border-white z-10 shadow-lg" />
 
                   {/* Content */}
                   <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${i % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8"}`}>
-                    <div className="bg-[#F8FAFC] border border-[#D1D5DB] rounded-2xl p-6 hover:border-[#20A4F3]/30 hover:shadow-lg transition-all duration-300 group inline-block w-full">
+                    <div className="bg-[#F8FAFC] border border-[#D1D5DB] rounded-2xl p-6 hover:border-[#1B90E0]/30 hover:shadow-lg transition-all duration-300 group inline-block w-full">
                       <div className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? "md:justify-end" : ""}`}>
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#20A4F3]/10 to-[#20A4F3]/10 flex items-center justify-center flex-shrink-0">
-                          <step.icon className="w-5 h-5 text-[#20A4F3]" />
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#1B90E0]/10 to-[#1B90E0]/10 flex items-center justify-center flex-shrink-0">
+                          <step.icon className="w-5 h-5 text-[#1B90E0]" />
                         </div>
-                        <span className="text-xs font-bold text-[#20A4F3] uppercase tracking-wider">{step.time}</span>
+                        <span className="text-xs font-bold text-[#1B90E0] uppercase tracking-wider">{step.time}</span>
                       </div>
                       <h4 className="font-semibold text-[#111827] mb-1">{step.label}</h4>
                       <p className="text-sm text-[#6B7280]">{step.desc}</p>
@@ -914,14 +914,14 @@ export default function Pricing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white border border-[#D1D5DB] rounded-2xl p-8 text-center hover:border-[#20A4F3]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                  className="bg-white border border-[#D1D5DB] rounded-2xl p-8 text-center hover:border-[#1B90E0]/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                 >
-                  <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gradient-to-r from-[#20A4F3]/10 to-[#20A4F3]/10 flex items-center justify-center group-hover:from-[#20A4F3]/15 group-hover:to-[#20A4F3]/15 transition-colors">
-                    <proj.icon className="w-7 h-7 text-[#20A4F3]" />
+                  <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gradient-to-r from-[#1B90E0]/10 to-[#1B90E0]/10 flex items-center justify-center group-hover:from-[#1B90E0]/15 group-hover:to-[#1B90E0]/15 transition-colors">
+                    <proj.icon className="w-7 h-7 text-[#1B90E0]" />
                   </div>
                   <h4 className="text-lg font-bold text-[#111827] mb-2">{proj.title}</h4>
                   <p className="text-sm text-[#6B7280] mb-4">{proj.desc}</p>
-                  <p className="text-2xl font-bold bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] bg-clip-text text-transparent">{proj.price}</p>
+                  <p className="text-2xl font-bold bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent">{proj.price}</p>
                 </motion.div>
               ))}
             </div>
@@ -943,14 +943,14 @@ export default function Pricing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="bg-[#F8FAFC] border border-[#D1D5DB] rounded-2xl overflow-hidden hover:border-[#20A4F3]/30 hover:shadow-lg transition-all duration-300 group"
+                  className="bg-[#F8FAFC] border border-[#D1D5DB] rounded-2xl overflow-hidden hover:border-[#1B90E0]/30 hover:shadow-lg transition-all duration-300 group"
                 >
-                  <div className="h-40 bg-gradient-to-br from-[#20A4F3]/5 to-[#20A4F3]/5 flex items-center justify-center overflow-hidden">
+                  <div className="h-40 bg-gradient-to-br from-[#1B90E0]/5 to-[#1B90E0]/5 flex items-center justify-center overflow-hidden">
                     <img src={addon.image} alt={addon.title} className="w-28 h-28 object-contain group-hover:scale-110 transition-transform duration-500" />
                   </div>
                   <div className="p-6">
                     <h3 className="text-[#111827] font-semibold mb-1">{addon.title}</h3>
-                    <p className="bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] bg-clip-text text-transparent font-bold text-sm mb-2">{addon.price}</p>
+                    <p className="bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent font-bold text-sm mb-2">{addon.price}</p>
                     <p className="text-[#6B7280] text-xs">{addon.desc}</p>
                   </div>
                 </motion.div>
@@ -975,10 +975,10 @@ export default function Pricing() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.08 }}
-                    className="bg-white border border-[#D1D5DB] rounded-2xl p-6 text-center hover:border-[#20A4F3]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                    className="bg-white border border-[#D1D5DB] rounded-2xl p-6 text-center hover:border-[#1B90E0]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                   >
-                    <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-r from-[#20A4F3]/8 to-[#20A4F3]/8 flex items-center justify-center group-hover:from-[#20A4F3]/15 group-hover:to-[#20A4F3]/15 transition-all">
-                      <item.icon className="w-7 h-7 text-[#20A4F3]" />
+                    <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-r from-[#1B90E0]/8 to-[#1B90E0]/8 flex items-center justify-center group-hover:from-[#1B90E0]/15 group-hover:to-[#1B90E0]/15 transition-all">
+                      <item.icon className="w-7 h-7 text-[#1B90E0]" />
                     </div>
                     <span className="text-sm font-semibold text-[#374151]">{item.label}</span>
                   </motion.div>
@@ -1011,7 +1011,7 @@ export default function Pricing() {
               </div>
               <Accordion type="single" collapsible className="space-y-3">
                 {faqs.map((faq, i) => (
-                  <AccordionItem key={i} value={`faq-${i}`} className="bg-white border border-[#D1D5DB] rounded-2xl px-6 overflow-hidden data-[state=open]:border-[#20A4F3]/30 transition-colors">
+                  <AccordionItem key={i} value={`faq-${i}`} className="bg-white border border-[#D1D5DB] rounded-2xl px-6 overflow-hidden data-[state=open]:border-[#1B90E0]/30 transition-colors">
                     <AccordionTrigger className="text-[#111827] font-semibold text-left hover:no-underline py-5">
                       {faq.q}
                     </AccordionTrigger>
@@ -1028,7 +1028,7 @@ export default function Pricing() {
         {/* ═══════════════ SECTION 14: FINAL CTA ═══════════════ */}
         <section className="py-28 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0B1F3A 0%, #0E2A4D 50%, #0B1F3A 100%)" }}>
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#20A4F3]/8 rounded-full blur-[150px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#1B90E0]/8 rounded-full blur-[150px]" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#00D4FF]/5 rounded-full blur-[120px]" />
           </div>
           <div className="container mx-auto px-4 relative z-10 text-center">
@@ -1036,7 +1036,7 @@ export default function Pricing() {
               <Rocket className="w-12 h-12 text-[#00D4FF] mx-auto mb-6" />
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
                 Let's Build Your Business System{" "}
-                <span className="bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] bg-clip-text text-transparent">the Right Way</span>
+                <span className="bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] bg-clip-text text-transparent">the Right Way</span>
               </h2>
               <p className="text-[#B0C4DE] text-lg mb-10 max-w-2xl mx-auto">
                 Get a tailored pricing plan based on your business needs.
