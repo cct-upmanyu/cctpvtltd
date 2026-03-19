@@ -556,9 +556,9 @@ export default function Pricing() {
                 <div className="container mx-auto px-4">
                   {/* Header */}
                   <div className="text-center mb-6">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">CCT Growth Plans</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">Flexible Monthly Retainer Plans</h2>
                     <p className="text-[#374151] max-w-3xl mx-auto text-lg">
-                      Our most popular option. Pre-purchase a monthly bucket of hours at discounted rates, with unused hours rolling over. Perfect for businesses that need consistent, reliable support.
+                      Lock in discounted hourly rates with a monthly commitment. Unused hours roll over — so nothing goes to waste. Built for businesses that need a reliable technology partner on speed-dial.
                     </p>
                   </div>
 
@@ -567,12 +567,12 @@ export default function Pricing() {
                     <div className="bg-gradient-to-r from-[#1B90E0]/5 via-[hsl(190,85%,50%)]/5 to-[#1B90E0]/5 border border-[#1B90E0]/20 rounded-2xl p-8 text-center">
                       <p className="text-sm font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Hourly Rate Range</p>
                       <p className="text-5xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent mb-3">$40 – $80<span className="text-lg text-[#6B7280]">/hour</span></p>
-                      <p className="text-sm text-[#6B7280]">Rate determined by your specific needs, complexity, and package size. The more hours you commit, the lower your rate.</p>
+                      <p className="text-sm text-[#6B7280]">Your rate depends on project complexity, hours committed, and service scope. Higher commitment = lower rate.</p>
                     </div>
                   </div>
 
-                  {/* Tier Cards */}
-                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 max-w-5xl mx-auto">
+                  {/* Tier Cards — No circles, plan name highlighted, hours in bold text */}
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 max-w-5xl mx-auto items-start">
                     {retainerTiers.map((tier, i) => (
                       <motion.div
                         key={tier.name}
@@ -594,30 +594,45 @@ export default function Pricing() {
                           </div>
                         )}
 
-                        {/* Hours circle */}
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#1B90E0]/10 to-[#1B90E0]/10 flex items-center justify-center border border-[#1B90E0]/20">
-                          <span className="text-2xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent">{tier.hours}</span>
+                        {/* Plan name as highlighted header */}
+                        <div className={`rounded-xl px-4 py-3 mb-4 text-center ${
+                          tier.badge 
+                            ? "bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] text-white" 
+                            : "bg-[#F0F7FF] text-[#1B90E0]"
+                        }`}>
+                          <h3 className="text-lg font-bold">{tier.name}</h3>
                         </div>
-                        <p className="text-xs text-[#6B7280] text-center mb-3">hrs/month</p>
 
-                        <h3 className="text-xl font-bold text-[#111827] text-center mb-1">{tier.name}</h3>
+                        {/* Hours displayed as bold text */}
+                        <p className="text-center mb-3">
+                          <span className="text-2xl font-bold text-[#111827]">{tier.hours}</span>
+                          <span className="text-sm text-[#6B7280] ml-1">hrs/month</span>
+                        </p>
+
                         <p className="text-sm text-[#374151] text-center mb-2">{tier.desc}</p>
-                        <p className="text-xs text-[#6B7280] text-center italic mb-5">{tier.subtitle}</p>
-
-                        <GradientOutlineButton
-                          variant="light"
-                          onClick={() => setSelectedPlan(`Monthly Retainer: ${tier.name} – ${tier.hours} hrs/mo`)}
-                          className="w-full py-4 text-sm"
-                        >
-                          Choose Plan
-                        </GradientOutlineButton>
+                        <p className="text-xs text-[#6B7280] text-center italic">{tier.subtitle}</p>
                       </motion.div>
                     ))}
                   </div>
 
+                  {/* Unified CTA Section */}
+                  <div className="max-w-2xl mx-auto mb-16">
+                    <div className="bg-white border border-[#1B90E0]/20 rounded-2xl p-8 text-center shadow-lg shadow-[#1B90E0]/5">
+                      <h3 className="text-xl font-bold text-[#111827] mb-2">Ready to Get Started?</h3>
+                      <p className="text-sm text-[#6B7280] mb-6">Tell us which plan interests you and your requirements. We'll reach out with a tailored proposal within 24 hours.</p>
+                      <GradientButton
+                        onClick={() => setSelectedPlan("Monthly Retainer")}
+                        className="px-10 py-4 text-base"
+                      >
+                        Choose Your Plan <ArrowRight className="w-4 h-4" />
+                      </GradientButton>
+                    </div>
+                  </div>
+
                   {/* What Determines Your Rate */}
                   <div className="max-w-5xl mx-auto">
-                    <h3 className="text-2xl font-bold text-[#111827] text-center mb-8">What Determines Your Rate</h3>
+                    <h3 className="text-2xl font-bold text-[#111827] text-center mb-3">What Drives Your Hourly Rate</h3>
+                    <p className="text-sm text-[#6B7280] text-center mb-8 max-w-2xl mx-auto">Six factors shape your custom rate — understanding them helps you optimize your investment and get more value per hour.</p>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                       {rateFactors.map((factor, i) => (
                         <motion.div
