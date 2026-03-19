@@ -443,7 +443,7 @@ export default function Pricing() {
                   </div>
 
                   {/* Package Cards */}
-                  <div className="grid md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
+                  <div className="grid md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto items-start">
                     {projectPackages.map((pkg, i) => (
                       <motion.div
                         key={pkg.name}
@@ -451,7 +451,7 @@ export default function Pricing() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.12 }}
-                        className={`relative rounded-2xl border p-8 transition-all duration-500 hover:-translate-y-2 flex flex-col ${
+                        className={`relative rounded-2xl border p-8 transition-all duration-500 hover:-translate-y-2 ${
                           pkg.highlighted
                             ? "bg-white border-[#1B90E0]/40 shadow-[0_0_50px_rgba(46,168,255,0.12)] ring-1 ring-[#1B90E0]/20"
                             : "bg-white border-[#D1D5DB] hover:border-[#1B90E0]/30 hover:shadow-lg"
@@ -466,24 +466,27 @@ export default function Pricing() {
                         )}
 
                         <h3 className="text-xl font-bold text-[#111827] mb-1">{pkg.name}</h3>
-                        <p className="text-sm text-[#6B7280] mb-2">{pkg.desc}</p>
+                        <p className="text-sm text-[#6B7280] mb-3">{pkg.desc}</p>
                         <p className="text-xs text-[#1B90E0] font-medium mb-1">{pkg.hours}</p>
                         <p className="text-3xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent mb-1">{pkg.price}</p>
                         <p className="text-xs text-[#6B7280] mb-5">Timeline: {pkg.timeline}</p>
 
-                        {/* Features */}
-                        <div className="space-y-2.5 mb-6 flex-1">
-                          {pkg.features.map((f) => (
-                            <div key={f} className="flex items-start gap-2.5">
-                              <Check className="w-4 h-4 text-[#1B90E0] mt-0.5 flex-shrink-0" />
-                              <span className="text-sm text-[#374151]">{f}</span>
-                            </div>
-                          ))}
+                        {/* What You Get */}
+                        <div className="mb-6">
+                          <p className="text-xs font-semibold text-[#111827] uppercase tracking-wider mb-3">What You Get</p>
+                          <div className="space-y-2.5">
+                            {pkg.features.map((f) => (
+                              <div key={f} className="flex items-start gap-2.5">
+                                <Check className="w-4 h-4 text-[#1B90E0] mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-[#374151]">{f}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
 
-                        {/* Phases */}
+                        {/* Delivery Phases */}
                         <div className="mb-6">
-                          <p className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mb-3">Milestone Phases</p>
+                          <p className="text-xs font-semibold text-[#111827] uppercase tracking-wider mb-3">Delivery Phases</p>
                           <div className="flex flex-wrap gap-2">
                             {pkg.phases.map((phase, pi) => (
                               <span key={phase} className="inline-flex items-center gap-1 text-xs bg-gradient-to-r from-[#1B90E0]/5 to-[#1B90E0]/5 text-[#1B90E0] px-3 py-1.5 rounded-full border border-[#1B90E0]/15">
@@ -494,13 +497,12 @@ export default function Pricing() {
                           </div>
                         </div>
 
-                        <GradientOutlineButton
-                          variant="light"
+                        <GradientButton
                           onClick={() => setSelectedPlan(`Project-Based: ${pkg.name}`)}
                           className="w-full py-4 text-sm"
                         >
-                          Get Estimate <ArrowRight className="w-4 h-4" />
-                        </GradientOutlineButton>
+                          Get Project Estimate <ArrowRight className="w-4 h-4" />
+                        </GradientButton>
                       </motion.div>
                     ))}
                   </div>
