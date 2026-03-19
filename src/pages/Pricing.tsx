@@ -391,14 +391,14 @@ export default function Pricing() {
         <section className="py-10 bg-[#F4F6F8]">
           <div className="container mx-auto px-4">
             <div className="flex justify-center">
-              <div className="inline-flex bg-white border border-[#D1D5DB] rounded-2xl p-1.5 shadow-sm">
+              <div className="inline-flex bg-white border border-[#D1D5DB] rounded-full p-1.5 shadow-sm">
                 {pricingModels.map((model) => (
                   <button
                     key={model}
                     onClick={() => setActiveModel(model)}
-                    className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                    className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
                       activeModel === model
-                        ? "bg-gradient-to-r from-[hsl(217,91%,60%)] via-[hsl(188,90%,52%)] to-[hsl(271,81%,56%)] text-white shadow-lg"
+                        ? "bg-gradient-to-r from-[#0CC5B8] via-[#15BDD4] to-[#1AB4EC] text-white shadow-lg"
                         : "text-[#6B7280] hover:text-[#111827]"
                     }`}
                   >
