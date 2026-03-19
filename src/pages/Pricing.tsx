@@ -240,7 +240,7 @@ const gradientBtnSecondary = "bg-transparent border-2 border-transparent text-wh
 function GradientButton({ children, className = "", ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { children: React.ReactNode }) {
   return (
     <button
-      className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-lg bg-gradient-to-r from-[#2EC4B6] to-[#20A4F3] text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(32,164,243,0.25)] hover:brightness-105 ${className}`}
+      className={`group inline-flex items-center justify-center gap-2 font-semibold rounded-lg bg-gradient-to-r from-[#0DB8A7] to-[#1B90E0] text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(13,184,167,0.3)] hover:brightness-105 ${className}`}
       {...props}
     >
       {children}
