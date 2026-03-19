@@ -106,37 +106,37 @@ const retainerTiers = [
   {
     name: "Starter",
     hours: 5,
-    desc: "Light maintenance & quick fixes",
-    subtitle: "Best for occasional needs",
+    desc: "Ongoing maintenance, minor fixes & quick system tweaks",
+    subtitle: "Ideal for lean teams with periodic needs",
   },
   {
     name: "Growth",
     hours: 10,
-    desc: "Regular improvements & support",
-    subtitle: "Most popular starting point",
-    badge: "Most Common",
+    desc: "Regular feature builds, workflow upgrades & proactive support",
+    subtitle: "Where most scaling businesses start",
+    badge: "Most Popular",
   },
   {
     name: "Professional",
     hours: 20,
-    desc: "Continuous development & optimization",
-    subtitle: "Significant rate reduction",
+    desc: "Continuous development, multi-app optimization & deep customization",
+    subtitle: "Best value per hour — built for momentum",
   },
   {
     name: "Enterprise",
     hours: 40,
-    desc: "Near-dedicated resource",
-    subtitle: "Maximum savings",
+    desc: "Near-dedicated resource for complex, always-evolving ecosystems",
+    subtitle: "Maximum output, lowest effective rate",
   },
 ];
 
 const rateFactors = [
-  { icon: Cpu, title: "Technical Complexity", desc: "Simple admin vs. advanced custom development" },
-  { icon: Clock, title: "Hours Committed", desc: "Higher volume = lower per-hour rate" },
-  { icon: Zap, title: "Response Requirements", desc: "Standard vs. expedited turnaround" },
-  { icon: Network, title: "Integration Complexity", desc: "Number of APIs and external services" },
-  { icon: GraduationCap, title: "Training Requirements", desc: "Self-service vs. hands-on guidance" },
-  { icon: Building2, title: "Multi-Service Support", desc: "Single app vs. full Zoho ecosystem" },
+  { icon: Cpu, title: "Technical Depth", desc: "Basic configuration vs. advanced Deluge scripting & custom builds" },
+  { icon: Clock, title: "Hours Committed", desc: "Larger monthly buckets unlock significantly lower per-hour rates" },
+  { icon: Zap, title: "Turnaround Speed", desc: "Standard delivery vs. same-day priority execution" },
+  { icon: Network, title: "Integration Scope", desc: "Single app sync vs. multi-API orchestration across your stack" },
+  { icon: GraduationCap, title: "Training & Enablement", desc: "Self-serve documentation vs. live team workshops" },
+  { icon: Building2, title: "Ecosystem Breadth", desc: "Standalone app support vs. full Zoho One ecosystem management" },
 ];
 
 /* ── DEDICATED PARTNER BENEFITS ── */
@@ -264,6 +264,7 @@ function GradientOutlineButton({ children, className = "", variant = "dark", ...
 }
 
 function PlanFormModal({ plan, onClose }: { plan: string; onClose: () => void }) {
+  const isRetainer = plan === "Monthly Retainer";
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -276,19 +277,32 @@ function PlanFormModal({ plan, onClose }: { plan: string; onClose: () => void })
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 relative"
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 relative max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button onClick={onClose} className="absolute top-4 right-4 text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">
           <X className="w-5 h-5" />
         </button>
-        <h3 className="text-2xl font-bold text-[hsl(var(--foreground))] mb-1">Get Started</h3>
-        <p className="text-[hsl(var(--muted-foreground))] text-sm mb-6">Tell us about your requirements and we'll get back within 24 hours.</p>
+        <h3 className="text-2xl font-bold text-[hsl(var(--foreground))] mb-1">Let's Build Your Proposal</h3>
+        <p className="text-[hsl(var(--muted-foreground))] text-sm mb-6">Share your details and requirements — we'll reach out within 24 hours with a tailored proposal.</p>
         <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); onClose(); }}>
-          <div>
-            <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Selected Plan</label>
-            <Input value={plan} readOnly className="bg-[#F4F6F8] border-[#D1D5DB]" />
-          </div>
+          {isRetainer ? (
+            <div>
+              <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Which Plan Interests You? *</label>
+              <select required className="flex h-10 w-full rounded-md border border-[#D1D5DB] bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B90E0]">
+                <option value="">Select a plan...</option>
+                <option value="Starter – 5 hrs/mo">Starter – 5 hrs/month</option>
+                <option value="Growth – 10 hrs/mo">Growth – 10 hrs/month</option>
+                <option value="Professional – 20 hrs/mo">Professional – 20 hrs/month</option>
+                <option value="Enterprise – 40 hrs/mo">Enterprise – 40 hrs/month</option>
+              </select>
+            </div>
+          ) : (
+            <div>
+              <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Selected Plan</label>
+              <Input value={plan} readOnly className="bg-[#F4F6F8] border-[#D1D5DB]" />
+            </div>
+          )}
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Full Name *</label>
@@ -301,21 +315,22 @@ function PlanFormModal({ plan, onClose }: { plan: string; onClose: () => void })
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
+              <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Phone *</label>
+              <Input placeholder="+1 234 567 890" required className="border-[#D1D5DB]" />
+            </div>
+            <div>
               <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Company</label>
               <Input placeholder="Your Company" className="border-[#D1D5DB]" />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Phone</label>
-              <Input placeholder="+1 234 567 890" className="border-[#D1D5DB]" />
-            </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Project Requirements</label>
-            <Textarea placeholder="Briefly describe your project, goals, and any specific requirements..." className="border-[#D1D5DB] min-h-[100px]" />
+            <label className="block text-sm font-medium text-[hsl(var(--foreground))] mb-1.5">Requirements & Comments</label>
+            <Textarea placeholder="Tell us about your project goals, current systems, and any specific requirements..." className="border-[#D1D5DB] min-h-[100px]" />
           </div>
-          <GradientOutlineButton type="submit" variant="light" className="w-full py-5 text-base">
+          <GradientButton type="submit" className="w-full py-4 text-base">
             Submit Request <Send className="w-4 h-4" />
-          </GradientOutlineButton>
+          </GradientButton>
+          <p className="text-xs text-[#6B7280] text-center">We'll review your requirements and reach out with a customized proposal.</p>
         </form>
       </motion.div>
     </motion.div>
@@ -556,9 +571,9 @@ export default function Pricing() {
                 <div className="container mx-auto px-4">
                   {/* Header */}
                   <div className="text-center mb-6">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">CCT Growth Plans</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">Flexible Monthly Retainer Plans</h2>
                     <p className="text-[#374151] max-w-3xl mx-auto text-lg">
-                      Our most popular option. Pre-purchase a monthly bucket of hours at discounted rates, with unused hours rolling over. Perfect for businesses that need consistent, reliable support.
+                      Lock in discounted hourly rates with a monthly commitment. Unused hours roll over — so nothing goes to waste. Built for businesses that need a reliable technology partner on speed-dial.
                     </p>
                   </div>
 
@@ -567,12 +582,12 @@ export default function Pricing() {
                     <div className="bg-gradient-to-r from-[#1B90E0]/5 via-[hsl(190,85%,50%)]/5 to-[#1B90E0]/5 border border-[#1B90E0]/20 rounded-2xl p-8 text-center">
                       <p className="text-sm font-semibold text-[#6B7280] uppercase tracking-wider mb-2">Hourly Rate Range</p>
                       <p className="text-5xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent mb-3">$40 – $80<span className="text-lg text-[#6B7280]">/hour</span></p>
-                      <p className="text-sm text-[#6B7280]">Rate determined by your specific needs, complexity, and package size. The more hours you commit, the lower your rate.</p>
+                      <p className="text-sm text-[#6B7280]">Your rate depends on project complexity, hours committed, and service scope. Higher commitment = lower rate.</p>
                     </div>
                   </div>
 
-                  {/* Tier Cards */}
-                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 max-w-5xl mx-auto">
+                  {/* Tier Cards — No circles, plan name highlighted, hours in bold text */}
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 max-w-5xl mx-auto items-start">
                     {retainerTiers.map((tier, i) => (
                       <motion.div
                         key={tier.name}
@@ -594,30 +609,45 @@ export default function Pricing() {
                           </div>
                         )}
 
-                        {/* Hours circle */}
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#1B90E0]/10 to-[#1B90E0]/10 flex items-center justify-center border border-[#1B90E0]/20">
-                          <span className="text-2xl font-bold bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] bg-clip-text text-transparent">{tier.hours}</span>
+                        {/* Plan name as highlighted header */}
+                        <div className={`rounded-xl px-4 py-3 mb-4 text-center ${
+                          tier.badge 
+                            ? "bg-gradient-to-r from-[#1B90E0] to-[#22D3EE] text-white" 
+                            : "bg-[#F0F7FF] text-[#1B90E0]"
+                        }`}>
+                          <h3 className="text-lg font-bold">{tier.name}</h3>
                         </div>
-                        <p className="text-xs text-[#6B7280] text-center mb-3">hrs/month</p>
 
-                        <h3 className="text-xl font-bold text-[#111827] text-center mb-1">{tier.name}</h3>
+                        {/* Hours displayed as bold text */}
+                        <p className="text-center mb-3">
+                          <span className="text-2xl font-bold text-[#111827]">{tier.hours}</span>
+                          <span className="text-sm text-[#6B7280] ml-1">hrs/month</span>
+                        </p>
+
                         <p className="text-sm text-[#374151] text-center mb-2">{tier.desc}</p>
-                        <p className="text-xs text-[#6B7280] text-center italic mb-5">{tier.subtitle}</p>
-
-                        <GradientOutlineButton
-                          variant="light"
-                          onClick={() => setSelectedPlan(`Monthly Retainer: ${tier.name} – ${tier.hours} hrs/mo`)}
-                          className="w-full py-4 text-sm"
-                        >
-                          Choose Plan
-                        </GradientOutlineButton>
+                        <p className="text-xs text-[#6B7280] text-center italic">{tier.subtitle}</p>
                       </motion.div>
                     ))}
                   </div>
 
+                  {/* Unified CTA Section */}
+                  <div className="max-w-2xl mx-auto mb-16">
+                    <div className="bg-white border border-[#1B90E0]/20 rounded-2xl p-8 text-center shadow-lg shadow-[#1B90E0]/5">
+                      <h3 className="text-xl font-bold text-[#111827] mb-2">Ready to Get Started?</h3>
+                      <p className="text-sm text-[#6B7280] mb-6">Tell us which plan interests you and your requirements. We'll reach out with a tailored proposal within 24 hours.</p>
+                      <GradientButton
+                        onClick={() => setSelectedPlan("Monthly Retainer")}
+                        className="px-10 py-4 text-base"
+                      >
+                        Choose Your Plan <ArrowRight className="w-4 h-4" />
+                      </GradientButton>
+                    </div>
+                  </div>
+
                   {/* What Determines Your Rate */}
                   <div className="max-w-5xl mx-auto">
-                    <h3 className="text-2xl font-bold text-[#111827] text-center mb-8">What Determines Your Rate</h3>
+                    <h3 className="text-2xl font-bold text-[#111827] text-center mb-3">What Drives Your Hourly Rate</h3>
+                    <p className="text-sm text-[#6B7280] text-center mb-8 max-w-2xl mx-auto">Six factors shape your custom rate — understanding them helps you optimize your investment and get more value per hour.</p>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                       {rateFactors.map((factor, i) => (
                         <motion.div
