@@ -19,8 +19,8 @@ export function CaseStudiesAndBlog() {
   return (
     <section className="relative overflow-hidden">
       <div className="grid lg:grid-cols-2">
-        {/* Case Studies — Dark */}
-        <div className="bg-[#0B1C3D] px-6 md:px-10 lg:px-14 py-16 lg:py-20 relative">
+        {/* Case Studies — Warm Light */}
+        <div className="bg-[#F9FAFB] px-6 md:px-10 lg:px-14 py-16 lg:py-20">
           <motion.div
             initial={{ opacity: 0, x: -20, filter: "blur(4px)" }}
             whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
@@ -29,14 +29,14 @@ export function CaseStudiesAndBlog() {
           >
             <div className="flex items-end justify-between mb-8">
               <div>
-                <span className="inline-block px-3 py-1 rounded-full bg-emerald-400/15 text-emerald-400 text-xs font-medium mb-3 border border-emerald-400/25">
+                <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 text-xs font-medium mb-3 border border-emerald-500/20">
                   Proven Results
                 </span>
-                <h2 className="text-2xl md:text-3xl font-bold text-white" style={{ lineHeight: 1.1 }}>
+                <h2 className="text-2xl md:text-3xl font-bold text-[#111827]" style={{ lineHeight: 1.1 }}>
                   Case Studies
                 </h2>
               </div>
-              <Link to="/case-studies" className="text-sm text-emerald-400 font-semibold hover:gap-2 inline-flex items-center gap-1 transition-all shrink-0">
+              <Link to="/case-studies" className="text-sm text-emerald-600 font-semibold hover:gap-2 inline-flex items-center gap-1 transition-all shrink-0">
                 View All <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -52,23 +52,23 @@ export function CaseStudiesAndBlog() {
                 >
                   <Link
                     to="/case-studies"
-                    className="group flex items-start gap-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-4 hover:bg-white/10 hover:border-emerald-400/30 transition-all duration-300"
+                    className="group flex items-start gap-4 bg-white rounded-xl border border-gray-200 p-4 hover:border-emerald-300 hover:shadow-[0_2px_12px_rgba(0,0,0,0.06)] transition-all duration-300"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-emerald-400/15 flex items-center justify-center shrink-0 mt-0.5">
-                      <study.icon className="w-5 h-5 text-emerald-400" />
+                    <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <study.icon className="w-5 h-5 text-emerald-600" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-[10px] font-medium text-white/40 uppercase tracking-wider">{study.industry}</span>
-                        <span className="flex items-center gap-1 text-emerald-400 font-bold text-xs">
+                        <span className="text-[10px] font-medium text-[#9CA3AF] uppercase tracking-wider">{study.industry}</span>
+                        <span className="flex items-center gap-1 text-emerald-600 font-bold text-xs">
                           <TrendingUp className="w-3 h-3" />
                           {study.result}
                         </span>
                       </div>
-                      <h3 className="text-white font-semibold text-sm mb-1 group-hover:text-emerald-300 transition-colors leading-snug">
+                      <h3 className="text-[#111827] font-semibold text-sm mb-1 group-hover:text-emerald-700 transition-colors leading-snug">
                         {study.title}
                       </h3>
-                      <p className="text-white/50 text-xs leading-relaxed">{study.description}</p>
+                      <p className="text-[#6B7280] text-xs leading-relaxed">{study.description}</p>
                     </div>
                   </Link>
                 </motion.div>
@@ -77,15 +77,15 @@ export function CaseStudiesAndBlog() {
           </motion.div>
         </div>
 
-        {/* Vertical Separator — visible on lg */}
+        {/* Vertical Separator — lg */}
         <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px z-10">
-          <div className="h-full w-full bg-gradient-to-b from-transparent via-[#1B90E0]/40 to-transparent" />
+          <div className="h-full w-full bg-gradient-to-b from-transparent via-gray-300 to-transparent" />
         </div>
-        {/* Horizontal Separator — visible on mobile */}
-        <div className="lg:hidden h-px w-full bg-gradient-to-r from-transparent via-[#1B90E0]/40 to-transparent" />
+        {/* Horizontal Separator — mobile */}
+        <div className="lg:hidden h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
 
-        {/* Blog — Light */}
-        <div className="bg-[#F0F7FF] px-6 md:px-10 lg:px-14 py-16 lg:py-20 relative">
+        {/* Blog — Cool Blue */}
+        <div className="bg-[#EEF4FB] px-6 md:px-10 lg:px-14 py-16 lg:py-20">
           <motion.div
             initial={{ opacity: 0, x: 20, filter: "blur(4px)" }}
             whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
