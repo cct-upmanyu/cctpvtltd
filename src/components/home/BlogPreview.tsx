@@ -28,7 +28,7 @@ const blogPosts = [
 
 export function BlogPreview() {
   return (
-    <section className="section-padding bg-white relative overflow-hidden">
+    <section className="section-padding bg-[#F0F7FF] relative overflow-hidden">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
