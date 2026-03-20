@@ -28,6 +28,7 @@ const Index = () => {
         <IndustriesSection />
         <CaseStudiesAndBlog />
         <TestimonialsSection />
+        <GlobalPresenceSection />
         <CTASection />
       </main>
       <Footer />
