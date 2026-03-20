@@ -61,7 +61,8 @@ export function CaseStudiesAndBlog() {
   return (
     <section className="section-padding bg-[#F8FAFC] relative overflow-hidden">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
+        <div className="grid lg:grid-cols-2 gap-0">
+          {/* Left: dark bg | Right: light bg | Center divider */}
           {/* Case Studies Column */}
           <motion.div
             initial={{ opacity: 0, x: -20, filter: "blur(4px)" }}
