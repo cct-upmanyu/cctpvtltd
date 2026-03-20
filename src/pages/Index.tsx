@@ -10,6 +10,7 @@ import { IntegrationsPreview } from "@/components/home/IntegrationsPreview";
 import { IndustriesSection } from "@/components/home/IndustriesSection";
 import { CaseStudiesAndBlog } from "@/components/home/CaseStudiesAndBlog";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
+import { GlobalPresenceSection } from "@/components/home/GlobalPresenceSection";
 import { CTASection } from "@/components/home/CTASection";
 
 const Index = () => {
