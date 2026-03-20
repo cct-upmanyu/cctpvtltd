@@ -1,99 +1,100 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { 
-  Layers, 
-  Brain, 
-  PieChart, 
-  Cog, 
-  Globe, 
-  Database,
-  ArrowRight,
-  Link2,
-  Puzzle,
-  Gauge,
-  Shield,
-  CheckCircle
+  Layers, Brain, PieChart, Cog, Globe, Database,
+  ArrowRight, Link2, Puzzle, Gauge, Shield, CheckCircle
 } from "lucide-react";
+
+import zohoEcosystemImg from "@/assets/capabilities/zoho-ecosystem.jpg";
+import aiAutomationImg from "@/assets/capabilities/ai-automation.jpg";
+import crmRevenueImg from "@/assets/capabilities/crm-revenue.jpg";
+import customErpImg from "@/assets/capabilities/custom-erp.jpg";
+import websiteDevImg from "@/assets/capabilities/website-dev.jpg";
+import dataMigrationImg from "@/assets/capabilities/data-migration.jpg";
+import integrationsImg from "@/assets/capabilities/integrations.jpg";
+import extensionsImg from "@/assets/capabilities/extensions.jpg";
+import optimizationImg from "@/assets/capabilities/optimization.jpg";
+import complianceImg from "@/assets/capabilities/compliance.jpg";
 
 const capabilities = [
   {
     icon: Layers,
     title: "Zoho Ecosystem Implementation",
-    description: "We architect and deploy end-to-end Zoho One, CRM Plus, and Finance Plus solutions, unifying 50+ applications into a cohesive operational ecosystem.",
+    description: "End-to-end Zoho One, CRM Plus, and Finance Plus solutions unifying 50+ applications into a cohesive operational ecosystem.",
     href: "/zoho-solutions",
-    color: "primary",
+    image: zohoEcosystemImg,
     features: ["Zoho One Setup", "Suite Integration", "User Training"]
   },
   {
     icon: Brain,
     title: "AI-Powered Business Automation",
-    description: "We integrate ChatGPT, intelligent chatbots, and AI copilots into your workflows—automating decisions and accelerating enterprise-wide productivity.",
+    description: "ChatGPT, intelligent chatbots, and AI copilots integrated into workflows—automating decisions and accelerating productivity.",
     href: "/ai-solutions",
-    color: "secondary",
+    image: aiAutomationImg,
     features: ["AI Agents", "Chatbots", "Process Automation"]
   },
   {
     icon: PieChart,
     title: "CRM & Revenue Systems",
-    description: "We implement and optimize Zoho CRM, Salesforce, HubSpot, and Pipedrive to drive revenue growth with data-driven sales automation.",
+    description: "Zoho CRM, Salesforce, HubSpot, and Pipedrive implementations driving revenue growth with data-driven sales automation.",
     href: "/crm-solutions",
-    color: "accent",
+    image: crmRevenueImg,
     features: ["CRM Setup", "Sales Pipelines", "Lead Automation"]
   },
   {
     icon: Cog,
     title: "Custom ERP Development",
-    description: "We build modular, scalable ERP systems on Zoho Creator—tailored to your industry's unique operational requirements.",
+    description: "Modular, scalable ERP systems on Zoho Creator—tailored to your industry's unique operational requirements.",
     href: "/custom-erp",
-    color: "primary",
+    image: customErpImg,
     features: ["Custom Modules", "Workflow Design", "Scalable Architecture"]
   },
   {
     icon: Globe,
     title: "Website Development",
-    description: "We develop CRM-connected, AI-enabled business websites engineered to convert visitors into qualified leads and customers.",
+    description: "CRM-connected, AI-enabled business websites engineered to convert visitors into qualified leads and customers.",
     href: "/website-development",
-    color: "secondary",
+    image: websiteDevImg,
     features: ["CRM Integration", "Lead Capture", "SEO Optimized"]
   },
   {
     icon: Database,
     title: "Data Migration & Architecture",
-    description: "We execute seamless migrations from legacy systems with zero data loss, establishing AI-ready data architectures for future growth.",
+    description: "Seamless migrations from legacy systems with zero data loss, establishing AI-ready data architectures for future growth.",
     href: "/data-migration",
-    color: "accent",
+    image: dataMigrationImg,
     features: ["Zero Downtime", "Data Validation", "Legacy System Exit"]
   },
   {
     icon: Link2,
     title: "Third-Party Integrations",
-    description: "We architect secure integrations connecting Zoho, CRM, and ERP systems with payment gateways, telephony, WhatsApp, and enterprise platforms.",
+    description: "Secure integrations connecting Zoho, CRM, and ERP with payment gateways, telephony, WhatsApp, and enterprise platforms.",
     href: "/third-party-integrations",
-    color: "primary",
+    image: integrationsImg,
     features: ["API Development", "Webhooks", "Real-time Sync"]
   },
   {
     icon: Puzzle,
     title: "Zoho Extension Development",
-    description: "We build custom Zoho Marketplace and private extensions to enhance native functionality and support advanced enterprise workflows.",
+    description: "Custom Zoho Marketplace and private extensions enhancing native functionality for advanced enterprise workflows.",
     href: "/zoho-extension-development",
-    color: "secondary",
+    image: extensionsImg,
     features: ["Custom Widgets", "Marketplace Apps", "Private Extensions"]
   },
   {
     icon: Gauge,
     title: "System Optimization & Scaling",
-    description: "We audit, optimize, and scale existing Zoho, CRM, and ERP deployments for peak performance, automation efficiency, and long-term growth.",
+    description: "Audit, optimize, and scale existing Zoho, CRM, and ERP deployments for peak performance and long-term growth.",
     href: "/zoho-solutions#optimization",
-    color: "accent",
+    image: optimizationImg,
     features: ["Performance Audit", "Automation Review", "Growth Planning"]
   },
   {
     icon: Shield,
     title: "Compliance, Security & Governance",
-    description: "We design role-based access, audit frameworks, and data protection policies aligned with enterprise and regional compliance standards.",
+    description: "Role-based access, audit frameworks, and data protection policies aligned with enterprise compliance standards.",
     href: "/zoho-solutions#compliance",
-    color: "primary",
+    image: complianceImg,
     features: ["RBAC Setup", "Audit Trails", "Data Security"]
   },
 ];
@@ -101,30 +102,27 @@ const capabilities = [
 export function CapabilitiesSection() {
   return (
     <section className="bg-light-gradient section-padding relative overflow-hidden">
-      {/* Subtle background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#3FE0F0]/5 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#8B5CF6]/5 rounded-full blur-[150px]" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#1B90E0]/5 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#A855F7]/5 rounded-full blur-[150px]" />
       </div>
 
       <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#3FE0F0]/10 text-[#0B1C3D] text-sm font-medium mb-4 border border-[#3FE0F0]/20">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#1B90E0]/10 text-[#0B1C3D] text-sm font-medium mb-4 border border-[#1B90E0]/20">
             Our Expertise
           </span>
-          {/* LIGHT SECTION: Heading must be #111827 */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
             10 Core Capabilities
           </h2>
-          {/* LIGHT SECTION: Secondary text must be #374151 */}
           <p className="text-[#374151] text-lg max-w-3xl mx-auto">
-            End-to-end solutions designed to transform your business operations with intelligent automation. 
-            From strategy to implementation to ongoing support.
+            End-to-end solutions designed to transform your business operations with intelligent automation.
           </p>
         </motion.div>
 
@@ -134,57 +132,56 @@ export function CapabilitiesSection() {
             return (
               <motion.div
                 key={capability.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
               >
                 <Link
                   to={capability.href}
-                  className="group block h-full bg-white rounded-2xl p-8 border border-gray-200 hover:border-[#3FE0F0]/30 hover:shadow-xl hover:shadow-[#3FE0F0]/10 hover-lift transition-all"
+                  className="group block h-full rounded-2xl overflow-hidden border border-gray-200 hover:border-[#1B90E0]/30 hover:shadow-xl hover:shadow-[#1B90E0]/10 transition-all duration-300"
                 >
-                  <div className={`w-14 h-14 rounded-xl mb-6 flex items-center justify-center transition-all duration-300 ${
-                    capability.color === "primary" 
-                      ? "bg-[#3FE0F0]/10 group-hover:bg-[#3FE0F0] group-hover:shadow-lg group-hover:shadow-[#3FE0F0]/30" 
-                      : capability.color === "secondary"
-                      ? "bg-[#4DA3FF]/10 group-hover:bg-[#4DA3FF] group-hover:shadow-lg group-hover:shadow-[#4DA3FF]/30"
-                      : "bg-[#8B5CF6]/10 group-hover:bg-[#8B5CF6] group-hover:shadow-lg group-hover:shadow-[#8B5CF6]/30"
-                  }`}>
-                    <Icon className={`w-7 h-7 transition-colors duration-300 ${
-                      capability.color === "primary" 
-                        ? "text-[#3FE0F0] group-hover:text-white" 
-                        : capability.color === "secondary"
-                        ? "text-[#4DA3FF] group-hover:text-white"
-                        : "text-[#8B5CF6] group-hover:text-white"
-                    }`} />
+                  {/* Background Image Header */}
+                  <div className="relative h-40 overflow-hidden">
+                    <img 
+                      src={capability.image} 
+                      alt={capability.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C3D]/80 via-[#0B1C3D]/40 to-transparent" />
+                    <div className="absolute bottom-4 left-4 flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-white" />
+                      </div>
+                      <h3 className="text-white font-semibold text-sm leading-tight max-w-[200px]">
+                        {capability.title}
+                      </h3>
+                    </div>
                   </div>
-                  
-                  {/* LIGHT SECTION: Text must be #111827 */}
-                  <h3 className="text-xl font-semibold text-[#111827] mb-3 group-hover:text-[#3FE0F0] transition-colors">
-                    {capability.title}
-                  </h3>
-                  
-                  {/* LIGHT SECTION: Secondary text must be #374151 */}
-                  <p className="text-[#374151] mb-4 leading-relaxed text-sm">
-                    {capability.description}
-                  </p>
 
-                  {/* Feature Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {capability.features.map((feature) => (
-                      <span 
-                        key={feature}
-                        className="inline-flex items-center gap-1 px-2 py-1 text-xs rounded-full bg-gray-100 text-[#374151]"
-                      >
-                        <CheckCircle className="w-3 h-3 text-[#3FE0F0]" />
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="flex items-center gap-2 text-[#3FE0F0] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span>Learn more</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  {/* Content */}
+                  <div className="bg-white p-6">
+                    <p className="text-[#374151] mb-4 leading-relaxed text-sm">
+                      {capability.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {capability.features.map((feature) => (
+                        <span 
+                          key={feature}
+                          className="inline-flex items-center gap-1 px-2 py-1 text-xs rounded-full bg-gray-100 text-[#374151]"
+                        >
+                          <CheckCircle className="w-3 h-3 text-[#1B90E0]" />
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <div className="flex items-center gap-2 text-[#1B90E0] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-sm">Learn more</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </Link>
               </motion.div>
@@ -192,11 +189,11 @@ export function CapabilitiesSection() {
           })}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="text-center mt-16"
         >
           <p className="text-[#374151] mb-6">
@@ -204,7 +201,7 @@ export function CapabilitiesSection() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#0B1C3D] to-[#1A365D] text-white font-semibold hover:shadow-lg transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#0B1C3D] to-[#1A365D] text-white font-semibold hover:shadow-lg transition-all active:scale-[0.97]"
           >
             Schedule a Free Consultation
             <ArrowRight className="w-5 h-5" />
