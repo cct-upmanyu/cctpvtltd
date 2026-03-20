@@ -8,9 +8,8 @@ import { AISolutionsSection } from "@/components/home/AISolutionsSection";
 import { DataMigrationPreview } from "@/components/home/DataMigrationPreview";
 import { IntegrationsPreview } from "@/components/home/IntegrationsPreview";
 import { IndustriesSection } from "@/components/home/IndustriesSection";
-import { CaseStudiesPreview } from "@/components/home/CaseStudiesPreview";
+import { CaseStudiesAndBlog } from "@/components/home/CaseStudiesAndBlog";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
-import { BlogPreview } from "@/components/home/BlogPreview";
 import { CTASection } from "@/components/home/CTASection";
 
 const Index = () => {
@@ -26,9 +25,8 @@ const Index = () => {
         <DataMigrationPreview />
         <IntegrationsPreview />
         <IndustriesSection />
-        <CaseStudiesPreview />
+        <CaseStudiesAndBlog />
         <TestimonialsSection />
-        <BlogPreview />
         <CTASection />
       </main>
       <Footer />
