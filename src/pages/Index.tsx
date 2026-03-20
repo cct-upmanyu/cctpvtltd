@@ -9,6 +9,7 @@ import { DataMigrationPreview } from "@/components/home/DataMigrationPreview";
 import { IntegrationsPreview } from "@/components/home/IntegrationsPreview";
 import { IndustriesSection } from "@/components/home/IndustriesSection";
 import { CaseStudiesPreview } from "@/components/home/CaseStudiesPreview";
+import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { BlogPreview } from "@/components/home/BlogPreview";
 import { CTASection } from "@/components/home/CTASection";
 
@@ -26,6 +27,7 @@ const Index = () => {
         <IntegrationsPreview />
         <IndustriesSection />
         <CaseStudiesPreview />
+        <TestimonialsSection />
         <BlogPreview />
         <CTASection />
       </main>
