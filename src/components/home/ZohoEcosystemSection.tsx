@@ -149,9 +149,9 @@ export function ZohoEcosystemSection() {
 
   // Calculate radii based on container - larger radii for better spread
   const baseSize = Math.min(containerSize.width, containerSize.height);
-  const innerRadius = baseSize * 0.20;
-  const middleRadius = baseSize * 0.35;
-  const outerRadius = baseSize * 0.50;
+  const innerRadius = baseSize * 0.14;
+  const middleRadius = baseSize * 0.25;
+  const outerRadius = baseSize * 0.37;
 
   // Slow speeds for premium, calm feel
   const speeds = { inner: 0.008, middle: 0.006, outer: 0.004 };
