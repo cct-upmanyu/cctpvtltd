@@ -116,13 +116,10 @@ export function ZohoEcosystemImageSection() {
   }, []);
 
   const baseSize = Math.min(containerSize.width, containerSize.height);
-  const isSmall = baseSize < 400;
-  const innerRadius = baseSize * (isSmall ? 0.15 : 0.18);
-  const middleRadius = baseSize * (isSmall ? 0.28 : 0.32);
-  const outerRadius = baseSize * (isSmall ? 0.42 : 0.46);
-  const iconSizeInner = isSmall ? 40 : 60;
-  const iconSizeMiddle = isSmall ? 38 : 56;
-  const iconSizeOuter = isSmall ? 34 : 52;
+  const innerRadius = baseSize * 0.14;
+  const middleRadius = baseSize * 0.25;
+  const outerRadius = baseSize * 0.37;
+  const iconSize = Math.max(36, Math.min(48, baseSize * 0.075));
 
   // Pause rotation when any app is hovered
   useAnimationFrame((time) => {
