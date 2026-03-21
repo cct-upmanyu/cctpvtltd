@@ -47,9 +47,10 @@ interface OrbitingAppProps {
   size: number;
   hoveredApp: string | null;
   onHover: (name: string | null) => void;
+  isHighlighted: boolean;
 }
 
-const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngleOffset, size, hoveredApp, onHover }: OrbitingAppProps) => {
+const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngleOffset, size, hoveredApp, onHover, isHighlighted }: OrbitingAppProps) => {
   const [imgError, setImgError] = useState(false);
   const baseAngle = (index / total) * 360 + startAngleOffset;
   const currentAngle = baseAngle + rotationOffset;
@@ -57,7 +58,8 @@ const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngl
   const x = Math.cos(angleRad) * orbitRadius;
   const y = Math.sin(angleRad) * orbitRadius;
   const isHovered = hoveredApp === app.name;
-  const scale = isHovered ? 2 : 1;
+  const isPopped = isHovered || isHighlighted;
+  const scale = isPopped ? 1.6 : 1;
 
   return (
     <div
@@ -66,20 +68,20 @@ const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngl
         left: `calc(50% + ${x}px)`,
         top: `calc(50% + ${y}px)`,
         transform: `translate(-50%, -50%) scale(${scale})`,
-        zIndex: isHovered ? 50 : 10,
-        transition: "transform 0.3s ease",
+        zIndex: isPopped ? 50 : 10,
+        transition: "transform 0.5s ease, box-shadow 0.5s ease",
       }}
       onMouseEnter={() => onHover(app.name)}
       onMouseLeave={() => onHover(null)}
     >
       <div
-        className="rounded-full bg-white flex items-center justify-center shadow-md cursor-pointer"
+        className="rounded-full bg-white flex items-center justify-center cursor-pointer"
         style={{
           width: `${size}px`,
           height: `${size}px`,
-          border: `2px solid ${app.color}30`,
           padding: `${size * 0.15}px`,
-          boxShadow: isHovered ? `0 0 20px ${app.color}40` : undefined,
+          boxShadow: isPopped ? `0 0 24px ${app.color}50, 0 4px 12px rgba(0,0,0,0.1)` : '0 2px 8px rgba(0,0,0,0.08)',
+          border: isPopped ? `2px solid ${app.color}` : '2px solid transparent',
         }}
       >
         {imgError ? (
@@ -90,7 +92,14 @@ const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngl
           <img src={app.logo} alt={`Zoho ${app.name}`} className="w-full h-full object-contain" onError={() => setImgError(true)} />
         )}
       </div>
-      <span className="text-[9px] font-semibold text-[#374151] whitespace-nowrap bg-white/90 px-1.5 py-0.5 rounded-full shadow-sm">
+      <span
+        className="text-[9px] font-semibold whitespace-nowrap px-1.5 py-0.5 rounded-full"
+        style={{
+          color: isPopped ? app.color : '#374151',
+          background: isPopped ? `${app.color}15` : 'rgba(255,255,255,0.9)',
+          fontWeight: isPopped ? 700 : 600,
+        }}
+      >
         {app.name}
       </span>
     </div>
