@@ -54,6 +54,18 @@ const heroSlides = [
     backgroundType: "video" as const,
     video: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
   },
+  {
+    badge: "Trusted Across Continents",
+    headline: "Global Presence",
+    subheadline: "7+ Regions, One Standard of Excellence",
+    description: "As a Global Zoho Premium Partner, we deliver localized expertise with world-class standards across the UK, USA, UAE, Australia, Canada, India, and Europe.",
+    cta: "Find Your Region",
+    ctaLink: "/zoho-partner-uk",
+    secondaryCta: "View Global Reach",
+    secondaryLink: "/zoho-partner-usa",
+    backgroundType: "video" as const,
+    video: "https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_30fps.mp4",
+  },
 ];
 
 const trustStats = [
