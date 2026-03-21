@@ -64,8 +64,8 @@ const heroSlides = [
     ctaLink: "/zoho-partner-uk",
     secondaryCta: "View Global Reach",
     secondaryLink: "/zoho-partner-usa",
-    backgroundType: "video" as const,
-    video: "https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_30fps.mp4",
+    backgroundType: "image" as const,
+    video: "",
   },
 ];
 
