@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight, Award, Globe, Users, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { PlexusBackground } from "@/components/animations/PlexusBackground";
 
 const heroSlides = [
   {
@@ -14,7 +15,8 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "Talk to a Zoho Expert",
     secondaryLink: "/contact",
-    video: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+    backgroundType: "plexus" as const,
+    video: "",
   },
   {
     badge: "Enterprise AI Solutions",
@@ -25,7 +27,8 @@ const heroSlides = [
     ctaLink: "/ai-solutions",
     secondaryCta: "See Case Studies",
     secondaryLink: "/case-studies",
-    video: "https://videos.pexels.com/video-files/5532770/5532770-uhd_2732_1440_25fps.mp4",
+    backgroundType: "plexus" as const,
+    video: "",
   },
   {
     badge: "Custom ERP Development",
@@ -36,6 +39,7 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "View Our Portfolio",
     secondaryLink: "/case-studies",
+    backgroundType: "video" as const,
     video: "https://videos.pexels.com/video-files/6774621/6774621-uhd_2732_1440_25fps.mp4",
   },
   {
@@ -47,6 +51,7 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "Explore Zoho Creator",
     secondaryLink: "/zoho-creator",
+    backgroundType: "video" as const,
     video: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
   },
 ];
@@ -89,7 +94,7 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Full-screen Video Background */}
+      {/* Full-screen Background */}
       <AnimatePresence initial={false}>
         <motion.div
           key={currentSlide}
@@ -99,16 +104,20 @@ export function HeroSection() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="absolute inset-0 z-0"
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover scale-105"
-            style={{ filter: "brightness(0.4)" }}
-          >
-            <source src={slide.video} type="video/mp4" />
-          </video>
+          {slide.backgroundType === "plexus" ? (
+            <PlexusBackground />
+          ) : (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover scale-105"
+              style={{ filter: "brightness(0.4)" }}
+            >
+              <source src={slide.video} type="video/mp4" />
+            </video>
+          )}
 
           {/* Cinematic gradient overlays */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B1C3D]/70 via-transparent to-[#0B1C3D]/80" />
