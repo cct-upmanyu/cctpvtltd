@@ -98,7 +98,7 @@ const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngl
 };
 
 export function ZohoEcosystemImageSection() {
-  const [rotationAngles, setRotationAngles] = useState({ inner: 0, middle: 120, outer: 240 });
+  const [rotationAngles, setRotationAngles] = useState({ inner: 0, middle: 137, outer: 253 });
   const [containerSize, setContainerSize] = useState({ width: 500, height: 500 });
   const [hoveredApp, setHoveredApp] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -116,9 +116,9 @@ export function ZohoEcosystemImageSection() {
   }, []);
 
   const baseSize = Math.min(containerSize.width, containerSize.height);
-  const innerRadius = baseSize * 0.14;
-  const middleRadius = baseSize * 0.25;
-  const outerRadius = baseSize * 0.37;
+  const innerRadius = baseSize * 0.18;
+  const middleRadius = baseSize * 0.28;
+  const outerRadius = baseSize * 0.39;
   const iconSize = Math.max(36, Math.min(48, baseSize * 0.075));
 
   // Pause rotation when any app is hovered
@@ -130,9 +130,9 @@ export function ZohoEcosystemImageSection() {
     const delta = time - lastTimeRef.current;
     lastTimeRef.current = time;
     setRotationAngles(prev => ({
-      inner: prev.inner - 0.012 * delta,
-      middle: prev.middle - 0.008 * delta,
-      outer: prev.outer - 0.005 * delta,
+      inner: prev.inner - 0.015 * delta,
+      middle: prev.middle + 0.009 * delta,
+      outer: prev.outer - 0.006 * delta,
     }));
   });
 
@@ -210,20 +210,20 @@ export function ZohoEcosystemImageSection() {
 
               {/* Outer orbit */}
               {outerOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={outerOrbit.length} orbitRadius={outerRadius} rotationOffset={rotationAngles.outer} startAngleOffset={-90} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
+                <OrbitingApp key={app.name} app={app} index={index} total={outerOrbit.length} orbitRadius={outerRadius} rotationOffset={rotationAngles.outer} startAngleOffset={-73} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
               ))}
 
               {/* Middle orbit */}
               {middleOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-60} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
+                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-42} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
               ))}
 
               {/* Inner orbit */}
               {innerOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={innerOrbit.length} orbitRadius={innerRadius} rotationOffset={rotationAngles.inner} startAngleOffset={-30} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
+                <OrbitingApp key={app.name} app={app} index={index} total={innerOrbit.length} orbitRadius={innerRadius} rotationOffset={rotationAngles.inner} startAngleOffset={-15} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
               ))}
 
-              {/* Central Zoho One - Reduced size */}
+              {/* Central Zoho One - Minimal */}
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -231,16 +231,8 @@ export function ZohoEcosystemImageSection() {
                 transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.3 }}
                 className="relative z-20 flex flex-col items-center"
               >
-                <motion.div
-                  className="absolute w-24 h-24 md:w-28 md:h-28 rounded-full"
-                  style={{ background: 'radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%)' }}
-                  animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <div className="relative bg-white rounded-xl shadow-lg p-3 md:p-4 flex flex-col items-center border border-gray-100">
-                  <img src={zohoOneLogo} alt="Zoho One - Unified Business OS" className="w-16 h-auto md:w-20 object-contain" />
-                  <span className="text-[10px] md:text-xs text-[#6B7280] mt-1 font-medium">Unified Business OS</span>
-                </div>
+                <img src={zohoOneLogo} alt="Zoho One" className="w-12 h-auto md:w-14 object-contain" />
+                <span className="text-[9px] md:text-[10px] text-[#6B7280] mt-1 font-medium">Unified Business OS</span>
               </motion.div>
             </div>
           </motion.div>
