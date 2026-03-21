@@ -252,8 +252,8 @@ export function HeroSection() {
                         className="group block p-3 rounded-xl bg-white/[0.08] backdrop-blur-md border border-white/[0.12] hover:bg-white/[0.15] hover:border-[#3FE0F0]/40 transition-all duration-300 text-center"
                       >
                         <span className="text-2xl block mb-1.5">{region.flag}</span>
-                        <h4 className="text-white font-semibold text-sm leading-tight mb-0.5">{region.name}</h4>
-                        <p className="text-white/50 text-[10px]">{region.cities}</p>
+                        <h4 className="text-[#3FE0F0] font-semibold text-sm leading-tight mb-0.5">{region.name}</h4>
+                        <p className="text-white/70 text-[10px]">{region.cities}</p>
                         <MapPin className="w-3 h-3 text-[#3FE0F0] mx-auto mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </Link>
                     </motion.div>
