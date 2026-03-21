@@ -181,7 +181,7 @@ export function TrustAndPackages({ title = "Flexible Pricing for US Businesses" 
             <span className="text-[#F97316] text-sm font-semibold">Verified Expertise</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            Flexible Pricing for US Businesses
+            {title}
           </h2>
           <p className="text-white/70 text-lg max-w-3xl mx-auto">
             Certified USA Zoho Partners backed by <span className="text-[#F97316] font-semibold">Top-Rated Plus</span> Upwork profiles with 100% job success and 5-star client reviews.

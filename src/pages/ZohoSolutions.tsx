@@ -191,7 +191,7 @@ export default function ZohoSolutions() {
       </section>
 
       {/* Verified Expertise & Transparent Pricing */}
-      <TrustAndPackages />
+      <TrustAndPackages title="Verified Expertise & Transparent Pricing" />
 
       {/* Why Choose Us */}
       <section className="bg-dark-gradient section-padding">
