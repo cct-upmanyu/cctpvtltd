@@ -94,7 +94,7 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Full-screen Video Background */}
+      {/* Full-screen Background */}
       <AnimatePresence initial={false}>
         <motion.div
           key={currentSlide}
@@ -104,16 +104,20 @@ export function HeroSection() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="absolute inset-0 z-0"
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover scale-105"
-            style={{ filter: "brightness(0.4)" }}
-          >
-            <source src={slide.video} type="video/mp4" />
-          </video>
+          {slide.backgroundType === "plexus" ? (
+            <PlexusBackground />
+          ) : (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover scale-105"
+              style={{ filter: "brightness(0.4)" }}
+            >
+              <source src={slide.video} type="video/mp4" />
+            </video>
+          )}
 
           {/* Cinematic gradient overlays */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B1C3D]/70 via-transparent to-[#0B1C3D]/80" />
