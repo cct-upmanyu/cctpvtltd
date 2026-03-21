@@ -233,13 +233,13 @@ export function HeroSection() {
                   className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3 max-w-6xl mx-auto"
                 >
                   {[
-                    { flag: "🇬🇧", name: "United Kingdom", cities: "London · Manchester", link: "/zoho-partner-uk" },
-                    { flag: "🇺🇸", name: "United States", cities: "New York · Chicago", link: "/zoho-partner-usa" },
-                    { flag: "🇦🇪", name: "UAE", cities: "Dubai · Abu Dhabi", link: "/zoho-partner-uae" },
-                    { flag: "🇦🇺", name: "Australia", cities: "Sydney · Melbourne", link: "/zoho-partner-australia" },
-                    { flag: "🇨🇦", name: "Canada", cities: "Toronto · Vancouver", link: "/zoho-partner-canada" },
-                    { flag: "🇮🇳", name: "India", cities: "Mumbai · Bangalore", link: "/zoho-partner-india" },
-                    { flag: "🇪🇺", name: "Europe", cities: "Berlin · Paris", link: "/zoho-partner-europe" },
+                    { flag: "🇬🇧", code: "GB", name: "United Kingdom", cities: "London · Manchester", link: "/zoho-partner-uk" },
+                    { flag: "🇺🇸", code: "US", name: "United States", cities: "New York · Chicago", link: "/zoho-partner-usa" },
+                    { flag: "🇦🇪", code: "AE", name: "UAE", cities: "Dubai · Abu Dhabi", link: "/zoho-partner-uae" },
+                    { flag: "🇦🇺", code: "AU", name: "Australia", cities: "Sydney · Melbourne", link: "/zoho-partner-australia" },
+                    { flag: "🇨🇦", code: "CA", name: "Canada", cities: "Toronto · Vancouver", link: "/zoho-partner-canada" },
+                    { flag: "🇮🇳", code: "IN", name: "India", cities: "Mumbai · Bangalore", link: "/zoho-partner-india" },
+                    { flag: "🇪🇺", code: "EU", name: "Europe", cities: "Berlin · Paris", link: "/zoho-partner-europe" },
                   ].map((region, i) => (
                     <motion.div
                       key={region.name}
