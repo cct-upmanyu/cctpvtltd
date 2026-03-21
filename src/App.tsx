@@ -144,6 +144,8 @@ const App = () => (
             <Route path="/crm-automation" element={<CRMAutomation />} />
             <Route path="/crm-integrations" element={<CRMIntegrations />} />
             <Route path="/crm-audit" element={<CRMAudit />} />
+            <Route path="/audit-zoho-setup" element={<AuditZohoSetup />} />
+            <Route path="/audit-legacy-system" element={<AuditLegacySystem />} />
             {/* AI Solution Pages */}
             <Route path="/ai-agents" element={<AIAgents />} />
             <Route path="/ai-sales-automation" element={<AISalesAutomation />} />
