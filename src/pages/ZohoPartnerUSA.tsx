@@ -172,8 +172,8 @@ export default function ZohoPartnerUSA() {
       {/* ═══════ COMPLIANCE RIBBON ═══════ */}
       <ComplianceRibbon />
 
-      {/* ═══════ ZOHO ONE ERP ═══════ */}
-      <ZohoOneERP />
+      {/* ═══════ PRICING SECTION ═══════ */}
+      <USAPricingSection />
 
       {/* ═══════ COMPARISON ENGINE ═══════ */}
       <ComparisonEngine />
