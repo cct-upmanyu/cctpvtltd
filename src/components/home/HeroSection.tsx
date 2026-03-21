@@ -14,7 +14,7 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "Talk to a Zoho Expert",
     secondaryLink: "/contact",
-    video: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+    video: "https://videos.pexels.com/video-files/6153054/6153054-uhd_2560_1440_24fps.mp4",
   },
   {
     badge: "Enterprise AI Solutions",
