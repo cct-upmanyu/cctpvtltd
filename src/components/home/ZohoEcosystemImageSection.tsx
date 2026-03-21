@@ -47,9 +47,10 @@ interface OrbitingAppProps {
   size: number;
   hoveredApp: string | null;
   onHover: (name: string | null) => void;
+  isHighlighted: boolean;
 }
 
-const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngleOffset, size, hoveredApp, onHover }: OrbitingAppProps) => {
+const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngleOffset, size, hoveredApp, onHover, isHighlighted }: OrbitingAppProps) => {
   const [imgError, setImgError] = useState(false);
   const baseAngle = (index / total) * 360 + startAngleOffset;
   const currentAngle = baseAngle + rotationOffset;
@@ -57,7 +58,8 @@ const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngl
   const x = Math.cos(angleRad) * orbitRadius;
   const y = Math.sin(angleRad) * orbitRadius;
   const isHovered = hoveredApp === app.name;
-  const scale = isHovered ? 2 : 1;
+  const isPopped = isHovered || isHighlighted;
+  const scale = isPopped ? 1.6 : 1;
 
   return (
     <div
@@ -66,20 +68,20 @@ const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngl
         left: `calc(50% + ${x}px)`,
         top: `calc(50% + ${y}px)`,
         transform: `translate(-50%, -50%) scale(${scale})`,
-        zIndex: isHovered ? 50 : 10,
-        transition: "transform 0.3s ease",
+        zIndex: isPopped ? 50 : 10,
+        transition: "transform 0.5s ease, box-shadow 0.5s ease",
       }}
       onMouseEnter={() => onHover(app.name)}
       onMouseLeave={() => onHover(null)}
     >
       <div
-        className="rounded-full bg-white flex items-center justify-center shadow-md cursor-pointer"
+        className="rounded-full bg-white flex items-center justify-center cursor-pointer"
         style={{
           width: `${size}px`,
           height: `${size}px`,
-          border: `2px solid ${app.color}30`,
           padding: `${size * 0.15}px`,
-          boxShadow: isHovered ? `0 0 20px ${app.color}40` : undefined,
+          boxShadow: isPopped ? `0 0 24px ${app.color}50, 0 4px 12px rgba(0,0,0,0.1)` : '0 2px 8px rgba(0,0,0,0.08)',
+          border: isPopped ? `2px solid ${app.color}` : '2px solid transparent',
         }}
       >
         {imgError ? (
@@ -90,7 +92,14 @@ const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngl
           <img src={app.logo} alt={`Zoho ${app.name}`} className="w-full h-full object-contain" onError={() => setImgError(true)} />
         )}
       </div>
-      <span className="text-[9px] font-semibold text-[#374151] whitespace-nowrap bg-white/90 px-1.5 py-0.5 rounded-full shadow-sm">
+      <span
+        className="text-[9px] font-semibold whitespace-nowrap px-1.5 py-0.5 rounded-full"
+        style={{
+          color: isPopped ? app.color : '#374151',
+          background: isPopped ? `${app.color}15` : 'rgba(255,255,255,0.9)',
+          fontWeight: isPopped ? 700 : 600,
+        }}
+      >
         {app.name}
       </span>
     </div>
@@ -101,6 +110,7 @@ export function ZohoEcosystemImageSection() {
   const [rotationAngles, setRotationAngles] = useState({ inner: 0, middle: 137, outer: 253 });
   const [containerSize, setContainerSize] = useState({ width: 500, height: 500 });
   const [hoveredApp, setHoveredApp] = useState<string | null>(null);
+  const [highlightedApps, setHighlightedApps] = useState<Set<string>>(new Set());
   const containerRef = useRef<HTMLDivElement>(null);
   const lastTimeRef = useRef(0);
 
@@ -115,13 +125,26 @@ export function ZohoEcosystemImageSection() {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
 
+  // Random highlight cycle: pick 2-3 apps every 2.5s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (hoveredApp) return;
+      const count = 2 + Math.floor(Math.random() * 2); // 2 or 3
+      const picked = new Set<string>();
+      while (picked.size < count) {
+        picked.add(zohoApps[Math.floor(Math.random() * zohoApps.length)].name);
+      }
+      setHighlightedApps(picked);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [hoveredApp]);
+
   const baseSize = Math.min(containerSize.width, containerSize.height);
   const innerRadius = baseSize * 0.18;
   const middleRadius = baseSize * 0.28;
   const outerRadius = baseSize * 0.39;
   const iconSize = Math.max(44, Math.min(56, baseSize * 0.095));
 
-  // Pause rotation when any app is hovered
   useAnimationFrame((time) => {
     if (hoveredApp) {
       lastTimeRef.current = time;
@@ -195,32 +218,19 @@ export function ZohoEcosystemImageSection() {
             className="relative flex items-center justify-center py-8 lg:py-0 overflow-hidden"
           >
             <div ref={containerRef} className="relative w-full aspect-square max-w-[420px] md:max-w-[500px] lg:max-w-[580px] flex items-center justify-center mx-auto">
-              {/* Orbit rings */}
-              {[outerRadius, middleRadius, innerRadius].map((r, i) => (
-                <div
-                  key={i}
-                  className="absolute rounded-full"
-                  style={{
-                    width: `${r * 2 + 40}px`,
-                    height: `${r * 2 + 40}px`,
-                    border: `1px dashed rgba(99, 102, 241, ${0.1 + i * 0.05})`,
-                  }}
-                />
-              ))}
-
               {/* Outer orbit */}
               {outerOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={outerOrbit.length} orbitRadius={outerRadius} rotationOffset={rotationAngles.outer} startAngleOffset={-73} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
+                <OrbitingApp key={app.name} app={app} index={index} total={outerOrbit.length} orbitRadius={outerRadius} rotationOffset={rotationAngles.outer} startAngleOffset={-73} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApps.has(app.name)} />
               ))}
 
               {/* Middle orbit */}
               {middleOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-42} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
+                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-42} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApps.has(app.name)} />
               ))}
 
               {/* Inner orbit */}
               {innerOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={innerOrbit.length} orbitRadius={innerRadius} rotationOffset={rotationAngles.inner} startAngleOffset={-15} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
+                <OrbitingApp key={app.name} app={app} index={index} total={innerOrbit.length} orbitRadius={innerRadius} rotationOffset={rotationAngles.inner} startAngleOffset={-15} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApps.has(app.name)} />
               ))}
 
               {/* Central Zoho One - Minimal */}
