@@ -190,6 +190,9 @@ export default function ZohoSolutions() {
         </div>
       </section>
 
+      {/* Verified Expertise & Transparent Pricing */}
+      <TrustAndPackages />
+
       {/* Why Choose Us */}
       <section className="bg-dark-gradient section-padding">
         <div className="container-custom">
