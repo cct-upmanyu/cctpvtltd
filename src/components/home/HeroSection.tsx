@@ -39,8 +39,8 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "View Our Portfolio",
     secondaryLink: "/case-studies",
-    backgroundType: "video" as const,
-    video: "https://videos.pexels.com/video-files/6774621/6774621-uhd_2732_1440_25fps.mp4",
+    backgroundType: "plexus" as const,
+    video: "",
   },
   {
     badge: "Zoho Creator Champions",
