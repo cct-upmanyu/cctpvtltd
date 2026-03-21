@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { TrustSection } from "@/components/home/TrustSection";
 import { CapabilitiesSection } from "@/components/home/CapabilitiesSection";
 import { ZohoEcosystemSection } from "@/components/home/ZohoEcosystemSection";
+import { ZohoEcosystemImageSection } from "@/components/home/ZohoEcosystemImageSection";
 import { AISolutionsSection } from "@/components/home/AISolutionsSection";
 import { DataMigrationPreview } from "@/components/home/DataMigrationPreview";
 import { IntegrationsPreview } from "@/components/home/IntegrationsPreview";
@@ -22,6 +23,7 @@ const Index = () => {
         <TrustSection />
         <CapabilitiesSection />
         <ZohoEcosystemSection />
+        <ZohoEcosystemImageSection />
         <AISolutionsSection />
         <DataMigrationPreview />
         <IntegrationsPreview />
