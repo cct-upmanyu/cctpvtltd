@@ -20,7 +20,7 @@ import { AgenticAIHub } from "@/components/usa/AgenticAIHub";
 import { MigrationPortal } from "@/components/usa/MigrationPortal";
 import { ComplianceRibbon } from "@/components/usa/ComplianceRibbon";
 import { ComparisonEngine } from "@/components/usa/ComparisonEngine";
-import { ZohoOneERP } from "@/components/usa/ZohoOneERP";
+import { USAPricingSection } from "@/components/usa/USAPricingSection";
 import { LowCodeApps } from "@/components/usa/LowCodeApps";
 import { DeveloperServicesHub } from "@/components/usa/DeveloperServicesHub";
 import { TrustAndPackages } from "@/components/usa/TrustAndPackages";
