@@ -197,7 +197,7 @@ export function ZohoEcosystemImageSection() {
             viewport={{ once: true }}
             className="relative flex items-center justify-center py-8 lg:py-0"
           >
-            <div ref={containerRef} className="relative w-full aspect-square max-w-[600px] lg:max-w-none lg:w-[650px] lg:h-[650px] flex items-center justify-center">
+            <div ref={containerRef} className="relative w-full aspect-square max-w-[450px] md:max-w-[550px] lg:max-w-none lg:w-[650px] lg:h-[650px] flex items-center justify-center mx-auto">
               {/* Orbit rings */}
               {[outerRadius, middleRadius, innerRadius].map((r, i) => (
                 <div
