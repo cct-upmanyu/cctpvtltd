@@ -139,7 +139,7 @@ export function ZohoEcosystemImageSection() {
   return (
     <section className="relative overflow-hidden bg-white">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-[45%_55%] gap-0 items-center min-h-[700px] lg:min-h-[800px]">
+        <div className="grid lg:grid-cols-[45%_55%] gap-0 items-center min-h-[600px] lg:min-h-[700px]">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
