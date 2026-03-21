@@ -227,28 +227,29 @@ export function ZohoEcosystemImageSection() {
             <div ref={containerRef} className="relative w-full aspect-square max-w-[420px] md:max-w-[500px] lg:max-w-[580px] flex items-center justify-center mx-auto">
               {/* Outer orbit */}
               {outerOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={outerOrbit.length} orbitRadius={outerRadius} rotationOffset={rotationAngles.outer} startAngleOffset={-73} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApps.has(app.name)} />
+                <OrbitingApp key={app.name} app={app} index={index} total={outerOrbit.length} orbitRadius={outerRadius} rotationOffset={rotationAngles.outer} startAngleOffset={-73} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApp === app.name} />
               ))}
 
               {/* Middle orbit */}
               {middleOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-42} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApps.has(app.name)} />
+                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-42} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApp === app.name} />
               ))}
 
               {/* Inner orbit */}
               {innerOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={innerOrbit.length} orbitRadius={innerRadius} rotationOffset={rotationAngles.inner} startAngleOffset={-15} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApps.has(app.name)} />
+                <OrbitingApp key={app.name} app={app} index={index} total={innerOrbit.length} orbitRadius={innerRadius} rotationOffset={rotationAngles.inner} startAngleOffset={-15} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApp === app.name} />
               ))}
 
-              {/* Central Zoho One - Minimal */}
+              {/* Central Zoho One */}
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.3 }}
                 className="relative z-20 flex flex-col items-center"
+                animate={{ scale: centerPulse ? 1.3 : 1 }}
               >
-                <img src={zohoOneLogo} alt="Zoho One" className="w-12 h-auto md:w-14 object-contain" />
+                <img src={zohoOneLogo} alt="Zoho One" className="w-12 h-auto md:w-14 object-contain" style={{ transition: 'transform 0.5s ease' }} />
                 <span className="text-[9px] md:text-[10px] text-[#6B7280] mt-1 font-medium">Unified Business OS</span>
               </motion.div>
             </div>
