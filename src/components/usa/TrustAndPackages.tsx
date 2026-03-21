@@ -158,7 +158,11 @@ function RequirementsForm({ tier, onClose }: { tier: typeof engagementTiers[0]; 
   );
 }
 
-export function TrustAndPackages() {
+interface TrustAndPackagesProps {
+  title?: string;
+}
+
+export function TrustAndPackages({ title = "Flexible Pricing for US Businesses" }: TrustAndPackagesProps) {
   const [activeForm, setActiveForm] = useState<number | null>(null);
 
   return (
