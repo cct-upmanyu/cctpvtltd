@@ -153,8 +153,8 @@ export function ZohoEcosystemSection() {
   const middleRadius = baseSize * 0.25;
   const outerRadius = baseSize * 0.37;
 
-  // Slow speeds for premium, calm feel
-  const speeds = { inner: 0.008, middle: 0.006, outer: 0.004 };
+
+
 
   useAnimationFrame((time) => {
     if (hoveredApp) {
