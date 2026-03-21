@@ -138,7 +138,7 @@ export function CapabilitiesSection() {
             Our Expertise
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
-            10 Core Capabilities
+            12 Core Capabilities
           </h2>
           <p className="text-[#374151] text-lg max-w-3xl mx-auto">
             End-to-end solutions designed to transform your business operations with intelligent automation.
