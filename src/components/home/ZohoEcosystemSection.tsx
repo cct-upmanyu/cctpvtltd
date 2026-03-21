@@ -76,38 +76,38 @@ const OrbitingApp = ({
   // Floating animation offset based on index
   const floatOffset = Math.sin((Date.now() / 1500) + index * 0.5) * 3;
   
-  const isPaused = hoveredApp === app.name;
-  const scale = isPaused ? 1.15 : 1;
+  const isHovered = hoveredApp === app.name;
+  const scale = isHovered ? 2 : 1;
 
   return (
-    <motion.div
-      className="absolute flex flex-col items-center gap-1 cursor-pointer"
+    <div
+      className="absolute flex flex-col items-center gap-0.5"
       style={{
         left: `calc(50% + ${x}px)`,
-        top: `calc(50% + ${y + floatOffset}px)`,
-        transform: 'translate(-50%, -50%)',
-        zIndex: isPaused ? 30 : 10,
+        top: `calc(50% + ${y}px)`,
+        transform: `translate(-50%, -50%) scale(${scale})`,
+        zIndex: isHovered ? 50 : 10,
+        transition: "transform 0.3s ease",
       }}
-      animate={{ scale }}
-      transition={{ type: "spring", stiffness: 400, damping: 25 }}
       onMouseEnter={() => onHover(app.name)}
       onMouseLeave={() => onHover(null)}
     >
       <div 
-        className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl bg-white flex items-center justify-center p-2 transition-shadow duration-300"
+        className="rounded-full bg-white flex items-center justify-center shadow-md cursor-pointer"
         style={{
-          boxShadow: isPaused 
-            ? `0 8px 24px ${app.color}40, 0 4px 12px rgba(0,0,0,0.1)` 
-            : '0 4px 12px rgba(0,0,0,0.08)',
-          border: isPaused ? `2px solid ${app.color}` : '2px solid #E5E7EB'
+          width: '48px',
+          height: '48px',
+          border: `2px solid ${app.color}30`,
+          padding: '7px',
+          boxShadow: isHovered ? `0 0 20px ${app.color}40` : undefined,
         }}
       >
         {imgError ? (
           <div 
-            className="w-full h-full rounded-lg flex items-center justify-center text-white font-bold text-sm"
+            className="w-full h-full rounded-full flex items-center justify-center text-white font-bold text-[10px]"
             style={{ backgroundColor: app.color }}
           >
-            {app.name.substring(0, 2).toUpperCase()}
+            {app.name.substring(0, 2)}
           </div>
         ) : (
           <img 
@@ -118,29 +118,10 @@ const OrbitingApp = ({
           />
         )}
       </div>
-      <div 
-        className="flex items-center gap-0.5 bg-white/95 backdrop-blur-sm px-2 py-1 rounded-full shadow-sm whitespace-nowrap"
-        style={{ 
-          border: isPaused ? `1px solid ${app.color}40` : '1px solid #E5E7EB'
-        }}
-      >
-        <span className="text-[9px] md:text-[10px] font-medium text-blue-500">Zoho</span>
-        <span className="text-[9px] md:text-[10px] font-bold text-gray-800">{app.name}</span>
-      </div>
-      
-      {/* Tooltip on hover */}
-      {isPaused && (
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="absolute top-full mt-2 px-3 py-2 bg-white rounded-lg shadow-xl text-xs whitespace-nowrap z-40 border border-gray-100"
-        >
-          <span className="font-semibold" style={{ color: app.color }}>Zoho {app.name}</span>
-          <br />
-          <span className="text-gray-500">{app.description}</span>
-        </motion.div>
-      )}
-    </motion.div>
+      <span className="text-[9px] font-semibold text-[#374151] whitespace-nowrap bg-white/90 px-1.5 py-0.5 rounded-full shadow-sm">
+        {app.name}
+      </span>
+    </div>
   );
 };
 
@@ -168,23 +149,24 @@ export function ZohoEcosystemSection() {
 
   // Calculate radii based on container - larger radii for better spread
   const baseSize = Math.min(containerSize.width, containerSize.height);
-  const innerRadius = baseSize * 0.20;
-  const middleRadius = baseSize * 0.35;
-  const outerRadius = baseSize * 0.50;
+  const innerRadius = baseSize * 0.14;
+  const middleRadius = baseSize * 0.25;
+  const outerRadius = baseSize * 0.37;
 
-  // Slow speeds for premium, calm feel
-  const speeds = { inner: 0.008, middle: 0.006, outer: 0.004 };
+
+
 
   useAnimationFrame((time) => {
-    if (hoveredApp) return; // Pause all on hover
-    
+    if (hoveredApp) {
+      lastTimeRef.current = time;
+      return;
+    }
     const delta = time - lastTimeRef.current;
     lastTimeRef.current = time;
-    
     setRotationAngles(prev => ({
-      inner: prev.inner + speeds.inner * delta,
-      middle: prev.middle - speeds.middle * delta, // Opposite direction
-      outer: prev.outer + speeds.outer * delta,
+      inner: prev.inner - 0.012 * delta,
+      middle: prev.middle - 0.008 * delta,
+      outer: prev.outer - 0.005 * delta,
     }));
   });
 
@@ -194,20 +176,14 @@ export function ZohoEcosystemSection() {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Split background - full height */}
+      {/* Split background */}
       <div className="absolute inset-0 flex">
         <div className="w-full lg:w-[45%] bg-[#0B1C3D]" />
-        <div className="hidden lg:block w-[55%] bg-gradient-to-br from-[#F0F7FB] via-[#E8F4FC] to-[#FFFFFF]" />
-      </div>
-      
-      {/* Background effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
+        <div className="hidden lg:block w-[55%] bg-white" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-[45%_55%] gap-0 items-center min-h-[700px] lg:min-h-[800px]">
+        <div className="grid lg:grid-cols-[45%_55%] gap-0 items-center min-h-[600px] lg:min-h-[700px]">
           {/* Left Content - Dark background */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -268,7 +244,7 @@ export function ZohoEcosystemSection() {
           >
             <div 
               ref={containerRef}
-              className="relative w-full aspect-square max-w-[600px] lg:max-w-none lg:w-[650px] lg:h-[650px] flex items-center justify-center"
+              className="relative w-full aspect-square max-w-[420px] md:max-w-[500px] lg:max-w-[580px] flex items-center justify-center mx-auto"
             >
               {/* Concentric ring backgrounds */}
               <div 
