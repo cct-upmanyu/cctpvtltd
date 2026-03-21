@@ -157,15 +157,16 @@ export function ZohoEcosystemSection() {
   const speeds = { inner: 0.008, middle: 0.006, outer: 0.004 };
 
   useAnimationFrame((time) => {
-    if (hoveredApp) return; // Pause all on hover
-    
+    if (hoveredApp) {
+      lastTimeRef.current = time;
+      return;
+    }
     const delta = time - lastTimeRef.current;
     lastTimeRef.current = time;
-    
     setRotationAngles(prev => ({
-      inner: prev.inner + speeds.inner * delta,
-      middle: prev.middle - speeds.middle * delta, // Opposite direction
-      outer: prev.outer + speeds.outer * delta,
+      inner: prev.inner - 0.012 * delta,
+      middle: prev.middle - 0.008 * delta,
+      outer: prev.outer - 0.005 * delta,
     }));
   });
 
