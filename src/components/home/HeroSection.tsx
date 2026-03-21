@@ -15,7 +15,8 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "Talk to a Zoho Expert",
     secondaryLink: "/contact",
-    video: "https://videos.pexels.com/video-files/6153054/6153054-uhd_2560_1440_24fps.mp4",
+    backgroundType: "plexus" as const,
+    video: "",
   },
   {
     badge: "Enterprise AI Solutions",
@@ -26,7 +27,8 @@ const heroSlides = [
     ctaLink: "/ai-solutions",
     secondaryCta: "See Case Studies",
     secondaryLink: "/case-studies",
-    video: "https://videos.pexels.com/video-files/6153054/6153054-uhd_2560_1440_24fps.mp4",
+    backgroundType: "plexus" as const,
+    video: "",
   },
   {
     badge: "Custom ERP Development",
@@ -37,6 +39,7 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "View Our Portfolio",
     secondaryLink: "/case-studies",
+    backgroundType: "video" as const,
     video: "https://videos.pexels.com/video-files/6774621/6774621-uhd_2732_1440_25fps.mp4",
   },
   {
@@ -48,6 +51,7 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "Explore Zoho Creator",
     secondaryLink: "/zoho-creator",
+    backgroundType: "video" as const,
     video: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
   },
 ];
