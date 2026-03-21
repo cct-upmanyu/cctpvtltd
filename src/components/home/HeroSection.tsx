@@ -233,13 +233,13 @@ export function HeroSection() {
                   className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3 max-w-6xl mx-auto"
                 >
                   {[
-                    { flag: "🇬🇧", name: "United Kingdom", cities: "London · Manchester", link: "/zoho-partner-uk" },
-                    { flag: "🇺🇸", name: "United States", cities: "New York · Chicago", link: "/zoho-partner-usa" },
-                    { flag: "🇦🇪", name: "UAE", cities: "Dubai · Abu Dhabi", link: "/zoho-partner-uae" },
-                    { flag: "🇦🇺", name: "Australia", cities: "Sydney · Melbourne", link: "/zoho-partner-australia" },
-                    { flag: "🇨🇦", name: "Canada", cities: "Toronto · Vancouver", link: "/zoho-partner-canada" },
-                    { flag: "🇮🇳", name: "India", cities: "Mumbai · Bangalore", link: "/zoho-partner-india" },
-                    { flag: "🇪🇺", name: "Europe", cities: "Berlin · Paris", link: "/zoho-partner-europe" },
+                    { flag: "🇬🇧", code: "GB", name: "United Kingdom", cities: "London · Manchester", link: "/zoho-partner-uk" },
+                    { flag: "🇺🇸", code: "US", name: "United States", cities: "New York · Chicago", link: "/zoho-partner-usa" },
+                    { flag: "🇦🇪", code: "AE", name: "UAE", cities: "Dubai · Abu Dhabi", link: "/zoho-partner-uae" },
+                    { flag: "🇦🇺", code: "AU", name: "Australia", cities: "Sydney · Melbourne", link: "/zoho-partner-australia" },
+                    { flag: "🇨🇦", code: "CA", name: "Canada", cities: "Toronto · Vancouver", link: "/zoho-partner-canada" },
+                    { flag: "🇮🇳", code: "IN", name: "India", cities: "Mumbai · Bangalore", link: "/zoho-partner-india" },
+                    { flag: "🇪🇺", code: "EU", name: "Europe", cities: "Berlin · Paris", link: "/zoho-partner-europe" },
                   ].map((region, i) => (
                     <motion.div
                       key={region.name}
@@ -251,7 +251,7 @@ export function HeroSection() {
                         to={region.link}
                         className="group block p-3 rounded-xl bg-white/[0.08] backdrop-blur-md border border-white/[0.12] hover:bg-white/[0.15] hover:border-[#3FE0F0]/40 transition-all duration-300 text-center"
                       >
-                        <span className="text-2xl block mb-1.5">{region.flag}</span>
+                        <span className="text-white/60 text-xs font-bold tracking-widest block mb-1.5">{region.code}</span>
                         <h4 className="text-[#3FE0F0] font-semibold text-sm leading-tight mb-0.5">{region.name}</h4>
                         <p className="text-white/70 text-[10px]">{region.cities}</p>
                         <MapPin className="w-3 h-3 text-[#3FE0F0] mx-auto mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity" />
