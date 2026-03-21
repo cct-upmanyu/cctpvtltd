@@ -4,7 +4,6 @@ import { ArrowRight, ChevronLeft, ChevronRight, Award, Globe, Users, Briefcase }
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-
 const heroSlides = [
   {
     badge: "Premium Global Zoho Partner",
@@ -16,7 +15,6 @@ const heroSlides = [
     secondaryCta: "Talk to a Zoho Expert",
     secondaryLink: "/contact",
     video: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
-    gradient: "from-[#0B1C3D]/90 via-[#0F2A5F]/85 to-[#1A365D]/90",
   },
   {
     badge: "Enterprise AI Solutions",
@@ -28,7 +26,6 @@ const heroSlides = [
     secondaryCta: "See Case Studies",
     secondaryLink: "/case-studies",
     video: "https://videos.pexels.com/video-files/5532770/5532770-uhd_2732_1440_25fps.mp4",
-    gradient: "from-[#1A365D]/90 via-[#0F2A5F]/85 to-[#0B1C3D]/90",
   },
   {
     badge: "Custom ERP Development",
@@ -40,7 +37,6 @@ const heroSlides = [
     secondaryCta: "View Our Portfolio",
     secondaryLink: "/case-studies",
     video: "https://videos.pexels.com/video-files/6774621/6774621-uhd_2732_1440_25fps.mp4",
-    gradient: "from-[#0F2A5F]/90 via-[#1A365D]/85 to-[#0B1C3D]/90",
   },
   {
     badge: "Zoho Creator Champions",
@@ -52,7 +48,6 @@ const heroSlides = [
     secondaryCta: "Explore Zoho Creator",
     secondaryLink: "/zoho-creator",
     video: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
-    gradient: "from-[#0B1C3D]/90 via-[#0F2A5F]/85 to-[#1A365D]/90",
   },
 ];
 
@@ -71,7 +66,7 @@ export function HeroSection() {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 6000);
+    }, 7000);
     return () => clearInterval(timer);
   }, []);
 
@@ -92,129 +87,99 @@ export function HeroSection() {
 
   const slide = heroSlides[currentSlide];
 
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-  };
-
   return (
-    <section className="relative overflow-hidden pt-20 pb-8">
-      {/* Video Background */}
-      <AnimatePresence initial={false} custom={direction} mode="wait">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Full-screen Video Background */}
+      <AnimatePresence initial={false}>
         <motion.div
           key={currentSlide}
-          custom={direction}
-          variants={{
-            enter: { opacity: 0 },
-            center: { opacity: 1 },
-            exit: { opacity: 0 },
-          }}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 0.8 }}
-          className="absolute inset-0"
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="absolute inset-0 z-0"
         >
-          {/* Video Background */}
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover scale-105"
+            style={{ filter: "brightness(0.4)" }}
           >
             <source src={slide.video} type="video/mp4" />
           </video>
-          
-          {/* Gradient Overlay */}
-          <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient}`} />
-          
-          {/* Additional dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-[#0B1C3D]/40" />
 
-          {/* Animated accents */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <motion.div
-              animate={{
-                x: [0, 100, 0],
-                y: [0, -50, 0],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#3FE0F0]/10 rounded-full blur-[100px]"
-            />
-            <motion.div
-              animate={{
-                x: [0, -80, 0],
-                y: [0, 80, 0],
-                scale: [1.2, 1, 1.2],
-              }}
-              transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#4DA3FF]/10 rounded-full blur-[120px]"
-            />
-          </div>
+          {/* Cinematic gradient overlays */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1C3D]/70 via-transparent to-[#0B1C3D]/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1C3D]/50 via-transparent to-[#0B1C3D]/50" />
+
+          {/* Subtle animated light streaks */}
+          <motion.div
+            animate={{ x: ["-100%", "200%"] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear", repeatDelay: 4 }}
+            className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent skew-x-[-20deg]"
+          />
         </motion.div>
       </AnimatePresence>
 
-      <div className="container-custom relative z-10 py-16 lg:py-24">
+      {/* Content */}
+      <div className="container-custom relative z-10 pt-24 pb-12">
         <div className="max-w-5xl mx-auto text-center">
-
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={currentSlide}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.5, type: "tween", ease: "easeInOut" }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#3FE0F0]/40 bg-[#3FE0F0]/10 backdrop-blur-sm mb-6"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/20 bg-white/[0.08] backdrop-blur-md mb-8"
               >
                 <span className="w-2 h-2 rounded-full bg-[#3FE0F0] animate-pulse" />
-                <span className="text-[#3FE0F0] text-sm font-medium">{slide.badge}</span>
+                <span className="text-white/90 text-sm font-medium tracking-wide">{slide.badge}</span>
               </motion.div>
 
-              {/* Headline - DARK SECTION: White text */}
+              {/* Main Headline — Cinematic Scale */}
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight mb-4"
+                transition={{ delay: 0.3, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="text-5xl md:text-6xl lg:text-8xl font-bold text-white leading-[0.95] tracking-tight mb-3"
               >
                 {slide.headline}
-                <span className="block text-gradient-primary mt-2">{slide.subheadline}</span>
               </motion.h1>
 
-              {/* Description - DARK SECTION: Light gray text */}
+              {/* Subheadline with gradient */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="text-lg lg:text-xl text-[#E5E7EB] mb-10 max-w-3xl mx-auto"
+                transition={{ delay: 0.45, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#3FE0F0] via-[#4DA3FF] to-[#8B5CF6] bg-clip-text text-transparent mb-8"
+              >
+                {slide.subheadline}
+              </motion.p>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.55 }}
+                className="text-lg lg:text-xl text-white/75 mb-12 max-w-3xl mx-auto leading-relaxed"
               >
                 {slide.description}
               </motion.p>
 
+              {/* CTAs */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.65 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
                 <Button variant="heroDark" size="xl" asChild>
@@ -232,12 +197,12 @@ export function HeroSection() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Enhanced Trust Stats with Icons */}
+          {/* Trust Stats */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+            transition={{ delay: 1 }}
+            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
           >
             {trustStats.map((stat, index) => {
               const Icon = stat.icon;
@@ -246,22 +211,22 @@ export function HeroSection() {
                   key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 + index * 0.1 }}
-                  className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10"
+                  transition={{ delay: 1.1 + index * 0.1 }}
+                  className="flex flex-col items-center gap-2 p-5 rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/[0.08] hover:bg-white/[0.1] transition-colors"
                 >
-                  <Icon className="w-6 h-6 text-[#3FE0F0]" />
-                  <span className="text-2xl md:text-3xl font-bold text-white">{stat.value}</span>
-                  <span className="text-xs md:text-sm text-[#E5E7EB]">{stat.label}</span>
+                  <Icon className="w-5 h-5 text-[#3FE0F0]" />
+                  <span className="text-2xl md:text-3xl font-bold text-white tabular-nums">{stat.value}</span>
+                  <span className="text-xs text-white/60">{stat.label}</span>
                 </motion.div>
               );
             })}
           </motion.div>
 
-          {/* Slide Navigation */}
+          {/* Slide Navigation — Minimal */}
           <div className="flex items-center justify-center gap-4 mt-10">
             <button
               onClick={prevSlide}
-              className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
+              className="w-10 h-10 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/70 hover:bg-white/15 hover:text-white transition-all"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -271,10 +236,10 @@ export function HeroSection() {
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
+                  className={`h-1.5 rounded-full transition-all duration-500 ${
                     index === currentSlide
-                      ? "w-8 bg-[#3FE0F0]"
-                      : "w-2 bg-white/30 hover:bg-white/50"
+                      ? "w-10 bg-[#3FE0F0]"
+                      : "w-2 bg-white/20 hover:bg-white/40"
                   }`}
                 />
               ))}
@@ -282,7 +247,7 @@ export function HeroSection() {
 
             <button
               onClick={nextSlide}
-              className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
+              className="w-10 h-10 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/70 hover:bg-white/15 hover:text-white transition-all"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -292,21 +257,27 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="mt-10 flex flex-wrap justify-center gap-4"
+            transition={{ delay: 1.3 }}
+            className="mt-8 flex flex-wrap justify-center gap-3"
           >
-            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-[#E42527]/20 to-[#E42527]/10 border border-[#E42527]/30">
-              <span className="text-sm font-medium text-white">Premium Zoho Partner</span>
-            </div>
-            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-[#00A1E0]/20 to-[#00A1E0]/10 border border-[#00A1E0]/30">
-              <span className="text-sm font-medium text-white">Zoho Creator Champions</span>
-            </div>
-            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-[#8B5CF6]/20 to-[#8B5CF6]/10 border border-[#8B5CF6]/30">
-              <span className="text-sm font-medium text-white">Global Implementation Partner</span>
-            </div>
+            {[
+              { label: "Premium Zoho Partner", color: "#E42527" },
+              { label: "Zoho Creator Champions", color: "#00A1E0" },
+              { label: "Global Implementation Partner", color: "#8B5CF6" },
+            ].map((badge) => (
+              <div
+                key={badge.label}
+                className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-sm"
+              >
+                <span className="text-sm font-medium text-white/80">{badge.label}</span>
+              </div>
+            ))}
           </motion.div>
         </div>
       </div>
+
+      {/* Bottom fade to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
     </section>
   );
 }
