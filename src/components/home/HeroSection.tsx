@@ -223,6 +223,43 @@ export function HeroSection() {
                   </Link>
                 </Button>
               </motion.div>
+
+              {/* Region Cards — Only on Global Presence slide */}
+              {currentSlide === 4 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                  className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3 max-w-6xl mx-auto"
+                >
+                  {[
+                    { flag: "🇬🇧", name: "United Kingdom", cities: "London · Manchester", link: "/zoho-partner-uk" },
+                    { flag: "🇺🇸", name: "United States", cities: "New York · Chicago", link: "/zoho-partner-usa" },
+                    { flag: "🇦🇪", name: "UAE", cities: "Dubai · Abu Dhabi", link: "/zoho-partner-uae" },
+                    { flag: "🇦🇺", name: "Australia", cities: "Sydney · Melbourne", link: "/zoho-partner-australia" },
+                    { flag: "🇨🇦", name: "Canada", cities: "Toronto · Vancouver", link: "/zoho-partner-canada" },
+                    { flag: "🇮🇳", name: "India", cities: "Mumbai · Bangalore", link: "/zoho-partner-india" },
+                    { flag: "🇪🇺", name: "Europe", cities: "Berlin · Paris", link: "/zoho-partner-europe" },
+                  ].map((region, i) => (
+                    <motion.div
+                      key={region.name}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.9 + i * 0.08 }}
+                    >
+                      <Link
+                        to={region.link}
+                        className="group block p-3 rounded-xl bg-white/[0.08] backdrop-blur-md border border-white/[0.12] hover:bg-white/[0.15] hover:border-[#3FE0F0]/40 transition-all duration-300 text-center"
+                      >
+                        <span className="text-2xl block mb-1.5">{region.flag}</span>
+                        <h4 className="text-white font-semibold text-sm leading-tight mb-0.5">{region.name}</h4>
+                        <p className="text-white/50 text-[10px]">{region.cities}</p>
+                        <MapPin className="w-3 h-3 text-[#3FE0F0] mx-auto mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </Link>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
             </motion.div>
           </AnimatePresence>
 
