@@ -116,9 +116,9 @@ export function ZohoEcosystemImageSection() {
   }, []);
 
   const baseSize = Math.min(containerSize.width, containerSize.height);
-  const innerRadius = baseSize * 0.14;
-  const middleRadius = baseSize * 0.25;
-  const outerRadius = baseSize * 0.37;
+  const innerRadius = baseSize * 0.18;
+  const middleRadius = baseSize * 0.28;
+  const outerRadius = baseSize * 0.39;
   const iconSize = Math.max(36, Math.min(48, baseSize * 0.075));
 
   // Pause rotation when any app is hovered
