@@ -130,9 +130,9 @@ export function ZohoEcosystemImageSection() {
     const delta = time - lastTimeRef.current;
     lastTimeRef.current = time;
     setRotationAngles(prev => ({
-      inner: prev.inner - 0.015 * delta,
-      middle: prev.middle + 0.009 * delta,
-      outer: prev.outer - 0.006 * delta,
+      inner: prev.inner - 0.018 * delta,
+      middle: prev.middle + 0.011 * delta,
+      outer: prev.outer - 0.007 * delta,
     }));
   });
 
