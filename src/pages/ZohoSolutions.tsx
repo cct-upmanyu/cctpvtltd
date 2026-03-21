@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Layers, BarChart3, Users, Wallet, Building, Headphones } from "lucide-react";
 import heroZohoSolutions from "@/assets/hero-zoho-solutions.jpg";
+import { TrustAndPackages } from "@/components/usa/TrustAndPackages";
 
 const zohoSuites = [
   {
