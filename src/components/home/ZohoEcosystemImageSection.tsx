@@ -110,7 +110,8 @@ export function ZohoEcosystemImageSection() {
   const [rotationAngles, setRotationAngles] = useState({ inner: 0, middle: 137, outer: 253 });
   const [containerSize, setContainerSize] = useState({ width: 500, height: 500 });
   const [hoveredApp, setHoveredApp] = useState<string | null>(null);
-  const [highlightedApps, setHighlightedApps] = useState<Set<string>>(new Set());
+  const [highlightedApp, setHighlightedApp] = useState<string | null>(null);
+  const [centerPulse, setCenterPulse] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const lastTimeRef = useRef(0);
 
@@ -125,17 +126,23 @@ export function ZohoEcosystemImageSection() {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
 
-  // Random highlight cycle: pick 2-3 apps every 2.5s
+  // Sequential highlight: center pulse → inner apps one by one → middle → outer → repeat
   useEffect(() => {
+    const allApps = [...innerOrbit, ...middleOrbit, ...outerOrbit];
+    let idx = -1; // -1 = center pulse
     const interval = setInterval(() => {
       if (hoveredApp) return;
-      const count = 2 + Math.floor(Math.random() * 2); // 2 or 3
-      const picked = new Set<string>();
-      while (picked.size < count) {
-        picked.add(zohoApps[Math.floor(Math.random() * zohoApps.length)].name);
+      if (idx === -1) {
+        setCenterPulse(true);
+        setHighlightedApp(null);
+      } else {
+        setCenterPulse(false);
+        setHighlightedApp(allApps[idx % allApps.length].name);
       }
-      setHighlightedApps(picked);
-    }, 2500);
+      idx = (idx + 1) % (allApps.length + 1);
+      if (idx === 0) idx = -1; // reset to center after full cycle... actually:
+      // after all apps, go back to -1 (center)
+    }, 1200);
     return () => clearInterval(interval);
   }, [hoveredApp]);
 
@@ -220,28 +227,29 @@ export function ZohoEcosystemImageSection() {
             <div ref={containerRef} className="relative w-full aspect-square max-w-[420px] md:max-w-[500px] lg:max-w-[580px] flex items-center justify-center mx-auto">
               {/* Outer orbit */}
               {outerOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={outerOrbit.length} orbitRadius={outerRadius} rotationOffset={rotationAngles.outer} startAngleOffset={-73} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApps.has(app.name)} />
+                <OrbitingApp key={app.name} app={app} index={index} total={outerOrbit.length} orbitRadius={outerRadius} rotationOffset={rotationAngles.outer} startAngleOffset={-73} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApp === app.name} />
               ))}
 
               {/* Middle orbit */}
               {middleOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-42} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApps.has(app.name)} />
+                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-42} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApp === app.name} />
               ))}
 
               {/* Inner orbit */}
               {innerOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={innerOrbit.length} orbitRadius={innerRadius} rotationOffset={rotationAngles.inner} startAngleOffset={-15} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApps.has(app.name)} />
+                <OrbitingApp key={app.name} app={app} index={index} total={innerOrbit.length} orbitRadius={innerRadius} rotationOffset={rotationAngles.inner} startAngleOffset={-15} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApp === app.name} />
               ))}
 
-              {/* Central Zoho One - Minimal */}
+              {/* Central Zoho One */}
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.3 }}
                 className="relative z-20 flex flex-col items-center"
+                animate={{ scale: centerPulse ? 1.3 : 1 }}
               >
-                <img src={zohoOneLogo} alt="Zoho One" className="w-12 h-auto md:w-14 object-contain" />
+                <img src={zohoOneLogo} alt="Zoho One" className="w-12 h-auto md:w-14 object-contain" style={{ transition: 'transform 0.5s ease' }} />
                 <span className="text-[9px] md:text-[10px] text-[#6B7280] mt-1 font-medium">Unified Business OS</span>
               </motion.div>
             </div>
