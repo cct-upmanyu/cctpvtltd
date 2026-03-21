@@ -215,7 +215,7 @@ export function ZohoEcosystemImageSection() {
 
               {/* Middle orbit */}
               {middleOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-60} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
+                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-42} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
               ))}
 
               {/* Inner orbit */}
