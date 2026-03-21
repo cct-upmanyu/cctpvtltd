@@ -76,8 +76,8 @@ const OrbitingApp = ({
   // Floating animation offset based on index
   const floatOffset = Math.sin((Date.now() / 1500) + index * 0.5) * 3;
   
-  const isPaused = hoveredApp === app.name;
-  const scale = isPaused ? 1.15 : 1;
+  const isHovered = hoveredApp === app.name;
+  const scale = isHovered ? 2 : 1;
 
   return (
     <motion.div
