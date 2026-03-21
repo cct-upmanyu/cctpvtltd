@@ -176,20 +176,14 @@ export function ZohoEcosystemSection() {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Split background - full height */}
+      {/* Split background */}
       <div className="absolute inset-0 flex">
         <div className="w-full lg:w-[45%] bg-[#0B1C3D]" />
-        <div className="hidden lg:block w-[55%] bg-gradient-to-br from-[#F0F7FB] via-[#E8F4FC] to-[#FFFFFF]" />
-      </div>
-      
-      {/* Background effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#3FE0F0]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#8B5CF6]/5 rounded-full blur-3xl" />
+        <div className="hidden lg:block w-[55%] bg-white" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-[45%_55%] gap-0 items-center min-h-[700px] lg:min-h-[800px]">
+        <div className="grid lg:grid-cols-[45%_55%] gap-0 items-center min-h-[600px] lg:min-h-[700px]">
           {/* Left Content - Dark background */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
