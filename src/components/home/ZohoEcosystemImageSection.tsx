@@ -98,7 +98,7 @@ const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngl
 };
 
 export function ZohoEcosystemImageSection() {
-  const [rotationAngles, setRotationAngles] = useState({ inner: 0, middle: 120, outer: 240 });
+  const [rotationAngles, setRotationAngles] = useState({ inner: 0, middle: 137, outer: 253 });
   const [containerSize, setContainerSize] = useState({ width: 500, height: 500 });
   const [hoveredApp, setHoveredApp] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
