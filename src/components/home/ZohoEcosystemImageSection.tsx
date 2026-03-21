@@ -110,7 +110,8 @@ export function ZohoEcosystemImageSection() {
   const [rotationAngles, setRotationAngles] = useState({ inner: 0, middle: 137, outer: 253 });
   const [containerSize, setContainerSize] = useState({ width: 500, height: 500 });
   const [hoveredApp, setHoveredApp] = useState<string | null>(null);
-  const [highlightedApps, setHighlightedApps] = useState<Set<string>>(new Set());
+  const [highlightedApp, setHighlightedApp] = useState<string | null>(null);
+  const [centerPulse, setCenterPulse] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const lastTimeRef = useRef(0);
 
@@ -125,17 +126,23 @@ export function ZohoEcosystemImageSection() {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
 
-  // Random highlight cycle: pick 2-3 apps every 2.5s
+  // Sequential highlight: center pulse → inner apps one by one → middle → outer → repeat
   useEffect(() => {
+    const allApps = [...innerOrbit, ...middleOrbit, ...outerOrbit];
+    let idx = -1; // -1 = center pulse
     const interval = setInterval(() => {
       if (hoveredApp) return;
-      const count = 2 + Math.floor(Math.random() * 2); // 2 or 3
-      const picked = new Set<string>();
-      while (picked.size < count) {
-        picked.add(zohoApps[Math.floor(Math.random() * zohoApps.length)].name);
+      if (idx === -1) {
+        setCenterPulse(true);
+        setHighlightedApp(null);
+      } else {
+        setCenterPulse(false);
+        setHighlightedApp(allApps[idx % allApps.length].name);
       }
-      setHighlightedApps(picked);
-    }, 2500);
+      idx = (idx + 1) % (allApps.length + 1);
+      if (idx === 0) idx = -1; // reset to center after full cycle... actually:
+      // after all apps, go back to -1 (center)
+    }, 1200);
     return () => clearInterval(interval);
   }, [hoveredApp]);
 
