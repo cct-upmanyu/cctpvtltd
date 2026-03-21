@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight, Award, Globe, Users, Briefcase } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Award, Globe, Users, Briefcase, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { PlexusBackground } from "@/components/animations/PlexusBackground";
+import worldNetworkBg from "@/assets/world-network-bg.jpg";
 
 const heroSlides = [
   {
