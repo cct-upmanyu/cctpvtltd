@@ -110,6 +110,7 @@ export function ZohoEcosystemImageSection() {
   const [rotationAngles, setRotationAngles] = useState({ inner: 0, middle: 137, outer: 253 });
   const [containerSize, setContainerSize] = useState({ width: 500, height: 500 });
   const [hoveredApp, setHoveredApp] = useState<string | null>(null);
+  const [highlightedApps, setHighlightedApps] = useState<Set<string>>(new Set());
   const containerRef = useRef<HTMLDivElement>(null);
   const lastTimeRef = useRef(0);
 
@@ -124,13 +125,26 @@ export function ZohoEcosystemImageSection() {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
 
+  // Random highlight cycle: pick 2-3 apps every 2.5s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (hoveredApp) return;
+      const count = 2 + Math.floor(Math.random() * 2); // 2 or 3
+      const picked = new Set<string>();
+      while (picked.size < count) {
+        picked.add(zohoApps[Math.floor(Math.random() * zohoApps.length)].name);
+      }
+      setHighlightedApps(picked);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [hoveredApp]);
+
   const baseSize = Math.min(containerSize.width, containerSize.height);
   const innerRadius = baseSize * 0.18;
   const middleRadius = baseSize * 0.28;
   const outerRadius = baseSize * 0.39;
   const iconSize = Math.max(44, Math.min(56, baseSize * 0.095));
 
-  // Pause rotation when any app is hovered
   useAnimationFrame((time) => {
     if (hoveredApp) {
       lastTimeRef.current = time;
