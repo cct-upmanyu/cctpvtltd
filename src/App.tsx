@@ -45,6 +45,8 @@ import CRMDevelopment from "./pages/crm/CRMDevelopment";
 import CRMAutomation from "./pages/crm/CRMAutomation";
 import CRMIntegrations from "./pages/crm/CRMIntegrations";
 import CRMAudit from "./pages/crm/CRMAudit";
+import AuditZohoSetup from "./pages/AuditZohoSetup";
+import AuditLegacySystem from "./pages/AuditLegacySystem";
 
 // AI Solution Pages
 import AIAgents from "./pages/ai/AIAgents";
