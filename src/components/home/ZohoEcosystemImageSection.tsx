@@ -116,13 +116,10 @@ export function ZohoEcosystemImageSection() {
   }, []);
 
   const baseSize = Math.min(containerSize.width, containerSize.height);
-  const isSmall = baseSize < 400;
-  const innerRadius = baseSize * (isSmall ? 0.15 : 0.18);
-  const middleRadius = baseSize * (isSmall ? 0.28 : 0.32);
-  const outerRadius = baseSize * (isSmall ? 0.42 : 0.46);
-  const iconSizeInner = isSmall ? 40 : 60;
-  const iconSizeMiddle = isSmall ? 38 : 56;
-  const iconSizeOuter = isSmall ? 34 : 52;
+  const innerRadius = baseSize * 0.14;
+  const middleRadius = baseSize * 0.25;
+  const outerRadius = baseSize * 0.37;
+  const iconSize = Math.max(36, Math.min(48, baseSize * 0.075));
 
   // Pause rotation when any app is hovered
   useAnimationFrame((time) => {
@@ -142,7 +139,7 @@ export function ZohoEcosystemImageSection() {
   return (
     <section className="relative overflow-hidden bg-white">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-[45%_55%] gap-0 items-center min-h-[700px] lg:min-h-[800px]">
+        <div className="grid lg:grid-cols-[45%_55%] gap-0 items-center min-h-[600px] lg:min-h-[700px]">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -195,9 +192,9 @@ export function ZohoEcosystemImageSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative flex items-center justify-center py-8 lg:py-0"
+            className="relative flex items-center justify-center py-8 lg:py-0 overflow-hidden"
           >
-            <div ref={containerRef} className="relative w-full aspect-square max-w-[450px] md:max-w-[550px] lg:max-w-none lg:w-[650px] lg:h-[650px] flex items-center justify-center mx-auto">
+            <div ref={containerRef} className="relative w-full aspect-square max-w-[420px] md:max-w-[500px] lg:max-w-[580px] flex items-center justify-center mx-auto">
               {/* Orbit rings */}
               {[outerRadius, middleRadius, innerRadius].map((r, i) => (
                 <div
@@ -213,17 +210,17 @@ export function ZohoEcosystemImageSection() {
 
               {/* Outer orbit */}
               {outerOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={outerOrbit.length} orbitRadius={outerRadius} rotationOffset={rotationAngles.outer} startAngleOffset={-90} size={iconSizeOuter} hoveredApp={hoveredApp} onHover={setHoveredApp} />
+                <OrbitingApp key={app.name} app={app} index={index} total={outerOrbit.length} orbitRadius={outerRadius} rotationOffset={rotationAngles.outer} startAngleOffset={-90} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
               ))}
 
               {/* Middle orbit */}
               {middleOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-60} size={iconSizeMiddle} hoveredApp={hoveredApp} onHover={setHoveredApp} />
+                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-60} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
               ))}
 
               {/* Inner orbit */}
               {innerOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={innerOrbit.length} orbitRadius={innerRadius} rotationOffset={rotationAngles.inner} startAngleOffset={-30} size={iconSizeInner} hoveredApp={hoveredApp} onHover={setHoveredApp} />
+                <OrbitingApp key={app.name} app={app} index={index} total={innerOrbit.length} orbitRadius={innerRadius} rotationOffset={rotationAngles.inner} startAngleOffset={-30} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} />
               ))}
 
               {/* Central Zoho One - Reduced size */}
