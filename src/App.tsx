@@ -45,6 +45,8 @@ import CRMDevelopment from "./pages/crm/CRMDevelopment";
 import CRMAutomation from "./pages/crm/CRMAutomation";
 import CRMIntegrations from "./pages/crm/CRMIntegrations";
 import CRMAudit from "./pages/crm/CRMAudit";
+import AuditZohoSetup from "./pages/AuditZohoSetup";
+import AuditLegacySystem from "./pages/AuditLegacySystem";
 
 // AI Solution Pages
 import AIAgents from "./pages/ai/AIAgents";
@@ -142,6 +144,8 @@ const App = () => (
             <Route path="/crm-automation" element={<CRMAutomation />} />
             <Route path="/crm-integrations" element={<CRMIntegrations />} />
             <Route path="/crm-audit" element={<CRMAudit />} />
+            <Route path="/audit-zoho-setup" element={<AuditZohoSetup />} />
+            <Route path="/audit-legacy-system" element={<AuditLegacySystem />} />
             {/* AI Solution Pages */}
             <Route path="/ai-agents" element={<AIAgents />} />
             <Route path="/ai-sales-automation" element={<AISalesAutomation />} />

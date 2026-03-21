@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { 
   Layers, Brain, PieChart, Cog, Globe, Database,
-  ArrowRight, Link2, Puzzle, Gauge, Shield, CheckCircle
+  ArrowRight, Link2, Puzzle, Gauge, Shield, CheckCircle,
+  ClipboardCheck, SearchCheck
 } from "lucide-react";
 
 import zohoEcosystemImg from "@/assets/capabilities/zoho-ecosystem.jpg";
@@ -15,6 +16,8 @@ import integrationsImg from "@/assets/capabilities/integrations.jpg";
 import extensionsImg from "@/assets/capabilities/extensions.jpg";
 import optimizationImg from "@/assets/capabilities/optimization.jpg";
 import complianceImg from "@/assets/capabilities/compliance.jpg";
+import legacyAuditImg from "@/assets/capabilities/legacy-audit.jpg";
+import zohoAuditImg from "@/assets/capabilities/zoho-audit.jpg";
 
 const capabilities = [
   {
@@ -97,6 +100,22 @@ const capabilities = [
     image: complianceImg,
     features: ["RBAC Setup", "Audit Trails", "Data Security"]
   },
+  {
+    icon: ClipboardCheck,
+    title: "Audit Current Legacy System",
+    description: "Comprehensive assessment of your existing legacy systems—identifying inefficiencies, risks, and a clear migration roadmap to modern platforms.",
+    href: "/audit-legacy-system",
+    image: legacyAuditImg,
+    features: ["System Assessment", "Risk Analysis", "Migration Roadmap"]
+  },
+  {
+    icon: SearchCheck,
+    title: "Audit Current Zoho Setup",
+    description: "Deep-dive audit of your Zoho ecosystem—uncovering underutilized features, broken automations, and data issues to unlock 100% ROI.",
+    href: "/audit-zoho-setup",
+    image: zohoAuditImg,
+    features: ["CRM Health Check", "Automation Review", "Data Cleanup"]
+  },
 ];
 
 export function CapabilitiesSection() {
@@ -119,7 +138,7 @@ export function CapabilitiesSection() {
             Our Expertise
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4">
-            10 Core Capabilities
+            12 Core Capabilities
           </h2>
           <p className="text-[#374151] text-lg max-w-3xl mx-auto">
             End-to-end solutions designed to transform your business operations with intelligent automation.
