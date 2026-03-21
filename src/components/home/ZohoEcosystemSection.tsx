@@ -244,7 +244,7 @@ export function ZohoEcosystemSection() {
           >
             <div 
               ref={containerRef}
-              className="relative w-full aspect-square max-w-[600px] lg:max-w-none lg:w-[650px] lg:h-[650px] flex items-center justify-center"
+              className="relative w-full aspect-square max-w-[420px] md:max-w-[500px] lg:max-w-[580px] flex items-center justify-center mx-auto"
             >
               {/* Concentric ring backgrounds */}
               <div 
