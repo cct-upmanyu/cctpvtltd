@@ -119,7 +119,7 @@ export function ZohoEcosystemImageSection() {
   const innerRadius = baseSize * 0.18;
   const middleRadius = baseSize * 0.28;
   const outerRadius = baseSize * 0.39;
-  const iconSize = Math.max(36, Math.min(48, baseSize * 0.075));
+  const iconSize = Math.max(44, Math.min(56, baseSize * 0.095));
 
   // Pause rotation when any app is hovered
   useAnimationFrame((time) => {
@@ -130,9 +130,9 @@ export function ZohoEcosystemImageSection() {
     const delta = time - lastTimeRef.current;
     lastTimeRef.current = time;
     setRotationAngles(prev => ({
-      inner: prev.inner - 0.015 * delta,
-      middle: prev.middle + 0.009 * delta,
-      outer: prev.outer - 0.006 * delta,
+      inner: prev.inner - 0.018 * delta,
+      middle: prev.middle + 0.011 * delta,
+      outer: prev.outer - 0.007 * delta,
     }));
   });
 
