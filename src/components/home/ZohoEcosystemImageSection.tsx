@@ -1,5 +1,5 @@
-import { motion, useAnimationFrame } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -33,149 +33,69 @@ const zohoApps = [
   { name: "Sign", logo: "https://www.zohowebstatic.com/sites/zweb/images/productlogos/sign.png", color: "#00BCD4" },
 ];
 
-const innerOrbit = zohoApps.slice(0, 5);
-const middleOrbit = zohoApps.slice(5, 10);
-const outerOrbit = zohoApps.slice(10, 16);
-
-interface OrbitingAppProps {
-  app: { name: string; logo: string; color: string };
-  index: number;
-  total: number;
-  orbitRadius: number;
-  rotationOffset: number;
-  startAngleOffset: number;
-  size: number;
-  hoveredApp: string | null;
-  onHover: (name: string | null) => void;
-  isHighlighted: boolean;
-}
-
-const OrbitingApp = ({ app, index, total, orbitRadius, rotationOffset, startAngleOffset, size, hoveredApp, onHover, isHighlighted }: OrbitingAppProps) => {
+const AppCard = ({ app, index }: { app: typeof zohoApps[0]; index: number }) => {
   const [imgError, setImgError] = useState(false);
-  const baseAngle = (index / total) * 360 + startAngleOffset;
-  const currentAngle = baseAngle + rotationOffset;
-  const angleRad = (currentAngle * Math.PI) / 180;
-  const x = Math.cos(angleRad) * orbitRadius;
-  const y = Math.sin(angleRad) * orbitRadius;
-  const isHovered = hoveredApp === app.name;
-  const isPopped = isHovered || isHighlighted;
-  const scale = isPopped ? 1.6 : 1;
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div
-      className="absolute flex flex-col items-center gap-0.5"
-      style={{
-        left: `calc(50% + ${x}px)`,
-        top: `calc(50% + ${y}px)`,
-        transform: `translate(-50%, -50%) scale(${scale})`,
-        zIndex: isPopped ? 50 : 10,
-        transition: "transform 0.5s ease, box-shadow 0.5s ease",
-      }}
-      onMouseEnter={() => onHover(app.name)}
-      onMouseLeave={() => onHover(null)}
+    <motion.div
+      initial={{ opacity: 0, y: 20, scale: 0.9 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.06, duration: 0.4, ease: "easeOut" }}
+      className="flex flex-col items-center gap-1.5 cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div
-        className="rounded-full bg-white flex items-center justify-center cursor-pointer"
+        className="rounded-2xl bg-white flex items-center justify-center p-3"
         style={{
-          width: `${size}px`,
-          height: `${size}px`,
-          padding: `${size * 0.15}px`,
-          boxShadow: isPopped ? `0 0 24px ${app.color}50, 0 4px 12px rgba(0,0,0,0.1)` : '0 2px 8px rgba(0,0,0,0.08)',
-          border: isPopped ? `2px solid ${app.color}` : '2px solid transparent',
+          width: '64px',
+          height: '64px',
+          boxShadow: isHovered
+            ? `0 8px 24px ${app.color}35, 0 0 0 2px ${app.color}`
+            : '0 2px 12px rgba(0,0,0,0.06)',
+          border: isHovered ? `2px solid ${app.color}` : '2px solid #F3F4F6',
+          transform: isHovered ? 'scale(1.15) translateY(-4px)' : 'scale(1)',
+          transition: 'all 0.3s ease',
         }}
       >
         {imgError ? (
-          <div className="w-full h-full rounded-full flex items-center justify-center text-white font-bold text-[10px]" style={{ backgroundColor: app.color }}>
+          <div
+            className="w-full h-full rounded-lg flex items-center justify-center text-white font-bold text-sm"
+            style={{ backgroundColor: app.color }}
+          >
             {app.name.substring(0, 2)}
           </div>
         ) : (
-          <img src={app.logo} alt={`Zoho ${app.name}`} className="w-full h-full object-contain" onError={() => setImgError(true)} />
+          <img
+            src={app.logo}
+            alt={`Zoho ${app.name}`}
+            className="w-full h-full object-contain"
+            onError={() => setImgError(true)}
+          />
         )}
       </div>
       <span
-        className="text-[9px] font-semibold whitespace-nowrap px-1.5 py-0.5 rounded-full"
-        style={{
-          color: isPopped ? app.color : '#374151',
-          background: isPopped ? `${app.color}15` : 'rgba(255,255,255,0.9)',
-          fontWeight: isPopped ? 700 : 600,
-        }}
+        className="text-[11px] font-semibold whitespace-nowrap"
+        style={{ color: isHovered ? app.color : '#374151' }}
       >
         {app.name}
       </span>
-    </div>
+    </motion.div>
   );
 };
 
 export function ZohoEcosystemImageSection() {
-  const [rotationAngles, setRotationAngles] = useState({ inner: 0, middle: 137, outer: 253 });
-  const [containerSize, setContainerSize] = useState({ width: 500, height: 500 });
-  const [hoveredApp, setHoveredApp] = useState<string | null>(null);
-  const [highlightedApp, setHighlightedApp] = useState<string | null>(null);
-  const [centerPulse, setCenterPulse] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const lastTimeRef = useRef(0);
-
-  useEffect(() => {
-    const updateSize = () => {
-      if (containerRef.current) {
-        setContainerSize({ width: containerRef.current.offsetWidth, height: containerRef.current.offsetHeight });
-      }
-    };
-    updateSize();
-    window.addEventListener('resize', updateSize);
-    return () => window.removeEventListener('resize', updateSize);
-  }, []);
-
-  // Sequential highlight: center pulse → inner apps one by one → middle → outer → repeat
-  useEffect(() => {
-    const allApps = [...innerOrbit, ...middleOrbit, ...outerOrbit];
-    let idx = -1; // -1 = center pulse
-    const interval = setInterval(() => {
-      if (hoveredApp) return;
-      if (idx === -1) {
-        setCenterPulse(true);
-        setHighlightedApp(null);
-      } else {
-        setCenterPulse(false);
-        setHighlightedApp(allApps[idx % allApps.length].name);
-      }
-      idx = (idx + 1) % (allApps.length + 1);
-      if (idx === 0) idx = -1; // reset to center after full cycle... actually:
-      // after all apps, go back to -1 (center)
-    }, 1200);
-    return () => clearInterval(interval);
-  }, [hoveredApp]);
-
-  const baseSize = Math.min(containerSize.width, containerSize.height);
-  const innerRadius = baseSize * 0.18;
-  const middleRadius = baseSize * 0.28;
-  const outerRadius = baseSize * 0.39;
-  const iconSize = Math.max(44, Math.min(56, baseSize * 0.095));
-
-  useAnimationFrame((time) => {
-    if (hoveredApp) {
-      lastTimeRef.current = time;
-      return;
-    }
-    const delta = time - lastTimeRef.current;
-    lastTimeRef.current = time;
-    setRotationAngles(prev => ({
-      inner: prev.inner - 0.018 * delta,
-      middle: prev.middle + 0.011 * delta,
-      outer: prev.outer - 0.007 * delta,
-    }));
-  });
-
   return (
-    <section className="relative overflow-hidden bg-white">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-[45%_55%] gap-0 items-center min-h-[600px] lg:min-h-[700px]">
+    <section className="relative overflow-hidden bg-white py-16 lg:py-20">
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-[42%_58%] gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="py-16 md:py-20 lg:py-24 pr-4 lg:pr-12"
           >
             <span className="inline-block px-4 py-1.5 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-sm font-medium mb-4">
               Zoho Premium Partner
@@ -217,41 +137,51 @@ export function ZohoEcosystemImageSection() {
             </Button>
           </motion.div>
 
-          {/* Right Side - Orbital Animation */}
+          {/* Right Side - Honeycomb Grid */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="relative flex items-center justify-center py-8 lg:py-0 overflow-hidden"
+            className="flex flex-col items-center gap-6"
           >
-            <div ref={containerRef} className="relative w-full aspect-square max-w-[420px] md:max-w-[500px] lg:max-w-[580px] flex items-center justify-center mx-auto">
-              {/* Outer orbit */}
-              {outerOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={outerOrbit.length} orbitRadius={outerRadius} rotationOffset={rotationAngles.outer} startAngleOffset={-73} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApp === app.name} />
-              ))}
+            {/* Central Zoho One */}
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+              className="flex flex-col items-center mb-2"
+            >
+              <img src={zohoOneLogo} alt="Zoho One" className="w-14 h-auto object-contain" />
+              <span className="text-xs text-[#6B7280] mt-1 font-medium">Unified Business OS</span>
+            </motion.div>
 
-              {/* Middle orbit */}
-              {middleOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={middleOrbit.length} orbitRadius={middleRadius} rotationOffset={rotationAngles.middle} startAngleOffset={-42} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApp === app.name} />
-              ))}
-
-              {/* Inner orbit */}
-              {innerOrbit.map((app, index) => (
-                <OrbitingApp key={app.name} app={app} index={index} total={innerOrbit.length} orbitRadius={innerRadius} rotationOffset={rotationAngles.inner} startAngleOffset={-15} size={iconSize} hoveredApp={hoveredApp} onHover={setHoveredApp} isHighlighted={highlightedApp === app.name} />
-              ))}
-
-              {/* Central Zoho One */}
-              <motion.div
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.3 }}
-                className="relative z-20 flex flex-col items-center"
-                animate={{ scale: centerPulse ? 1.3 : 1 }}
-              >
-                <img src={zohoOneLogo} alt="Zoho One" className="w-12 h-auto md:w-14 object-contain" style={{ transition: 'transform 0.5s ease' }} />
-                <span className="text-[9px] md:text-[10px] text-[#6B7280] mt-1 font-medium">Unified Business OS</span>
-              </motion.div>
+            {/* Apps Grid - staggered rows */}
+            <div className="flex flex-col items-center gap-5">
+              {/* Row 1 - 4 apps */}
+              <div className="flex items-center justify-center gap-6">
+                {zohoApps.slice(0, 4).map((app, i) => (
+                  <AppCard key={app.name} app={app} index={i} />
+                ))}
+              </div>
+              {/* Row 2 - 5 apps (offset) */}
+              <div className="flex items-center justify-center gap-6">
+                {zohoApps.slice(4, 9).map((app, i) => (
+                  <AppCard key={app.name} app={app} index={i + 4} />
+                ))}
+              </div>
+              {/* Row 3 - 4 apps */}
+              <div className="flex items-center justify-center gap-6">
+                {zohoApps.slice(9, 13).map((app, i) => (
+                  <AppCard key={app.name} app={app} index={i + 9} />
+                ))}
+              </div>
+              {/* Row 4 - 3 apps */}
+              <div className="flex items-center justify-center gap-6">
+                {zohoApps.slice(13, 16).map((app, i) => (
+                  <AppCard key={app.name} app={app} index={i + 13} />
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
