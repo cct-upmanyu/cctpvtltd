@@ -119,6 +119,13 @@ export function HeroSection() {
         >
           {slide.backgroundType === "plexus" ? (
             <PlexusBackground />
+          ) : slide.backgroundType === "image" ? (
+            <img
+              src={worldNetworkBg}
+              alt="Global network"
+              className="absolute inset-0 w-full h-full object-cover scale-105"
+              style={{ filter: "brightness(0.5)" }}
+            />
           ) : (
             <video
               autoPlay
