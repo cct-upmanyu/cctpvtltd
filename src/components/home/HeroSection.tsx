@@ -252,8 +252,8 @@ export function HeroSection() {
                         className="group block p-3 rounded-xl bg-white/[0.08] backdrop-blur-md border border-white/[0.12] hover:bg-white/[0.15] hover:border-[#3FE0F0]/40 transition-all duration-300 text-center"
                       >
                         <span className="text-2xl block mb-1.5">{region.flag}</span>
-                        <h4 className="text-white font-semibold text-sm leading-tight mb-0.5">{region.name}</h4>
-                        <p className="text-white/50 text-[10px]">{region.cities}</p>
+                        <h4 className="text-[#3FE0F0] font-semibold text-sm leading-tight mb-0.5">{region.name}</h4>
+                        <p className="text-white/70 text-[10px]">{region.cities}</p>
                         <MapPin className="w-3 h-3 text-[#3FE0F0] mx-auto mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </Link>
                     </motion.div>
@@ -263,30 +263,32 @@ export function HeroSection() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Trust Stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
-          >
-            {trustStats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.1 + index * 0.1 }}
-                  className="flex flex-col items-center gap-2 p-5 rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/[0.08] hover:bg-white/[0.1] transition-colors"
-                >
-                  <Icon className="w-5 h-5 text-[#3FE0F0]" />
-                  <span className="text-2xl md:text-3xl font-bold text-white tabular-nums">{stat.value}</span>
-                  <span className="text-xs text-white/60">{stat.label}</span>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+          {/* Trust Stats — hidden on Global Presence slide */}
+          {currentSlide !== 4 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
+            >
+              {trustStats.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.1 + index * 0.1 }}
+                    className="flex flex-col items-center gap-2 p-5 rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/[0.08] hover:bg-white/[0.1] transition-colors"
+                  >
+                    <Icon className="w-5 h-5 text-[#3FE0F0]" />
+                    <span className="text-2xl md:text-3xl font-bold text-white tabular-nums">{stat.value}</span>
+                    <span className="text-xs text-white/60">{stat.label}</span>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          )}
 
           {/* Slide Navigation — Minimal */}
           <div className="flex items-center justify-center gap-4 mt-10">
