@@ -25,7 +25,7 @@ const heroSlides = [
     ctaLink: "/ai-solutions",
     secondaryCta: "See Case Studies",
     secondaryLink: "/case-studies",
-    video: "https://videos.pexels.com/video-files/5532770/5532770-uhd_2732_1440_25fps.mp4",
+    video: "https://videos.pexels.com/video-files/6153054/6153054-uhd_2560_1440_24fps.mp4",
   },
   {
     badge: "Custom ERP Development",
