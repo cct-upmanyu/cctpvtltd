@@ -285,8 +285,8 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
+      {/* Clean divider line */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10 z-10" />
     </section>
   );
 }
