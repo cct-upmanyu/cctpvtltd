@@ -29,7 +29,7 @@ const heroSlides = [
     secondaryCta: "See Case Studies",
     secondaryLink: "/case-studies",
     backgroundType: "video" as const,
-    video: "https://videos.pexels.com/video-files/3141210/3141210-uhd_2560_1440_25fps.mp4",
+    video: "https://videos.pexels.com/video-files/3129595/3129595-uhd_2560_1440_30fps.mp4",
   },
   {
     badge: "Custom ERP Development",
