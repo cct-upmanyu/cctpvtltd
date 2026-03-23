@@ -19,8 +19,9 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "Talk to a Zoho Expert",
     secondaryLink: "/contact",
-    backgroundType: "video" as const,
-    video: heroVideo1.url,
+    backgroundType: "image" as const,
+    video: "",
+    image: heroHandshake1,
   },
   {
     badge: "Enterprise AI Solutions",
@@ -31,8 +32,9 @@ const heroSlides = [
     ctaLink: "/ai-solutions",
     secondaryCta: "See Case Studies",
     secondaryLink: "/case-studies",
-    backgroundType: "video" as const,
-    video: heroVideo2.url,
+    backgroundType: "image" as const,
+    video: "",
+    image: heroHandshake2,
   },
   {
     badge: "Custom ERP Development",
@@ -45,6 +47,7 @@ const heroSlides = [
     secondaryLink: "/case-studies",
     backgroundType: "video" as const,
     video: heroVideo3.url,
+    image: "",
   },
   {
     badge: "Zoho Creator Champions",
