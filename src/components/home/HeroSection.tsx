@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { PlexusBackground } from "@/components/animations/PlexusBackground";
 import worldNetworkBg from "@/assets/world-network-bg.jpg";
-import heroVideo1 from "@/assets/hero-ai-network-1.mp4.asset.json";
-import heroVideo2 from "@/assets/hero-ai-network-2.mp4.asset.json";
+import heroHandshake1 from "@/assets/hero-ai-handshake-1.jpg";
+import heroHandshake2 from "@/assets/hero-ai-handshake-2.jpg";
 import heroVideo3 from "@/assets/hero-ai-network-3.mp4.asset.json";
 
 const heroSlides = [
