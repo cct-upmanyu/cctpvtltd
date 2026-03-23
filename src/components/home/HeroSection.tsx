@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { PlexusBackground } from "@/components/animations/PlexusBackground";
 import worldNetworkBg from "@/assets/world-network-bg.jpg";
-import heroHandshake1 from "@/assets/hero-ai-handshake-1.jpg";
-import heroHandshake2 from "@/assets/hero-ai-handshake-2.jpg";
+import heroVideo1 from "@/assets/hero-slide1-handshake.mp4";
+import heroVideo2 from "@/assets/hero-slide2-handshake.mp4";
 import heroVideo3 from "@/assets/hero-ai-network-3.mp4.asset.json";
 
 const heroSlides = [
@@ -19,9 +19,9 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "Talk to a Zoho Expert",
     secondaryLink: "/contact",
-    backgroundType: "image" as const,
-    video: "",
-    image: heroHandshake1,
+    backgroundType: "video" as const,
+    video: heroVideo1,
+    image: "",
   },
   {
     badge: "Enterprise AI Solutions",
@@ -32,9 +32,9 @@ const heroSlides = [
     ctaLink: "/ai-solutions",
     secondaryCta: "See Case Studies",
     secondaryLink: "/case-studies",
-    backgroundType: "image" as const,
-    video: "",
-    image: heroHandshake2,
+    backgroundType: "video" as const,
+    video: heroVideo2,
+    image: "",
   },
   {
     badge: "Custom ERP Development",
