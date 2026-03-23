@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { PlexusBackground } from "@/components/animations/PlexusBackground";
 import worldNetworkBg from "@/assets/world-network-bg.jpg";
-import heroVideo1 from "@/assets/hero-ai-network-1.mp4.asset.json";
-import heroVideo2 from "@/assets/hero-ai-network-2.mp4.asset.json";
+import heroHandshake1 from "@/assets/hero-ai-handshake-1.jpg";
+import heroHandshake2 from "@/assets/hero-ai-handshake-2.jpg";
 import heroVideo3 from "@/assets/hero-ai-network-3.mp4.asset.json";
 
 const heroSlides = [
@@ -19,8 +19,9 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "Talk to a Zoho Expert",
     secondaryLink: "/contact",
-    backgroundType: "video" as const,
-    video: heroVideo1.url,
+    backgroundType: "image" as const,
+    video: "",
+    image: heroHandshake1,
   },
   {
     badge: "Enterprise AI Solutions",
@@ -31,8 +32,9 @@ const heroSlides = [
     ctaLink: "/ai-solutions",
     secondaryCta: "See Case Studies",
     secondaryLink: "/case-studies",
-    backgroundType: "video" as const,
-    video: heroVideo2.url,
+    backgroundType: "image" as const,
+    video: "",
+    image: heroHandshake2,
   },
   {
     badge: "Custom ERP Development",
@@ -45,6 +47,7 @@ const heroSlides = [
     secondaryLink: "/case-studies",
     backgroundType: "video" as const,
     video: heroVideo3.url,
+    image: "",
   },
   {
     badge: "Zoho Creator Champions",
@@ -57,6 +60,7 @@ const heroSlides = [
     secondaryLink: "/zoho-creator",
     backgroundType: "video" as const,
     video: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+    image: "",
   },
   {
     badge: "Trusted Across Continents",
@@ -69,6 +73,7 @@ const heroSlides = [
     secondaryLink: "/zoho-partner-usa",
     backgroundType: "image" as const,
     video: "",
+    image: worldNetworkBg,
   },
 ];
 
@@ -122,10 +127,10 @@ export function HeroSection() {
         >
           {slide.backgroundType === "image" ? (
             <img
-              src={worldNetworkBg}
-              alt="Global network"
+              src={slide.image || worldNetworkBg}
+              alt={slide.headline}
               className="absolute inset-0 w-full h-full object-cover scale-105"
-              style={{ filter: "brightness(0.5)" }}
+              style={{ filter: "brightness(0.45)" }}
             />
           ) : (
             <video
