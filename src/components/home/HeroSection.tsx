@@ -16,8 +16,8 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "Talk to a Zoho Expert",
     secondaryLink: "/contact",
-    backgroundType: "plexus" as const,
-    video: "",
+    backgroundType: "video" as const,
+    video: "https://videos.pexels.com/video-files/3141210/3141210-uhd_2560_1440_25fps.mp4",
   },
   {
     badge: "Enterprise AI Solutions",
@@ -28,8 +28,8 @@ const heroSlides = [
     ctaLink: "/ai-solutions",
     secondaryCta: "See Case Studies",
     secondaryLink: "/case-studies",
-    backgroundType: "plexus" as const,
-    video: "",
+    backgroundType: "video" as const,
+    video: "https://videos.pexels.com/video-files/3141210/3141210-uhd_2560_1440_25fps.mp4",
   },
   {
     badge: "Custom ERP Development",
@@ -40,8 +40,8 @@ const heroSlides = [
     ctaLink: "/contact",
     secondaryCta: "View Our Portfolio",
     secondaryLink: "/case-studies",
-    backgroundType: "plexus" as const,
-    video: "",
+    backgroundType: "video" as const,
+    video: "https://videos.pexels.com/video-files/3141210/3141210-uhd_2560_1440_25fps.mp4",
   },
   {
     badge: "Zoho Creator Champions",
@@ -84,7 +84,7 @@ export function HeroSection() {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 7000);
+    }, 12000);
     return () => clearInterval(timer);
   }, []);
 
@@ -117,9 +117,7 @@ export function HeroSection() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="absolute inset-0 z-0"
         >
-          {slide.backgroundType === "plexus" ? (
-            <PlexusBackground />
-          ) : slide.backgroundType === "image" ? (
+          {slide.backgroundType === "image" ? (
             <img
               src={worldNetworkBg}
               alt="Global network"
