@@ -60,6 +60,7 @@ const heroSlides = [
     secondaryLink: "/zoho-creator",
     backgroundType: "video" as const,
     video: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+    image: "",
   },
   {
     badge: "Trusted Across Continents",
@@ -72,6 +73,7 @@ const heroSlides = [
     secondaryLink: "/zoho-partner-usa",
     backgroundType: "image" as const,
     video: "",
+    image: worldNetworkBg,
   },
 ];
 
