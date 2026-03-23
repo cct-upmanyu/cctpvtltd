@@ -117,9 +117,7 @@ export function HeroSection() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="absolute inset-0 z-0"
         >
-          {slide.backgroundType === "plexus" ? (
-            <PlexusBackground />
-          ) : slide.backgroundType === "image" ? (
+          {slide.backgroundType === "image" ? (
             <img
               src={worldNetworkBg}
               alt="Global network"
