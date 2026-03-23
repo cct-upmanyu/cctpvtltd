@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { PlexusBackground } from "@/components/animations/PlexusBackground";
 import worldNetworkBg from "@/assets/world-network-bg.jpg";
+import heroVideo1 from "@/assets/hero-ai-network-1.mp4.asset.json";
+import heroVideo2 from "@/assets/hero-ai-network-2.mp4.asset.json";
+import heroVideo3 from "@/assets/hero-ai-network-3.mp4.asset.json";
 
 const heroSlides = [
   {
@@ -17,7 +20,7 @@ const heroSlides = [
     secondaryCta: "Talk to a Zoho Expert",
     secondaryLink: "/contact",
     backgroundType: "video" as const,
-    video: "https://videos.pexels.com/video-files/28561594/12421541_2560_1440_30fps.mp4",
+    video: heroVideo1.url,
   },
   {
     badge: "Enterprise AI Solutions",
@@ -29,7 +32,7 @@ const heroSlides = [
     secondaryCta: "See Case Studies",
     secondaryLink: "/case-studies",
     backgroundType: "video" as const,
-    video: "https://videos.pexels.com/video-files/3129595/3129595-uhd_2560_1440_30fps.mp4",
+    video: heroVideo2.url,
   },
   {
     badge: "Custom ERP Development",
@@ -41,7 +44,7 @@ const heroSlides = [
     secondaryCta: "View Our Portfolio",
     secondaryLink: "/case-studies",
     backgroundType: "video" as const,
-    video: "https://videos.pexels.com/video-files/28561594/12421541_2560_1440_30fps.mp4",
+    video: heroVideo3.url,
   },
   {
     badge: "Zoho Creator Champions",
