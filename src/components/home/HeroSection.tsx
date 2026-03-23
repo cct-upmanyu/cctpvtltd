@@ -127,10 +127,10 @@ export function HeroSection() {
         >
           {slide.backgroundType === "image" ? (
             <img
-              src={worldNetworkBg}
-              alt="Global network"
+              src={slide.image || worldNetworkBg}
+              alt={slide.headline}
               className="absolute inset-0 w-full h-full object-cover scale-105"
-              style={{ filter: "brightness(0.5)" }}
+              style={{ filter: "brightness(0.45)" }}
             />
           ) : (
             <video
