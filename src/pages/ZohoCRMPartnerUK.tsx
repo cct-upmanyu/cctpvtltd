@@ -161,7 +161,7 @@ export default function ZohoCRMPartnerUK() {
             </div>
 
             <h1 className="text-3xl md:text-5xl lg:text-[3.4rem] font-bold text-white leading-[1.1] mb-6">
-              Zoho CRM,
+              Zoho CRM Premium Partner,
               <span className="block bg-gradient-to-r from-[#3FE0F0] to-[#7FB3FF] bg-clip-text text-transparent">
                 delivered at scale across the UK.
               </span>
