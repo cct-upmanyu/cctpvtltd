@@ -239,12 +239,15 @@ export default function ZohoCRMPartnerUK() {
                 Why UK businesses bring their Zoho CRM projects to us
               </h2>
               <p className="text-lg text-[#475569] leading-relaxed">
-                Most CRM problems aren't platform problems — they're implementation problems. A CRM configured around
-                generic defaults, rather than how your sales process actually runs, ends up under-used within a year.
-                That's the gap a Zoho Premium Partner with 800+ implementations behind it exists to close.
+                We are not a new entrant testing the UK market — we are a Zoho Premium Partner with 800+ CRM and ERP
+                implementations behind us, and UK delivery is a core part of how we work. Most CRM problems aren't
+                platform problems; they're implementation problems. A CRM configured around generic defaults, rather
+                than how your sales process actually runs, ends up under-used within a year. That's the gap an
+                established partner exists to close.
               </p>
               <p className="text-base text-[#64748B] leading-relaxed mt-5">
-                We work across the full Zoho CRM lifecycle.
+                We cover the full Zoho CRM lifecycle — from first implementation through customisation, migration, and
+                long-term support.
               </p>
               <Link
                 to="/zoho-partner-uk"
