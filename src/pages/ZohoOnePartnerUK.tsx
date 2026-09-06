@@ -234,10 +234,12 @@ export default function ZohoOnePartnerUK() {
                 The problem Zoho One is meant to solve — and where implementations go wrong
               </h2>
               <p className="text-lg text-[#475569] leading-relaxed">
-                In practice, most implementations we're brought in to fix have this pattern: CRM, Books, and HR were
-                switched on separately, by different teams, at different times, with no shared data model connecting
-                them. The result is the same fragmentation Zoho One was supposed to remove — just inside one
-                subscription instead of five.
+                We are not a new entrant testing the UK market — we are a Zoho Premium Partner with 800+ CRM and ERP
+                implementations behind us, and UK Zoho One delivery is a core part of our practice. In practice, most
+                implementations we're brought in to fix have this pattern: CRM, Books, and HR were switched on
+                separately, by different teams, at different times, with no shared data model connecting them. The
+                result is the same fragmentation Zoho One was supposed to remove — just inside one subscription instead
+                of five.
               </p>
               <p className="text-base text-[#64748B] leading-relaxed mt-5">
                 We implement it as one system instead.
