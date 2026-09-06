@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Compass, Settings2, MoveRight, Workflow, ShieldCheck } from "lucide-react";
+import { ArrowRight, Boxes, Users, Wrench, BarChart3, ShieldCheck } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -20,108 +20,100 @@ const trustBar = [
   "24–48 hour support response",
 ];
 
-const lifecycle = [
+const pillars = [
   {
-    icon: Compass,
-    title: "Implementation",
-    body: "We map your actual sales pipeline, approval chains, and reporting needs before a single module is configured — not after.",
-    link: null as null | { label: string; to: string },
-  },
-  {
-    icon: Settings2,
-    title: "Customisation",
-    body: "Custom modules, layouts, validation rules, workflow automation, and Blueprint-driven process enforcement, so the CRM reflects how your team works rather than the other way round.",
+    icon: Boxes,
+    title: "CRM + Finance",
+    body: "A closed deal in Zoho CRM creates the right record in Zoho Books without manual re-entry.",
     link: { label: "See Zoho CRM services", to: "/zoho-crm" },
   },
   {
-    icon: MoveRight,
-    title: "Migration",
-    body: "Moving CRM data from Salesforce, HubSpot, or a legacy system into Zoho CRM without losing history, custom fields, or reporting continuity.",
-    link: { label: "See our migration approach", to: "/data-migration" },
+    icon: Users,
+    title: "HR + Operations",
+    body: "Zoho People Plus alongside operational apps so headcount, onboarding, and access provisioning stay in sync.",
+    link: null as null | { label: string; to: string },
   },
   {
-    icon: Workflow,
-    title: "Integration",
-    body: "Connecting Zoho CRM to Zoho Books, Zoho Creator apps, and the third-party tools your business already runs on, so data moves once and stays accurate everywhere.",
-    link: { label: "See integration services", to: "/third-party-integrations" },
+    icon: Wrench,
+    title: "Custom applications",
+    body: "Built in Zoho Creator for the parts of your business no off-the-shelf module covers.",
+    link: { label: "See Zoho Creator development", to: "/zoho-creator" },
+  },
+  {
+    icon: BarChart3,
+    title: "Reporting",
+    body: "Zoho Analytics pulling from CRM, Books, and custom modules into one governed reporting layer, rather than a spreadsheet stitched together monthly.",
+    link: { label: "See Zoho Analytics", to: "/zoho-analytics" },
   },
 ];
 
 const sectors = [
   {
     name: "Professional services",
-    body: "The CRM has to double as an engagement tracker — from proposal to signed contract to active delivery — with billing tied to Zoho Books so a signed engagement generates the right invoice profile automatically. We build client onboarding as an enforced Blueprint stage sequence, not a checklist someone has to remember to follow, so nothing slips through between sales and delivery handoff.",
+    body: "Engagement-to-invoicing is the critical link — a signed engagement in CRM needs to generate the right billing profile in Books automatically, and time or project tracking needs to feed both client reporting and internal utilisation reporting from the same underlying data.",
   },
   {
     name: "Manufacturing and distribution",
-    body: "Sales reps need live stock visibility while quoting, not a static price list disconnected from what's actually in the warehouse. We integrate CRM with your inventory or ERP system so a quote reflects real, current stock, and closed orders flow through to fulfilment without manual re-keying — a common source of order errors we're regularly brought in to fix after the fact.",
+    body: "Billing-to-fulfilment is the critical link — a closed sale needs to trigger the right inventory and fulfilment record without a coordinator manually re-keying it, and stock visibility needs to reach sales, not stay siloed in operations.",
   },
   {
     name: "Retail, consumer goods, and e-commerce",
-    body: "Wholesale and online channels typically run on separate systems that don't share stock data, so a wholesale rep can promise inventory an online order has already committed. We connect the e-commerce platform, CRM, and Books so stock updates in real time across every channel a customer might order through.",
+    body: "Channel-to-inventory is the critical link — online and wholesale orders both need to draw from the same live stock figure, or one channel ends up over-committing inventory the other has already sold.",
   },
 ];
 
 const phases = [
-  { step: "Discovery", body: "Mapping your current sales process, data sources, and reporting gaps, including where your team currently works around the CRM rather than through it." },
-  { step: "Design", body: "A data model and workflow design reviewed with your team before build starts, so surprises surface at design review, not at go-live." },
-  { step: "Build & configure", body: "Modules, automation, layouts, and integrations, built to the design your team already signed off on." },
-  { step: "Migrate", body: "Data brought across with field-by-field validation, not a bulk import you find the gaps in six months later." },
-  { step: "Train & go live", body: "Role-based training on the system your team will actually use day to day, not one all-staff walkthrough." },
-  { step: "Support", body: "A 24–48 hour response window on support requests, because the weeks after go-live are when real usage surfaces the edge cases discovery didn't catch." },
+  { step: "Systems audit", body: "What you're running today, where the gaps and duplicate data entry actually are." },
+  { step: "Architecture design", body: "One data model across CRM, Finance, HR, and any custom apps, reviewed with your team before build starts." },
+  { step: "Phased rollout", body: "Modules brought online in an order that doesn't stop the business mid-transition." },
+  { step: "Migration", body: "Existing CRM, finance, and HR data brought across with validation, not a one-shot import." },
+  { step: "Training", body: "Role-based, so finance sees finance workflows and sales sees sales workflows, not one generic session." },
+  { step: "Governance & support", body: "A 24–48 hour response window as the business grows into the system and new edge cases surface." },
 ];
 
 const faqs = [
   {
-    q: "How long does a Zoho CRM implementation take?",
-    a: "It depends on scope — a straightforward implementation with clean data typically moves faster than a migration carrying years of custom fields and history. We give you a specific timeline at the design stage, once we've actually seen your data and process, not before.",
+    q: "We already have some Zoho apps live separately — can you connect what exists instead of starting over?",
+    a: "Usually, yes. A systems audit tells us what's salvageable versus what needs rebuilding before we recommend either.",
   },
   {
-    q: "Can you migrate us from Salesforce or HubSpot without losing our history?",
-    a: "Yes — that's a core part of what we do, with field-by-field validation rather than a bulk export/import that quietly drops custom fields or attachment history.",
+    q: "How is this different from just turning on more Zoho One modules ourselves?",
+    a: "Turning modules on is the easy part — the failure mode we see most is modules switched on with no shared data model between them. The audit and architecture design steps exist specifically to prevent that.",
   },
   {
-    q: "Why would we move off Salesforce or Dynamics to Zoho CRM?",
-    a: "Usually cost and customisation flexibility — Zoho CRM's per-user licensing is materially lower than Salesforce or Dynamics 365 Sales at comparable functionality tiers, and Zoho Creator lets us build custom logic Salesforce or Dynamics would need separate paid add-ons for. We can walk through current like-for-like pricing during a consultation, since public pricing on all three platforms changes periodically.",
+    q: "Do we need every Zoho One app, or just the ones relevant to us?",
+    a: "Just the relevant ones, in most cases. We scope the rollout to the apps your business actually needs connected, not all 45+ apps in the bundle regardless of use case — though the subscription itself covers access to the full suite if you grow into more of it later.",
   },
   {
-    q: "What happens if something breaks after go-live?",
-    a: "Support requests get a response within 24–48 hours. The first few months after go-live are when real usage surfaces issues discovery didn't catch, so this window matters more than it sounds.",
+    q: "What's the support commitment after go-live?",
+    a: "A 24–48 hour response window on support requests, which matters most in the first few months as real usage surfaces what a phased rollout plan couldn't fully anticipate.",
   },
   {
-    q: "Do you only work with large enterprises?",
-    a: "No — our 800+ implementations span professional services, manufacturing and distribution, and retail/e-commerce businesses of varying sizes, not only large enterprise accounts.",
+    q: "How does Zoho One handle data governance across HR and Finance together?",
+    a: "Access control, retention rules, and audit visibility are designed consistently across every connected app during the architecture phase — not handled separately per module, which is where governance gaps usually appear.",
   },
   {
-    q: "Is our data handled in a GDPR-compliant way?",
-    a: "Yes — field-level access control, retention rules, and consent tracking are built into the CRM data model at the design stage, not added afterward.",
-  },
-  {
-    q: "Can you build custom functionality Zoho CRM doesn't have out of the box?",
-    a: "Yes, through Zoho Creator — custom applications and workflow logic that extend beyond standard CRM configuration, built to integrate with your CRM data rather than sit disconnected from it.",
-  },
-  {
-    q: "What if we already have a CRM and just want it fixed, not replaced?",
-    a: "We regularly inherit CRM instances that were implemented once and never properly adopted. A short discovery review tells us whether it's a configuration fix or something that needs migrating to a cleaner setup — we'll tell you honestly which one it is before recommending either.",
+    q: "Can we migrate from our current HR or finance system as part of this?",
+    a: "Yes — existing CRM, finance, and HR data is brought across with validation as part of the migration phase, rather than starting every module from a blank account.",
   },
 ];
 
-export default function ZohoCRMPartnerUK() {
+export default function ZohoOnePartnerUK() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Zoho CRM Partner UK | 800+ Implementations — ClubCode</title>
+        <title>Zoho One Partner UK | 800+ Implementations — ClubCode</title>
         <meta
           name="description"
-          content="Zoho Premium Partner with 800+ CRM and ERP implementations. UK-based Zoho CRM implementation, customisation, and migration from Salesforce, HubSpot, or legacy systems."
+          content="Zoho Premium Partner with 800+ implementations, delivering Zoho One across UK businesses — CRM, Books, People, Creator, and Analytics unified into one governed system."
         />
-        <link rel="canonical" href="/zoho-crm-partner-uk" />
+        <link rel="canonical" href="/zoho-one-partner-uk" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="/zoho-crm-partner-uk" />
-        <meta property="og:title" content="Zoho CRM Partner UK | 800+ Implementations — ClubCode" />
+        <meta property="og:url" content="/zoho-one-partner-uk" />
+        <meta property="og:title" content="Zoho One Partner UK | 800+ Implementations — ClubCode" />
         <meta
           property="og:description"
-          content="Zoho Premium Partner with 800+ implementations, delivering Zoho CRM implementation, customisation, and migration for UK businesses."
+          content="Zoho One for UK businesses — CRM, Finance, HR, custom applications and analytics unified under one governed data model."
         />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">
@@ -142,7 +134,7 @@ export default function ZohoCRMPartnerUK() {
       {/* HERO */}
       <section className="relative pt-36 pb-24 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroUkBg} alt="London skyline representing UK Zoho CRM delivery" className="w-full h-full object-cover" />
+          <img src={heroUkBg} alt="UK skyline representing Zoho One delivery across Britain" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(100deg, #050F26 0%, rgba(9,24,56,0.94) 45%, rgba(11,28,61,0.55) 100%)" }} />
         </div>
         <div className="absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-[#C8102E] via-[#FFFFFF] to-[#012169]" />
@@ -163,13 +155,13 @@ export default function ZohoCRMPartnerUK() {
             <h1 className="text-3xl md:text-5xl lg:text-[3.4rem] font-bold text-white leading-[1.1] mb-6">
               A Zoho Premium Partner with 800+ implementations,
               <span className="block bg-gradient-to-r from-[#3FE0F0] to-[#7FB3FF] bg-clip-text text-transparent">
-                now delivering Zoho CRM across the UK.
+                now delivering Zoho One across the UK.
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-[#CBD9EC] leading-relaxed mb-9 max-w-2xl">
-              We design CRM systems around how your sales process actually runs — not a generic default your team
-              abandons within a year.
+              One connected system — CRM, Finance, HR, and custom applications — instead of the same fragmentation Zoho
+              One was supposed to remove, just inside one subscription.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -180,8 +172,8 @@ export default function ZohoCRMPartnerUK() {
                 </Link>
               </Button>
               <Button variant="heroSecondary" size="lg" asChild>
-                <Link to="/case-studies">
-                  See CRM Case Studies
+                <Link to="/zoho-partner-uk">
+                  See How We Approach Implementation
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
@@ -204,59 +196,56 @@ export default function ZohoCRMPartnerUK() {
         </div>
       </section>
 
-      {/* WHAT ZOHO CRM REPLACES */}
+      {/* WHAT ZOHO ONE ACTUALLY IS */}
       <section className="py-24 bg-white">
         <div className="container-custom max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="w-14 h-[3px] bg-gradient-to-r from-[#C8102E] to-[#012169] mb-6" />
             <h2 className="text-3xl md:text-4xl font-bold text-[#0B1C3D] leading-tight mb-6">
-              What Zoho CRM actually replaces
+              What Zoho One actually is
             </h2>
             <p className="text-lg text-[#475569] leading-relaxed mb-5">
-              Most businesses evaluating Zoho CRM are replacing one of three things: a spreadsheet-based sales process
-              that's outgrown itself, an existing CRM (Salesforce, HubSpot, Dynamics, or a legacy system) that's become
-              expensive or hard to customise, or a CRM that was implemented once, badly, and never properly adopted.
-            </p>
-            <p className="text-lg text-[#475569] leading-relaxed mb-5">
-              Zoho CRM covers the same core ground as Salesforce or Dynamics 365 Sales — pipeline management,
-              automation, forecasting, custom objects — at a materially lower licensing cost per user, which is why UK
-              businesses moving off Salesforce or Dynamics for cost reasons land here most often.
+              Zoho One bundles Zoho's CRM, Finance, HR, Operations, and custom-application tools (over 45 apps,
+              depending on plan) under one subscription, positioned as a single operating system for the business
+              rather than a single product.
             </p>
             <p className="text-xl md:text-2xl font-semibold text-[#0B1C3D] leading-snug border-l-2 border-[#0EA5C6] pl-6">
-              The platform itself isn't usually the reason a CRM project succeeds or fails, though. The implementation
-              is.
+              The bundling is real — the unification isn't automatic. Buying Zoho One switches on access to every app;
+              it doesn't switch on a shared data model connecting them. That has to be designed and built, which is
+              where most Zoho One rollouts we're brought in to fix actually went wrong.
             </p>
+            <Link
+              to="/zoho-one-premium-partner"
+              className="inline-flex items-center gap-1.5 mt-7 text-sm font-semibold text-[#0EA5C6] hover:text-[#0B1C3D] transition-colors"
+            >
+              See our Zoho One service in detail
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* WHY UK BUSINESSES */}
+      {/* WHERE IMPLEMENTATIONS GO WRONG */}
       <section className="py-24" style={{ background: "linear-gradient(180deg, #F8FAFC 0%, #EEF4FB 100%)" }}>
         <div className="container-custom">
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-16">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <h2 className="text-3xl md:text-4xl font-bold text-[#0B1C3D] leading-tight mb-6">
-                Why UK businesses bring their Zoho CRM projects to us
+                The problem Zoho One is meant to solve — and where implementations go wrong
               </h2>
               <p className="text-lg text-[#475569] leading-relaxed">
-                Most CRM problems aren't platform problems — they're implementation problems. A CRM configured around
-                generic defaults, rather than how your sales process actually runs, ends up under-used within a year.
-                That's the gap a Zoho Premium Partner with 800+ implementations behind it exists to close.
+                In practice, most implementations we're brought in to fix have this pattern: CRM, Books, and HR were
+                switched on separately, by different teams, at different times, with no shared data model connecting
+                them. The result is the same fragmentation Zoho One was supposed to remove — just inside one
+                subscription instead of five.
               </p>
               <p className="text-base text-[#64748B] leading-relaxed mt-5">
-                We work across the full Zoho CRM lifecycle.
+                We implement it as one system instead.
               </p>
-              <Link
-                to="/zoho-partner-uk"
-                className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#0EA5C6] hover:text-[#0B1C3D] transition-colors"
-              >
-                See how we approach UK delivery
-                <ArrowRight className="w-4 h-4" />
-              </Link>
             </motion.div>
 
             <div className="divide-y divide-[#DCE5F0]">
-              {lifecycle.map((item, i) => (
+              {pillars.map((item, i) => (
                 <motion.div
                   key={item.title}
                   initial={{ opacity: 0, y: 16 }}
@@ -295,11 +284,11 @@ export default function ZohoCRMPartnerUK() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-[#0B1C3D] mb-4 max-w-2xl"
           >
-            Built for how each industry actually sells
+            Built for how each industry actually runs Zoho One
           </motion.h2>
           <p className="text-lg text-[#64748B] max-w-2xl mb-12">
-            We've delivered Zoho CRM specifically in three sectors, and the CRM configuration looks materially
-            different in each.
+            We've implemented Zoho One for businesses in three sectors, and the connection points that matter differ by
+            industry.
           </p>
 
           <div className="space-y-10">
@@ -325,36 +314,34 @@ export default function ZohoCRMPartnerUK() {
         </div>
       </section>
 
-      {/* GDPR + TEAM — dark band */}
+      {/* GOVERNANCE — dark band */}
       <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #071633 0%, #0F2A5F 60%, #0B1C3D 100%)" }}>
         <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-[#3FE0F0]/10 blur-3xl" />
-        <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-14">
+        <div className="container-custom relative z-10 max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <ShieldCheck className="w-8 h-8 text-[#3FE0F0] mb-5" />
-            <h2 className="text-3xl font-bold text-white mb-6">GDPR-aware by design, not retrofitted</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              GDPR and data governance across every connected app
+            </h2>
             <p className="text-lg text-[#C7D6EA] leading-relaxed border-l-2 border-[#C8102E] pl-6">
-              UK and EU customer and prospect data has to be handled under GDPR from the point it enters the CRM — not
-              patched in after a data protection review flags a gap. We design CRM data models with field-level access
-              control, data retention rules, and consent tracking built into the initial configuration, so compliance
-              is part of the architecture rather than a separate project layered on afterward.
+              Because Zoho One spans CRM, HR, and Finance, customer and employee data under GDPR flows through more
+              systems than a single-product rollout — which makes a consistent data governance model across every
+              connected app more important, not less. We design access control, retention rules, and audit visibility
+              as part of the architecture design phase, applied consistently whether the data originates in CRM, People
+              Plus, or Books.
             </p>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-            <h2 className="text-3xl font-bold text-white mb-6 mt-0 lg:mt-[3.25rem]">Who's actually building it</h2>
-            <p className="text-lg text-[#C7D6EA] leading-relaxed border-l-2 border-[#3FE0F0] pl-6">
-              CRM projects go wrong most often when the person configuring the system has never had to run a sales team
-              on it. Our team includes Zoho Solution Architects with over 15 years of combined enterprise CRM and
-              integration delivery experience, including hands-on Salesforce integration work — the kind of background
-              that catches a migration edge case before it becomes a data-loss incident, not after. Across the wider
-              team, our certified specialists cover Zoho CRM, Zoho One, Zoho Creator, Zoho Books, and Salesforce
-              integration — not a single generalist consultant spread across every module.
-            </p>
+            <Link
+              to="/data-migration"
+              className="inline-flex items-center gap-1.5 mt-7 text-sm font-semibold text-[#3FE0F0] hover:text-white transition-colors"
+            >
+              See our data migration approach
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* ROLLOUT */}
       <section className="py-24" style={{ background: "linear-gradient(180deg, #F8FAFC 0%, #EEF4FB 100%)" }}>
         <div className="container-custom">
           <motion.h2
@@ -363,7 +350,7 @@ export default function ZohoCRMPartnerUK() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-[#0B1C3D] mb-14 max-w-2xl"
           >
-            What implementation actually looks like
+            What a Zoho One rollout looks like with us
           </motion.h2>
 
           <div className="relative pl-8 md:pl-0">
@@ -416,11 +403,11 @@ export default function ZohoCRMPartnerUK() {
         <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">
-              Ready to fix how your team uses CRM?
+              Considering Zoho One, or already on it and it isn't connected properly?
             </h2>
             <p className="text-lg text-[#C7D6EA] mb-9">
-              Talk to a Zoho CRM Solution Architect about implementation, customisation, or migrating from your current
-              system.
+              Talk to a Zoho One Solution Architect about a phased rollout or a systems audit of what you're running
+              today.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button variant="heroDark" size="lg" asChild>
@@ -430,8 +417,8 @@ export default function ZohoCRMPartnerUK() {
                 </Link>
               </Button>
               <Button variant="heroSecondary" size="lg" asChild>
-                <Link to="/case-studies">
-                  See CRM Case Studies
+                <Link to="/zoho-partner-uk">
+                  See How We Approach Implementation
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
