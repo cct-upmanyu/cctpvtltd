@@ -158,6 +158,7 @@ const App = () => (
             {/* Country-specific Zoho Partner pages */}
             <Route path="/zoho-partner-uk" element={<ZohoPartnerUK />} />
             <Route path="/zoho-crm-partner-uk" element={<ZohoCRMPartnerUK />} />
+            <Route path="/zoho-one-partner-uk" element={<ZohoOnePartnerUK />} />
             <Route path="/zoho-partner-uae" element={<ZohoPartnerUAE />} />
             <Route path="/zoho-partner-australia" element={<ZohoPartnerAustralia />} />
             <Route path="/zoho-partner-canada" element={<ZohoPartnerCanada />} />
