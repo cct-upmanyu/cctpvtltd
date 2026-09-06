@@ -155,13 +155,13 @@ export default function ZohoOnePartnerUK() {
             <h1 className="text-3xl md:text-5xl lg:text-[3.4rem] font-bold text-white leading-[1.1] mb-6">
               A Zoho Premium Partner with 800+ implementations,
               <span className="block bg-gradient-to-r from-[#3FE0F0] to-[#7FB3FF] bg-clip-text text-transparent">
-                now delivering Zoho One across the UK.
+                unifying Zoho One across the UK.
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-[#CBD9EC] leading-relaxed mb-9 max-w-2xl">
-              One connected system — CRM, Finance, HR, and custom applications — instead of the same fragmentation Zoho
-              One was supposed to remove, just inside one subscription.
+              UK businesses use us to turn Zoho One into one connected system — CRM, Finance, HR, and custom
+              applications — instead of the fragmentation it was supposed to remove, just inside one subscription.
             </p>
 
             <div className="flex flex-wrap gap-4">
