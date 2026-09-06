@@ -163,13 +163,13 @@ export default function ZohoCRMPartnerUK() {
             <h1 className="text-3xl md:text-5xl lg:text-[3.4rem] font-bold text-white leading-[1.1] mb-6">
               A Zoho Premium Partner with 800+ implementations,
               <span className="block bg-gradient-to-r from-[#3FE0F0] to-[#7FB3FF] bg-clip-text text-transparent">
-                now delivering Zoho CRM across the UK.
+                delivering Zoho CRM at scale across the UK.
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-[#CBD9EC] leading-relaxed mb-9 max-w-2xl">
-              We design CRM systems around how your sales process actually runs — not a generic default your team
-              abandons within a year.
+              UK businesses use us to implement, customise, and migrate Zoho CRM because we design the system around
+              how their sales process actually runs — not a generic default their team abandons within a year.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -239,12 +239,15 @@ export default function ZohoCRMPartnerUK() {
                 Why UK businesses bring their Zoho CRM projects to us
               </h2>
               <p className="text-lg text-[#475569] leading-relaxed">
-                Most CRM problems aren't platform problems — they're implementation problems. A CRM configured around
-                generic defaults, rather than how your sales process actually runs, ends up under-used within a year.
-                That's the gap a Zoho Premium Partner with 800+ implementations behind it exists to close.
+                We are not a new entrant testing the UK market — we are a Zoho Premium Partner with 800+ CRM and ERP
+                implementations behind us, and UK delivery is a core part of how we work. Most CRM problems aren't
+                platform problems; they're implementation problems. A CRM configured around generic defaults, rather
+                than how your sales process actually runs, ends up under-used within a year. That's the gap an
+                established partner exists to close.
               </p>
               <p className="text-base text-[#64748B] leading-relaxed mt-5">
-                We work across the full Zoho CRM lifecycle.
+                We cover the full Zoho CRM lifecycle — from first implementation through customisation, migration, and
+                long-term support.
               </p>
               <Link
                 to="/zoho-partner-uk"
