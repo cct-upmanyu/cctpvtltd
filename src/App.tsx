@@ -18,6 +18,7 @@ import Company from "./pages/Company";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ZohoPartnerUK from "./pages/ZohoPartnerUK";
+import ZohoCRMPartnerUK from "./pages/ZohoCRMPartnerUK";
 import ZohoPartnerUAE from "./pages/ZohoPartnerUAE";
 import ZohoPartnerAustralia from "./pages/ZohoPartnerAustralia";
 import ZohoPartnerCanada from "./pages/ZohoPartnerCanada";
@@ -155,6 +156,7 @@ const App = () => (
             <Route path="/ai-analytics" element={<AIAnalytics />} />
             {/* Country-specific Zoho Partner pages */}
             <Route path="/zoho-partner-uk" element={<ZohoPartnerUK />} />
+            <Route path="/zoho-crm-partner-uk" element={<ZohoCRMPartnerUK />} />
             <Route path="/zoho-partner-uae" element={<ZohoPartnerUAE />} />
             <Route path="/zoho-partner-australia" element={<ZohoPartnerAustralia />} />
             <Route path="/zoho-partner-canada" element={<ZohoPartnerCanada />} />
