@@ -19,6 +19,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ZohoPartnerUK from "./pages/ZohoPartnerUK";
 import ZohoCRMPartnerUK from "./pages/ZohoCRMPartnerUK";
+import ZohoOnePartnerUK from "./pages/ZohoOnePartnerUK";
 import ZohoPartnerUAE from "./pages/ZohoPartnerUAE";
 import ZohoPartnerAustralia from "./pages/ZohoPartnerAustralia";
 import ZohoPartnerCanada from "./pages/ZohoPartnerCanada";
